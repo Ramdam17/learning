@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noise and error correction · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 10: Noise and error correction.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 10</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 10</span><span class="caps">CHAPTER 10</span></div>
+    <h1 class="h1-chapter">Noise and error correction</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 16 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/" class="on" aria-current="page">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-10.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_10.1_Decoherence-The-environment-is-watching_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 10.1</span><span>4:07</span></span>
+        <h3>Decoherence · <span class="pk">The environment is watching</span></h3>
+<p class="summary">Every interaction with the environment acts as a small unwanted measurement that erases interference. Relaxation, with time T1, drops the arrow toward zero, and dephasing, with time T2, erases its phase, with T2 at most two T1. A circuit is a race against coherence, and the gates that fit before it is lost set its useful depth.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the knitting parlour, the home of chapter ten: noise and error correction. Until now, every qubit in this series has been perfect. Today, the environment walks in.</p><p>Picture a qubit at work, with its arrow of phase. It is never alone. Around it there are atoms, stray fields, vibrations, and the wires that control it. Each one touches the qubit a little. And each touch carries away a tiny bit of information about the state. It is a small measurement that nobody asked for.</p><p>In his 2003 review, Wojciech Zurek put it simply. Decoherence is caused by the interaction with the environment. The environment monitors certain observables of the system, and that destroys the interference between the states it monitors. In this chapter, FIZZ plays the environment, nibbling at the tips of our arrows.</p><p>Now look at the Bloch sphere. Two different things can happen.</p><p>First, relaxation. An excited qubit gives its energy to the environment, and the arrow falls toward ket zero. The time scale of this fall is called T one.</p><p>Second, dephasing. Take an arrow on the equator, a superposition. Its phase slowly becomes unknown, because the environment pushes it a little differently each time. Average over many runs, and the arrow shortens toward the vertical axis. The time scale of this loss of phase is called T two.</p><p>The two are linked. A relaxation event also destroys the phase, because once the arrow has fallen, nothing remembers where it pointed on the equator. So T two can never be larger than two T one. In symbols, one over T two equals one over two T one, plus one over the pure dephasing time. A long T one does not guarantee a long T two.</p><p>If these names ring a bell, they should. SPIN, our guest from the fMRI series, uses the very same T one and T two. They come from Felix Bloch&#39;s equations of nuclear induction, published in 1946. The spinning arrow is the same arrow.</p><p>Why does this matter for a circuit? Because a circuit is a race. All the gates must finish before the coherence runs out. Here is an illustrative example, not a real device. If a gate takes fifty nanoseconds, and T two is one hundred microseconds, then about two thousand gates fit in that time. That is the idea of useful depth: how many layers of gates you can stack before the state is lost. Real devices also make errors in each gate, so their useful depth is smaller still.</p><p>How long can coherence last? It depends on the platform, and it keeps improving. In November 2025, a Princeton team led by Nathalie de Leon and Andrew Houck reported, in the journal Nature, transmon qubits made of tantalum on silicon, with T one up to one point six eight milliseconds for their best qubit. That is a record from a laboratory, not the number of a typical machine. We compare the platforms, with dates, in chapter twelve.</p><p>Now the classic traps. First, decoherence is not a conscious observer looking at the qubit. Any physical interaction that records information about the state is enough. Second, it is not only bit flips. Losing phase is as damaging as losing energy, because superpositions live in their phase. Third, T one and T two are not the whole story. They measure how fast a qubit forgets when we do nothing. The gates we apply add errors of their own.</p><p>Let&#39;s recap. Every interaction with the environment is a small unwanted measurement. Relaxation, with time T one, drops the arrow toward ket zero. Dephasing, with time T two, erases its phase, and T two is at most two T one. The same names come from magnetic resonance. A circuit must finish before coherence is gone, and that limit is its useful depth. Next, noise channels and error mitigation: how to describe this noise, and what we can do about it without full error correction.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-10.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_10.2_Noise-channels-and-error-mitigation_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 10.2</span><span>4:07</span></span>
+        <h3>Noise channels and error mitigation</h3>
+<p class="summary">Noise is a channel that sends the density matrix rho to a sum of Kraus operators applied on both sides, with bit flip, phase flip and depolarizing noise as common cases. Noise cannot be subtracted like EEG noise. Zero-noise extrapolation runs the circuit at amplified noise and extends the curve back to zero, relying on a model and costing more shots.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the knitting parlour, in chapter ten: noise and error correction. Last time, the environment walked in. Today we write down what it does to a qubit, and what we can do about it without full error correction.</p><p>Picture a single stitch. A knit stitch stands for ket zero, a purl stitch for ket one. A noisy machine can ruin it in three ways.</p><p>First, the stitch is pulled through the wrong way. Knit becomes purl. That is a bit flip: with probability p, the qubit gets an X gate.</p><p>Second, the yarn is twisted. The stitch keeps its look, but the sign between ket zero and ket one is reversed. That is a phase flip: with probability p, a Z gate.</p><p>Third, the yarn is tangled. With probability p, the stitch is lost, and the qubit is replaced by the completely mixed state, the identity divided by two. That is depolarizing noise.</p><p>Now the grammar. In episode 4.4 we met the density matrix, rho. A noise channel sends rho to a sum: the sum, over i, of K sub i, times rho, times K sub i dagger. The K&#39;s are called Kraus operators. Together they satisfy one rule: the sum of K dagger K is the identity, so probabilities still add up to one.</p><p>The bit flip has two Kraus operators: the square root of one minus p times the identity, and the square root of p times X. The phase flip is the same with Z. Depolarizing noise needs four: the identity, X, Y and Z.</p><p>On the Bloch sphere, each channel squeezes the ball. A bit flip squashes it toward the X axis. A phase flip squashes it toward the Z axis. Depolarizing shrinks the whole ball evenly toward its centre.</p><p>Can we simply subtract the noise, as with an EEG recording? No. An EEG recording is the signal plus noise, so an estimate of the noise can be removed. A quantum channel adds nothing to the state. It replaces the state with a mixture. Each shot gives one random bit, and nothing in that bit says which part came from the noise.</p><p>What we can do is mitigate. Mitigation does not protect the qubits. It works on the answers.</p><p>The best known recipe is zero-noise extrapolation. Knit the same piece three times, each looser than the last, at one, two and three times the normal noise. Measure the quantity you care about each time. Plot the results against the noise level, and extend the curve back to zero, to guess what the perfect piece would give. Kristan Temme, Sergey Bravyi and Jay Gambetta proposed this in 2017. In 2019, Abhinav Kandala and colleagues demonstrated it on a superconducting processor.</p><p>Look at the illustrative numbers. A straight line through the three points lands below the perfect value. An exponential curve lands on it. The choice of curve is an assumption, and a wrong assumption gives a biased answer.</p><p>It also costs shots. The noisier runs carry a weaker signal, so the extrapolated estimate is more uncertain than any single run. In 2022, Ryuji Takagi and colleagues proved that, for layered circuits with local depolarizing noise, the samples needed by general mitigation strategies grow exponentially with circuit depth.</p><p>Now the classic traps. Mitigation is not correction: the state stays noisy, and only averages improve. It does not scale to deep circuits. And a mitigated number is an estimate with a model behind it, so it needs an error bar.</p><p>Let&#39;s recap. Noise is a channel: rho becomes the sum of K rho K dagger. Bit flip, phase flip and depolarizing are three common cases. Noise cannot be subtracted. Zero-noise extrapolation repeats the circuit at higher noise and extends the curve back to zero, at the price of more shots. Next, from repetition to Shor&#39;s nine qubits: how to protect a qubit by knitting every stitch three times.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-10.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_10.3_From-repetition-to-Shors-nine-qubits_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 10.3</span><span>3:50</span></span>
+        <h3>From repetition to Shor&#39;s nine qubits</h3>
+<p class="summary">A qubit cannot be copied, but its state can be spread across entangled qubits, and parity checks give a syndrome that points to the error without revealing the data. The three-qubit code catches bit flips, the same code in the plus and minus basis catches phase flips, and Shor nested both into nine qubits. Errors discretize into four cases, so any single-qubit error is correctable.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the knitting parlour, the home of chapter ten. In the last episodes, noise wore our qubits down, and mitigation only guessed around it. Today we finally fix errors, one stitch at a time.</p><p>Start with the classical trick. Knit every stitch three times, side by side. If one strand slips, compare the three and take the majority. That is the repetition code.</p><p>Can a qubit do the same? Not directly. The no-cloning theorem, from Wootters and Zurek in 1982, says an unknown quantum state cannot be copied. But we do not need a copy. We can spread the state. Take alpha ket zero plus beta ket one, and encode it as alpha ket zero zero zero, plus beta ket one one one. Three qubits, entangled, and the amplitudes are untouched.</p><p>Now suppose one qubit flips, a bit flip. How do we find which one, without looking at the data? We compare strands two by two. One check asks: do qubits one and two agree? Another asks: do qubits two and three agree? Each check measures a parity, never the value itself, so the superposition survives. The two answers together are the syndrome. Both agree: nothing happened. First check fires: qubit one is the odd one. Both fire: qubit two. Only the second: qubit three. Then we flip the odd qubit back. Done.</p><p>This code has a blind spot. It sees bit flips, and it is blind to phase flips, the other half of the damage. But look at the trick again in another basis. In the plus and minus basis, a phase flip turns plus into minus. So we encode in that basis instead, and run the same parity checks, now written with Hadamard gates. Same stitch, new dye. This second code catches one phase flip, and is blind to bit flips.</p><p>Shor&#39;s idea, in 1995, was to nest the two. First protect against phase flips with the three-strand code. Then replace each of the three strands by a three-strand bit-flip braid. Three braids of three: nine qubits. The bit-flip braids repair flips inside each block. The phase-flip layer compares the blocks. Together, the nine-qubit code corrects any single-qubit error. Steane found a smaller one, with seven qubits, a year later.</p><p>Here is the surprising part. Real noise is not just flip or no flip. A qubit can drift by any small angle, a continuum of errors. How can a finite code correct infinitely many? Write any single-qubit error as a mix of four pieces: do nothing, bit flip, phase flip, or both. When we measure the syndrome, the error collapses onto one of these four cases. We correct that case, and the continuous part is gone. This is the discretization of errors. Fixing flips and phase flips is enough to fix everything on one qubit.</p><p>Now the classic traps. First, the checks never read the data. If they did, they would collapse the state. Second, the code corrects one error per round. Two errors in the same block fool it. So encoding only helps when each qubit is reliable enough that two errors are rarer than one, and this is why a threshold exists, as we will see next. Third, the checks are themselves circuits, and they can fail too.</p><p>Let&#39;s recap. We cannot copy a qubit, but we can spread it across entangled qubits. Parity checks give a syndrome that points to the error without revealing the data. One code handles bit flips, and the same code in the plus and minus basis handles phase flips. Shor nested them into nine qubits. Errors are discretized into four cases, so correcting two kinds of flip corrects everything on one qubit. Next, surface codes, thresholds and logical qubits: how to scale this idea up on a grid.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-10.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_10.4_Surface-codes-thresholds-and-logical-qubits_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 10.4</span><span>4:26</span></span>
+        <h3>Surface codes, thresholds and logical qubits</h3>
+<p class="summary">The surface code puts data and measure qubits on a grid, like a plaid where a dropped stitch shows because its neighbours disagree. Repeated stabilizer checks feed a classical decoder, and the distance sets the protection. Below a threshold near one percent, larger grids cut logical errors exponentially, as Google&#39;s codes showed, at the cost of many physical qubits and magic states.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the knitting parlour, the home of chapter ten. Today is a big one, in two parts. First, how a grid of qubits protects a single qubit. Second, the threshold that decides whether bigger really means better.</p><p>Part one. The surface code.</p><p>Picture a large plaid, knitted on a grid. A single dropped stitch is easy to spot in a big plaid, because the pattern around it disagrees. Now think of a bigger plaid. The more stitches around the hole, the easier it is to find, and to mend.</p><p>The surface code works the same way. Qubits sit on a square grid, in two kinds. Data qubits hold the information. Measure qubits sit between them and only ask questions.</p><p>Each measure qubit checks four neighbours. Some check that four data qubits agree in the Z sense. Some check that they agree in the X sense. These checks are called stabilizers. They ask only about agreement, never about the stored value, so the logical qubit is not disturbed.</p><p>Run the checks again and again, every cycle. If nothing is wrong, they all come back quiet. If one data qubit flips, the two nearest checks light up. The pattern of lights is the syndrome, as in episode ten point three. A classical program, the decoder, reads it and guesses where the error was.</p><p>The size of the plaid is the distance, d. It is the length of the shortest chain of errors that can fool every check and flip the logical qubit. For a grid of distance d, a patch needs about two d squared qubits in all: d squared data qubits, and almost as many measure qubits. Distance three uses seventeen. Distance seven uses ninety-seven.</p><p>That ends part one. A big grid, constant questions, and a decoder.</p><p>Part two. The threshold.</p><p>Is bigger always better? No. A bigger grid has more qubits that can fail. The answer depends on how noisy each operation is.</p><p>Here is the picture. Plot the logical error rate against the physical error rate, one curve for each distance. The curves cross at one point, the threshold. In the early studies of the surface code, it sits around one percent per operation. That includes the work of Dennis, Kitaev, Landahl and Preskill in 2002, and of Fowler and colleagues in 2012.</p><p>Below the threshold, each step up in distance cuts the logical error by a constant factor. The error falls exponentially with d. Above the threshold, a bigger grid only adds more places to fail, and the error gets worse.</p><p>Is this only a theory? In December 2024, Google Quantum AI published a result in Nature. On their Willow chip, they ran surface codes of distance three, five and seven. Going from distance five to seven, the logical error per cycle dropped by a factor of two point one four. The distance seven code, with one hundred and one qubits, reached about point one four percent error per cycle. And it outlived its own best physical qubit, by a factor of about two point four. This is the first clear sign of below-threshold scaling.</p><p>Now the cost. Today&#39;s physical qubits are far from perfect, so a useful logical qubit needs a larger distance. At distance twenty-five, one patch holds about twelve hundred physical qubits. This is why the estimate for factoring a two thousand and forty-eight bit number, in a 2025 study by Craig Gidney, is still under one million noisy qubits, with a gate error of one in a thousand.</p><p>One more trap. The surface code does X, Z, and CNOT-like operations naturally. The T gate is different. It needs special resource states, called magic states, purified by a process named magic state distillation. That is a large part of the bill.</p><p>Let&#39;s recap. The surface code uses a grid of data and measure qubits, with repeated stabilizer checks. The distance sets the protection. Below a threshold of about one percent, a bigger grid means exponentially fewer logical errors. Google has now shown it, from distance three to seven. Logical qubits cost hundreds or thousands of physical ones, plus magic states for T gates. Next, episode eleven point one: Von Neumann entropy.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-9/">← 9 · QUANTUM LINEAR ALGEBRA</a><a class="btn main" href="../chapter-11/">11 · QUANTUM INFORMATION →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

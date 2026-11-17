@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deviations · Normative modelling · Animated science series</title>
+<meta name="description" content="Normative modelling, chapter 6: Deviations.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">NORMATIVE MODELLING</a> / <b>CHAPTER 6</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">NMOD · 6</span><span class="caps">CHAPTER 6</span></div>
+    <h1 class="h1-chapter">Deviations</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 27 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Why normative models?</a>
+    <a href="../chapter-2/">2 · The growth chart intuition</a>
+    <a href="../chapter-3/">3 · Statistical foundations</a>
+    <a href="../chapter-4/">4 · The models</a>
+    <a href="../chapter-5/">5 · Covariates and sites</a>
+    <a href="../chapter-6/" class="on" aria-current="page">6 · Deviations</a>
+    <a href="../chapter-7/">7 · Evaluating a model</a>
+    <a href="../chapter-8/">8 · The big resources</a>
+    <a href="../chapter-9/">9 · Beyond structural MRI</a>
+    <a href="../chapter-10/">10 · Applications</a>
+    <a href="../chapter-11/">11 · Pitfalls</a>
+    <a href="../chapter-12/">12 · From deviation to decision</a>
+    <a href="../chapter-13/">13 · Robustness and reporting</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-6.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_6.1_The-individual-z-score_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.1</span><span>5:30</span></span>
+        <h3>The individual z-score</h3>
+<p class="summary">An individual z-score is the measured value minus the predicted value, divided by the spread expected for that age and site. The same index of 109.2 gives a z-score of two at one site and about 1.2 at another. A gap of nine units is rare in young people and almost ordinary in old ones.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we asked which social covariates belong in a norm. Sex, country, income. A choice that is scientific and ethical, and that has to be justified and reported. Today the norm is built, and we put it to work. On one person, with one number. The individual z-score.</p><p>Welcome to the sunflower field. Every flower has a height, and every flower has an age. The model has seen many fields, and it knows how tall a sunflower of each age should be. Pick one flower. Its measured height is called y.</p><p>Now ask the model one question. Given the age of this flower, and given the field where it grows, how tall should it be? The answer is the predicted height. We write it y hat. The hat means predicted, not measured.</p><p>Subtract the two. Measured, minus predicted. This is the gap. If it is positive, the flower is taller than expected. If it is negative, shorter.</p><p>But a gap alone says little. Is ten centimetres a lot? It depends on how much sunflowers of this age usually differ from one another. So we divide the gap by that spread. We call it sigma.</p><p>Here is the whole recipe, term by term. z equals y minus y hat, divided by sigma. The measured value. The predicted value. The expected spread. Three terms, and one number without a unit.</p><p>Now, people instead of flowers. We use the same simulated cortical index as in the earlier chapters, in arbitrary units. It is simulated, it is not real data. Take a simulated person, aged forty, scanned at site A. The model predicts an index of 99.6. At this age and this site, the spread is about 4.8. Our person measures 109.2.</p><p>The gap is 9.6. Divide by 4.8. The z-score is two.</p><p>Now change one thing. Same index, 109.2, same age, but scanned at site B. This scanner reads about three units higher, and it spreads people a little more. The prediction is now 102.6, and the spread is about 5.5. The gap is only 6.6. The z-score drops to about one point two. The prediction depends on the age, and on the site. So the z-score does too.</p><p>Where does sigma come from? It is not one number for everybody. In episode three point four, we saw that the spread changes with age. And in episode three point six, we saw that it has two parts. The variability between people, and the doubt of the model about its own curve at that age. They add up as variances, and the score divides by the square root of the sum.</p><p>Rutherford and colleagues wrote their deviation scores exactly this way in 2022. The noise variance, plus the variance attributed to the uncertainty of the model, under one square root. Marquand and colleagues had put both variances in the denominator in 2016. At an age with plenty of data, the second part is tiny. At the edge of the data, or at a small new site, it grows, and the z-score shrinks a little. That is fair, because we know a little less there.</p><p>Next, the conversion to a centile. When the bell is Gaussian, we read the table from episode two point two. A z-score of two sits at the 97.7th centile. About ninety-eight people out of a hundred, of the same age and site, are below. A z-score of three sits at the 99.87th centile. About one person in seven hundred and forty is above. And zero is the median.</p><p>One warning, the same as before. This table holds only for a Gaussian. Our simulated population leans to the high side, as we saw in episode three point five. On a skewed bell, the z-score and the centile no longer match, and a good model gives the centile directly.</p><p>Here is the key moment. Take a gap of nine units above the prediction. Nine, exactly. Look at the youngest people, around age eight. There, the true spread in this simulation is three. Nine divided by three. A z-score of three. Rare. About one in seven hundred and forty.</p><p>Now look at the oldest, around age eighty. The true spread there is seven. Nine divided by seven. A z-score of about one point three. About one person in ten is above. Almost ordinary.</p><p>Same gap, same measuring scale. One z-score of three, one of about one point three. At an age where people look alike, a small gap is a surprise. At an age where they differ a lot, the same gap is not. In the Information series, a rare event is a surprising event. A large z-score is exactly that, a surprise, measured against the spread that was expected.</p><p>So a z-score never travels alone. It belongs to the model that produced it. Its reference population, its sites, its covariates, its model, and the range of ages where it is valid. That is the model label that we fill in, line by line, throughout this series. A z-score without its label is half a sentence.</p><p>So, to sum up. A z-score is the gap between a person and the prediction, divided by the spread expected for that age and that site, and it can only be read with the model that produced it.</p><p>Next time, we score a whole brain, region by region. Deviation maps.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_6.2_Deviation-maps_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.2</span><span>5:23</span></span>
+        <h3>Deviation maps</h3>
+<p class="summary">A deviation map gives every brain region of one person its own z-score, coloured pink above the norm and blue below, always with a stated threshold and scale. Three simulated patients with one diagnosis have barely overlapping maps, so a map is a portrait of one person, not a group result. Even healthy controls show coloured regions.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we scored one sunflower. Its height, the height expected for its age and its site, and the gap between them, divided by the spread. One measurement gave one z-score. Today, we score a whole brain.</p><p>A brain is not one measurement. It is dozens, hundreds of them. The thickness of the cortex in one region, then the next, then the next. A normative model gives a prediction for each of them, with its own spread. So each region gets its own z-score.</p><p>Here is a brain, seen from the side. It is grey, and it is plain. Now we take one person, and we score every region against the norm for that person&#39;s age, sex and site. Region by region, the brain takes its colours.</p><p>Pink means above the norm. The region is thicker than expected. Blue means below the norm. The region is thinner than expected. The deeper the colour, the larger the z-score. And a region that stays beige is inside the range we call ordinary.</p><p>Two things are always written next to the brain. The threshold, and the scale. Here the threshold is one point nine six, in absolute value, so a region has to be beyond plus or minus one point nine six to be coloured. Without the scale and the threshold, a colour means nothing.</p><p>This is a deviation map. One person, one brain, one map.</p><p>A word about the drawing. Our regions here are illustrative. They are not an atlas, and we will never name a precise region on this map. The idea is the point, not the anatomy.</p><p>Now for the interesting part. Meet three people. They share the same diagnosis. In a classic case-control study, they would be thrown into one group, and one average would be computed. Let us see what they look like one by one.</p><p>The first person has pink patches at the front, and a blue patch at the back. The second has almost nothing at the front, but a large blue area along the lower side. The third is mostly beige, with two small pink regions that the others do not have.</p><p>Three people. Three maps. They barely overlap.</p><p>These three maps are simulated, and each one is labelled simulated patient on the screen. We drew them to make a point, not to report a finding. No real patient is shown in this series.</p><p>Here is the key moment. A deviation map is a portrait of one person. It is not a result about a group. Two people can share a label and have maps that look nothing alike. This is the question that Marquand and colleagues raised in 2016. Case-control designs assume that a diagnostic group is well defined, and so the group is one average. Normative modelling lets us ask where each person sits, one at a time.</p><p>If you want one sentence to remember, it is this. The group label tells you what the clinic wrote. The map tells you what the brain of this person looks like, against the reference.</p><p>Now, a second portrait, with a different kind of person. This one comes from real data. It is the open transfer set that ships with the braincharts pre-trained models, derived from OpenNeuro. The set has one hundred and seventy-six cortical thickness columns per person, from the two hemispheres, and one hundred and fifty of them hold values. The files carry no diagnosis label, so here we treat the person as a test control.</p><p>We score this person with the real braincharts pre-trained model for cortical thickness, adapted to the six new sites, with the same threshold and the same scale. And the map is not empty.</p><p>On the drawing, one region is pink. Two are blue. Is something wrong with this person? No. This is normal, and it is expected.</p><p>Look at the threshold again. At plus or minus one point nine six, five percent of a perfectly calibrated population lies beyond it, by construction. With many regions, a few of them will cross the line for almost everyone. A control with a perfectly clean map would be the surprise. And on these real data, the line is crossed even more often: twelve percent of all the scores lie beyond it, not five, so this model is not perfectly calibrated on these six sites. Only one person out of four hundred and thirty-six has a clean map.</p><p>That is a reason for caution when reading any map. A coloured region is a prompt for a question. It is not a finding. How many coloured regions we should expect by chance is the topic of the next episode.</p><p>Rutherford and colleagues used this kind of map in 2022. They built reference models from a cohort of fifty-eight thousand eight hundred and thirty-six people at eighty-two sites, ages two to one hundred. The result was personalised whole-brain deviation maps. The same idea, at scale.</p><p>One more thing, before we go. A map is only as good as the model behind it, and as the people who built the model. Different reference, different map. We will come back to that, again and again.</p><p>So, to sum up. A deviation map gives every region of one person its own z-score, and it is a portrait of that person, not of a group. Even a control has coloured regions, and that is normal.</p><p>Next time, we count them. Extreme values, and how to count them.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_6.3_Extreme-values-and-how-to-count-them_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.3</span><span>5:18</span></span>
+        <h3>Extreme values and how to count them</h3>
+<p class="summary">With a threshold of 1.96, about five percent of regions cross by chance, so a typical person with 150 regions shows about seven flagged. Correlated regions leave the average unchanged but widen the spread of counts, from none to over thirty. A count needs comparison with held-out controls, and the threshold is fixed before looking at patients.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we painted deviation maps. A brain seen from the side, coloured region by region. Pink above the norm, blue below. Today we ask a simple question about those maps. How many coloured regions is a lot?</p><p>Let us go back to the field of sunflowers. Each flower is compared with the height expected for its age. The gap becomes a z-score. Most flowers sit close to zero.</p><p>Now we draw a line across the field. A threshold. Any flower with a z-score above plus two is flagged in pink. Any flower below minus two is flagged in blue. Then we count. How many tall ones, how many short ones.</p><p>Why two? Because of the Gaussian table from episode two point two. Between minus 1.96 and plus 1.96 lie ninety-five percent of a Gaussian bell. So the exact threshold is one point nine six. Two is its round cousin, and it leaves out a little less than five percent. Both are conventions. Neither is a law of nature.</p><p>Here is the point of the episode. Whatever the threshold, a perfectly typical flower can still cross it. By construction, about five percent of a typical field lies outside one point nine six. Those flowers are not special. They are the tails of the bell.</p><p>Now swap the flowers for the regions of one brain. One person, one deviation map. Say a hundred and fifty regions. That number is illustrative. Real atlases come in many sizes.</p><p>Do the arithmetic. Each region has a five percent chance of crossing the line, if the person is exactly typical. A hundred and fifty regions times five percent is seven and a half. With a threshold of two, each region has a chance of four and a half percent, and the expected count is about six point eight. Call it seven.</p><p>So a person who is perfectly within the norm should show about seven flagged regions. Not zero. Seven. This is an illustrative calculation, not a measurement.</p><p>And if the regions were independent, it would be almost impossible to see none. The chance of at least one flagged region would be above ninety-nine point nine percent.</p><p>Now the second half of the story. Regions are not independent.</p><p>Neighbouring regions share variance. A person with thin cortex overall tends to be a little low everywhere. So the regions tend to cross the line together, in clumps.</p><p>To see what that does, we ran a small simulation. It is illustrative, with a hundred and fifty regions, and one shared factor that makes every pair of regions correlated. Look at the average first. It does not move. It stays at about seven and a half flagged regions, whatever the correlation.</p><p>But the spread changes a lot. With independent regions, a typical person shows between three and thirteen flagged regions. With a correlation of point six, about three typical people in ten show no flagged region at all. And about one in twenty shows thirty-six or more.</p><p>Same person, same threshold, same truth. A very different count.</p><p>That is the key moment. A count of deviations means nothing alone. It only means something compared with what you expect by chance. And because regions are correlated, you cannot get that expectation from a simple formula. You get it from people who are known to be typical. Count the flagged regions in held-out controls, with the same threshold, and look at the whole spread. Then ask where the patient falls.</p><p>There is a second trap. The threshold has to be chosen before you look at the patients. If you try one point nine six, then two, then two point six, and keep the one where patients look different, you have fooled yourself. Write the threshold down first.</p><p>You can also make the threshold stricter. One old idea is to divide the five percent by the number of regions. For a hundred and fifty regions, that gives a z-score of about three point five nine. Another is to control the false discovery rate, the expected share of false flags, a method from Benjamini and Hochberg in 1995. In 2019, Zabihi and colleagues used it for each person separately, with five percent, in their normative study of autism.</p><p>A third idea is to stop counting and look only at the tail. Marquand and colleagues in 2016, and Zabihi and colleagues in 2019, used extreme value statistics. The idea is to summarise each person by their most extreme deviations, and to model how such maxima behave in typical people.</p><p>In the Information series, a rare event carries more surprise. A z-score beyond three point five nine is a very surprising event for one region. But for a hundred and fifty regions, surprises are expected.</p><p>So, to sum up. A threshold turns a map into a count. A count must be compared with what chance gives, and chance is not simple when regions are correlated. Fix the threshold before you see the patients.</p><p>Next time, we ask how to summarise a person, and how to summarise a group. Summarising a person, summarising a group.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_6.4_Summarising-a-person-summarising-a-group_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.4</span><span>5:13</span></span>
+        <h3>Summarising a person, summarising a group</h3>
+<p class="summary">A person&#39;s map can be summarised by a count of flagged regions, a mean absolute z-score, or a network score, and each answers a different question chosen beforehand. For a group, an overlap map can look almost blank while every patient deviates, because deviations sit in different places. Looking at circuits can reveal agreement that single regions hide.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we counted extreme values. A threshold drawn across the field, a tally of the sunflowers that rise above it, and one lesson. A count only means something next to the count we expect by chance. Today we ask a plainer question. A deviation map has many regions. How do we say it in a few words, for one person, and then for a whole group?</p><p>Start with one person. Here is a simulated patient. The map is a picture, and a picture is hard to compare. So we squeeze it into a number. There are three common ways, and each one answers a different question.</p><p>The first is the count. How many regions lie beyond the threshold? The threshold was fixed before we looked, as we said last time. In this simulated patient, nine regions are beyond it. Nine sounds like a lot. But for a person perfectly in the norm, we expect about seven and a half. So nine is barely more than chance. The count is simple, and that is its strength. Its weakness is that it throws away size. A region just past the line counts the same as a region far beyond it.</p><p>The second summary keeps the size. Take the absolute value of each z-score, so that pink and blue do not cancel each other out. Then average them across all regions. This is the mean of the absolute z-scores. And here is a small surprise. For a person perfectly in the norm, with Gaussian scores, this mean is not zero. It is about zero point eight. So the number needs its own reference, just like the count did. This summary is sensitive to one huge region, and also to many small wobbles that add up.</p><p>The third summary is narrower on purpose. Pick a set of regions that belong together, a network, chosen in advance for a reason. Then average the z-scores of those regions only. The question is no longer, is this person unusual somewhere? It is, is this person unusual in this system? Functional networks of this kind are the business of the fMRI series. We will see in a moment why this third summary matters.</p><p>So here is the key moment for one person. A summary is not the person. It is an answer to a question. Count, average size, network score: three questions, three numbers. You choose the question before you look at the patients, you say which one you chose, and you never choose the one that happens to give the best result.</p><p>Now the group. The natural idea is to add up the maps. For each region, we ask one thing. What proportion of the patients deviate there? Draw that proportion on the brain, from zero to one hundred percent. This is the overlap map. Notice its colour. A group map gets a different background, so we never mistake it for the map of a person.</p><p>Let us try it on an illustration. This is not data. It is a simulation built to make one point. One hundred simulated patients, all with the same made-up diagnosis. A hundred and fifty regions. Each patient has six deviating regions, and the regions differ from one patient to the next. Now stack the hundred maps.</p><p>Look at the overlap map. It is almost blank. On average, each region is hit by about four patients in a hundred. Yet every single patient has six deviations. Nobody is normal in this group. The map says almost nothing is happening.</p><p>Both statements are true. The deviations are everywhere, and they are nowhere. They are somewhere else for each person.</p><p>This is not only a cartoon. In 2018, Thomas Wolfers and colleagues used normative models to study schizophrenia and bipolar disorder. They found that deviations were frequent in both disorders, but very different from one person to the next. There were only a few places where even two percent of patients had an extreme deviation. The authors concluded that the average patient may not be the right target of study.</p><p>Then in 2023, Segal and colleagues looked at six diagnoses, using gray matter volume. Within one diagnosis, the same region deviated in fewer than seven percent of the people. But the story changed when they changed the unit. Seen at the level of functional circuits and networks, the deviations fell inside shared systems in up to fifty-six percent of cases. Different regions, same circuit. This is why the network score from a minute ago matters. It lets you look at the level where a group may actually agree.</p><p>That is the key moment for a group. An overlap map can be nearly empty while every patient has deviations, because the deviations sit in different places. So never summarise a group with one map alone. Show the overlap map. Show how the individual counts are spread. And ask again at the level of circuits.</p><p>So, to sum up. A person can be summarised by a count, by an average size, or by a network score, and each is an answer to a different question. A group cannot be summarised by its overlap map alone, because a blank map can hide patients who all deviate.</p><p>Next time, we look at one very high sunflower, and ask what a deviation means, and what it doesn&#39;t.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_6.5_What-a-deviation-means-and-what-it-doesnt_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.5</span><span>5:20</span></span>
+        <h3>What a deviation means · <span class="pk">and what it doesn&#39;t</span></h3>
+<p class="summary">A deviation is a distance from a norm, and it does not say why. A tall sunflower could reflect real biology, measurement error, an artefact such as head motion, a badly modelled site, or a reference that does not resemble the person. Atypical does not mean ill, and below the norm does not mean a deficit.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we summarised people and groups. We saw that a group map can look almost empty, even though every single patient has deviations, because the deviations sit in different places in each person. Today we stay with one map, one region, one colour. A region lights up. What does that mean?</p><p>Back to the field of sunflowers. Most of them stand close to the height expected for their age. One of them is far taller. Its z-score is plus four.</p><p>It is tempting to say: this flower is special, something is going on with it. Let us slow down. A deviation is only a distance. It is the gap between one measurement and what the model expected, counted in standard deviations. It tells us how far. It does not tell us why.</p><p>So we line up the possible reasons, next to the tall flower. There are at least five.</p><p>The first reason is real. This person truly has a thicker or thinner cortex in that region. It is a genuine biological particularity. It may be interesting. It is not yet a disorder.</p><p>The second reason is a measurement error. The instrument was a little off that day, and the flower looks taller than it is.</p><p>The third reason is an artefact. The person moved in the scanner, or the software drew the border of the cortex in the wrong place. Head motion is known to bias these estimates. Reuter and colleagues showed, in twenty fifteen, that head motion lowers the estimated volume and thickness of the cortex, so a person who moves can look thinner than they are. In the fMRI series, motion is already a familiar troublemaker. Here, it simply comes back.</p><p>The fourth reason is a site that was badly modelled. Each scanner has its own bias, like the scales in the covered market. If the model does not know this site, the whole map can slide up or down, and every region leans the same way.</p><p>The fifth reason is a reference population that does not look like the person. The norm is made of the people who built it. If the person comes from a different place, a different age range, or a different background, then the norm may simply not apply to them.</p><p>Five stories. One tall flower. The deviation is the same in all five.</p><p>Now for the key moment. Three things a deviation does not mean.</p><p>First, atypical does not mean ill. Take a reference that is perfectly calibrated, and a threshold of one point nine six, on both sides. By construction, five percent of the people who made the norm lie beyond it. Not because anything is wrong with them. Because that is what the threshold means. Here, in this illustration, a hundred healthy people are scored. About five of them get a colour. And the more regions we score, the more likely it becomes that a perfectly typical person lights up somewhere. A control map is not empty, and that is normal.</p><p>Second, below the norm does not mean a deficit. A blue region is a position in a distribution. It says this person is lower than most people of the same age and site. It does not say that this person lost anything, because a single scan has no past. A thinner region may be a quiet variation, and a thicker one is not a prize either. Pink and blue are directions, not verdicts.</p><p>Third, a deviation only makes sense with respect to the people who made the norm. Change the reference, and the same person gets a different map. This is not a technical detail. The authors of the lifespan brain charts, in twenty twenty-two, wrote that their reference data were biased toward European and North American populations. They also wrote that the analogy with paediatric growth charts is not meant to imply that brain charts are, already, suitable for the diagnosis of individual patients in clinical practice. The charts are real, and useful. And the people who built them are the first to say what they cannot do yet.</p><p>Before we write those sentences, here is what we do with a tall flower. We go back to the raw scan, and look at it with our own eyes. We ask whether the quality checks passed. We look at the other people from the same site, to see whether they all lean the same way. And we read the model label again, line by line, to see who the reference really is. An empty line on that label is often where the problem hides.</p><p>So, what can we honestly say about a deviation map? Three sentences.</p><p>This person&#39;s measurements lie far from what this model expects for people like those in its reference.</p><p>The reasons may be biological, technical, or about the reference, and the map alone cannot tell which.</p><p>Only further checks, and the person&#39;s own story, can.</p><p>Notice what is missing from those sentences. The words sick, deficit, and abnormal. Each one claims more than the map can show. A map is a question we ask the data. It is not an answer, and a good analysis keeps the question open until the checks are done.</p><p>So, to sum up. A deviation is a distance from a norm. It has many possible causes, and it never says by itself that someone is ill.</p><p>Next time, we move on to evaluating a model. Before we trust its scores, we check its instruments. Calibration of centiles.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-5/">← 5 · COVARIATES AND SITES</a><a class="btn main" href="../chapter-7/">7 · EVALUATING A MODEL →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The hardware · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 12: The hardware.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 12</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 12</span><span class="caps">CHAPTER 12</span></div>
+    <h1 class="h1-chapter">The hardware</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 17 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/" class="on" aria-current="page">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-12.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_12.1_Reading-a-spec-sheet_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.1</span><span>4:23</span></span>
+        <h3>Reading a spec sheet</h3>
+<p class="summary">A quantum computer&#39;s spec sheet turns DiVincenzo&#39;s requirements into numbers: coherence time against gate time, fidelities, connectivity, quantum volume. Errors multiply, so each extra nine of fidelity buys a far deeper circuit: a thousand gates at 99.9 percent leave about 37 percent. Qubit count is the least informative line, and cards must be compared by definition.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the museum of machines, the home of chapter twelve: the hardware. In the next three episodes we visit the main families of qubit. But first, before any machine, we learn to read its label.</p><p>Picture the museum. Every exhibit has a little placard beside it. On a quantum computer&#39;s placard you find the number of qubits, the fidelity of the one-qubit and two-qubit gates, the fidelity of the readout, the times T one and T two, the gate duration, the connectivity, and sometimes a single score called quantum volume.</p><p>The newspapers quote only one line: how many qubits. It is the least informative number on the card. Here is why.</p><p>In the year two thousand, David DiVincenzo listed what a physical system needs to run a quantum computer. There are seven requirements. A scalable system with well-characterised qubits. A way to initialise them. Decoherence times much longer than the gate time. A universal set of gates. A measurement that targets one qubit at a time. And two more, for qubits that travel: converting between stationary and flying qubits, and sending the flying ones faithfully. Each line of the placard is one of these requirements, with a number attached.</p><p>Take coherence. T one is how long a qubit keeps its energy. T two is how long it keeps its phase, the thing interference needs. What matters is the ratio to the gate time. DiVincenzo wrote that the decoherence time should be ten thousand to a hundred thousand times the gate time. Now a real card. Google&#39;s one hundred and five qubit chip, described in Nature in twenty twenty five, has a mean T one of sixty eight microseconds, a T two of eighty nine microseconds, and a two-qubit gate of forty two nanoseconds. Divide: about sixteen hundred gates fit inside one T one. That is why error correction exists.</p><p>Now fidelity, the chance that a gate does what it should. In November twenty twenty five, Quantinuum announced its Helios machine: ninety eight qubits, with a one-qubit gate fidelity of ninety nine point nine nine seven five percent, and a two-qubit fidelity of ninety nine point nine two one percent. These are company specifications, and we label them that way.</p><p>Why does a tenth of a percent matter? Because errors multiply. Let&#39;s compute it live, with an illustrative card. A gate with fidelity ninety nine point nine percent, repeated a thousand times, leaves zero point nine nine nine to the power one thousand: about thirty seven percent. At ninety nine percent, the same thousand gates leave almost nothing, about four in a hundred thousand. At ninety nine point nine nine percent, ninety percent survives. This is a rough rule, which treats errors as independent, but it shows the point. One more nine on the fidelity buys a far deeper circuit.</p><p>Then there are the aggregate scores. Quantum volume was proposed by IBM researchers in twenty nineteen. You run random square circuits, as wide as they are deep. The machine passes if it produces the heavy outputs, the likelier ones, more than two thirds of the time. The result is reported as two to the power n. In September twenty twenty five, Quantinuum reported two to the twenty five, which is thirty three million, five hundred fifty four thousand, four hundred thirty two, on its H2 system. One number folds together qubit count, fidelity, and connectivity. But it also hides which of the three did the work, and it says nothing about your own circuit.</p><p>The classic trap: comparing cards without comparing definitions. A big qubit count with poor fidelity computes nothing deep. An average fidelity can hide a bad pair of qubits. And a connectivity line, grid or all to all, decides how many extra gates your circuit needs. So always ask: which number, measured how, on which date, by whom.</p><p>Let&#39;s recap. A placard is DiVincenzo&#39;s requirements with numbers. Coherence time divided by gate time counts how many gates fit. Fidelity multiplies, so each extra nine matters. Quantum volume is a useful single score, with limits. And the number of qubits is the least informative line. Next, superconducting circuits.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-12.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_12.2_Superconducting-circuits_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.2</span><span>4:09</span></span>
+        <h3>Superconducting circuits</h3>
+<p class="summary">A superconducting qubit is a circuit cooled to about twenty millikelvin. A Josephson junction makes the energy rungs unequal, so the two lowest levels form a qubit, the transmon, an artificial atom on a chip, driven by microwave pulses on a fixed grid of neighbours. Speed is a strength, while short coherence, wiring, cryogenics and leakage are limits.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the machine museum, the home of chapter twelve, the hardware. In this room we meet the most widely built family of quantum computers: superconducting circuits.</p><p>Picture the showcase. A golden chandelier hangs from the ceiling. It is not a lamp. It is a refrigerator, and each plate is colder than the one above. At the top, we are near room temperature. Going down, we pass stages near fifty kelvin, near four kelvin, and below one kelvin. At the very bottom hangs the chip, at about twenty millikelvin.</p><p>Why so cold? A qubit of this kind has a frequency of about five gigahertz. In temperature units, that energy is about a quarter of a kelvin. At twenty millikelvin, the heat is twelve times too weak to lift the qubit. Upward jumps are then about six millionths as likely as downward ones.</p><p>Now the intuition. Take a coil and a capacitor. This circuit is a quantum oscillator, and its energy levels are a ladder with equal rungs. A microwave pulse that lifts the first rung also lifts the second, and the third. You cannot isolate two levels.</p><p>The fix is a Josephson junction: two superconductors separated by an insulating layer so thin that pairs of electrons tunnel through it. Brian Josephson predicted this in 1962. The junction acts like an inductor that changes with its own current, and it wastes no energy. Put it in the circuit, and the rungs are no longer equal. The second rung sits a little lower than the first.</p><p>The transmon, introduced by Jens Koch and colleagues in 2007, is the version in use today. In a typical transmon, the frequency is three to six gigahertz, and the second step is lower by one hundred to three hundred megahertz. A pulse tuned to the first step leaves the second alone. The two lowest levels become the qubit: an artificial atom, made of metal on a chip.</p><p>The circuit in one picture. A gate is a short microwave pulse, sent down a cable at the qubit&#39;s frequency. Its length and phase choose the rotation on the Bloch sphere. Two qubits talk through a coupler. The wiring is fixed on the chip: each qubit has only a few neighbours, on a grid. For Google&#39;s Willow chip, the average is three point four seven. Distant qubits need extra swaps, and we count them in the next episode.</p><p>Now the dated numbers. On December ninth, 2024, Google published the spec sheet of its Willow chip: one hundred five qubits. On its error-correction chip, the mean T one is sixty-eight microseconds. A single-qubit gate errs about zero point zero three five percent of the time, a two-qubit gate about zero point three three percent. One error-correction cycle takes one point one microseconds. That speed is a real strength of this platform.</p><p>In November 2025, a Princeton team reported a single transmon, made of tantalum on silicon, with a T one of up to one point six eight milliseconds. That is the best qubit in a laboratory, not the mean of a whole chip.</p><p>The limits are just as clear. Coherence is short, so every algorithm races against it. Every qubit needs cables from room temperature down to the cold plate. And the refrigerator grows with the machine.</p><p>Now the classic trap. A transmon is not a perfect two-level system. The third level is still there, and a pulse can push the qubit into it. Willow&#39;s spec sheet even lists a leakage removal step for that state. So never judge a machine by its qubit count alone: read the whole label.</p><p>Let&#39;s recap. A superconducting qubit is a circuit with a Josephson junction, cooled to about twenty millikelvin. The junction makes the levels unequal, so two of them form a qubit. Gates are microwave pulses, on a fixed grid. The strengths are speed and fabrication; the limits are coherence, wiring and cryogenics. Next, trapped ions and neutral atoms.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-12.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_12.3_Trapped-ions-and-neutral-atoms_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.3</span><span>4:10</span></span>
+        <h3>Trapped ions and neutral atoms</h3>
+<p class="summary">Trapped ions form a charged chain whose shared hum links any pair, giving all-to-all connectivity and top fidelities, with slow gates. Neutral atoms sit in laser tweezers and interact through the Rydberg blockade, giving the largest arrays and fast gates. Limited connectivity costs SWAPs, each worth three controlled gates, so fidelities must be compared with care.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the machine museum, the home of chapter twelve. Today we visit two neighbouring display cases: trapped ions, and neutral atoms. In both, the qubit is a real atom, and every atom of a given kind is identical to the next.</p><p>The first case holds a necklace of pearls. Each pearl is an ion, an atom with an electron removed, so it carries a charge. Electric fields from a chip hold the ions in a line, floating in a vacuum. Lasers set each qubit, and lasers read it out.</p><p>How do two pearls talk? They push on each other, so the whole necklace hums like one object. A laser ties a pearl&#39;s state to that shared hum, and the hum carries the message to another pearl. In 1995, Ignacio Cirac and Peter Zoller proposed this as a way to build a controlled-NOT gate. Any pearl can reach any other. That is all-to-all connectivity.</p><p>Now the dated numbers. In 2016, two groups, in Oxford and at NIST, reported two-qubit gates at about ninety nine point nine percent. The Oxford gate took one hundred microseconds. In November 2025, Quantinuum presented Helios: ninety eight qubits, with an average two-qubit fidelity of ninety nine point nine two one percent across all pairs. In 2017, a team at Tsinghua University kept a single ion qubit coherent for more than ten minutes. The price is speed: these gates are slow.</p><p>The second case holds a tray of marbles. Each marble is a neutral atom, held by a focused laser beam called an optical tweezer. In September 2025, a Caltech team reported six thousand one hundred atoms in a single array, with a coherence time of twelve point six seconds.</p><p>But neutral atoms barely feel each other. So we lift a chosen atom into a Rydberg state, a hugely puffed-up orbit. A Rydberg atom shifts the energy of its neighbours, so they cannot follow. This is the blockade, and it gives a controlled-Z gate. In 2023, a Harvard, MIT and QuEra team reported ninety nine point five percent on up to sixty atoms working in parallel, with a gate lasting roughly a quarter of a microsecond. A preprint from April 2026 reports ninety nine point eight five percent, or ninety nine point nine four if runs that lost an atom are discarded.</p><p>Tweezers have another trick. They can move atoms in the middle of a computation, and the atoms stay entangled. Bluvstein and colleagues showed this in 2022.</p><p>Here is the highlight of the day: counting SWAPs. Take a four-qubit circuit in which every pair must interact. That is six controlled gates. On a fixed two-by-two grid, two pairs sit on the diagonal, and are not neighbours. Each needs a SWAP, and a SWAP costs three controlled gates. Six gates become twelve. Suppose each gate has a fidelity of ninety nine point nine percent, an illustrative value. Six gates leave about ninety nine point four percent. Twelve leave about ninety eight point eight. With all-to-all connectivity, no SWAP is needed. A tweezer machine can also move the atoms instead, and pay in movement time.</p><p>So who wins? Nobody, today. Ions bring fidelity and connectivity, at modest size and slow gates. Atoms bring size and fast gates, with fidelity catching up, and atom loss to manage.</p><p>Here is the classic trap. Never compare two fidelities without asking how each was measured. Is it an average over all pairs? Does it exclude the runs that lost an atom? Those are different numbers.</p><p>Let&#39;s recap. Ions sit in a chain, and a shared hum links any two. Their fidelities are among the highest reported, and their gates are slow. Atoms sit in tweezers, and the Rydberg blockade links them. Their arrays are the biggest, and their gates are fast. Limited connectivity costs SWAPs, and SWAPs cost fidelity. Next, photons, and the rest of the zoo.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-12.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_12.4_Photons-and-the-rest-of-the-zoo_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.4</span><span>4:17</span></span>
+        <h3>Photons, and the rest of the zoo</h3>
+<p class="summary">A photon qubit is a choice of path, a beam splitter acts as a Hadamard gate, and a Mach-Zehnder interferometer is Hadamard, phase, Hadamard. Photons travel well but do not interact, so two-qubit gates are probabilistic and loss is the enemy. Boson sampling advantage is contested, spin qubits are small and industrial, and topological qubits are claimed and disputed.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the last room of the machine museum. Chapter twelve has taught us to read a spec sheet, and then it showed us circuits, ions and atoms. Today a beam of light crosses the glass.</p><p>Here, the qubit is a photon. It has two paths to take, an upper path and a lower path. Which path it takes is the zero or the one. In our diorama, a ripple on a little canal stands for the light. A half-silvered mirror, called a beam splitter, sends the photon into an equal superposition of both paths. That is a Hadamard gate.</p><p>Now build a Mach–Zehnder interferometer. A beam splitter. Then one arm gets a little longer, which turns its arrow by a phase. Then a second beam splitter brings the paths back together. Read it as a circuit: H, phase, H. It is the circuit of episode two point four. With no extra phase, the photon always leaves by the same port. With a phase of pi, it leaves by the other one. In between, the chance follows cosine squared of phi over two. The spinning arrow has become a length of canal.</p><p>Photons travel at the speed of light, and they hardly feel their surroundings. Now the catch. Photons do not talk to each other. Two beams that cross simply pass through each other, and a two-qubit gate needs an interaction. In 2001, Emanuel Knill, Raymond Laflamme and Gerard Milburn showed a way around it. Linear optics, single photons and detectors are enough, if we let measurements do part of the work. The gates then succeed only with some probability. Every lost photon is an error, so loss is the enemy.</p><p>Two companies show where this stands. In 2025, Xanadu reported in Nature a modular machine of thirty-five photonic chips, in four server racks. The authors call it a sub-performant scale model. Also in 2025, PsiQuantum reported in Nature a chipset made in a three hundred millimetre commercial foundry, with a fusion fidelity of ninety-nine point two two percent, reported by the company. Both say a fault-tolerant machine is still ahead.</p><p>Light has a second use, with no gates at all. In boson sampling, we send many photons through a big interferometer and record where they land. Scott Aaronson and Alex Arkhipov argued that this is hard for classical computers. In 2022, Xanadu&#39;s Borealis claimed a sample in thirty-six microseconds, against more than nine thousand years for the best exact classical method. But the claim is contested. A later classical algorithm, by Changhun Oh and colleagues, exploits photon loss, and matched the ideal distribution better than the experiments did. We come back to this in episode fifteen point four.</p><p>Two more exhibits, one sentence each. Spin qubits store the qubit in the spin of one electron in silicon. In 2025, imec and Diraq reported in Nature fidelities above ninety-nine percent for one and two qubits, in small devices made on an industrial line.</p><p>And topological qubits, the contested one. In February 2025, Microsoft announced a chip, Majorana one, with the first topological qubits. The Nature paper, however, was judged by its own editors not to show evidence of topological modes. In June 2026, a Nature comment by Henry Legg criticised the analysis, and Microsoft replied that it stands by its results. Microsoft&#39;s newer paper on Majorana two reports a parity lifetime of about twenty-two seconds, and is not yet peer reviewed. We found no independent replication. So the status is: claimed, and disputed.</p><p>Let&#39;s recap. A photon qubit is a choice of path, and a Mach–Zehnder interferometer is H, phase, H. Photons travel, but they interact poorly, so loss is the enemy. Boson sampling is a different use of light, and its advantage is contested. Spin qubits are industrial and small. Topological qubits are claimed and disputed. Next, the hybrid loop: a quantum circuit and a classical optimizer, working together.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-11/">← 11 · QUANTUM INFORMATION</a><a class="btn main" href="../chapter-13/">13 · VARIATIONAL AND NISQ →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

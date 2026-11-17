@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grover · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 7: Grover.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 7</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 7</span><span class="caps">CHAPTER 7</span></div>
+    <h1 class="h1-chapter">Grover</h1>
+    <div class="pills">
+<span class="pill y">3 VIDEOS · 12 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/" class="on" aria-current="page">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-7.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_7.1_Grovers-search_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 7.1</span><span>3:39</span></span>
+        <h3>Grover&#39;s search</h3>
+<p class="summary">Grover&#39;s search finds one marked item among N unlabelled ones with only yes-or-no questions, in about the square root of N queries instead of N over two. Each round flips the sign of the marked arrow and reflects every arrow about the mean, so the marked one grows. The gain is quadratic, and the oracle must be computable on the fly.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the flea market, the home of chapter seven. Today we search, and we meet the second great algorithm of the series: Grover&#39;s search.</p><p>Picture the flea market. Thousands of objects sit on the tables, and none has a label. Exactly one is the treasure you want. Your only tool is a question: is this the one? You may ask it about any object, and you get a yes or no. No hints.</p><p>Classically, you have to walk. With N objects, you expect to ask about N over two questions, and N in the worst case. With a million objects, that is five hundred thousand on average. No classical strategy does better, because the stalls carry no structure.</p><p>In 1996, Lov Grover presented an algorithm at the STOC conference that needs only about the square root of N questions. For a million objects, that is about seven hundred and eighty five.</p><p>Here is the intuition, with the arrow bar of the series. Start with H on every qubit. Every object gets the same small arrow, length one over root N. All arrows point right, and every object is equally likely. A measurement now would be a blind guess.</p><p>Each Grover round has two moves. First, the oracle, from episode five point one, flips the sign of the marked object&#39;s arrow. Its arrow now points left, and nothing else changes. The probabilities have not moved.</p><p>Second, the diffusion step: an inversion about the mean. Compute the average height of all arrows. Reflect every arrow across that average. The marked arrow was below the average, so it jumps far above. The others were just slightly above the average, so they drop slightly. The marked arrow grows. The rest shrink. This is interference at work.</p><p>Repeat. In geometry, the whole state lives in a plane spanned by two directions: the marked object, and the uniform mix of the others. Each round rotates the state in that plane by a fixed angle, toward the marked object. After about pi over four times root N rounds, the state points almost exactly at the answer. Measure it, and you find it with high probability.</p><p>The circuit in one picture: H on every wire, then a block repeated, oracle followed by diffusion, then a measurement.</p><p>How much faster is this? The square root of N, against N over two. That is a quadratic speed-up, not an exponential one. And it is the best possible. In 1997, Bennett, Bernstein, Brassard and Vazirani proved that no quantum algorithm can solve unstructured search with fewer than order root N queries. We return to this in the next episode.</p><p>Now the classic traps. You may have heard that Grover can search a database faster. Be careful. The oracle must be a circuit that recognises the answer, and building it costs gates. And if the data sits in an ordinary database, loading it into the machine already costs N steps, which eats the whole gain. Grover fits when the oracle can be computed on the fly, like checking whether a candidate key unlocks a lock.</p><p>Let&#39;s recap. Unstructured search asks which of N objects is marked, using only yes or no questions. Classically, that takes about N over two questions. Grover starts in uniform superposition, then repeats a sign flip by the oracle and an inversion about the mean. Each round rotates the state toward the answer, and about root N rounds suffice. The gain is quadratic, and it needs an oracle built as a circuit. Next, how many turns, and why not fewer.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-7.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_7.2_How-many-turns-and-why-not-fewer_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 7.2</span><span>3:47</span></span>
+        <h3>How many turns, and why not fewer</h3>
+<p class="summary">Grover&#39;s success probability after k rounds is sine squared of two k plus one times theta, a wave rather than a ramp, so running too long overshoots the answer. The best count is about pi over four times root N, and no quantum algorithm can use fewer queries. With M marked items the count shrinks, and random round counts handle an unknown M.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the flea market, chapter seven. Last time we met Grover&#39;s search. Today we ask a practical question: how many rounds should we run? And why can&#39;t anyone run fewer?</p><p>Picture a merry-go-round. Each push turns it a little closer to the stop where the treasure waits. Push the right number of times, and you land on the stop. Push once too many, and the ride sails past it.</p><p>Grover&#39;s algorithm behaves exactly like this. Remember the plane from last time. One direction is the marked object, the other is the uniform mix of everything else. The starting state sits at a small angle theta above the unmarked direction, and sine of theta equals one over root N.</p><p>Each round, an oracle flip and an inversion about the mean, turns the state by two theta. After k rounds, the angle is two k plus one, times theta. So the probability of finding the marked object is sine squared of two k plus one, times theta.</p><p>Let&#39;s compute it, for illustrative sixty-four objects. Theta is about zero point one two five. With no rounds, the chance is only one point six percent, a blind guess. After three rounds it is fifty-nine percent. After five, ninety-six percent. After six, ninety-nine point seven percent. That is the stop.</p><p>Now push a seventh time. The chance falls to ninety-one percent. After nine rounds it is forty-seven percent. After twelve rounds it is almost zero, and the state has swung right back to where it started. Then it climbs again, and peaks near round eighteen. The probability is a wave, not a ramp.</p><p>So the best number of rounds is the one that brings the angle closest to ninety degrees. That is about pi over four theta, which for large N is about pi over four, times root N. For a million objects, that is seven hundred and eighty-five rounds, with success probability above ninety-nine point nine nine percent. The fix for overshooting is simple: stop on time. Running longer does not help.</p><p>Why not fewer? In 1997, Bennett, Bernstein, Brassard and Vazirani showed that, with an oracle you can only query, any quantum algorithm needs on the order of root N queries. So Grover cannot be beaten by more than a constant. In 1999, Zalka went further. He proved that Grover&#39;s algorithm is exactly optimal. With the same number of queries, no algorithm finds the marked object with higher probability.</p><p>What if several objects are marked? Call their number M. Then sine of theta is the square root of M over N, the angle is bigger, and the optimal count is about pi over four, times the square root of N over M. More treasures means fewer rounds. And here the trap appears. If you do not know M, you do not know when to stop, and an overshoot throws away your success.</p><p>In 1998, Boyer, Brassard, Hoyer and Tapp solved this. Their algorithm tries random numbers of rounds, with a ceiling that grows between attempts. It finds a marked object after about root of N over M queries in expectation, without ever knowing M.</p><p>Let&#39;s recap. After k rounds, the success probability is sine squared of two k plus one, times theta. It rises, peaks near pi over four root N rounds, then falls, so a round count that is too high is as bad as one that is too low. No quantum algorithm can use fewer queries, and Grover is exactly optimal. With M marked objects, the count shrinks to root N over M, and with M unknown, random round counts still work. Next, amplitude amplification and estimation.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-7.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_7.3_Amplitude-amplification-and-estimation_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 7.3</span><span>4:10</span></span>
+        <h3>Amplitude amplification and estimation</h3>
+<p class="summary">Amplitude amplification applies the Grover rotation to any procedure that succeeds with probability a, needing about one over root a rounds instead of one over a. Amplitude estimation reads the rotation angle with phase estimation and so measures a, with error shrinking like one over the number of calls instead of its square root. Error-correction overhead can still eat a merely quadratic gain.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the flea market. In the last two episodes, we used a rotation to find one treasure. Today we see that the same rotation works far beyond treasure hunts.</p><p>Picture a magnifying glass on a stall. Some objects here are rare, and we want to find one. Others we only want to count: what fraction of the objects on the market are rare?</p><p>Here is the intuition. Take any procedure A that succeeds with some probability a. It might be a random guess, a heuristic, or a whole quantum algorithm. Run it, check the result, and you succeed with probability a. Classically, you repeat about one over a times.</p><p>Now use the rotation from the last two episodes. Write the state of A as a mix of good outcomes and bad ones. Its angle theta from the bad outcomes obeys sine squared of theta equals a. Each round, an oracle flip followed by a reflection about the starting state rotates the state by two theta. After about one over the square root of a rounds, the good outcomes dominate.</p><p>This is amplitude amplification. Brassard, Hoyer, Mosca and Tapp published it in 2002, in the book Quantum Computation and Quantum Information, in the Contemporary Mathematics series. It generalises Grover&#39;s search to any algorithm A. The cost drops from one over a to one over the square root of a. Grover is the case where A is a uniform superposition.</p><p>The magnifying glass has a second use. The angle theta hides the number a. If we can read the angle, we can read a. And reading an angle from repeated rotations is exactly what phase estimation does, from chapter six.</p><p>Put it together: run the rotation as a controlled gate, and apply an inverse quantum Fourier transform. The counting register then holds an estimate of theta, and so of a. This is amplitude estimation, from the same 2002 paper. Applied to counting marked objects, it is quantum counting, from Brassard, Hoyer and Tapp in 1998.</p><p>How much faster is this? Look at the graph. The horizontal axis is the number of calls. The vertical axis is the estimation error. Both are logarithmic. Classical Monte Carlo sampling follows a line of slope minus one half: to cut the error by ten, you need a hundred times more calls. Amplitude estimation follows a line of slope minus one: ten times more calls cut the error by ten. We computed these two curves exactly for a range of probabilities a; they are labelled computed on the screen.</p><p>The same idea speeds up averages in general. In 2015, Ashley Montanaro showed that a quantum algorithm can estimate the average output of a random process with bounded variance, with a near-quadratic saving in calls over the best classical method. Roughly, one over epsilon calls, instead of one over epsilon squared.</p><p>Now the classic trap. A quadratic speed-up sounds like a lot. But quantum steps are slow, and error-corrected steps are slower still. In 2021, Babbush and colleagues at Google compared the two in a paper called Focus beyond quadratic speedups for error-corrected quantum advantage. Their conclusion, in their words: the prospects are generally poor for a quadratic speedup. Under their assumptions, it takes very long runs to break even against a single classical core, and far longer against parallel ones. They suggest looking beyond quadratic speed-ups. Quartic ones look much more promising.</p><p>Let&#39;s recap. Amplitude amplification rotates any algorithm&#39;s success state toward the answer: one over root a rounds instead of one over a. Amplitude estimation reads the rotation angle with phase estimation, and so measures a. The error shrinks like one over the number of calls, instead of one over its square root. But quadratic gains can be eaten by error correction overhead. Next, Hamiltonian simulation: Trotter and Suzuki.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-6/">← 6 · FOURIER, PHASE AND SHOR</a><a class="btn main" href="../chapter-8/">8 · LETTING PHYSICS COMPUTE →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

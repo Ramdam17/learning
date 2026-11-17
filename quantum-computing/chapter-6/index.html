@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fourier, phase and Shor · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 6: Fourier, phase and Shor.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 6</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 6</span><span class="caps">CHAPTER 6</span></div>
+    <h1 class="h1-chapter">Fourier, phase and Shor</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 21 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/" class="on" aria-current="page">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-6.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_6.1_The-quantum-Fourier-transform_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.1</span><span>3:40</span></span>
+        <h3>The quantum Fourier transform</h3>
+<p class="summary">The quantum Fourier transform applies the discrete Fourier formula to the amplitudes of a state, using Hadamards, controlled phases and swaps, in about n squared gates for 2^n amplitudes. It is not a faster FFT for data, since loading is costly and a measurement returns a single frequency. It is a tool for finding a period or a phase.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the vault room, the home of chapter six. Today&#39;s topic is the quantum Fourier transform, and you already know most of it. If you have ever run an FFT on an EEG recording, you have used its classical cousin.</p><p>Recall what the discrete Fourier transform does. It takes N samples and returns N frequency coefficients. Each coefficient is a sum of samples, each multiplied by e to the two pi i x k over N, then divided by root N. Each term is a little arrow, turning faster as k grows. The quantum Fourier transform applies exactly this formula. The difference is where the numbers live. They are not samples in a file. They are the amplitudes of a quantum state.</p><p>Take n qubits. That gives N equals two to the n amplitudes, as in episode one point three. The QFT sends the basis state ket x to one over root N, times the sum over k of e to the two pi i x k over N, times ket k. It is a unitary, so it is a legal gate.</p><p>Now the picture. In the vault room, there is a combination dial with n wheels. The first wheel turns half a turn for each step of x. The next wheel turns half as fast, a quarter turn. The next, half again. Each wheel is one qubit, and together their angles spell out x. The QFT builds this dial in a few moves.</p><p>Here is the circuit for three qubits. On the first wire, apply H. Then add a controlled phase from the second wire, a quarter turn, and another from the third wire, an eighth of a turn. The second wire gets its own H and one controlled phase. The third wire gets just an H. At the end, swap the first and last wires to put the digits in the right order. Hadamards, controlled phases, swaps.</p><p>Count the gates. Wire one needs one H and n minus one phases. Wire two needs one H and n minus two phases. In total, about n squared over two gates, plus a few swaps. The cost grows like n squared.</p><p>Compare with the FFT. For N points, it needs about N log N operations, which is n times two to the n. The QFT needs n squared gates for the same two to the n amplitudes. That is an exponential gap. Don Coppersmith described this circuit in a 1994 report, written for Peter Shor&#39;s factoring work. He also showed that the tiniest rotations can be dropped with little harm.</p><p>Now the trap, and it is a big one. This is not an exponentially faster FFT for your data. First, loading two to the n numbers into amplitudes costs about two to the n steps. Second, the answer sits in amplitudes, and a measurement returns a single k, with probability the squared length of its amplitude. You cannot read out the spectrum.</p><p>So what is the QFT good for? It shines when the input is a periodic pattern and you want one global fact, like a period. Interference piles the amplitudes onto a few frequencies, and a measurement lands on one of them. That is the plan for the next episodes.</p><p>Let&#39;s recap. The QFT is the discrete Fourier transform applied to the amplitudes of a state. It is built from H gates, controlled phases and swaps. It needs about n squared gates for two to the n amplitudes, against n times two to the n for the FFT. You cannot read all the output amplitudes, so it is not a faster FFT for your data. It is a tool for finding a period or a phase. Next, phase estimation.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_6.2_Phase-estimation_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.2</span><span>3:40</span></span>
+        <h3>Phase estimation</h3>
+<p class="summary">A unitary acts on an eigenvector by a phase, e to the two pi i phi, and phase estimation reads phi. Counting qubits control powers of U, kicking a wave of phases onto the counting register, and an inverse QFT turns it into the binary digits of phi. Each extra qubit adds one bit but doubles the applications of U.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the vault room. Last time, we built the quantum Fourier transform, a circuit that turns a hidden pattern of phases into a single frequency we can measure. Today we put it to work on one question: what angle is hiding inside a gate?</p><p>Take any unitary gate U, and one of its eigenvectors, a state that U leaves pointing the same way. Applying U can only multiply it by a phase, e to the two pi i phi. The number phi is a fraction of a turn, between zero and one. Phase estimation reads phi.</p><p>Here is the picture, using the arrow of episode two point two. In the vault room, a single arrow sits on a dial. Each time we apply U, the arrow turns by phi of a turn. We watch it after one application, then two, four, eight.</p><p>After one application, the arrow has turned phi. That tells us only roughly where phi is. After two, it has turned two phi. After four, four phi. After eight, eight phi. Each doubling shifts the binary digits of phi one place to the left. A digit that was hiding far to the right now decides whether the arrow points left or right. So we read phi digit by digit, one digit for each doubling.</p><p>The circuit does all of this at once. Take t counting qubits, and a second register holding the eigenvector. Put every counting qubit in superposition with an H gate. Then counting qubit k controls U applied two to the k times. The eigenvector is unchanged, but a phase kicks back onto the counting qubit, just like the phase kickback of episode five point one. Now the counting register holds a wave of phases, a pattern with frequency phi. That is exactly the input the quantum Fourier transform likes.</p><p>So the last step is the inverse QFT. It turns the wave into a basis state. Measure the counting register, and you get t bits, the first t binary digits of phi. If phi has exactly t binary digits, the answer is certain. Otherwise, you get a value very close to phi with good probability, and a few extra qubits push the confidence higher.</p><p>Look at the cost. Each counting qubit gives one bit of precision, so t qubits give t bits. But the total number of applications of U is about two to the t. Every extra bit doubles the work, unless U to the two to the k can be built cheaply. For Shor, it can.</p><p>Alexei Kitaev described this idea in 1995, in a paper on measuring eigenvalues and the abelian stabilizer problem. It is the engine behind Shor&#39;s algorithm, behind quantum chemistry energy estimates, and behind the linear algebra algorithms of chapter nine.</p><p>Now the classic trap, in two parts. First, you need the eigenvector. If you feed in a mixture of eigenvectors, you get one of their phases at random. Preparing a good eigenvector can be as hard as the original problem. Second, you must implement U to the two to the k without repeating U that many times. Without a shortcut, the exponential cost eats the gain.</p><p>Let&#39;s recap. A unitary acts on an eigenvector by a phase, e to the two pi i phi. Phase estimation reads phi with t counting qubits. The circuit is H gates, controlled powers of U, an inverse QFT, and a measurement. Each extra qubit adds one bit of precision and doubles the number of applications. You must prepare the eigenvector and build the powers of U cheaply. Next, Shor, part one: from factoring to a period.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_6.3_Shor-I-from-factoring-to-a-period_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.3</span><span>4:01</span></span>
+        <h3>Shor I · <span class="pk">From factoring to a period</span></h3>
+<p class="summary">Shor&#39;s algorithm turns factoring into finding the period r of a to the x modulo N. When r is even and a to the r over two is not minus one, greatest common divisors give the factors, as for fifteen with a equal to seven. The quantum computer only finds the period, in polynomial time, and the algorithm threatens RSA, not symmetric ciphers.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the vault room. We now own the quantum Fourier transform and phase estimation, two tools that find hidden periodic patterns. Today we aim them at splitting a number into its prime factors.</p><p>Why does it matter? RSA relies on one asymmetry. Multiplying two big primes is easy. Recovering them from the product is believed to be hard. A typical key is two thousand and forty eight bits long. The best known classical method, the general number field sieve, is sub-exponential, still far too slow at that size.</p><p>Peter Shor presented his algorithm at the FOCS conference in 1994, with the journal version in 1997. His insight is that the hard part is not factoring itself. It is finding a period. Everything else is ordinary arithmetic.</p><p>Here is the classical reduction, on a number small enough for a human: N equals fifteen. Pick a number a that shares no factor with N. Take a equals seven. Now list the powers of seven, modulo fifteen. Seven to the one is seven. Seven squared is forty nine, which is four. Seven cubed is thirteen. Seven to the four is one. Then it repeats.</p><p>In the vault room, picture a safe whose combination repeats like a ticking rhythm: seven, four, thirteen, one, again and again. The number of ticks before it repeats is the period, called r. Here, r equals four. Find the rhythm, and the vault opens.</p><p>Now the arithmetic. If r is even, look at a to the r over two. Here, that is seven squared, forty nine. Its square is seven to the four, which is one modulo fifteen. So forty nine minus one, times forty nine plus one, is a multiple of fifteen. That is forty eight times fifty. The greatest common divisor of forty eight and fifteen is three. The greatest common divisor of fifty and fifteen is five. Fifteen is three times five.</p><p>It can fail. If r is odd, or if a to the r over two is minus one modulo N, we pick another a. Most choices work.</p><p>So factoring reduces to period finding. For a six hundred digit number, the list of powers is astronomically long.</p><p>This is where the quantum computer enters. We build the function that sends x to a to the x modulo N as a reversible circuit, and feed it a superposition of all x. We measure the output register. It shows one value, and the input register is left in a periodic pattern. The Fourier transform, through phase estimation, turns that pattern into a peak at a multiple of one over r. Classical post-processing recovers r. The next episode opens that circuit.</p><p>How fast is it? The quantum steps take time polynomial in the number of digits of N. The best classical algorithm is sub-exponential. That gap is believed large, but not proven.</p><p>Two honest caveats. In 2001, an IBM team used nuclear magnetic resonance to factor fifteen into three and five, published in Nature. A landmark, but fifteen is tiny. For a two thousand and forty eight bit key, published estimates fell from twenty million noisy qubits in 2019 to under one million in 2025. Episode six point five unpacks them. And Shor does not break all encryption. It threatens RSA and elliptic curves, not symmetric ciphers.</p><p>Let&#39;s recap. Factoring N reduces to finding the period r of a to the x modulo N. If r is even and a to the r over two is not minus one, greatest common divisors give the factors. For fifteen with a equals seven, r is four, and we get three and five. The quantum computer only finds the period. Shor threatens RSA and elliptic curves, not symmetric ciphers. Next, Shor, part two: inside the circuit.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_6.4_Shor-II-inside-the-circuit-and-discrete-log_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.4</span><span>5:17</span></span>
+        <h3>Shor II · <span class="pk">Inside the circuit, and discrete log</span></h3>
+<p class="summary">The period-finding circuit applies Hadamards to a control register, controlled modular multiplications by powers of a, and an inverse Fourier transform, then continued fractions turn the reading into the period. The arithmetic, not the Fourier step, dominates the cost. With two control registers the same machine finds discrete logarithms, and demonstrations that use the known answer are not honest.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the vault room. Last time, we turned factoring into period finding. Today we open the safe and look at the gears. This episode has two halves. Part one is the circuit that finds the period. Part two is a cousin of that circuit, which cracks a different lock.</p><p>Part one: inside the circuit.</p><p>Keep our example. N is fifteen, a is seven, and the period r is four. The circuit has two registers. The control register has t qubits. The target register holds a number modulo fifteen.</p><p>Picture the inside of the safe as a row of gears, each with a pawl, a little latch that either catches or does not. Each control qubit is one pawl. The first step is a Hadamard on every control qubit. The pawls now hold every number x at once, in superposition.</p><p>Then comes the heart of the machine. Control qubit k decides whether its gear turns. If the pawl catches, the gear multiplies the target by a to the power two to the k, modulo N. Seven, then seven squared, then seven to the fourth, and so on. Together the pawls multiply the target by a to the x. Notice that each gear is a fixed number, computed classically ahead of time. This is the phase estimation of episode six point two, aimed at the multiplication-by-seven gate.</p><p>Measure the target. It gives one value, say four, and the control register is left holding a comb of x values, spaced four apart. Now apply the inverse quantum Fourier transform to the control register. A comb with spacing r becomes a comb with spacing about two to the t over r. Measure the control register, and you read a number y near a multiple of two to the t over four.</p><p>Here t is eight, so two to the t is two hundred and fifty six. The possible readings are zero, sixty four, one hundred twenty eight, one hundred ninety two. Say we read sixty four. Sixty four over two hundred fifty six is one quarter. The denominator is four. That is the period.</p><p>In general, y over two to the t is only close to a fraction s over r. To recover it, we use continued fractions. Imagine a ring of keys, each finer than the last. The first key gives a coarse fraction. The next is closer, with a larger denominator. Shor chooses two to the t at least N squared, so exactly one fraction with denominator below N sits that close. We stop the ring there. If we read one hundred twenty eight, we get one half, a denominator of two, which is wrong. We check, fail, and run again. Classical code does all of this.</p><p>Now the cost, which surprises people. The quantum Fourier transform is cheap, about t squared gates. The expensive part is the gears: reversible modular multiplication, with its Toffoli gates and scratch qubits. In the 2021 estimate by Gidney and Ekerå, the Toffoli count for an n-bit number grows like n cubed, and that arithmetic is the bulk of it.</p><p>Part two: the discrete logarithm.</p><p>Here is another lock. Pick a prime p and a number g. Someone computes y equals g to the power s, modulo p, and hides s. Finding s is the discrete logarithm problem. It protects Diffie-Hellman key exchange and elliptic-curve cryptography. Shor&#39;s 1994 paper treats both factoring and discrete logarithms, and the 1997 journal version has both in the title.</p><p>The picture needs one change. Use two control registers, one for a and one for b. The gears compute g to the a, times y to the minus b, modulo p. Because y is g to the s, this value stays the same along lines, where a minus s times b is constant. The slope of those lines hides s. Apply the Fourier transform to both registers and measure. The readings land on points that reveal s, with a little classical arithmetic. Same pawls, same gears, same Fourier step.</p><p>Now the trap. Over the years, headlines have announced that quantum computers factored fifteen or twenty-one. The first was the 2001 NMR experiment by Vandersypen and colleagues, in Nature. It was a landmark, with seven nuclear spins. But in 2013, Smolin, Smith and Vargo published Pretending to factor large numbers on a quantum computer, also in Nature. They showed that circuits for tiny numbers can be simplified by using the answer you already know, and that a two-qubit circuit then appears to factor any product of two primes. The lesson is that a demonstration is only honest if the circuit does not need the answer. The true test is the full gears, at scale.</p><p>Let&#39;s recap. The circuit has Hadamards, controlled modular multiplications, an inverse Fourier transform, and a measurement. Continued fractions turn the reading into the period. The cost is dominated by the arithmetic, not by the Fourier transform. With two registers, the same machine finds discrete logarithms. And beware demonstrations that use the answer. Next, what would Shor really cost?</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-6.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_6.5_What-would-Shor-really-cost_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 6.5</span><span>4:23</span></span>
+        <h3>What would Shor really cost?</h3>
+<p class="summary">Breaking a 2048-bit RSA key has a cost with four lines: logical qubits, physical qubits, Toffoli gates and time. Estimates fell from about twenty million noisy qubits in 2019 to under one million in 2025, and to under one hundred thousand in a 2026 preprint that changes the hardware assumptions. Qubit count alone means little, and post-quantum standards and the harvest-now threat already matter.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the vault room, for the last visit of this chapter. We know how Shor&#39;s algorithm works. Today we ask the practical question: what would it really cost to break a two thousand and forty eight bit RSA key?</p><p>Picture a builder who hands us a quote for a tower that does not exist yet. The quote has lines. Each line is a different kind of cost, and ABACUS adds them up.</p><p>First line: logical qubits. A logical qubit is an error-protected qubit, built out of many fragile physical ones. In Craig Gidney&#39;s 2025 estimate, the algorithm needs about fourteen hundred logical qubits at its peak. Think of them as the storeys of the tower.</p><p>Second line: physical qubits. Each storey needs scaffolding. In that estimate, one protected qubit uses hundreds to over a thousand physical qubits, depending on whether it is working or waiting. The total is about nine hundred thousand, which the author rounds to one million.</p><p>Third line: Toffoli gates. This is the work itself, the loads the crane must lift. Shor&#39;s cost is dominated by modular arithmetic, as we saw in episode six point four. That estimate counts about six point five billion Toffoli gates.</p><p>Fourth line: time. Those gates run one after another, and each protected step takes many rounds of error checking. The estimate says under a week.</p><p>Now the key point. The number of qubits alone tells you almost nothing. The same job can be priced with many qubits and a short time, or with fewer qubits and a long time. And every line depends on the assumptions behind it.</p><p>Here are three quotes. In 2019, Craig Gidney and Martin Ekerå estimated about twenty million noisy qubits and eight hours. In May 2025, Gidney estimated fewer than one million qubits and under a week. That is twenty times fewer qubits, for a longer wait.</p><p>The third quote is newer. In February 2026, a team at Iceberg Quantum posted the Pinnacle architecture. It estimates fewer than one hundred thousand physical qubits, with an example that runs in about a month. But it changes the hardware. It uses quantum LDPC codes, which need links beyond nearest neighbours, and it leaves real-time decoding for future work.</p><p>Gidney&#39;s two quotes assume a square grid of qubits, each talking to its neighbours. An error rate of one in a thousand per gate. One microsecond per error-checking round. Pinnacle keeps the error rate and the timing, and drops the square grid. Change the assumptions, and the quote changes. These are estimates under stated assumptions, not predictions of a date. As far as we found, the 2025 and 2026 papers are preprints, not journal articles.</p><p>The classic trap runs the other way too. A million qubits sounds far away, and today&#39;s machines are much smaller. But the gap is an engineering gap, and the estimates keep falling. Planning cannot wait for the day a machine appears.</p><p>That is why standards matter. In August 2024, NIST published its first post-quantum standards: FIPS two zero three, two zero four and two zero five. In October 2026, NIST finalised its transition report, number eight five four seven. For RSA, it says deprecated after twenty thirty, and disallowed after twenty thirty five.</p><p>There is also a quieter reason to hurry. An adversary can record encrypted traffic today and store it, hoping to decrypt it once a machine exists. This is called harvest now, decrypt later. Data that must stay secret for decades is already exposed to that bet.</p><p>Let&#39;s recap. The cost of Shor is a bill with four lines: logical qubits, physical qubits, Toffoli gates, and time. Qubit count alone is meaningless. For RSA two thousand and forty eight, published estimates fell from twenty million qubits in 2019, to under one million in 2025, to under one hundred thousand in a 2026 preprint with different hardware. Post-quantum standards already exist. Next, Grover&#39;s search.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-5/">← 5 · FIRST ALGORITHMS AND PROTOCOLS</a><a class="btn main" href="../chapter-7/">7 · GROVER →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

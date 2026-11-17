@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum linear algebra · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 9: Quantum linear algebra.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 9</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 9</span><span class="caps">CHAPTER 9</span></div>
+    <h1 class="h1-chapter">Quantum linear algebra</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 17 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/" class="on" aria-current="page">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-9.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_9.1_Block-encodings-and-LCU_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 9.1</span><span>3:53</span></span>
+        <h3>Block encodings and LCU</h3>
+<p class="summary">A block encoding embeds a general matrix A, divided by a scale alpha, in the corner of a larger unitary, with ancilla qubits that read zero when the block is applied. The linear combination of unitaries builds one with prepare, select and unprepare steps. It is a tool, not an algorithm, and alpha always sets the bill.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the glassworks, the home of chapter nine. This chapter is linear algebra with quantum tools. Today: the block encoding.</p><p>Here is the problem. A quantum computer applies unitary matrices, and every column of a unitary has length one. But the matrices of linear algebra are rarely unitary. A Hamiltonian, a table of data, a system to solve: none keeps lengths. So how do we put a general matrix A inside a circuit?</p><p>Picture the glassmaker. She holds a small coloured pane. That pane is our matrix A. The frame only accepts unitary panes, so she makes the window bigger. She sets the pane in the top left corner of a large, clear window, and fills in the rest so that the whole window is unitary. The corner is A. Everything else is filler.</p><p>Start with one number, zero point six. A column of a unitary must have length one, so below it we put zero point eight, because zero point six squared plus zero point eight squared makes one. The window with rows zero point six, zero point eight, and zero point eight, minus zero point six is unitary, and its corner holds our number.</p><p>For a general matrix there is one catch: A may be too big to fit. So we shrink it. We choose a number alpha, at least as large as the biggest singular value of A, and we put A divided by alpha in the corner. Now it fits, and a filler always exists, at the price of extra qubits called ancillas.</p><p>Start the ancillas in zero, apply the big unitary, and look at them. Whenever they are back in zero, the system has received exactly A over alpha. That is a block encoding, the common language of the quantum singular value transformation of Gilyén, Su, Low and Wiebe, in 2019.</p><p>How do we build the window? The most common recipe is the linear combination of unitaries, or L-C-U, which Andrew Childs and Nathan Wiebe developed for Hamiltonian simulation in 2012. Write A as a sum of unitaries U i, each with a positive weight alpha i. A sum of Pauli strings is such a sum. Let alpha be the total of the weights.</p><p>The circuit, in one picture, has three drums. The first, prepare, loads the ancillas with amplitudes equal to the square root of alpha i over alpha. The second, select, applies U i to the system, controlled on the ancillas reading i. The third, unprepare, undoes the first. Now look at the ancillas. The amplitude for finding them in zero is the weighted average of the U i, which is A over alpha.</p><p>How much faster is it? This is a tool, not an algorithm, so there is no speed-up to quote. In 2016, Guang Hao Low and Isaac Chuang showed that once a Hamiltonian is block encoded, a method called qubitization simulates its evolution in time t with a number of uses that grows as alpha times t, plus a term in the logarithm of one over the error.</p><p>Now the classic trap: forgetting alpha. The block is A over alpha, not A. When alpha is large, the useful block is small. Even with amplitude amplification, you pay about alpha, divided by the length of A applied to your state, in repetitions. Simulation pays alpha times t. In an L-C-U, alpha can be far bigger than the norm of A, because terms may cancel. A sloppy alpha costs you directly.</p><p>Let&#39;s recap. We embed A over alpha in the corner of a larger unitary: a block encoding. L-C-U builds one with three drums: prepare, select, unprepare. The block appears when the ancillas return to zero. Alpha always sets the bill. Next, Q-S-V-T: one framework for many algorithms.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-9.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_9.2_QSVT-One-framework-for-many-algorithms_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 9.2</span><span>4:25</span></span>
+        <h3>QSVT · <span class="pk">One framework for many algorithms</span></h3>
+<p class="summary">The quantum singular value transformation applies a polynomial to the singular values of a block-encoded matrix, alternating the block encoding with its mirror image and phase rotations, at a cost of about the polynomial&#39;s degree. A step gives search, a cosine and sine give Hamiltonian simulation, and one over x gives matrix inversion. It is a grammar, not a speed-up in itself.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the glassworks, the home of chapter nine. Today we meet the idea that ties the whole chapter together: the quantum singular value transformation, or QSVT. This episode has two parts. Part one builds the tool. Part two shows what it can make.</p><p>Part one of two.</p><p>Remember the glassmaker from the last episode. She cast a small coloured plate, our matrix A, into the corner of a larger, transparent window. That window is a block encoding. Every matrix has singular values, numbers between zero and one that say how strongly the matrix stretches each direction. Think of them as the shade of each strip of glass.</p><p>Here is the new move. The glassmaker puts the window in a kiln and gives every strip a new shade. A strip of shade x comes out with shade P of x, where P is a polynomial of her choosing. The strips keep their shape. Only their shades change. That is QSVT: it applies a polynomial to the singular values of a block.</p><p>How is it done? With a rhythm. Use the window. Turn one extra qubit by a phase angle. Use the window run backwards. Turn the qubit again. And so on. The circuit is just the block encoding, alternating with its mirror image, with a single phase rotation between each pair. The list of angles decides which polynomial you get.</p><p>Gilyén, Su, Low and Wiebe presented this at the STOC conference in 2019. It grew out of quantum signal processing, from Low and Chuang in 2017, which did the trick for a single number.</p><p>Now the price. A polynomial of degree d needs the window about d times. So the cost of the algorithm is the degree of the polynomial. A gentle curve is cheap. A sharp curve is expensive.</p><p>Two rules apply. The polynomial must stay between minus one and one, and it must be either even or odd. And there is a side job: someone has to compute the angles. That is a numerical problem of its own, separate from the quantum circuit. Researchers have found stable ways to do it. One method handles degrees above ten thousand, in ordinary double precision.</p><p>Part two of two.</p><p>Now the gallery. The same machine in every frame. Only the curve changes.</p><p>Pick a step. Keep the strips above a threshold, and push the rest down. That sign-like curve gives you search: the marked amplitude grows, round after round, as in Grover&#39;s algorithm. A cousin of the step answers the eigenvalue threshold question: is this eigenvalue above a given value? Ask it again and again, and you can read out a phase. That is phase estimation.</p><p>Pick a cosine and a sine. Strips come out as cosine and sine of the time, and you have Hamiltonian simulation, the evolution of a quantum system.</p><p>Pick one over x. Strips with a small singular value get a large factor. That is matrix inversion, and it is the heart of the next episode. There is one catch. One over x blows up near zero, so you invert only the strips above one over kappa, where kappa is the condition number. The smaller that window, the higher the degree. Roughly, the degree grows in proportion to kappa.</p><p>In 2021, Martyn, Rossi, Tan and Chuang wrote a tutorial with a bold title: a grand unification of quantum algorithms. They show how search, phase estimation and Hamiltonian simulation come out of this one framework, and they add matrix inversion and the eigenvalue threshold problem.</p><p>The classic trap: QSVT is not faster by itself. It is a grammar. The speed depends on how cheap your block encoding is, on the factor alpha from the last episode, and on how low the degree can stay.</p><p>Let&#39;s recap. A block encoding hides a matrix inside a larger unitary. QSVT applies a polynomial to its singular values, using the block about as many times as the degree. The polynomial is bounded, and even or odd. Pick a step for search and thresholds, a cosine for simulation, and one over x for inversion. Next, HHL, and how to solve Ax equals b.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-9.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_9.3_HHL-Solving-Ax-b_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 9.3</span><span>4:11</span></span>
+        <h3>HHL · <span class="pk">Solving Ax = b</span></h3>
+<p class="summary">HHL solves A x equals b by writing b in the eigenbasis of A, dividing each part by its eigenvalue, and recombining. The circuit encodes b, runs phase estimation, rotates an extra qubit by one over lambda, undoes the estimation and post-selects, leaving a state proportional to x. The cost grows with the logarithm of N, a possibly exponential gain under conditions.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the glassworks, the home of chapter nine. Today we meet the algorithm that started quantum linear algebra: HHL, which solves A x equals b.</p><p>First, the problem. A is a matrix, b is a vector, and we want the vector x that satisfies A x equals b. Linear systems like this are everywhere: in simulation, in statistics, in machine learning. Classically, the best methods need at least as many steps as there are entries in x.</p><p>Here is the picture. A beam of light, the vector b, enters a glass prism. The prism splits it into colours. These are the eigen-colours of A, and each one is an eigenvector. Each colour is then dimmed by a pane of tinted glass. A colour with a large eigenvalue lambda passes almost untouched. A colour with a small eigenvalue must be boosted, because we want to divide by lambda. At the end, a second prism puts the colours back together. The beam that comes out is x.</p><p>That is the intuition: write b in the eigenbasis of A, divide each part by its eigenvalue, and add the parts back up. Inverting a matrix is just inverting its eigenvalues.</p><p>In 2008, Aram Harrow, Avinatan Hassidim and Seth Lloyd showed how a quantum computer can do this. Their paper appeared in Physical Review Letters in 2009. The algorithm prepares a quantum state whose amplitudes are proportional to the entries of x.</p><p>Here is the circuit in one picture, in five steps. One: encode b into the amplitudes of a register. Two: run quantum phase estimation, from the chapter on the Fourier transform, on the unitary e to the i A t. This writes the eigenvalues of A into a second register, one eigen-colour at a time, all in superposition. Three: add one extra qubit, and rotate it by an angle that depends on lambda, so that its amplitude is proportional to one over lambda. That is the tinted glass. Four: undo the phase estimation, so the eigenvalue register returns to zero. Five: measure the extra qubit. If it reads one, the main register holds the state proportional to x. If it reads zero, we throw the run away and try again.</p><p>There is a second way to see the same circuit. In episode nine point two, we met quantum singular value transformation. HHL applies the function one over x to the eigenvalues. In that language, it is a polynomial approximation of one over x, and the cost is the degree of that polynomial. Later algorithms, based on this idea, have improved the original runtime.</p><p>Now, how much faster? In their abstract, the authors compare a classical cost of order N times the square root of kappa with a quantum cost that is polynomial in the logarithm of N and in kappa. Here N is the number of rows, and kappa is the condition number of A, the ratio between its largest and smallest eigenvalues. Because the quantum cost grows only with the logarithm of N, this can be an exponential improvement. But notice the conditions. The matrix must be sparse. It must be well conditioned. And the authors say what they really want: not x itself, but an estimate of a quantity computed from x, such as x dagger M x.</p><p>The classic trap is hidden in those conditions. The output is a quantum state, not a list of numbers. Loading b and reading x both carry costs. The next episode is devoted to exactly that fine print, so we keep it for then.</p><p>Let&#39;s recap. HHL solves A x equals b by splitting b into eigen-colours, dividing each by its eigenvalue, and recombining. The circuit encodes b, runs phase estimation, rotates an extra qubit by one over lambda, undoes the estimation, and post-selects. Seen through singular value transformation, it is a polynomial for one over x. The speed-up can be exponential in N, under conditions. Next, HHL&#39;s fine print.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-9.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_9.4_HHLs-fine-print_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 9.4</span><span>4:09</span></span>
+        <h3>HHL&#39;s fine print</h3>
+<p class="summary">HHL&#39;s logarithmic runtime in N holds only under four conditions: b must be loaded fast, the matrix must be sparse, the condition number must stay small, and the output is a quantum state, not a vector, so only global quantities such as an inner product come out. Dequantization results show some proposals give no exponential gain over classical methods with similar data access.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the glassworks. In the last episode, a prism split the vector b into its eigen-colours and dimmed each one by its eigenvalue. That is the HHL algorithm, by Aram Harrow, Avinatan Hassidim and Seth Lloyd, published in Physical Review Letters in 2009. Today we read the fine print at the foot of the prism.</p><p>Here is the headline. HHL solves A x equals b, for a matrix with N rows, in a time that grows like the logarithm of N. Classically, even writing down the answer takes N steps. That sounds like an exponential speedup. It can be one, but only under conditions. LENS has brought a magnifying glass to read them.</p><p>In 2015, Scott Aaronson published an essay in Nature Physics with a title that says it all: Read the fine print. He lists four caveats. Each one switches off a facet of the prism.</p><p>The first is the input. The state of b must be loaded into the quantum computer. If b is a long list on a classical disk, loading it entry by entry takes about N steps, and the gain is gone before we start. In theory, a quantum memory called QRAM could load it fast. Nobody has built one at that scale. If b follows a short formula, the quantum computer can prepare it by itself. That is the best case.</p><p>The second is the matrix. We must apply the unitary e to the minus i A t quickly. That works when A is sparse, with only a few nonzero entries per row, which can be looked up fast. A dense matrix breaks this facet.</p><p>The third is the condition number, kappa. It is the ratio of the largest eigenvalue to the smallest, in magnitude. A tiny eigenvalue means the matrix is nearly singular, and inverting it amplifies everything. Aaronson summarises the runtime as roughly the logarithm of N, times kappa, times the sparsity s, divided by the precision epsilon. If kappa grows like a power of N, the exponential speedup disappears.</p><p>The fourth is the output, and it is the most surprising. HHL does not give you x. It gives you a quantum state, ket x, whose amplitudes are the entries of x. Measuring it reveals only limited statistical information: an inner product, or where the very large entries sit. To learn one specific entry, you must repeat the whole algorithm about N times. What HHL is built for is a global number, such as x dagger M x, the expectation value of an operator M.</p><p>So the honest task is not &#34;solve any linear system&#34;. It is: estimate a global feature of the solution, for a sparse, well-conditioned system whose input can be prepared fast. Then comes the fairest question. Is there a classical algorithm that does the same job nearly as fast?</p><p>Sometimes there is. In 2018, Ewin Tang showed that the quantum recommendation algorithm of Kerenidis and Prakash gives no exponential speedup. When a classical algorithm is allowed the same kind of access to the data, sampling entries in proportion to their squared size, it is only polynomially slower. This is called dequantization. It applies to low-rank problems, and we will meet it again in chapter fourteen.</p><p>That matters for machine learning. Many quantum learning proposals use HHL, or copy its structure, and they inherit its fine print. Before asking how fast the quantum step is, ask how the data gets in, how many numbers come out, and what a classical computer can do with the same access.</p><p>Let&#39;s recap. HHL prepares a state proportional to the solution, in time that grows with the logarithm of N. It needs b to be loaded fast, A to be sparse, and kappa to be small. It outputs a state, not a vector, so only global features come out. And the fair comparison is always the best classical algorithm. Read the fine print first. Next, decoherence: the environment is watching.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-8/">← 8 · LETTING PHYSICS COMPUTE</a><a class="btn main" href="../chapter-10/">10 · NOISE AND ERROR CORRECTION →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

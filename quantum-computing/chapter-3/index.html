@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gates and circuits · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 3: Gates and circuits.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 3</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 3</span><span class="caps">CHAPTER 3</span></div>
+    <h1 class="h1-chapter">Gates and circuits</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 11 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/" class="on" aria-current="page">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-3.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_3.1_A-gate-is-a-unitary_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 3.1</span><span>2:53</span></span>
+        <h3>A gate is a unitary</h3>
+<p class="summary">A quantum gate is a unitary matrix, which keeps the vector&#39;s length at one and whose inverse is its conjugate transpose. On one qubit every gate is a rotation of the Bloch sphere: X swaps the poles, Z flips the equator, H swaps the x and z axes, and S and T turn the phase. Z looks harmless on zero yet decisive on plus.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the riso print shop, the home of chapter three. Here, a strip of paper runs under a row of drums. Each drum prints one transformation on the strip. Each drum is a gate, and today we see what a gate really is.</p><p>A quantum gate is a matrix that acts on the state vector. But not just any matrix. It must keep the total length of the vector equal to one, because the yellow bars must always add up to one. Matrices that keep lengths are called unitary.</p><p>The condition is short. U dagger times U equals the identity. U dagger is the conjugate transpose, the same operation that turned a ket into a bra. In words: the inverse of a unitary is its own conjugate transpose. Every gate can be undone.</p><p>On the Bloch sphere, every single-qubit gate is a rotation. Let&#39;s meet the main ones.</p><p>The X gate is a half turn around the x axis. It swaps the north and south poles, so it turns ket zero into ket one, and back. It is the quantum NOT. Its matrix has zeros on the diagonal and ones elsewhere.</p><p>The Z gate is a half turn around the vertical axis. The poles do not move. But the equator turns by half a circle. Ket plus becomes ket minus. Its matrix is diagonal: one, and minus one.</p><p>This is worth a pause. Z does nothing visible to ket zero. On ket one, it only multiplies by minus one, which is a global phase. Yet on ket plus, it changes the state completely. A gate can look harmless in one basis and be decisive in another.</p><p>The Hadamard gate, H, is a half turn around an axis tilted halfway between x and z. It swaps the x axis and the z axis. So it turns ket zero into ket plus, and ket plus back into ket zero. Its matrix is one over root two, times one, one, one, minus one.</p><p>Then come the phase gates. S is a quarter turn around the vertical axis. T is an eighth of a turn. They change only the relative phase. In the arrow bar, they turn the arrow of ket one, and leave ket zero alone.</p><p>One more property, which we will need later. The eigenvalues of a unitary matrix all have length one. They sit on the unit circle, as pure phases, e to the i theta. Chapter six is entirely about reading those phases.</p><p>Let&#39;s recap. A gate is a unitary matrix: it keeps lengths, and its inverse is its conjugate transpose. On one qubit, every gate is a rotation of the Bloch sphere. X swaps the poles, Z flips the equator, H swaps x and z, and S and T turn the phase by a quarter and an eighth. And the eigenvalues of a unitary are pure phases. Next, gates with two qubits: control, CNOT and Toffoli.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-3.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_3.2_Control-CNOT-and-Toffoli_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 3.2</span><span>2:46</span></span>
+        <h3>Control: CNOT and Toffoli</h3>
+<p class="summary">A controlled gate acts on a target only when its control is one. CNOT flips the target, and applied to a control in superposition it creates a state that no longer factors into two qubits, the first entanglement. The Toffoli gate flips its target when both controls are one, computing an AND while keeping the inputs, so any classical computation can be built from it.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the print shop. So far, each drum printed on one strip at a time. Today, a drum reads one strip before printing on another. These are controlled gates, and they are how qubits talk to each other.</p><p>The most important one is the controlled NOT, or CNOT. It has a control qubit and a target qubit. If the control is zero, nothing happens. If the control is one, an X gate flips the target.</p><p>On the four basis states, the truth table is simple. Zero zero stays zero zero. Zero one stays zero one. One zero becomes one one. And one one becomes one zero. As a four by four matrix, CNOT is the identity in the top left block, and an X in the bottom right block.</p><p>In the circuit, we draw a black dot on the control wire, a vertical line, and a circle with a plus sign on the target. The plus is a reminder: the target receives the control, added modulo two.</p><p>Now the important case. What if the control is not zero or one, but a superposition? Put the control in ket plus, and the target in ket zero. Before the gate, the state is one over root two, times zero zero plus one zero. CNOT acts on each part separately, because it is linear. Zero zero stays. One zero becomes one one. The result is one over root two, times zero zero plus one one.</p><p>On a classical input, CNOT copies the control onto a blank target. On a superposition, it does something no classical gate can do. It produces a state that no longer factors into two separate qubits. This is our first entangled state, and chapter four is all about it.</p><p>Now let&#39;s add a second control. The Toffoli gate, also called controlled controlled NOT, flips its target only if both controls are one. With a target starting at zero, it writes the AND of the two controls onto the target. And it keeps the two inputs untouched.</p><p>That last detail matters. A classical AND gate takes two bits and returns one, so it forgets something. Toffoli returns all three, so nothing is lost. This makes it a bridge between classical logic and quantum circuits. Any classical computation can be built from Toffoli gates. We will see why that matters in the next episode.</p><p>Let&#39;s recap. A controlled gate acts on a target only when its control is one. CNOT flips the target, and in matrix form it is an identity block and an X block. On a superposition, CNOT creates entanglement. Toffoli flips the target when both controls are one, and computes an AND without losing the inputs. Next, why every quantum computation must be able to run backwards.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-3.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_3.3_Why-everything-must-run-backwards_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 3.3</span><span>2:35</span></span>
+        <h3>Why everything must run backwards</h3>
+<p class="summary">Every unitary gate has an inverse, so a quantum circuit can always be run backwards, while a classical AND gate destroys information. Toffoli keeps the inputs instead, but leftover garbage qubits can stay entangled and spoil interference, so compute, copy the result with a CNOT, then uncompute cleans them up. Measurement is the only irreversible step.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the print shop, every drum can turn backwards. Run the strip in reverse, and each print is lifted off, in the opposite order. Today we see why a quantum computation must always be able to do that.</p><p>Remember the rule from episode three point one. Every gate is unitary, and every unitary has an inverse: its conjugate transpose. So a circuit made of gates can always be undone, gate by gate, from the last one to the first. Nothing is ever erased.</p><p>Classical computers do not work like that. Take an AND gate. Three different inputs, zero zero, zero one, and one zero, all give the same output, zero. Looking at the output, you cannot tell which input it came from. Information has been destroyed. That gate cannot be run backwards.</p><p>A quantum circuit cannot contain such a gate. So how do we compute an AND? With the Toffoli gate from the last episode. It keeps both inputs, and writes the result on a third wire. All the information is still there, so the step can be undone.</p><p>But there is a price. The extra wire, and the inputs we keep, pile up. In a long computation, these leftover qubits are called garbage. And garbage is not harmless. Leftover qubits can stay entangled with the answer, and spoil the interference that the algorithm needs.</p><p>The solution is elegant, and it is called uncomputation. First, compute the result. Second, copy the result onto a fresh qubit with a CNOT. Third, run the first part backwards, which lifts off all the intermediate steps. At the end, the helper qubits are back to zero, clean, and only the answer remains.</p><p>You will see this pattern in many algorithms: compute, copy, uncompute. It is how oracles are built in chapter five, and how arithmetic is built inside Shor&#39;s algorithm in chapter six.</p><p>There is exactly one operation in a circuit that cannot be undone: measurement. Measuring turns a superposition into a single result, and the rest of the state is lost. That is why measurements usually sit at the very end of the strip.</p><p>Let&#39;s recap. Unitary gates can always be inverted, so quantum circuits are reversible. Classical gates like AND lose information, and Toffoli replaces them by keeping the inputs. Leftover qubits, called garbage, can spoil interference. Compute, copy, uncompute cleans them up. And measurement is the only irreversible step. Next, we learn to read a whole circuit.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-3.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_3.4_Reading-a-circuit_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 3.4</span><span>2:48</span></span>
+        <h3>Reading a circuit</h3>
+<p class="summary">A circuit has one wire per qubit, time flowing left to right, boxes for gates and dials for measurements, with width counting qubits and depth counting time steps. Read left to right, it is a matrix product written right to left, a common source of bugs. A simulator is a numpy vector multiplied by matrices then sampled, and a small gate set is universal.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>The riso print shop has one more trick. If we unroll a whole strip of paper on the table, we can read the full sequence of drums at once. That unrolled strip is a quantum circuit. Today, we learn to read it.</p><p>Each horizontal line is a wire, and each wire is one qubit. By convention, every qubit starts in ket zero, written on the left. Time flows from left to right. A box on a wire is a gate acting on that qubit. A vertical line between wires is a controlled gate. And the little dial at the end is a measurement, which turns the qubit into a classical bit.</p><p>Two numbers describe the size of a circuit. The width is the number of wires, the number of qubits. The depth is the number of time steps, when gates that can act in parallel are grouped together. Depth matters a lot on real machines, because qubits only stay coherent for a limited time.</p><p>Now the main trap. A circuit is a product of matrices. Read the circuit from left to right: first A, then B, then C. But the state is a column vector, and matrices act from the left. So the total operation is C times B times A. The circuit is written left to right, and the product is written right to left. When a calculation gives a strange result, check this order first.</p><p>The second trap was in episode one point three: the order of qubits inside a bit string can differ between paper and software. Together, these two traps cause most beginner bugs.</p><p>To make all this concrete, let&#39;s look at what a simulator does. Our Python friend writes about fifteen lines. The state is a numpy array of length two to the n, starting with a one in the first position. Applying a gate means building its full matrix with Kronecker products, and multiplying. Measuring means computing the squared lengths, and drawing a random outcome with those probabilities. That is the whole idea of a state-vector simulator. Real libraries are much faster, but they do the same thing.</p><p>Finally, how many different gates do we need? Surprisingly few. A small set, for example H, T and CNOT, is enough to approximate any unitary to any accuracy we want. Such a set is called universal. So every algorithm in this series, however exotic, can be written with a handful of drum types.</p><p>Let&#39;s recap. Wires are qubits, time flows to the right, boxes are gates, dials are measurements. Width counts qubits, depth counts time steps. A circuit read left to right is a matrix product written right to left. A simulator multiplies a vector by matrices, then samples. And a few gates are enough to build everything. Next chapter, we take a closer look at entanglement.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-2/">← 2 · THE QUBIT</a><a class="btn main" href="../chapter-4/">4 · ENTANGLEMENT →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

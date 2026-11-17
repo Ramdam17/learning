@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, bonus: Code.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>BONUS</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · B</span><span class="caps">BONUS</span></div>
+    <h1 class="h1-chapter">Code</h1>
+    <div class="pills">
+<span class="pill y">2 VIDEOS · 8 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/" class="on" aria-current="page">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-B">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_B.1_Qiskit-end-to-end_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>BONUS</span><span>4:15</span></span>
+        <h3>Qiskit, end to end</h3>
+<p class="summary">A Grover search on three qubits with one marked state is written cell by cell in Qiskit, with an oracle and a diffusion step. Transpiling for a fake copy of a 127-qubit IBM machine turns 38 operations at depth 18 into 255 at depth 158. Run ideally, the marked state wins about 94 percent of shots; with simulated noise, about 70 percent.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the code club treehouse, the home of our first bonus episode. Today is Qiskit, end to end, in two parts. Part one: write the circuit. Part two: compile it, then run it twice, without noise and with noise.</p><p>This is the one place in the series where code stays on screen. Every line you will see was run for this video, and every number comes from that run. The versions are: Qiskit two point six point two, Qiskit Aer zero point eighteen point two, and Qiskit IBM Runtime zero point fifty two point one, as of November twenty twenty six.</p><p>Part one. LAPPY sits in the treehouse and writes the Grover search of episode seven point one, one cell at a time. Three qubits, eight objects, and one marked state: one, zero, one.</p><p>Cell one defines two small functions. The oracle flips the sign of the marked state: an X gate on qubit one, a controlled controlled Z, then X again. The diffusion step is the inversion about the mean: H on every qubit, X on every qubit, the same controlled controlled Z, then X and H again.</p><p>Cell two builds the circuit. H on every qubit, then two rounds of oracle and diffusion. For eight objects, two rounds is the right number, as we saw in seven point one. Then we measure all three qubits.</p><p>Now count what you wrote. Thirty eight operations, in depth eighteen. That is fifteen H gates, sixteen X gates, four controlled controlled Z gates, and three measurements. This is the circuit as you think about it.</p><p>Part two. A real machine does not speak that language. It has a short list of native gates. Our backend is a fake copy of IBM&#39;s Sherbrooke machine, a snapshot of its calibration data that ships with the library. It has one hundred twenty seven qubits, and its native gates are R-Z, S-X, X, and E-C-R, an echoed cross resonance gate that acts on two qubits.</p><p>The transpile function rewrites your circuit in those gates and fits it onto the chip. We fix the transpiler seed at eleven, so you get exactly our result.</p><p>Here it is. Two hundred fifty five operations, in depth one hundred fifty eight. Forty five of them are E-C-R gates, the two qubit gates, which are the costly ones. The controlled controlled Z has no native version, so each one becomes a long string of simpler gates.</p><p>The count went from thirty eight to two hundred fifty five, and the depth from eighteen to one hundred fifty eight. And there are zero SWAP gates this time: the three qubits landed on neighbours that are already connected. With more distant qubits, the compiler would add SWAPs.</p><p>Now we run it. Four thousand shots, simulator seed seven. First, the ideal simulator, with no noise. The state one, zero, one comes up three thousand seven hundred forty three times, ninety three point six percent. That is close to the ninety four and a half percent that the theory of episode seven point one predicts. Each of the seven other outcomes appears between thirty three and forty six times.</p><p>Second, the noisy simulator, built from the same backend&#39;s noise model: gate errors, readout errors, and relaxation. Same shots, same seed. The peak sinks to two thousand seven hundred ninety two, sixty nine point eight percent. The seven wrong outcomes now appear between one hundred seventeen and two hundred eighteen times each.</p><p>The answer still wins, but the peak sank, because the compiled circuit is longer, and every gate adds a little error. This is the noise of chapter ten, now in your own code. And remember: this is a simulation of a machine&#39;s noise, not a run on the machine. This series runs nothing on real hardware.</p><p>Let&#39;s recap. Write the circuit cell by cell. Transpile it for the machine&#39;s native gates. Run it twice, ideal and then noisy. Thirty eight operations became two hundred fifty five, depth eighteen became one hundred fifty eight, and the peak fell from ninety four percent to seventy percent. Next, the same adventure with PennyLane, end to end.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-B.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_B.2_PennyLane-end-to-end_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>BONUS</span><span>4:08</span></span>
+        <h3>PennyLane, end to end</h3>
+<p class="summary">PennyLane builds the hydrogen molecule&#39;s Hamiltonian and a one-angle circuit, and gradient descent reaches the exact ground energy within a few parts in a hundred thousand of a hartree. The parameter-shift rule and autodiff agree on a simulator. With finite shots only the shift rule remains, and the energy curve trembles around the true value.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the code club treehouse. This is the second bonus episode, and the last video of the series. Today, LAPPY runs PennyLane, end to end. Everything on screen is real code, run for this episode, with its real output.</p><p>Part one. Chemistry.</p><p>First, the versions. PennyLane zero point forty-five point one, with PyTorch two point fifteen. A library like this changes quickly, so the version is part of the result.</p><p>Our molecule is hydrogen, two atoms, one point four bohr apart, in the minimal basis called STO-3G. PennyLane builds the Hamiltonian for us. It needs four qubits, and it is a sum of fifteen Pauli terms. We also diagonalise it exactly, as a check. The lowest energy is minus one point one three seven two seven six hartree.</p><p>For the circuit, we start from the Hartree-Fock state, then apply one gate that moves a pair of electrons: a double excitation, with a single angle theta. The cost is the expectation value of the Hamiltonian.</p><p>Now we descend. Plain gradient descent, thirty steps. The energy slides from minus one point zero zero seven five, down to minus one point one three seven two one five. The exact value is minus one point one three seven two seven six, from the same Hamiltonian. The gap is six parts in a hundred thousand of a hartree. Our reference, a full configuration interaction calculation published with the GQCP library, gives minus one point one three seven two seven six. They agree.</p><p>Where does the slope come from? From the parameter-shift rule. Run the circuit again with the angle shifted, and combine the results. A plain rotation needs two shifted runs. This double excitation needs four. Autodiff does the same job by differentiating the simulator itself. At theta equals zero point three, the shift rule gives zero point zero five nine eight nine eight three five. Autodiff gives the same number. They differ by about ten to the minus sixteen.</p><p>Part two. Learning, and noise.</p><p>Now a small classifier. Sixty points in a square, and the label says whether a point lies inside a disc. We encode each point as two rotation angles, then apply three layers of entangling rotations on two qubits, and read one qubit. The loss is a mean squared error, and PyTorch&#39;s Adam optimiser does the descending.</p><p>PennyLane hands the quantum circuit to PyTorch as an ordinary layer. Over eighty epochs, the loss falls from zero point seven nine to zero point three eight, and the accuracy on the training points reaches ninety-two percent. This is a toy, and it is trained and scored on the same sixty points. It shows the plumbing, not a quantum advantage.</p><p>Again we check the gradients. For all eighteen weights, the shift rule and autodiff agree to about three times ten to the minus sixteen.</p><p>And now, the moment of truth. We repeat the energy run, but the device returns only one thousand shots per expectation value, with a fixed seed. The gradient now comes from the shift rule, because autodiff cannot see inside a sampled measurement. The smooth slide turns into a shaky one. Over the last ten steps, the energy wanders with a standard deviation of about five thousandths of a hartree. It even dips below the exact ground energy, which is allowed, because each point is only an estimate. This is the noise from episode thirteen point one: an estimate, not the true value.</p><p>Let&#39;s recap. PennyLane builds the molecule, the circuit and the gradients in a few lines. The shift rule and autodiff agree on a simulator. With a finite number of shots, only the shift rule remains, and the curve trembles.</p><p>That is the end of the series. Thank you for learning with us. If you want to start again from the beginning, episode zero point one is waiting for you.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-16/">← 16 · IS MY PROBLEM QUANTUM-FRIENDLY?</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

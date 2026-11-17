@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entanglement · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 4: Entanglement.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 4</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 4</span><span class="caps">CHAPTER 4</span></div>
+    <h1 class="h1-chapter">Entanglement</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 16 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/" class="on" aria-current="page">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-4.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_4.1_A-state-that-wont-factor_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 4.1</span><span>3:11</span></span>
+        <h3>A state that won&#39;t factor</h3>
+<p class="summary">Entanglement means a state does not factor into separate qubit states. A Hadamard followed by a CNOT turns 00 into a Bell state, one of four, and neither qubit then has a state of its own, so no Bloch sphere applies. Results agree between the two sides, yet each side alone is random, so no message passes.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the post office, the home of chapter four. Today&#39;s topic is entanglement, and we will build it from things we already know: the tensor product, the Hadamard gate, and CNOT.</p><p>Recall the definition from episode one point three. Two qubits are in a product state when their four amplitudes can be written as the Kronecker product of two smaller vectors. Then each qubit has its own state. A state that cannot be written that way is called entangled.</p><p>Building one takes two gates. Start with two qubits in ket zero zero. Apply H to the first one. The state becomes one over root two, times zero zero plus one zero. Then apply CNOT, with the first qubit as control. The result is one over root two, times zero zero plus one one. We proved in episode one point three that this state does not factor.</p><p>This state is one of four famous states, called the Bell states. Phi plus is zero zero plus one one. Phi minus is zero zero minus one one. Psi plus is zero one plus one zero. And psi minus is zero one minus one zero. All four have a factor one over root two. And all four are entangled.</p><p>At the post office, picture two envelopes sealed together at the counter. Each envelope alone looks unreadable. Together, they make one letter. The letter is the joint state. It belongs to the pair, not to either envelope.</p><p>This is why the Bloch sphere fails here. A Bloch sphere describes one qubit with its own state. In an entangled pair, neither qubit has a state of its own, so there is no arrow to draw inside either sphere. The arrow bar, on the other hand, still works perfectly. It simply shows the four amplitudes of the pair.</p><p>Now let&#39;s measure. In phi plus, each outcome, zero zero or one one, has probability one half. So the two results always agree. If the first qubit gives zero, the second gives zero. If the first gives one, the second gives one.</p><p>Does that mean that measuring one qubit sends a message to the other? No. Look at one side alone. Whatever the other side does, its own results are a perfectly random sequence of zeros and ones, one half each. Nothing about the distant choice can be read locally. The correlation only appears when the two lists are brought together and compared, and that requires an ordinary classical channel.</p><p>So entanglement is not a way to communicate faster than light. It is a resource. In chapter five, it will power teleportation and superdense coding. And in chapter eleven, we will learn to measure how much of it a state contains.</p><p>Let&#39;s recap. A state is entangled when it does not factor into separate qubit states. H followed by CNOT turns zero zero into a Bell state. There are four Bell states. An entangled qubit has no state of its own, so no Bloch sphere, but the arrow bar still works. The results of an entangled pair are correlated, yet each side alone sees pure randomness, so no message passes. Next, we ask what makes these correlations truly quantum.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-4.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_4.2_Correlation-is-not-entanglement-The-CHSH-game_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 4.2</span><span>3:34</span></span>
+        <h3>Correlation is not entanglement · <span class="pk">The CHSH game</span></h3>
+<p class="summary">Correlation alone is not special: socks of different colours are correlated through a common cause. In the CHSH game, separated players win if their answers differ only when both questions are one, and any classical strategy wins at most seventy-five percent of the time. Players sharing an entangled pair reach about eighty-five percent without sending messages, as experiments confirm.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the post office. In the last episode, two entangled qubits always gave matching results. But wait. Correlations are everywhere in everyday life. What makes these ones special? Today we answer with a little game.</p><p>The physicist John Bell liked to tell the story of his colleague Reinhold Bertlmann, who always wore socks of different colours. If you see that one of his socks is pink, you instantly know the other is not pink. Nothing travels between the socks. The colours were decided in the morning, when he got dressed. That is a classical correlation, explained by a common cause.</p><p>So could entangled qubits be like socks? Maybe each pair leaves the source with hidden instructions, telling each qubit what to answer. Bell showed that this question can be tested. The cleanest version is a game, called the CHSH game, after Clauser, Horne, Shimony and Holt.</p><p>Here are the rules. Two players, Alice and Bob, are in separate rooms, and cannot talk. A referee sends each of them a random bit, x for Alice and y for Bob. Each answers with a bit, a and b. They win if a plus b, modulo two, equals x times y. In words: their answers should differ only when both questions are one. Otherwise, they should agree.</p><p>Before the game, they can agree on any strategy, and share any classical secret they like, like a pair of socks. What is the best they can do? Try a simple strategy: both always answer zero. Their answers always agree, so they win in three of the four question cases, and lose only when both questions are one. That is a win rate of seventy-five percent. And it turns out that no classical strategy, however clever, can do better than seventy-five percent.</p><p>Now give Alice and Bob an entangled pair, in the state phi plus. When they receive their questions, each measures their own qubit along an angle that depends on the question. Alice uses an angle of zero or forty-five degrees. Bob uses twenty-two and a half degrees, or minus twenty-two and a half. The probability that their results agree depends on the angle between their axes. With these angles, they win with probability cosine squared of pi over eight. That is about eighty-five percent.</p><p>Eighty-five percent is above the classical ceiling of seventy-five. No hidden instructions, no socks, can reach it. And yet no message was sent: each player still sees random results alone.</p><p>Real experiments play exactly this kind of game, with photons, atoms or electrons. John Clauser ran a first test in the early nineteen seventies, and Alain Aspect improved it in the early nineteen eighties. For decades, sceptics could still point to loopholes, like detectors missing too many particles. In twenty fifteen, groups in Delft, Vienna and at NIST in the United States closed the main loopholes in single experiments. In twenty twenty-two, Aspect, Clauser and Anton Zeilinger received the Nobel Prize in Physics for this line of work.</p><p>Let&#39;s recap. Correlation alone is not special: socks are correlated too, through a common cause. The CHSH game turns the difference into a number. Any classical strategy wins at most seventy-five percent of the time. Entangled players reach about eighty-five percent, without sending any message. And experiments have confirmed it, loophole free, since twenty fifteen. Next, a simple and powerful rule: no-cloning.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-4.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_4.3_No-cloning_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 4.3</span><span>2:57</span></span>
+        <h3>No-cloning</h3>
+<p class="summary">No machine can copy an unknown quantum state. A cloning machine must be linear, so if it copies zero and one correctly, a superposition becomes an entangled state rather than two copies, which is what CNOT does. Classical bits and known states can still be copied, but an eavesdropper cannot copy a quantum message, the basis of quantum cryptography.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Every post office has a photocopier. Put in a letter, and two identical letters come out. Today we show that for quantum letters, no such machine can exist. This is the no-cloning theorem.</p><p>Here is what a cloning machine would do. It takes an unknown state, psi, and a blank qubit in ket zero. It outputs psi and psi. And it must work for every possible psi, because the whole point is to copy a state we do not know.</p><p>The machine has to be a quantum operation, so it is linear. Let&#39;s see what linearity forces. Suppose the machine copies ket zero correctly: zero and blank become zero zero. And suppose it copies ket one correctly: one and blank become one one.</p><p>Now feed it ket plus, which is one over root two, times ket zero plus ket one. Because the machine is linear, it acts on each part separately. Zero becomes zero zero, and one becomes one one. The output is one over root two, times zero zero plus one one.</p><p>But a true copy of ket plus would be ket plus, twice. Expand that product, and you get one half times zero zero, plus zero one, plus one zero, plus one one. Four terms, not two. The machine gave the wrong answer. Since this argument works for any machine that copies the basis states, no machine can copy every state. Two lines of linearity, and the theorem is proved.</p><p>You may recognize the output. It is the Bell state from the last episodes. In fact, a CNOT is exactly this machine. It copies ket zero and ket one perfectly, and for a superposition it creates entanglement instead of a copy.</p><p>What does no-cloning forbid? You cannot make many copies of an unknown state and measure each one to learn its amplitudes. You cannot peek at a state in the middle of a circuit, the way you would print a variable while debugging, without disturbing it. And an eavesdropper cannot copy a quantum message and pass the original along untouched. That last point is the basis of quantum cryptography, in episode five point seven.</p><p>What does it not forbid? You can copy classical information as much as you like: CNOT copies zeros and ones. You can prepare many copies of a state you know, by running the same preparation again. And you can move a state from one qubit to another, as long as the original is destroyed. That is teleportation, coming soon.</p><p>Let&#39;s recap. A cloning machine would have to be linear. Linearity means that copying ket zero and ket one forces a superposition into an entangled state, not into two copies. So no machine can copy an unknown quantum state. Classical bits and known states can still be copied. And no-cloning protects quantum messages from eavesdroppers. Next, we learn to describe uncertainty about a state itself, with the density matrix.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-4.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_4.4_Pure-vs-mixed-the-density-matrix_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 4.4</span><span>3:19</span></span>
+        <h3>Pure vs mixed · <span class="pk">The density matrix</span></h3>
+<p class="summary">A mixture, such as a coin deciding between zero and one, is ignorance about which state was prepared, while a superposition is one definite state, and the two differ when measured along another axis. The density matrix covers both: its diagonal gives probabilities and its off-diagonal coherences carry phases. Pure states sit on the Bloch sphere&#39;s surface, mixtures inside.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>At the post office counter, two envelopes are waiting. Both contain a single qubit, and both come with a note. Today, these two envelopes will teach us why state vectors are not always enough.</p><p>In the first envelope, someone flipped a fair coin. Heads, they put in ket zero. Tails, they put in ket one. We do not know which. In the second envelope, there is the state ket plus.</p><p>Let&#39;s measure both in the usual basis. The first envelope gives zero half of the time and one half of the time. So does the second one. The histograms are identical.</p><p>Now measure along the horizontal axis, by applying a Hadamard first. Ket plus always gives the same answer, plus. But the coin envelope still gives half and half. So the two envelopes are different. The first one is a mixture: our ignorance about which state is inside. The second one is a superposition: a single, well-defined state.</p><p>A state vector cannot describe the first envelope. There is no psi that means: ket zero or ket one, I am not sure which. We need a new object. It is called the density matrix, written rho.</p><p>For a single state psi, rho is the outer product, ket psi times bra psi. It is a matrix. For a mixture, we take the weighted sum: rho equals the sum over i of p i times ket psi i bra psi i, where p i is the probability of preparing psi i.</p><p>Let&#39;s compute both envelopes. For the coin, rho is one half times ket zero bra zero, plus one half times ket one bra one. That is the identity divided by two: one half on the diagonal, and zero elsewhere. For ket plus, rho is one half on the diagonal too, but also one half off the diagonal.</p><p>Same diagonal, different off-diagonal terms. The diagonal gives the probabilities in the usual basis, which is why the first histograms matched. The off-diagonal terms are called coherences. They carry the phase relations that make interference possible. A mixture has none. In chapter ten, we will see that noise, called decoherence, is exactly what erases them.</p><p>On the Bloch sphere, this has a beautiful picture. Pure states, like ket plus, sit on the surface. Mixtures sit inside. The sphere becomes a ball. The perfect mixture, identity over two, sits right at the centre, as far as possible from every pure state.</p><p>Two formulas complete the toolkit. The purity is the trace of rho squared. It equals one for a pure state, and one half for the perfect mixture of a qubit. And the Born rule becomes: the probability of an outcome is the trace of rho times the projector of that outcome. For pure states, this gives back the squared length of the amplitude.</p><p>Let&#39;s recap. A mixture describes ignorance about which state was prepared. A superposition is a single, definite state. The density matrix describes both: rho is a weighted sum of outer products. The diagonal gives probabilities, the off-diagonal coherences carry phases. Pure states are on the surface of the Bloch ball, mixtures inside. Next, a second source of mixture: holding only half of an entangled pair.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-4.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_4.5_Holding-half-a-pair-The-partial-trace_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 4.5</span><span>3:03</span></span>
+        <h3>Holding half a pair · <span class="pk">The partial trace</span></h3>
+<p class="summary">The partial trace describes one part of a larger system by summing over the part that is ignored. Half of a Bell pair has the density matrix of a perfect mixture, a coin flip, although the pair is pure, so the information sits in the correlations. Mixed halves signal entanglement, and entanglement with an unseen environment is the root of decoherence.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Imagine you receive only one of the two envelopes of an entangled pair. The other one went to a colleague in another city. What state do you hold? Today we answer with one tool: the partial trace.</p><p>Take the Bell state phi plus, one over root two, times zero zero plus one one. As a whole, it is a pure state. Its density matrix is the outer product of the vector with itself, a four by four matrix. It has one half in four places: the corners of the zero zero and one one rows and columns.</p><p>Now we want to describe only the first qubit, ignoring the second one completely. The rule is to sum over every possible state of the qubit we ignore. This is the partial trace over the second qubit.</p><p>Here is how it works on the matrix. Split the four by four matrix into four blocks of two by two, one for each pair of values of the first qubit. In each block, keep only the diagonal entries that refer to the same state of the second qubit, and add them. Each block shrinks to a single number. The result is a two by two matrix: the reduced density matrix of the first qubit.</p><p>For phi plus, the result is one half on the diagonal, and zero off the diagonal. It is the identity divided by two. The perfect mixture. Our half of the pair looks exactly like a coin flip, no matter how we measure it.</p><p>That is surprising. The pair as a whole is perfectly known: it is a pure state. But each half, alone, is as uncertain as a qubit can be. The information is not in the parts. It is in the correlations between them.</p><p>Compare with a product state, like ket plus, tensor ket zero. Take the partial trace over the second qubit, and you get back ket plus bra plus, a pure state. No entanglement, no mixture. This gives us a practical test. For a pure state of two qubits, the halves are pure exactly when the state is a product, and mixed when it is entangled.</p><p>So there are two different ways to end up with a mixture. The first is ignorance, like the coin in the last episode. The second is entanglement with something we cannot see. In chapter ten, that something will be the environment, and this mechanism is precisely how decoherence works.</p><p>Measuring the mixedness of the halves also gives a measure of entanglement. In chapter eleven, we will compute the entropy of the reduced density matrix. For a Bell pair, it is exactly one bit.</p><p>Let&#39;s recap. The partial trace describes one part of a larger system, by summing over the part we ignore. Half of a Bell pair has the density matrix identity over two, the perfect mixture. A pure whole can have mixed parts, and that is a signature of entanglement. Product states have pure halves. And entanglement with an unseen environment is the second source of mixture, the one behind decoherence. Next chapter, we put all of this to work, with the first quantum algorithms.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-3/">← 3 · GATES AND CIRCUITS</a><a class="btn main" href="../chapter-5/">5 · FIRST ALGORITHMS AND PROTOCOLS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

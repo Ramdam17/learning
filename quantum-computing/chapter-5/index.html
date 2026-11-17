@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First algorithms and protocols · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 5: First algorithms and protocols.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 5</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 5</span><span class="caps">CHAPTER 5</span></div>
+    <h1 class="h1-chapter">First algorithms and protocols</h1>
+    <div class="pills">
+<span class="pill y">7 VIDEOS · 26 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/" class="on" aria-current="page">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-5.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.1_Oracles-and-phase-kickback_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.1</span><span>3:05</span></span>
+        <h3>Oracles and phase kickback</h3>
+<p class="summary">An oracle is a reversible unitary that sends x and y to x and y XOR f of x. With the target prepared in ket minus, the answer is kicked back onto the input as a sign, minus one to the power f of x, and a superposition of inputs is stamped in a single call. Counting queries hides the cost of building the oracle.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the funfair, the home of chapter five. Our first algorithms all start with the same prop: a box on the counter that answers questions. Today we open it.</p><p>Her name is ORA, the oracle. Behind the counter, she holds a function f. It takes an input x and returns a bit, zero or one. We can only hand her a ticket and read what comes back.</p><p>In a quantum circuit, ORA is a unitary, called U f. It has two registers. The first holds x. The second holds a target bit y. U f leaves x alone, and writes the answer onto the target: x and y become x, and y XOR f of x. XOR means addition modulo two. If f of x is zero, the target is untouched. If f of x is one, the target is flipped. This map is reversible, as every gate must be, as in episode three point three.</p><p>Now the trick of this episode. Prepare the target not in ket zero, but in ket minus. Ket minus is one over root two, times ket zero minus ket one. Let&#39;s apply U f to x and ket minus.</p><p>If f of x is zero, nothing happens to the target. If f of x is one, the flip swaps ket zero and ket one. That turns ket minus into minus ket minus. So the target comes back as ket minus, times a sign. The sign is minus one to the power f of x.</p><p>The target did not change, and the sign is a factor of the whole product, so we read it as belonging to the first register. U f takes x and ket minus to minus one to the power f of x, times x, times ket minus. The answer to the question is now written in the phase of x.</p><p>This is called phase kickback. The target is the lever, and the phase kicks back onto the control.</p><p>Why is that powerful? A phase is invisible to a measurement, but as in episode two point four, interference can turn it into probability. Now put the first register in a superposition of all inputs. The oracle tags each one with its own sign, in a single call. The arrow bar shows each column&#39;s arrow either left alone or flipped. At the funfair, think of a ticket booth that stamps every ticket in the crowd at once, some with a plus and some with a minus, while the crowd walks through only one time.</p><p>One more point, an honest one. Quantum algorithms are often counted in queries: how many times do we call the oracle? It is a clean measure, but it hides a cost. Someone has to build U f, as a circuit of gates, and that circuit can be long. Query counts ignore the price of the box.</p><p>Let&#39;s recap. An oracle U f sends x and y to x and y XOR f of x. It is reversible by design. With the target in ket minus, the output is minus one to the power f of x, times x, times ket minus. The answer sits in a phase, not in a bit. Complexity in queries ignores the cost of building the oracle. Next, our first full algorithm: Deutsch–Jozsa.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.2_Deutsch-Jozsa_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.2</span><span>3:37</span></span>
+        <h3>Deutsch–Jozsa</h3>
+<p class="summary">Deutsch-Jozsa decides whether a function is constant or balanced. The circuit is a Hadamard layer, one oracle call, another Hadamard layer, and a measurement: all zeros means constant, anything else balanced, because the signs either line up or cancel in pairs. One call replaces the 2^(n-1)+1 a deterministic classical method needs, but a randomized classical method needs only a few, so the gain concerns certainty.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair. In the last episode, we opened ORA and found phase kickback. With the target in ket minus, a call to the oracle stamps each input x with a sign, minus one to the power f of x. Today we use that stamp in a real algorithm, named after David Deutsch and Richard Jozsa, who published it in 1992.</p><p>Here is the game. At the rigged coin stand, f is promised to be one of two kinds. Either it is constant, the same answer for every input. Or it is balanced, zero for exactly half of the inputs and one for the other half. With n input bits, there are two to the n inputs. We must decide which kind we have.</p><p>ABACUS, our best classical algorithm, stands at the stand. He asks the oracle for an input, then another, then another. If he ever sees two different answers, the function is balanced. If he sees the same answer again and again, he cannot be certain. To be absolutely sure, he must ask two to the n minus one, plus one, inputs. Past half of them, a balanced function would have had to show a different bit.</p><p>Now the quantum circuit, in one picture. Start with n qubits in ket zero, and one target qubit in ket one. Apply H to every wire. The inputs become a uniform superposition, and the target becomes ket minus. Call U f once. Phase kickback gives each input x the sign minus one to the power f of x. Apply H to the n input wires again. Then measure them.</p><p>Let&#39;s see why it works. After the second layer of H, the amplitude of the all zero outcome is the average of all the signs. If f is constant, every sign is the same, so the average is plus one or minus one. We measure all zeros with certainty. If f is balanced, half the signs are plus and half are minus, and the average is exactly zero. All zeros can never appear. So any other outcome means balanced. The arrows of a constant function line up end to end. The arrows of a balanced one cancel in pairs.</p><p>One call, against two to the n minus one, plus one. That is an exponential gap, for deterministic answers.</p><p>Now the classical trap, and it matters. ABACUS does not have to be certain. Let him draw inputs at random. For a balanced function, the chance that k answers all agree is at most two to the power of one minus k. After ten questions, the chance of a wrong verdict is below one in five hundred. After thirty, it is below one in five hundred million. So the real advantage exists only if we insist on absolute certainty.</p><p>Also, the promise is strange. Real problems rarely come with it. This algorithm does not solve a useful problem. It shows, in the oracle model, that a quantum computer can beat every deterministic classical one. In 1998, Richard Cleve, Artur Ekert, Chiara Macchiavello and Michele Mosca gave the version we use today, with a single call to the oracle. The 1992 original needed two.</p><p>Let&#39;s recap. The promise is that f is constant or balanced. The circuit is H, one call to the oracle, H, and measurement. All zeros means constant; anything else means balanced. A deterministic classical algorithm needs two to the n minus one, plus one, queries. A randomized classical algorithm needs only a few, so the advantage is about certainty. Next, Bernstein–Vazirani: the same circuit, reading out a secret code.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.3_Bernstein-Vazirani_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.3</span><span>3:37</span></span>
+        <h3>Bernstein–Vazirani</h3>
+<p class="summary">Bernstein-Vazirani finds a hidden bit string s from an oracle that returns the parity of s dot x. The same circuit as before stamps each input with a single pattern of signs set by s, and the final Hadamards gather all amplitude onto s, so one call returns the code. Classically n queries are needed, so the gain is only linear.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair, in chapter five. Last time, Deutsch–Jozsa gave us a circuit: H, one call to the oracle, H, and measurement. Today the same circuit reads a secret code.</p><p>Picture the fairground padlock, with a row of little wheels. Each wheel is on or off. The code is a string of bits, called s, and we cannot see it. But ORA, the oracle, will answer questions about it.</p><p>Here is the rule. When we give her an input x, she returns one bit: f of x equals s dot x, modulo two. The dot product multiplies s and x place by place, adds the results, and keeps only the parity. The task is to find s.</p><p>Take three wheels, and the secret s equals one, zero, one. Ask about x equals one, one, zero. The two strings share a one in the first place only, so ORA says one. That is all we get: one bit per question.</p><p>How would ABACUS do it? He asks about the strings with a single one: one, zero, zero, then zero, one, zero, and so on. Each answer is one bit of s, so after n questions he has the whole code. And he cannot do better. With fewer than n answers, he holds fewer than n bits of information about a code that has n bits, so he can only guess. Random questions do not help either.</p><p>Now the quantum circuit, in one picture. It is the one from the last episode. Start with n qubits in ket zero, and the target in ket minus. Apply H to every input wire. Call U f once. Phase kickback stamps each input x with the sign minus one to the power s dot x. Apply H to the input wires again. Then measure.</p><p>Let&#39;s see why the answer appears. After the first H, every input has the same amplitude. After the oracle, those amplitudes carry the signs. That pattern of plus and minus signs is a single frequency, and the code s says which one. The second layer of H turns that pattern back into one definite string. All the amplitude lands on ket s, and the arrows of every other outcome cancel. So the measurement returns s every time, with certainty.</p><p>At the booth, ORA stamps the whole crowd with plus and minus in one pass. The second H makes the crowd line up behind one number, and that number is the code.</p><p>How much faster? One call, against n. That is real, but it is linear, not exponential. With a hundred wheels, ABACUS needs a hundred questions, and we need one.</p><p>Now the classical trap. This is sometimes presented as a spectacular speedup. It is not. A linear gap is modest, and as before, query counts say nothing about the cost of building the box. The lesson is elsewhere: interference can read a hidden pattern in one shot.</p><p>A little history. Ethan Bernstein and Umesh Vazirani presented their paper, Quantum complexity theory, at the Symposium on the Theory of Computing in 1993. The journal version appeared in the SIAM Journal on Computing in 1997. In 2001, Jiangfeng Du and colleagues ran a two-qubit version on an NMR quantum computer.</p><p>Let&#39;s recap. The oracle hides a code s, and answers s dot x modulo two. The circuit is H, one call, H, and measurement. The outcome is the code itself. A classical algorithm needs n queries, and the quantum one needs one. The gain is linear, so we should not oversell it. Next, Simon: a carousel, and a hidden period.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.4_Simon_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.4</span><span>3:57</span></span>
+        <h3>Simon</h3>
+<p class="summary">Simon&#39;s problem hides a string s so that f of x equals f of x XOR s, like a carousel where each ribbon appears on two horses. Each run interferes two matching inputs and returns a random y with y dot s equal to zero, so about n runs let Gaussian elimination find s, against roughly 2^(n/2) classical queries, relative to an oracle.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair, at the carousel. Its horses come back in pairs: two different horses wear exactly the same ribbon. Today we meet the first problem where a quantum computer beats every classical algorithm by an exponential factor.</p><p>Here is the game, named after Daniel Simon. ORA holds a function f, from n bits to n bits. She hides a secret string s, which is not all zeros. The promise is this: f of x equals f of y, exactly when y is x XOR s. So every ribbon appears on exactly two horses, and s is the shift that links them. We must find s.</p><p>Classically, ABACUS asks for ribbons, one input after another, and waits for a repeat. Only a collision reveals s: XOR the two inputs and there it is. But collisions are rare. With two to the n inputs, it takes about two to the n over two queries before a repeat is likely. This is the birthday problem, and Simon showed that no classical probabilistic algorithm can do much better.</p><p>Now the quantum circuit, in one picture. Take two registers of n qubits, both in ket zero. Apply H to every wire of the first register. Call the oracle once: it writes f of x into the second register. Measure the second register. It returns some ribbon, and the first register collapses onto the two horses wearing it: x, and x XOR s. Apply H to every wire of the first register again, and measure it.</p><p>Why does this help? The two horses interfere. After the second layer of H, an outcome y gets an amplitude from each horse, and the two differ by a sign, minus one to the power y dot s. If y dot s is zero modulo two, they add up. If it is one, they cancel. So the circuit only ever returns a y with y dot s equal to zero, modulo two. The outcome is random, but it is never wrong.</p><p>One run gives one linear equation about s. So we run the circuit again, and again. Each new y that is independent of the earlier ones halves the list of possible secrets. After about n runs, we have n minus one independent equations, and then it is classroom algebra: Gaussian elimination, modulo two. The one non-zero solution is s.</p><p>So how much faster? The quantum algorithm needs on the order of n oracle calls. A classical one needs about two to the n over two. For n equal to one hundred, that is a hundred calls, against about one million billion. It is the first exponential separation in this series. Simon presented it at the FOCS conference in 1994, and the full paper appeared in the SIAM Journal on Computing in 1997.</p><p>Now the classical trap. This separation is relative to an oracle. We count only the calls to ORA and treat her box as a black box. Functions with this exact promise do not turn up in daily life, so Simon&#39;s algorithm is not a practical tool, and it does not prove that quantum beats classical in general.</p><p>Its real role was historic. Peter Shor has said that Simon&#39;s algorithm held many of the ingredients he needed: a hidden period, found with a Fourier transform. Simon&#39;s period lives in bits, modulo two. Shor carried the same idea to whole numbers, and that became factoring.</p><p>Let&#39;s recap. The promise is that f of x equals f of x XOR s. The circuit is H, one oracle call, H, and measurement, repeated about n times. Each run gives an equation, y dot s equals zero, and Gaussian elimination solves them. Quantum needs about n calls, classical about two to the n over two, relative to an oracle. Next, Teleportation: sending a quantum state with two classical bits.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.5_Teleportation_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.5</span><span>3:39</span></span>
+        <h3>Teleportation</h3>
+<p class="summary">Teleportation moves an unknown qubit state using a shared Bell pair and two classical bits. Alice applies a CNOT then a Hadamard to her two qubits and measures them, and Bob applies X and Z according to the two bits to recover the state. Nothing travels faster than light, the original is destroyed, and no matter moves.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair. In episode four point three, we proved you cannot copy an unknown quantum state, but you can move one, as long as the original is destroyed. Today we do that move. This is quantum teleportation, proposed in 1993 by Charles Bennett and five colleagues.</p><p>Picture two distant stands, Alice&#39;s and Bob&#39;s. Before the fair opens, they share a pair of twin plush toys. These are the two halves of a Bell state, the state zero zero plus one one, over root two, from episode four point one. Alice holds one qubit of the pair. Bob holds the other. Between the stands there is only a megaphone, and it can shout just two bits, zero or one, one after the other. That is the whole classical channel.</p><p>Alice also holds a third qubit, in an unknown state: a times ket zero, plus b times ket one. She wants to give this state to Bob.</p><p>She cannot copy it, and measuring it would destroy it. So she runs a small circuit on her two qubits: the unknown one and her half of the pair. First, a CNOT, with the unknown qubit as control. Then H on the unknown qubit. Then she measures both. This is the Bell measurement.</p><p>Expand the algebra and something lovely appears. The three qubits can be rewritten as four terms, one for each possible pair of outcomes. In each term, Bob&#39;s qubit holds the original state, up to a small change. Each outcome has probability one quarter, whatever a and b are, so it reveals nothing about the state.</p><p>The small changes are simple. If Alice&#39;s two bits are zero zero, Bob&#39;s qubit is exactly the state. If her second bit is one, Bob&#39;s qubit has its ket zero and ket one swapped, which is an X gate. If her first bit is one, the sign of b is flipped, which is a Z gate. So Alice shouts her two bits through the megaphone. Bob applies X if the second bit is one, then Z if the first is one. His qubit is now a times zero plus b times one. The state has arrived.</p><p>What does this not do? It does not go faster than light. Before the megaphone call, Bob&#39;s qubit is an equal mixture of the four possibilities, the identity over two, and tells him nothing. Only the two classical bits, which travel at ordinary speed, unlock the state.</p><p>And the original is gone. Alice&#39;s measurement destroyed it, and her half of the pair is used up. This is exactly what no-cloning requires.</p><p>So this is not teleporting matter. The plush toys stay where they are. What travels is the information needed to rebuild a state, and it needs one entangled pair and two classical bits for each qubit.</p><p>Real experiments exist. In 1997, the group of Anton Zeilinger in Innsbruck teleported photon polarization states, and the group of Francesco De Martini in Rome published a similar result in 1998. In 2017, a Chinese team teleported a photon qubit from the ground to the Micius satellite, over distances up to about fourteen hundred kilometres.</p><p>Let&#39;s recap. Teleportation moves an unknown state using a shared Bell pair and two classical bits. Alice applies CNOT, then H, then measures her two qubits. Bob corrects with X and Z, depending on the two bits. Nothing travels faster than light, since without the bits Bob holds only a mixture. The original is destroyed, as no-cloning demands. Next, superdense coding, where one qubit carries two bits.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.6">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.6_Superdense-coding_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.6</span><span>3:47</span></span>
+        <h3>Superdense coding</h3>
+<p class="summary">Superdense coding sends two classical bits with one transmitted qubit, using an entangled pair shared beforehand. Alice applies nothing, X, Z, or X then Z to her half, turning the Bell state into one of four orthogonal Bell states, and Bob&#39;s joint measurement reads the two bits. The pair is part of the cost, so the Holevo bound holds.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair, with the mirror of the last episode. Teleportation used an entangled pair and two classical bits to move one qubit. Today we turn it around: an entangled pair and one qubit to move two classical bits. This is superdense coding, proposed by Charles Bennett and Stephen Wiesner, and published in 1992.</p><p>Picture a prize ticket torn into two matching halves. Alice keeps one half and Bob keeps the other, and they carry them to their stands, far apart. Quantum mechanically, the two halves are a Bell state, the state zero zero plus one one, over root two, from episode four point one. The pair is shared before the fair opens.</p><p>Alice has a message of two classical bits: zero zero, zero one, one zero, or one one. At her stand there is a rack of four stamps: nothing, X, Z, and X followed by Z. She picks the stamp that matches her message, and presses it on her half of the ticket only. Then she mails that single half to Bob.</p><p>Why does a stamp on one half help? Because each stamp turns the shared Bell state into a different Bell state. Nothing keeps the original. X gives zero one plus one zero, over root two. Z gives zero zero minus one one, over root two. And X followed by Z gives zero one minus one zero, over root two. These four states are orthogonal, so one perfect measurement can tell them apart, with no error.</p><p>The rule is simple. If her second bit is one, Alice applies X. If her first bit is one, she applies Z. Zero zero means no stamp at all.</p><p>Bob now holds both halves. He runs the Bell measurement from teleportation: first a CNOT, with Alice&#39;s qubit as control, then H on that same qubit, then he measures both qubits. The two results are exactly Alice&#39;s two bits, every time.</p><p>So how much does one qubit carry? Two bits. But look at the whole bill. Alice sent only one qubit, but the pair was built in advance, and Bob needed both halves to read the message. In total, two qubits are involved for two bits. Nothing is free.</p><p>This does not break a deep rule. The Holevo bound, proved by Alexander Holevo in 1973, says that a single qubit, on its own, gives at most one bit of classical information. Here the extra bit is paid for by the entangled pair. Without the pair, Bob would hold a qubit that is an equal mixture of the stamped and unstamped cases, and Alice&#39;s choice would change nothing he could read.</p><p>Nothing travels faster than light either. Before the mail arrives, Bob&#39;s half alone is random and tells him nothing. He can only decode once he holds both halves.</p><p>The classic trap is to forget the pair in the accounting. Superdense coding is not two bits for the price of one qubit. It is two bits for one qubit, plus one entangled pair prepared beforehand.</p><p>Real experiments exist. In 1996, Klaus Mattle, Harald Weinfurter, Paul Kwiat and Anton Zeilinger used entangled photons. With the linear optics they had, they could tell apart only three of the four messages, so each photon carried about one point five eight bits, not two.</p><p>Let&#39;s recap. Superdense coding sends two classical bits with one qubit, using an entangled pair shared in advance. Alice applies nothing, X, Z, or X then Z, and sends her half. Bob applies CNOT, then H, and measures, and reads the two bits. The Holevo bound is respected, because the pair is part of the cost. Next, BB84, a key nobody can copy.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.7">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_5.7_BB84-A-key-nobody-can-copy_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.7</span><span>3:55</span></span>
+        <h3>BB84 · <span class="pk">A key nobody can copy</span></h3>
+<p class="summary">BB84 builds a shared secret key from qubits sent in random bases, Z or X, with Bob measuring in random bases and both keeping the positions where the bases matched. An eavesdropper must guess bases and, since no-cloning forbids copying, causes about twenty-five percent errors that a public comparison reveals. Security rests on physics, though real detectors can be attacked.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the funfair, for the last stop of chapter five. Today we use the no-cloning theorem from episode four point three to build something useful: a secret key that nobody can copy. The protocol is called B B eighty-four, after its authors, Charles Bennett and Gilles Brassard, and the year they presented it, nineteen eighty-four, at a conference in Bangalore.</p><p>Here is the picture. Alice sends Bob postcards, each carrying one bit. Each postcard is written in one of two orientations: upright or tilted. A spy who reads a postcard in the wrong orientation smudges it, and leaves a fold.</p><p>Now the intuition. Alice and Bob want a shared random string, to use as a key. For each bit, Alice flips two coins. The first chooses the bit. The second chooses a basis: Z, where she sends ket zero or ket one, or X, where she sends ket plus or ket minus. She sends the qubit to Bob.</p><p>Bob does not know her basis, so he flips his own coin, and measures in Z or in X. If his basis matches hers, he reads her bit with certainty. If it does not, his outcome is a fair coin toss.</p><p>Then comes the public part. Over an ordinary phone line, they announce their bases, but never their bits. They keep the positions where the bases matched, about half of them, and throw the rest away.</p><p>Now Eve, the eavesdropper, enters. To learn a qubit she must measure it, so she must guess its basis. She is right half the time. When she guesses wrong, she disturbs the qubit, and Bob&#39;s result is then wrong half the time. Half of one half is one quarter. So an intercept-and-resend attack puts errors in twenty-five percent of the kept bits. And she cannot copy the qubit and pass the original along, because that is exactly what no-cloning forbids.</p><p>So Alice and Bob sacrifice a random sample of their kept bits, and compare it in public. With one hundred sampled bits, Eve slips through with a chance below one in a trillion.</p><p>In one picture: prepare in Z or X, measure in a random basis, sort the bases in public, compare a sample. Real channels are noisy, so a few errors do not prove a spy. Alice and Bob correct them, then shrink the key, to squeeze out whatever Eve might know. In the year two thousand, Peter Shor and John Preskill proved that this works while the error rate stays below about eleven percent.</p><p>What does this bring? Today&#39;s public key schemes rest on the difficulty of a calculation, and Shor&#39;s algorithm, in chapter six, threatens exactly that. B B eighty-four rests on physics instead. It works even against a very fast computer, and far from the lab: in two thousand seventeen, the Chinese satellite Micius shared keys with ground stations over distances of up to twelve hundred kilometres.</p><p>Now the classic trap: unhackable. The theory needs two things. The phone line must be authenticated, so that Eve cannot pretend to be Bob. And the devices must behave like the model. Real devices do not always. In two thousand ten, a team in Norway and Germany blinded the single-photon detectors of two commercial systems with bright light, then steered them with laser pulses. Eve could read the key, and Alice and Bob saw nothing unusual. The protocol was fine. The detector was not.</p><p>Let&#39;s recap. Alice sends qubits in random bases, and Bob measures in random bases. They keep the matching positions, and test a sample. An eavesdropper causes twenty-five percent errors, because no-cloning stops her from copying. The security comes from physics, not from a hard calculation, but real hardware can be attacked. Next, a tool that reads hidden rhythms: the quantum Fourier transform.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-4/">← 4 · ENTANGLEMENT</a><a class="btn main" href="../chapter-6/">6 · FOURIER, PHASE AND SHOR →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

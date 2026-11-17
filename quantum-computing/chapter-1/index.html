@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The toolkit · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 1: The toolkit.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 1</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 1</span><span class="caps">CHAPTER 1</span></div>
+    <h1 class="h1-chapter">The toolkit</h1>
+    <div class="pills">
+<span class="pill y">3 VIDEOS · 9 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/" class="on" aria-current="page">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-1.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_1.1_Numbers-that-spin_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 1.1</span><span>2:50</span></span>
+        <h3>Numbers that spin · <span class="pk">The arrow comes back</span></h3>
+<p class="summary">A complex number is an arrow with a length and a phase, and Euler&#39;s formula describes a unit arrow turned by an angle. Multiplying two numbers multiplies lengths and adds angles, like a skater spinning and stretching, and a number times its conjugate gives its squared length. Two equal arrows add to double or to zero depending on their angle, the seed of interference.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the ice rink. Before we meet a single qubit, we need one tool, and you already know it. You have seen this arrow before, in the EEG series.</p><p>A complex number is a point on a plane. The horizontal axis is the real part. The vertical axis is the imaginary part. Draw an arrow from the centre to that point, and you have everything.</p><p>The arrow has a length, called the modulus. And it has an angle, measured from the real axis, called the phase. Length and angle describe the same number as real part and imaginary part. They are just another way to read it.</p><p>The most useful formula of the series is Euler&#39;s formula. E to the i theta equals cosine theta plus i sine theta. It is an arrow of length one, turned by an angle theta. When theta grows, the arrow spins around the circle.</p><p>Now let&#39;s multiply. Take any arrow, and multiply it by e to the i theta. Its length does not change. Its angle grows by theta. Multiplying by a phase is a pure rotation.</p><p>In general, when you multiply two complex numbers, the lengths multiply and the angles add. A skater who spins and stretches at the same time. That single picture explains most of what follows.</p><p>There is one more operation we need: the complex conjugate. It flips the arrow across the real axis. The angle changes sign, and the length stays the same. Multiply a number by its own conjugate, and you get its length squared, a real number that is never negative. Keep that in mind. Very soon, it will become a probability.</p><p>Now the key experiment. Take two arrows of the same length, and add them, head to tail. If they point the same way, the result is twice as long. If they point in opposite directions, the result is zero. In between, the length of the sum depends only on the angle between them.</p><p>Watch the length of the sum as we turn the second skater. Twice the length, then a little less, then zero, then back again. The exact rule is two times the cosine of half the angle, in absolute value.</p><p>This is the seed of interference. In quantum computing, every possible outcome receives arrows like these. Arrows that agree reinforce each other. Arrows that disagree cancel out. And the angles, the phases, are what the circuit controls.</p><p>Let&#39;s recap. A complex number is an arrow, with a length and a phase. Multiplying by a phase rotates the arrow. When we multiply, lengths multiply and angles add. A number times its conjugate gives its length squared. And two arrows of the same length can double or cancel, depending only on the angle between them. Next, we give these arrows a name and a notation: kets, bras and the inner product.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-1.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_1.2_Kets-bras-and-the-inner-product_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 1.2</span><span>3:12</span></span>
+        <h3>Kets, bras and the inner product</h3>
+<p class="summary">A ket is a column of complex amplitudes, a bra is the same vector laid flat and conjugated, and a bra next to a ket gives the inner product. The conjugate guarantees a vector&#39;s overlap with itself is its positive squared length, which must equal one for a state. Orthogonal states have zero overlap, and a global phase leaves everything unchanged.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back on the ice. In the last episode, a complex number became an arrow. Today, we stack several of these numbers into a vector, and give it the notation that every quantum paper uses. It is called Dirac notation, and it is much friendlier than it looks.</p><p>A ket is just a column vector. We write it with a vertical bar on the left and an angle bracket on the right. Psi, inside the ket, is only a name. The coordinates inside are complex numbers, so each one is a little arrow.</p><p>Two kets get special names. Ket zero is the column one, zero. Ket one is the column zero, one. Together they form the basis of a single qubit. Any qubit state is a combination of the two: alpha times ket zero, plus beta times ket one.</p><p>This gives us our first arrow bar. One column for ket zero, one column for ket one. In each column, the arrow is the amplitude. Below it, in yellow, its length squared.</p><p>Now the bra. A bra is the same vector, laid flat as a row, and with every coordinate conjugated. Each arrow is mirrored across the real axis, exactly like last time. We write it with an angle bracket on the left and a bar on the right.</p><p>Why do we bother to conjugate? Put a bra next to a ket, and you get a bracket. That is the inner product. For a vector with itself, each coordinate meets its own conjugate. And a number times its conjugate is its length squared, which is real and never negative. So the inner product of psi with psi is the squared length of the whole vector.</p><p>Without the conjugate, this would go wrong. Take the vector one, i. Multiply it by itself, without conjugating, and you get one plus i squared, which is zero. A vector that is clearly not zero would have zero length. The conjugate prevents that.</p><p>Quantum states have one rule about length. The inner product of a state with itself must equal one. In other words, alpha times its conjugate plus beta times its conjugate equals one. The yellow bars of a state always add up to exactly one. In the next chapter, we will see why: they are probabilities.</p><p>The inner product of two different states tells us how much they overlap. Ket zero and ket one have an inner product of zero. They are orthogonal, completely distinct. Now take ket plus, which is one over root two times ket zero plus ket one. Its inner product with ket zero is one over root two. It overlaps with both basis states, equally.</p><p>One last thing to notice. Multiply a whole state by a phase, e to the i gamma. Every arrow turns by the same angle. The bracket of the state with itself does not change at all. This global phase will turn out to be invisible. Keep it in mind for the Bloch sphere.</p><p>Let&#39;s recap. A ket is a column of complex numbers. A bra is the same, laid flat and conjugated. A bra and a ket make a bracket, the inner product. A state has length one, so its yellow bars add up to one. And orthogonal states have zero overlap. Next, we put two qubits together, with the tensor product.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-1.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_1.3_The-tensor-product-or-why-2n_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 1.3</span><span>3:27</span></span>
+        <h3>The tensor product, or why 2^n</h3>
+<p class="summary">Joining qubits uses the tensor product, which multiplies coordinates through the Kronecker product, so n qubits need 2^n amplitudes. Storing the state costs about sixteen bytes per amplitude, reaching gigabytes at thirty qubits and petabytes at fifty, which makes classical simulation hard. Some vectors, such as the equal mix of 00 and 11, cannot be factored, and are called entangled.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>One skater on the rink has a two-dimensional state. What happens when a second skater joins? The answer is the tensor product, and it explains the famous two to the n.</p><p>Let&#39;s take two qubits, A and B. Each one alone is a vector with two coordinates. Together, they do not form a vector with four coordinates by stacking. They form a vector with four coordinates by multiplying.</p><p>Here is the rule, called the Kronecker product. Take the first vector, alpha zero and alpha one. Multiply every coordinate by the whole second vector. You get alpha zero beta zero, alpha zero beta one, alpha one beta zero, and alpha one beta one. Four numbers, one for each pair of outcomes.</p><p>The labels follow the same pattern. Ket zero tensor ket one is written ket zero one. It is the column with a one in the second position. The four basis states of two qubits are zero zero, zero one, one zero and one one.</p><p>On the ice, the rink is now divided into a grid. Two skaters, four squares. Add a third skater, and the grid has eight squares. Every new qubit doubles the number of coordinates. With n qubits, the state has two to the n complex coordinates.</p><p>Let&#39;s put that in memory. A complex number in double precision takes sixteen bytes. Ten qubits need about sixteen kilobytes. Twenty qubits, about sixteen megabytes. Thirty qubits, about sixteen gigabytes, the size of a good laptop&#39;s memory. Forty qubits, about sixteen terabytes. Fifty qubits, about sixteen petabytes. Every ten qubits multiply the memory by about a thousand.</p><p>This is why simulating a quantum computer on a classical one becomes hard, and quickly. It is also why people get excited. But remember the catch from the first episode. All those coordinates are there, and we still read only a few bits at the end.</p><p>A word of warning about the order of qubits. On paper, we usually write qubit A on the left. Some software does the opposite. Qiskit, for example, writes qubit zero on the right of the bit string. The physics does not change, but the labels flip. When a result looks wrong, check the order first.</p><p>Now a puzzle. Every product state looks like the Kronecker product of two smaller vectors. But not every four-coordinate vector is a product. Take one over root two, times zero zero plus one one. Can we find alpha and beta for A and B?</p><p>We would need alpha zero beta zero and alpha one beta one to be nonzero. Then alpha zero and beta one are both nonzero too. So alpha zero beta one would be nonzero as well. But in our state, the zero one coordinate is zero. Contradiction. This state cannot be written as a product.</p><p>A state that does not factor is called entangled. It is the heart of chapter four. For now, remember that the space of two qubits is much larger than two separate qubits. Most of its vectors are not products at all.</p><p>Let&#39;s recap. Joining systems means taking the tensor product, which multiplies coordinates. Two qubits have four basis states, n qubits have two to the n. The memory needed to store a state doubles with every qubit. Watch out for the qubit order in software. And some states do not factor: they are entangled. Next chapter, we finally meet the qubit itself.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-0/">← 0 · TEASER</a><a class="btn main" href="../chapter-2/">2 · THE QUBIT →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

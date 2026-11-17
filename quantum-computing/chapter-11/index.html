@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum information · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 11: Quantum information.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 11</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 11</span><span class="caps">CHAPTER 11</span></div>
+    <h1 class="h1-chapter">Quantum information</h1>
+    <div class="pills">
+<span class="pill y">10 VIDEOS · 43 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/" class="on" aria-current="page">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-11.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.1_Von-Neumann-entropy_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.1</span><span>4:03</span></span>
+        <h3>Von Neumann entropy</h3>
+<p class="summary">The von Neumann entropy of a density matrix is the Shannon entropy of its eigenvalues: zero for a pure state, one bit for the perfect mixture of a qubit. It equals the lowest Shannon entropy any measurement basis can give, so the plus state shows a full bit in the usual basis yet has zero entropy. It belongs to the state, not to the viewpoint.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the radio station, the home of chapter eleven. Today we begin quantum information, and we meet the number that measures how uncertain a quantum state is: the von Neumann entropy.</p><p>Picture the station. On the wall, a dial shows uncertainty. Tune in a voice that is completely predictable, and the needle rests at zero. Tune in pure static, and it climbs to its maximum.</p><p>You may know this dial from the Information series. For a probability distribution p, the Shannon entropy is H of p, equal to minus the sum over i of p i times the logarithm of p i. Claude Shannon published it in 1948. With a base two logarithm, the answer is in bits. A fair coin gives one bit. A coin that always lands heads gives zero.</p><p>A quantum state needs a density matrix, rho, from episode four point four. Its entropy was defined by John von Neumann, in the late nineteen twenties, and it appears in his 1932 book, Mathematical Foundations of Quantum Mechanics. The formula is: S of rho equals minus the trace of rho times the logarithm of rho.</p><p>Here is the link between the two formulas. A density matrix can always be diagonalized. Its eigenvalues are never negative, and they sum to one. So they form a probability distribution. In the eigenbasis, rho is diagonal, and the trace becomes a plain sum. S of rho equals minus the sum over i of lambda i times the logarithm of lambda i. The von Neumann entropy is the Shannon entropy of the eigenvalues. Same dial, new input.</p><p>Two checks. A pure state has one eigenvalue equal to one, and the others are zero. Its entropy is zero: no uncertainty at all. The perfect mixture of a qubit, the identity over two, has two eigenvalues of one half. Its entropy is exactly one bit, the maximum for a qubit. In dimension d, the maximum is the logarithm of d.</p><p>Now the moment that makes this entropy special. Take the state ket plus. Measure it in the usual basis, and you get zero or one with equal probability. One full bit of randomness. It looks like pure static. But ket plus is a pure state, so its von Neumann entropy is zero. Measure along the horizontal axis instead, and the answer is always plus.</p><p>Take a noisier state, with eigenvalues nine tenths and one tenth. In the usual basis, it also looks like a fair coin. Along the horizontal axis, the outcomes are nine tenths and one tenth, and the Shannon entropy is about zero point four seven bits. Now turn the measurement through every angle in between. The Shannon entropy of the outcomes never goes below that value. Its lowest point is reached exactly in the eigenbasis, and it equals the von Neumann entropy.</p><p>So the von Neumann entropy is the smallest Shannon entropy you can obtain by choosing your measurement well. The reason is simple: the diagonal of a matrix is always more spread out than its eigenvalues. Every other basis only adds apparent randomness.</p><p>This is why the number is a property of the state, not of the way you look at it. Rotate the whole system with any unitary, and the eigenvalues do not change, so neither does the entropy.</p><p>The classic trap is to read the randomness of one measurement as the uncertainty of the state. A single basis can show one bit for a state that is perfectly known.</p><p>Let&#39;s recap. Shannon&#39;s entropy takes a distribution. Von Neumann&#39;s takes a density matrix, and equals Shannon&#39;s formula applied to its eigenvalues. It is zero for a pure state, and one bit for the identity over two. And it is the lowest Shannon entropy that any measurement basis can give. Next, entangled pairs: the Schmidt decomposition and entanglement entropy.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.2_Schmidt-decomposition-and-entanglement-entropy_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.2</span><span>4:58</span></span>
+        <h3>Schmidt decomposition and entanglement entropy</h3>
+<p class="summary">Writing the coefficients of a two-qubit state as a grid and applying the singular value decomposition gives the Schmidt decomposition: straight cables pairing states of A with states of B, each with a volume knob lambda. The entanglement entropy is the Shannon entropy of the lambdas, zero for a product state and one bit for a Bell state. It is valid for pure states only.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Last time we measured the uncertainty of one quantum state. Today we measure something new: how entangled two qubits are, with one number.</p><p>Picture the control room. Two qubits, A and B, each have their own receiver. A state of the pair has four coefficients: one for zero zero, one for zero one, one for one zero, and one for one one. Arrange them in a two by two grid. Row i, column j holds the coefficient of ket i, ket j. The state becomes a matrix.</p><p>You already know what to do with a matrix. In the Information series, we met the singular value decomposition. Any matrix can be written as a rotation, then a list of non-negative numbers on the diagonal, then another rotation. Apply it to our grid, and something lovely happens. The state becomes a sum of just two terms. Each term pairs one special state of A with one special state of B, and carries a weight. In symbols: psi equals the sum over i of the square root of lambda i, times ket a i, ket b i.</p><p>This is the Schmidt decomposition. Erhard Schmidt introduced the underlying mathematics in 1907, long before quantum mechanics, in his work on integral equations. The numbers lambda i are the squares of the singular values. They are never negative, and they add up to one. The special states a i and b i are orthonormal bases, one for each qubit.</p><p>In the radio room, the picture is a patch bay. The grid is a tangle of cables that links every input of A to every input of B. The singular value decomposition untangles it. After the right rotation on each side, only straight cables remain: a one to b one, a two to b two. Each straight cable has a volume knob, set to lambda i.</p><p>Now the moment that makes this useful. The entanglement entropy is the Shannon entropy of the lambdas. Same formula as the dial from last time: minus the sum of lambda i times the base two logarithm of lambda i. In 1996, Bennett, Bernstein, Popescu and Schumacher showed that this number counts how many maximally entangled pairs you can distil from many copies of the state, using only local operations and classical communication. It is also the von Neumann entropy of either qubit alone.</p><p>Check the extremes. Take ket zero for A and ket plus for B. The grid has one nonzero row, so only one cable is left, with lambda equal to one. Entropy zero. A product state has no entanglement.</p><p>Now take the Bell state. The grid is the identity, scaled by one over root two. Two straight cables, both with lambda equal to one half. The entropy is exactly one bit. That is the maximum for two qubits.</p><p>In between, you get every value. Take root nine tenths of ket zero zero, plus root one tenth of ket one one. The lambdas are nine tenths and one tenth. The entropy is about zero point four seven bits. Partly entangled, and now we can say how much.</p><p>Here is the best part. The grid can look messy and still be simple. Put one half in three cells, and minus one half in the fourth. Nothing about it looks special. But its two singular values are both one over root two. It is a Bell state in disguise, with one bit of entanglement. Local rotations on A or on B, and only these, change the grid but never the lambdas. So the entropy does not depend on how each person chooses to look. It measures what is shared.</p><p>How hard is this to compute? For two qubits, a two by two decomposition. For larger systems, the same recipe applies to a bigger grid: rows for the states of A, columns for the states of B. The number of nonzero lambdas is called the Schmidt rank, and it is at most the size of the smaller side.</p><p>Now the classic traps. The first: this only works as stated for a pure state of the pair. For a mixed state, the Schmidt decomposition does not exist, and the entropy of one half no longer measures entanglement. It can come from noise alone. We come back to correlations in mixed states soon. The second: the Schmidt basis depends on the state. It is not a fixed measurement, so you cannot read the lambdas off a single fixed basis.</p><p>Let&#39;s recap. Arrange the coefficients of a two-qubit state in a grid. Its singular value decomposition gives the Schmidt decomposition, a sum of straight pairs, each with weight lambda i. One nonzero lambda means a product state, and zero bits. Two equal lambdas mean a Bell state, and one bit. The entanglement entropy is the Shannon entropy of the lambdas. Next, quantum mutual information and negative conditional entropy.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.3_Quantum-mutual-information-and-negative-conditional-entropy_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.3</span><span>3:53</span></span>
+        <h3>Quantum mutual information and negative conditional entropy</h3>
+<p class="summary">Mutual information is the entropy of A plus that of B minus the joint entropy, and for a Bell pair it reaches two bits, twice the classical limit. The conditional entropy is then minus one bit, which a Venn diagram cannot draw. A negative value reveals entanglement and, in state merging, acts as a credit: no qubits are sent and entangled pairs remain.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we ask how much two quantum systems know about each other, and we meet an entropy that can be negative.</p><p>Picture the station&#39;s coverage map. Two transmitters, A and B, each send out a signal. Each has an entropy: how uncertain its next symbol is. Draw it as a circle whose area is that entropy, in bits.</p><p>Where the circles overlap, the two signals share information. This is the mutual information, I of A and B. It equals S of A, plus S of B, minus S of A B. You add the two circles, then subtract the joint entropy, so the overlap is not counted twice.</p><p>The part of A outside the overlap is the conditional entropy, S of A given B, equal to S of A B minus S of B. It is what A still hides once you know B.</p><p>For classical bits, this picture always works. Every region has a positive area, and the overlap is never larger than either circle. Two classical bits share at most one bit.</p><p>Now replace each transmitter by a qubit, and let the pair be a Bell state, from episode five point five. Alone, each qubit is a perfect mixture, so S of A is one bit, and S of B is one bit. But the pair together is a pure state, so S of A B is zero.</p><p>Put the numbers in. The mutual information is one plus one minus zero. That is two bits, twice the classical limit. For qubits, two bits is the most any state can reach.</p><p>Now the conditional entropy. S of A given B is S of A B minus S of B. That is zero minus one. Minus one bit.</p><p>The Venn diagram cannot show this. The overlap, two bits, is bigger than the circle that contains it. And each private crescent would need a negative area. Yet the bookkeeping still works. Minus one, plus two, gives one bit for A. Minus one, plus two, minus one, gives zero for the pair. The algebra holds. The drawing does not. So we keep the three labelled regions, and let the numbers speak.</p><p>What does a minus one mean? In 1997, Nicolas Cerf and Christoph Adami showed that quantum conditional entropies can be negative, and tied this to entanglement. Separable states never have a negative value, so a negative value reveals entanglement. The reverse fails: some entangled states are not negative.</p><p>In 2005, Michal Horodecki, Jonathan Oppenheim and Andreas Winter gave the minus sign an operational meaning. In state merging, Alice hands her share of a state to Bob, who holds the rest. If the conditional entropy is positive, she must send that many qubits. If it is negative, she sends none, and the two are left with that many entangled pairs, ready for later use. A negative number is a credit.</p><p>That credit is the resource behind teleportation and superdense coding, from episodes five five and five six. Superdense coding sends two classical bits with one qubit, and the mutual information of the pair is two bits.</p><p>The classic trap is to read the minus sign as a negative probability. It is not. The entropy of the whole system is never negative. Only the conditional piece can be, because it is a difference. The diagram is bookkeeping, and its regions are sums, not areas.</p><p>Let&#39;s recap. Mutual information is S of A plus S of B minus S of A B, and for a Bell pair it is two bits. Conditional entropy is S of A B minus S of B, and for a Bell pair it is minus one. A negative value signals entanglement, and means a credit in state merging. Next, three stations at once: conditional mutual information and strong subadditivity.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.4_Conditional-mutual-information-and-strong-subadditivity_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.4</span><span>3:26</span></span>
+        <h3>Conditional mutual information and strong subadditivity</h3>
+<p class="summary">Conditional mutual information weighs the entropies of AC and BC against those of C and ABC, measuring what A and B still share once C is known. Strong subadditivity says this scale never tips the wrong way, even though a quantum C cannot be fixed by looking. Zero marks a quantum Markov chain, and conditioning can create correlation.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we go from two stations to three, and we meet one of the deepest inequalities in quantum information.</p><p>Picture a balance scale on the workshop bench. Three stations: A, B and C. How much do A and B still share, once we know C? That is the conditional mutual information, I of A and B given C.</p><p>Here is the recipe. On the left pan, put the entropy of A C, and the entropy of B C. On the right pan, put the entropy of C, and the entropy of A B C. The conditional mutual information is the left minus the right. It is how far the scale tips.</p><p>Classically, the scale can never tip the wrong way. Fix one value of C. Then A and B share an amount that is zero or more. The conditional mutual information is the average of those amounts, and an average of positive numbers is positive.</p><p>For quantum systems, that argument is gone. There is no value of C to fix, because looking at C would disturb it. And yet the scale still never tips the wrong way. This is called strong subadditivity. Lanford and Robinson conjectured it in 1968. Elliott Lieb and Mary Beth Ruskai proved it in 1973, resting on a concavity theorem of Lieb.</p><p>Let&#39;s weigh three examples. First, a Bell pair on A and B, with C a blank station. The left pan holds one plus one. The right pan holds zero. The scale tips by two bits, the mutual information of episode eleven point three.</p><p>Second, three qubits in a GHZ state. Every pair has an entropy of one bit, and the whole is pure. The left pan holds one plus one, the right pan holds one plus zero. It tips by one bit.</p><p>Third, a relay chain. A is a fair bit, C is a copy of A, and B is a copy of C. All four entropies are one bit. The scale balances, at zero.</p><p>Zero is special. It means a Markov chain, A to C to B: once you know C, A and B tell you nothing about each other. In 2004, Patrick Hayden, Richard Jozsa, Denes Petz and Andreas Winter described every quantum state that balances the scale. In 2015, Omar Fawzi and Renato Renner showed that a small tilt means the state can be nearly rebuilt from B and C, by acting on C alone.</p><p>This closes a loop with the EEG series. Transfer entropy, introduced by Thomas Schreiber in 2000, is itself a conditional mutual information: the past of one signal against the future of another, given the past of that other.</p><p>Now the classic trap. Knowing C does not always make A and B more independent. Take two fair coins, A and B, and let C be one if they differ, zero if they agree. A and B share nothing. But once you know C, each one fixes the other. The scale tips by one bit. Conditioning can create correlation.</p><p>Let&#39;s recap. The conditional mutual information is S of A C, plus S of B C, minus S of C, minus S of A B C. Strong subadditivity says it is never negative, even for quantum states. Zero means a quantum Markov chain. Next, correlations that survive without entanglement: quantum discord.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.5_Quantum-discord-Correlations-beyond-entanglement_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.5</span><span>4:38</span></span>
+        <h3>Quantum discord · <span class="pk">Correlations beyond entanglement</span></h3>
+<p class="summary">Mutual information can be written with entropies or as what peeking at B teaches about A. Classically the two agree, but measuring a qubit disturbs it. Quantum discord is the gap between them, zero only when some measurement leaves the state untouched, and a separable mixture of zero and plus still has about 0.14 bits, so it is not stronger entanglement.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we ask whether entanglement is the only way two quantum systems can be correlated. The answer is no, and the gap has a name: quantum discord.</p><p>Start with two transmitters, A and B. Their mutual information measures what each one tells you about the other. There are two ways to write it, and for classical bits they agree.</p><p>The first way counts entropies. The mutual information is S of A, plus S of B, minus S of A B. That is the formula from episode eleven point three.</p><p>The second way asks a question. Look at B, and read its value. Then ask how much uncertainty is left about A. The mutual information is S of A, minus what remains. In words: how much does peeking at B teach me about A?</p><p>For classical bits, peeking is free. Reading B changes nothing, so the two formulas give the same number. Take two bits that are always equal. Both formulas say one bit.</p><p>Now make B a qubit. Peeking is a measurement, and a measurement disturbs the state. Worse, you must choose how to peek: which direction to point the slit. Each choice leaves A in a different condition.</p><p>So we define the second formula with care. Call it J. It is S of A, minus the average entropy left on A after measuring B, using the slit direction that teaches you the most. J is the classical correlation, the part you can extract by looking.</p><p>Quantum discord is the difference: D equals I minus J. It is never negative. If it is zero, some way of peeking leaves the state untouched, and the correlation is fully classical. If it is positive, every way of peeking costs something.</p><p>This idea appeared in 2001, in two papers within weeks of each other. Henderson and Vedral proposed the measure of classical correlations, J. Harold Ollivier and Wojciech Zurek named the gap, and called it discord.</p><p>Test it on the Bell pair. S of A is one bit, S of B is one bit, and the pair together is pure, so S of A B is zero. The mutual information is two bits. Now peek at B in any direction at all. A is left in a pure state, with no uncertainty. So J is one bit, whatever the slit angle. Discord is two minus one: one bit.</p><p>Now the surprise. Build a state with no entanglement at all. Flip a coin. On heads, prepare both qubits in zero. On tails, prepare both in plus, the state H makes from zero. This is a mixture of product states, so it is separable.</p><p>Compute it. The mutual information is about zero point three nine bits. Sweep the slit angle, and the information you gain changes with it. At the best angle, J reaches only about zero point two five bits. The discord is about zero point one four. There is no entanglement, and yet the correlations cannot be read out without a cost. The reason is that the two states, zero and plus, are not orthogonal, so no measurement tells them apart perfectly.</p><p>Two more facts. First, almost every quantum state has non-zero discord. In 2010, Ferraro and colleagues showed that zero-discord states form a set of measure zero. Second, discord is hard to compute. The best-angle search is the hard part, and in 2014 Yichen Huang proved that computing discord is N P complete.</p><p>Does discord do useful work? In 2008, Animesh Datta, Anil Shaji and Carlton Caves found that a model with one clean qubit, called D Q C one, holds almost no entanglement but non-zero discord. They proposed discord as a measure of its resource. In 2011, Vaibhav Madhok and Animesh Datta tied discord to the extra cost of state merging. Whether discord is the resource behind a speed-up is still argued.</p><p>The classic trap is to treat discord as a stronger kind of entanglement. It is not. Entangled states have discord, but separable ones can too. It is also asymmetric: measuring B and measuring A can give different values.</p><p>Let&#39;s recap. Mutual information has two writings, and they agree classically. Measuring B disturbs a quantum state, and the gap is discord. A Bell pair has one bit, and a separable mixture of zero and plus has about zero point one four. Next, the radio station gets a clock: quantum transfer entropy, directed information in quantum processes.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.6">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.6_Quantum-transfer-entropy-Directed-information-in-quantum-processes_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.6</span><span>4:12</span></span>
+        <h3>Quantum transfer entropy · <span class="pk">Directed information in quantum processes</span></h3>
+<p class="summary">Classical transfer entropy asks how much the past of A helps predict the next value of B, given B&#39;s own past. For qubits there is no tape to read: every measurement disturbs the state, so the series depends on when and in which basis one measures. No single quantum transfer entropy exists, only proposals, such as one for continuous measurement with feedback.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we ask a question about direction. When two quantum systems interact, can we say who is talking to whom? Fair warning: this is an open research area, with several proposals and no agreed answer.</p><p>Start on the classical side. In the EEG series, episode eleven point three, we met transfer entropy. Thomas Schreiber introduced it in the year two thousand, to measure information flow with a direction. Take two time series, A and B. Ask: once I already know the past of B, how much does the past of A still tell me about the next value of B? That is a conditional mutual information, the tool of episode eleven point four. Swap A and B, and the answer can change. That asymmetry is the whole point.</p><p>Picture the station&#39;s tape room. Each transmitter has a tape that logs its symbols, tick after tick. A read head slides along both tapes, and we count how often A&#39;s past helps predict B&#39;s next mark. Reading is free. The tapes stay as they were.</p><p>Now replace the transmitters by two interacting qubits. Right away, there is a problem. A qubit has no tape. To get a time series, we must measure, again and again. And a measurement is not a glance. It changes the state, and so it changes what the next measurement will show. In our picture, the read head smudges the tape as it reads. The series we record depends on when we measure, and on which basis we choose.</p><p>So the same two qubits, with two measurement schedules, give two series and two transfer entropies. No single number is waiting to be found. That is why the literature offers proposals, plural.</p><p>Let&#39;s meet one, carefully. In twenty twenty-two, Toshihiro Yada, Nobuyuki Yoshioka and Takahiro Sagawa, at the University of Tokyo, published a paper in Physical Review Letters. Their setting is specific. A quantum system is measured continuously, and the outcomes steer it back through feedback. They define the quantum-classical transfer entropy. The name says it all: the system is quantum, the record of outcomes is classical. The quantity counts the information that the measurements gain about the system as time goes on.</p><p>Two facts anchor it. If the system is classical, it reduces to Schreiber&#39;s transfer entropy. And it appears in a fluctuation theorem, a version of the second law for quantum systems under measurement and feedback.</p><p>It was also tested. In twenty twenty-five, Yada and colleagues, with Mikhail Lukin, reported an experiment in Physical Review X. Their qubit was the electron spin of a silicon-vacancy centre in diamond, coupled to a nanocavity. With repeated measurement and feedback, they tested the second law and the fluctuation theorem in forms that count this information flow.</p><p>Notice what this proposal is, and what it is not. It measures the flow between a quantum system and the measuring apparatus that controls it. It does not tell us whether qubit A drives qubit B. For that question, other definitions are still being explored, and we will not pick a winner.</p><p>Now the classic trap. A name is not a definition. Quantum transfer entropy is not a textbook quantity like von Neumann entropy, with one formula everyone shares. Always ask three things: what was measured, when, and in which basis. And remember that even classically, transfer entropy shows that A helps predict B. It does not prove that A causes B.</p><p>Let&#39;s recap. Classical transfer entropy is a conditional mutual information of the past of A and the future of B, given the past of B. In a quantum process, building the time series requires measurements, and each measurement disturbs what follows. So there is no single quantum transfer entropy, only proposals. One, from twenty twenty-two, is the quantum-classical transfer entropy, for continuous measurement and feedback. It is an open front of research. Next, beyond pairs: monogamy and tripartite information.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.7">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.7_Beyond-pairs-Monogamy-and-tripartite-information_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.7</span><span>4:03</span></span>
+        <h3>Beyond pairs · <span class="pk">Monogamy and tripartite information</span></h3>
+<p class="summary">Entanglement is monogamous: A holds one ribbon of entanglement, and what goes to B is no longer available for C, a three-party cousin of no-cloning. The tangles of A with B and of A with C never sum to more than that of A with the pair BC. Tripartite information is positive for redundancy, negative for synergy, and zero for pure three-party states.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the radio station, in chapter eleven. So far we have looked at pairs. Today we add a third station, and we meet a rule about sharing: entanglement is monogamous.</p><p>Picture the teletype in the back room. Qubit A owns a ribbon of paper exactly one unit long. That ribbon is all the entanglement A can hand out. Give a stretch to B, and only the rest is left for C.</p><p>First, the classical side. A bulletin pinned to the board can be photocopied for any number of listeners. If A is perfectly correlated with B, a third station C can be perfectly correlated with A too. Copies cost nothing.</p><p>Now the quantum side. Let A and B form a Bell pair. The whole ribbon is used. Any third qubit C is completely uncorrelated with A. A maximally entangled qubit has nothing left to give away.</p><p>In 2000, Valerie Coffman, Joydip Kundu and William Wootters made this exact. They measured entanglement by the tangle, the square of the concurrence. The tangle of A with B, plus the tangle of A with C, never exceeds the tangle of A with the pair B C. That last number is at most one: the length of the ribbon. In 2006, Tobias Osborne and Frank Verstraete proved the same inequality for any number of qubits.</p><p>Two examples show the range. In the three-qubit GHZ state, every pair has tangle zero, yet A against B C has tangle one. The ribbon is used in a three-way knot. In the W state, A with B has tangle four ninths, A with C also four ninths, and A against B C has eight ninths. The ribbon is shared in pairs, and the inequality is an equality. We computed these numbers for this episode.</p><p>Why does this matter? A cloning machine could copy A&#39;s entanglement with B onto C, and the ribbon would be used twice. Monogamy forbids that. It is the three-party cousin of no-cloning, from episode four point three. It also shapes security. In Artur Ekert&#39;s entangled key distribution, from 1991, the partners hold a nearly maximal pair, so a spy has almost no entanglement left to share with them. The BB84 protocol of episode five point seven reaches the same goal without entanglement, through no-cloning.</p><p>Now the other quantity, in bits. The tripartite information, I three, is the mutual information of A and B, plus that of A and C, minus that of A with B and C together. If I three is positive, the information is redundant: three stations repeat one announcement, and I three is plus one bit. If it is negative, the information is synergistic. Let C be the parity of two random bits, A and B. Each pair alone shows nothing. Together they determine everything. I three is minus one bit. This is the redundancy and synergy of the EEG series, in episode eleven point four.</p><p>For a pure state of three parties, I three is exactly zero, whatever the state. A negative value needs a fourth, hidden party. In 2013, Patrick Hayden, Matthew Headrick and Alexander Maloney showed that for holographic states, I three is never positive. They call this the monogamy of mutual information.</p><p>The classic trap is to read a negative I three as negative information. It is not. It marks information stored in the whole, not in any pair. And monogamy limits entanglement, not correlation. Classical correlations are not bound by it.</p><p>Let&#39;s recap. Entanglement is monogamous: the tangles of A with B and of A with C add up to at most the tangle of A with B C. It echoes no-cloning. The tripartite information is positive for redundancy, negative for synergy, and zero for any pure three-party state. Next, telling states apart: how well can one measurement distinguish two quantum states?</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.8">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.8_Telling-states-apart_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.8</span><span>4:32</span></span>
+        <h3>Telling states apart</h3>
+<p class="summary">Two non-orthogonal states can never be told apart with certainty, whatever the measurement. Fidelity is the squared overlap, trace distance measures their separation, and Helstrom&#39;s bound puts the best single-shot success at one half times one plus the trace distance, eighty percent in the worked example. Relative entropy instead sets the error rate when many copies are tested.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we ask a plain question: how well can you tell two quantum states apart? And we meet the quantity that measures it.</p><p>Picture a receiver that gets one of two mystery signals, chosen by a coin flip. It is either state psi or state phi. You may measure once, and then you must say which one it was. Your score is the chance of being right.</p><p>If the states are orthogonal, the answer is easy. Measure along their axis, and the outcome names the sender every time. The score is one hundred percent.</p><p>If the states are identical, there is nothing to find. You guess, and the score is fifty percent.</p><p>Everything interesting lives between those two. Here is an example, labelled illustrative. Psi is the state zero. Phi is zero point eight times zero, plus zero point six times one. Their overlap is zero point eight.</p><p>The first measure is the fidelity. It is the overlap, squared. Here that is zero point six four. It is one for identical states and zero for orthogonal ones. In 1994, Richard Jozsa defined it for mixed states too, building on a formula by Armin Uhlmann from 1976. Be careful: some authors use the square root instead, so always check the convention.</p><p>The second measure is the trace distance. Take the difference of the two density matrices, add up the absolute values of its eigenvalues, and halve it. For pure states, it equals the square root of one minus the fidelity. Here that is the square root of zero point three six. Zero point six.</p><p>Now the question we asked. Carl Helstrom worked this out in the sixties and seventies. For two equally likely states, the best possible chance of success, over every measurement that quantum mechanics allows, is one half, times one plus the trace distance. Here that is one half, times one point six. Eighty percent. One measurement, and eighty percent is the ceiling.</p><p>That is the moment to remember. Two states that are not orthogonal can never be told apart with certainty, whatever the measurement. A smarter receiver does not help. The limit is in the states.</p><p>It is the same reason as in two earlier episodes. In episode five point seven, BB84 uses zero and plus. Their overlap is one over root two, so a spy who measures once is right at most about eighty five percent of the time. And in episode four point three, if you could always tell the states apart, you could copy them, which the no-cloning theorem forbids.</p><p>Copies do help, a little. With many copies, the overlap is multiplied by itself again and again, and the states slowly separate.</p><p>Now a third tool, with a different job. The quantum relative entropy of rho from sigma is the trace of rho times log rho, minus the trace of rho times log sigma. It is the quantum cousin of the Kullback–Leibler divergence, from 1951, and the formula is due to Hisaharu Umegaki, in 1962.</p><p>It is never negative, and it is zero only when the states are equal. It is not symmetric, so it is not a distance. And it can be infinite.</p><p>What is it good for? In 1991, Fumio Hiai and Denes Petz showed that it sets the speed of testing. When you hold many copies and want to rule out one state, the chance of a mistake shrinks exponentially, and the relative entropy is the rate. Relative entropy also ties back to episode eleven point three: the mutual information of two systems is the relative entropy between their joint state and the product of their separate states.</p><p>The classic trap is to treat these three as interchangeable. Trace distance answers a single-shot question. Relative entropy answers a many-copy question. Fidelity sits between them, and the three are linked by inequalities, not equalities.</p><p>Let&#39;s recap. Fidelity is the squared overlap. Trace distance is half the sum of the absolute eigenvalues of the difference. Helstrom&#39;s bound says the best single-shot success is one half, times one plus the trace distance. Non-orthogonal states are never perfectly distinguishable. Relative entropy is the quantum Kullback–Leibler divergence, and it measures many-copy testing. Next, Holevo and channel capacities.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.9">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.9_Holevo-and-channel-capacities_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.9</span><span>4:52</span></span>
+        <h3>Holevo and channel capacities</h3>
+<p class="summary">The Holevo information, the entropy of the average state minus the average entropy of the sent states, caps what a listener can learn: n qubits deliver at most n bits, although they hold two to the n amplitudes. Superdense coding respects this because the receiver holds the entangled half. Noise only lowers it, and channel capacity comes in three versions.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, the home of chapter eleven. Today we ask the question that episode two point one left open: how much information can a qubit really carry to someone who listens?</p><p>Picture a water tower. Three qubits are described by eight amplitudes, so the tower has eight taps, each one a complex number. Between the tower and the listener there is a single pipe, and at the end of it a measuring jug. The jug has a red line at three bits. The question is whether the eight taps can ever push the water above that line.</p><p>First, the quantity that sets the level. Alice picks a message i with probability p of i, and sends a state, rho of i. Bob sees only the average state, rho. The Holevo information, called chi, is the entropy of the average, S of rho, minus the average of the entropies, the sum of p of i times S of rho of i. The first term is what Bob could be uncertain about. The second is the uncertainty that was already inside each state.</p><p>Take two equally likely messages, ket zero and ket plus. Both are pure, so the second term is zero. The average state has eigenvalues about zero point eight five and zero point one five, and its entropy is about zero point six bits. So chi is zero point six, even though Alice chose between two messages. If she had sent ket zero and ket one, chi would be exactly one. This is the story of episode eleven point eight: overlapping states cannot be told apart perfectly, and chi counts the loss.</p><p>Now the theorem. In 1973, Alexander Holevo proved that whatever measurement Bob chooses, the information he gains about the message is at most chi. And chi is never larger than the entropy of the message, nor larger than log base two of the dimension. For n qubits, the dimension is two to the n, so the ceiling is n bits. The jug has its red line, and the taps cannot beat it. The two to the n amplitudes are real, but a measurement reads out only n bits.</p><p>Does superdense coding break this? In episode five point six, one qubit carried two bits. It does not break the bound. The bound applies to the qubit alone. Bob also holds the other half of the entangled pair, so he measures two qubits, and two bits is exactly their ceiling. The entanglement was paid for in advance.</p><p>Now add noise. Put the phase-flip channel of episode ten point two between Alice and Bob. A channel can only shrink chi. This is the data processing inequality, and it follows from the fact that quantum relative entropy never increases under a channel, proved by Goran Lindblad in 1975. The same rule you met in the Information series holds here: processing the output cannot restore what the channel lost.</p><p>So what is the best a channel can do? Choose the best ensemble, and send long blocks. The Holevo, Schumacher and Westmoreland theorem, from 1997 and 1998, says this rate can be reached, and it is the classical capacity. One warning: the best ensemble may need entangled inputs across several uses. In 2009, Matthew Hastings showed that this can beat any single use.</p><p>Three capacities, then, for one channel. Take the phase-flip channel with probability one tenth. This is an illustrative case, worked out from the textbook formulas. The classical capacity is one bit: send ket zero or ket one, which a phase flip cannot touch. The quantum capacity, the rate of qubits delivered intact, is one minus the binary entropy of p, about zero point five three. And if sender and receiver share entanglement, the capacity is the largest mutual information between input and output, shown by Bennett, Shor, Smolin and Thapliyal in 1999. Here it is two minus the binary entropy, about one point five three. The order is always quantum, then classical, then entanglement-assisted. With no noise, they read one, one, and two: that is superdense coding again.</p><p>The classic trap is to think that n qubits store two to the n bits. They hold two to the n numbers, and they deliver n bits. Storing and delivering are different quantities, and chi measures delivery.</p><p>Let&#39;s recap. Chi is the entropy of the average state, minus the average entropy. Holevo&#39;s bound says n qubits deliver at most n bits. Noise can only lower chi. Capacity is the best chi, in three versions: classical, entanglement-assisted, and quantum. Next, Hering&#39;s rebit: quantum information for colour perception.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-11.10">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_11.10_Herings-rebit-Quantum-information-for-colour-perception_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 11.10</span><span>4:08</span></span>
+        <h3>Hering&#39;s rebit · <span class="pk">Quantum information for colour perception</span></h3>
+<p class="summary">A rebit is a qubit with real amplitudes, so its states fill a disk. Laying Hering&#39;s opponent colour axes along it puts grey at the centre, hue as the angle and saturation as the relative entropy from the centre, in a hyperbolic geometry. This is a modelling language with no quantum machine involved, and its experimental tests are still to come.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the radio station, for the last episode of chapter eleven. Today the quantum formalism leaves the quantum computer. A small research line uses it as a language to describe how we see colour. No quantum machine is involved.</p><p>Start with QUBY on the Bloch sphere. Now remove the complex phase, and keep only real amplitudes. The sphere flattens into a disk. A qubit restricted to real amplitudes is called a rebit, a name used in quantum information since around the year two thousand. Its pure states sit on the rim of the disk. Its mixed states fill the inside. The centre is the maximally mixed state, the one that tells you nothing.</p><p>Now colour. In the late nineteenth century, the physiologist Ewald Hering noticed that nobody describes a greenish red, or a yellowish blue. He proposed that vision codes colour on opposing pairs: red against green, yellow against blue, plus light against dark. These are the opponent axes.</p><p>Here is the proposal. Michel Berthier, Edoardo Provenzi, and colleagues lay the two opponent axes along the disk. The centre is the achromatic state, a neutral grey. The angle around the centre plays the role of hue. The distance from the centre plays the role of saturation. In a 2020 paper, Michel Berthier showed that this space of perceived colours carries the geometry of the Klein disk, a model of hyperbolic geometry. There, equal steps look smaller and smaller as you approach the rim.</p><p>The chapter&#39;s tools slot in. A light stimulus is a state. The observer is an effect, a yes or no question asked of the light. What the observer perceives is the state after a Lüders operation, built from a Kraus operator, the square root of the effect.</p><p>Then comes relative entropy, from episode eleven point eight. Saturation is the relative entropy between the perceived state and the achromatic centre. Hue is the pure state on the rim that is closest to the perceived one, in relative entropy. In a 2022 paper, Berthier and colleagues use these tools to define brightness, lightness, colorfulness, chroma, saturation and hue. They derive lightness constancy from the model. An earlier paper, by Berthier and Provenzi in 2021, derived uncertainty relations for chromatic opposition.</p><p>Now the honest part. This is a model, not a result. In November 2025, Roberto Leporini, Edoardo Provenzi and Michel Berthier posted a framework for experimental tests. They show how to compute the perceptual attributes from ordinary qubit density matrices, and they sketch protocols with light stimuli shown to human observers. They write that they plan to run the experiments. That paper reports no experimental data. So today the model is a hypothesis waiting for its test.</p><p>The classic trap is to read this as a claim that the brain is quantum. It is not. Nobody here says that photons in the eye, or neurons, compute with superpositions. The word quantum refers to the mathematics of states, effects and measurements. The same mathematics, used as a language to model perception, with no quantum hardware anywhere.</p><p>Why show it in a series on quantum computing? Because it is a fair test of the formalism you just learned. States, effects, relative entropy and a geometry on a space of states are not tied to qubits in a machine. Whether the language fits colour is for experiments to decide.</p><p>Let&#39;s recap. A rebit is a qubit with real amplitudes, and its states fill a disk. Hering&#39;s two opponent axes lie along it, with grey at the centre. Hue is an angle, saturation is a relative entropy from the centre, and the geometry is hyperbolic. This is a modelling language, with no quantum machine, and its experimental tests are still to come. Next, we begin the hardware: episode twelve point one, reading a spec sheet.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-10/">← 10 · NOISE AND ERROR CORRECTION</a><a class="btn main" href="../chapter-12/">12 · THE HARDWARE →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

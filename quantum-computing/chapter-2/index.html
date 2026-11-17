@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The qubit · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 2: The qubit.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 2</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 2</span><span class="caps">CHAPTER 2</span></div>
+    <h1 class="h1-chapter">The qubit</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 13 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/" class="on" aria-current="page">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-2.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_2.1_Bit-vs-qubit_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.1</span><span>3:02</span></span>
+        <h3>Bit vs qubit</h3>
+<p class="summary">A bit is always exactly zero or one, while a qubit is a normalized vector of two complex amplitudes with a continuum of states and a phase. Measuring gives a single bit and the qubit becomes that bit, so n qubits never deliver more than n bits. The power lies in letting amplitudes interfere before measurement, not in storing more.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the snow-globe shop, the home of chapter two. Today we put a classical bit and a qubit side by side, and ask a simple question. What exactly is new?</p><p>On the left of the counter is a light switch. It is a bit. It has two positions, zero and one, and at any moment it is in exactly one of them. To know which, you just look. Looking does not change it.</p><p>On the right is a snow globe. This is our qubit, and its name is Quby. A qubit has two basis states as well, ket zero and ket one. But its state can be any combination alpha times ket zero plus beta times ket one, where alpha and beta are complex numbers. The only rule is that alpha times its conjugate plus beta times its conjugate equals one.</p><p>So what does a qubit have that a bit does not? First, a whole continuum of states. Alpha and beta can take infinitely many values. Second, a phase. Two states can give the same chances and still be different, because their arrows point in different directions. In episode four of this chapter, that phase will make arrows cancel.</p><p>Now, what does a qubit not have? It is tempting to think that a qubit stores an infinite amount of information, since alpha and beta are real numbers with infinitely many digits. But we can never read alpha and beta directly. When we measure, we get a single bit, zero or one. And then the qubit becomes that bit.</p><p>There is a precise version of this, called the Holevo bound. Roughly, n qubits can never deliver more than n classical bits of information to someone who measures them. We will come back to it in chapter eleven. For now, keep the short version: one qubit, one bit out.</p><p>This also corrects a common sentence. People often say that a qubit is zero and one at the same time. That phrase sounds exciting, but it hides the real point. A better sentence is this one: a qubit is a vector with two complex coordinates. The coordinates are amplitudes, not hidden answers.</p><p>Turning the globe in your hands shows only one face at a time. You never see the whole globe at once. That is measurement. And the way the globe is oriented decides which face you are likely to see.</p><p>If a qubit gives only one bit when measured, where does the power come from? Not from storing more. It comes from what happens before the measurement. Many qubits together have two to the n amplitudes, and gates can make those amplitudes interfere. The art is to prepare the vector so that one bit string is very likely at the end.</p><p>Let&#39;s recap. A bit is zero or one. A qubit is a normalized vector, alpha ket zero plus beta ket one, with complex amplitudes. It has a continuum of states and a phase. But measuring it returns a single bit, and n qubits never deliver more than n bits. Next, we draw every possible qubit state on one picture: the Bloch sphere.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_2.2_Superposition-and-the-Bloch-sphere_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.2</span><span>3:32</span></span>
+        <h3>Superposition and the Bloch sphere</h3>
+<p class="summary">Normalization and the unobservable global phase leave two numbers, so every qubit state is a point on the Bloch sphere. The poles are zero and one, opposite points are orthogonal, and the relative phase turns the state around the vertical axis, which is all that separates plus from minus. The sphere works for a single qubit only.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the snow-globe shop. Every qubit state is a pair of complex numbers. That sounds like four real numbers. Today we show that only two of them matter, and that every qubit state is a point on a sphere.</p><p>Start with the normalization rule. The squared lengths of alpha and beta add up to one. That removes one real number. We are down to three.</p><p>Now remember the global phase from episode one point two. If we turn both arrows by the same angle, nothing we can ever measure changes. So we can always turn them until alpha points straight along the real axis, with no imaginary part. That removes a second number. We are down to two.</p><p>With these two numbers, any qubit state can be written in one standard form. Ket psi equals cosine of theta over two, times ket zero, plus e to the i phi, times sine of theta over two, times ket one. Theta tells us how much of ket one there is. Phi is the relative phase between the two parts.</p><p>Two angles, theta and phi, are exactly the coordinates of a point on a sphere. Theta goes from the north pole down to the south pole. Phi goes around the equator. This is the Bloch sphere.</p><p>Let&#39;s place a few states. At the north pole, theta is zero, and the state is ket zero. At the south pole, theta is pi, and the state is ket one. On the equator, theta is pi over two, and both parts have the same weight. Phi then picks the point around the equator. At phi equals zero, we get ket plus. At phi equals pi, ket minus. At a quarter turn, ket plus i, and at three quarters, ket minus i.</p><p>Why theta over two, and not theta? Because ket zero and ket one are orthogonal, completely distinct, yet on the sphere they are opposite points, one hundred and eighty degrees apart. The half angle makes that work. Opposite points on the Bloch sphere are always orthogonal states.</p><p>Now the important lesson. Look at ket plus and ket minus. Both sit on the equator. Both give zero half of the time and one half of the time, if we measure in the usual way. Yet they are opposite points of the sphere. The difference is the relative phase, phi. A global phase never moves the point. A relative phase turns it around the vertical axis.</p><p>Watch Quby&#39;s antenna. When the state moves on the sphere, the antenna follows, and the colour of the globe shifts from pink near ket zero to blue near ket one. Turning the globe with a global phase leaves it exactly as it was.</p><p>The sphere is named after Felix Bloch, one of the physicists behind nuclear magnetic resonance. If you followed the MRI series, you have met a spinning magnetization on the same kind of sphere. Here the arrow is the state of a single qubit.</p><p>One limit, to keep in mind. The Bloch sphere works for one qubit only. Two qubits cannot be drawn as two spheres, because entangled states do not split into two separate parts. For more than one qubit, we will use the arrow bar.</p><p>Let&#39;s recap. A qubit has four real numbers, but normalization and the global phase remove two. What is left, theta and phi, is a point on the Bloch sphere. The poles are ket zero and ket one, and the equator holds the equal superpositions. Opposite points are orthogonal. And the relative phase turns the state around the vertical axis. Next, we measure, and meet the Born rule.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_2.3_Measurement-and-the-Born-rule_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.3</span><span>3:06</span></span>
+        <h3>Measurement and the Born rule</h3>
+<p class="summary">The Born rule says an outcome&#39;s probability is the squared length of its amplitude, and afterwards the state becomes that outcome. Probabilities are estimated by repeated shots, with error shrinking like one over the square root of their number, and measuring along another axis means rotating first. A measurement is a question the experimenter chooses, not a reading of a hidden value.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the snow-globe shop, there is one thing you can always do with a globe. You can shake it, and see where the snow lands. Today, that is measurement, and the rule behind it is called the Born rule.</p><p>Take a qubit in the state alpha ket zero plus beta ket one. When we measure it, we get zero with probability alpha times its conjugate, and one with probability beta times its conjugate. In words: the probability of an outcome is the squared length of its arrow. That is the Born rule.</p><p>This is why the yellow bars of the arrow bar always add up to one. They are not just squared lengths. They are probabilities.</p><p>The second part of the rule is just as important. After the measurement, the state is no longer a superposition. If we read zero, the qubit is now in ket zero. If we read one, it is now in ket one. Measure it again, straight away, and you get the same answer every time.</p><p>So a single measurement gives one random bit, and destroys the superposition. How can we learn alpha and beta at all? We prepare the same state again, and measure again. Each run is called a shot. Then we count.</p><p>Let&#39;s shake the globe for ket plus, where both outcomes have probability one half. With ten shots, we might get six zeros and four ones. With one hundred shots, maybe fifty-three and forty-seven. With ten thousand shots, the histogram is very close to one half each.</p><p>How close? The typical error of an estimated probability shrinks like one over the square root of the number of shots. Four times more shots halves the error. One hundred times more shots divides it by ten. If you have averaged EEG trials, you already know this law. It is the same square root, and it will matter every time we talk about running a real quantum computer.</p><p>Now, which measurement? So far we always measured in the basis ket zero, ket one, the vertical axis of the Bloch sphere. Hardware usually offers only this measurement. But we can choose another axis anyway. We first rotate the state with a gate, then measure as usual.</p><p>For example, apply a Hadamard, then measure. Ket plus becomes ket zero, and ket minus becomes ket one. So this pair of steps measures along the horizontal axis of the sphere. Ket plus and ket minus, which looked identical a moment ago, now give completely different answers.</p><p>That is the deeper lesson. A measurement does not reveal a hidden value that was already there. It asks a question, along an axis that we choose. The answer depends on the state, and on the question.</p><p>Let&#39;s recap. The probability of an outcome is the squared length of its amplitude. After measuring, the state becomes the outcome. To estimate probabilities, we repeat the experiment many times, and the error shrinks like one over the square root of the number of shots. And to measure along another axis, we rotate first, then measure. Next, we use all of this to see interference, the engine of every algorithm.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_2.4_Interference-the-engine_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.4</span><span>3:38</span></span>
+        <h3>Interference, the engine</h3>
+<p class="summary">Applying a Hadamard twice returns zero every time, unlike two fair coin flips, because each path carries an amplitude and the arrows are added before squaring. The single minus sign in the Hadamard lets paths cancel, and a phase between the gates steers the result. Algorithms are built so wrong answers cancel, not so all answers are tried at once.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the snow-globe shop. Today we meet the one idea that every quantum algorithm in this series depends on. It is called interference.</p><p>Let&#39;s start with a single qubit in the state zero. We apply a Hadamard gate, H for short. The state becomes one over root two, times zero plus one. Two arrows of the same length, both pointing to the right. Each one, squared, gives one half. So if we measure, we get zero half of the time and one half of the time.</p><p>Now a small question. What happens if we apply H a second time? A natural guess is that we mix the coin again, and still get fifty-fifty. Let&#39;s run it. Zero. Zero. Zero. Every single shot gives zero.</p><p>Before we explain this, let&#39;s watch the classical version. Here is a machine that flips a fair coin. Put in heads, and you get heads or tails, one half each. Run the machine twice, and you still get one half each. Nothing can bring the coin back to heads. In classical probability, chances only add up. They never cancel.</p><p>So what is different with the qubit? The answer is that we should follow paths, and give each path an arrow. The Hadamard matrix has four entries. Three of them are plus one over root two. One of them, from one to one, is minus one over root two. That single minus sign does all the work.</p><p>Starting from zero, there are two paths that end in zero. The first one stays in zero, then stays in zero. The second one goes to one, then comes back to zero. Each path has an amplitude equal to the product of its steps. Both are plus one half. Put the two arrows head to tail, and they add up to a full arrow of length one.</p><p>Now look at the paths that end in one. The first goes through zero, and its arrow is plus one half. The second goes through one, and meets the minus sign. Its arrow is minus one half. The two arrows point in opposite directions. Head to tail, they bring us back to the starting point. The total is zero.</p><p>This is the rule to remember. First you add the arrows of every path. Then you square the length of the total. If you squared each path first, you would get one quarter plus one quarter, and the fifty-fifty coin would come back. Adding before squaring is what lets amplitudes cancel.</p><p>We can steer this cancellation with a phase. Between the two Hadamards, we turn the arrow of the one branch by an angle phi. This is the same spinning arrow you met in the EEG series. At phi equals zero, we always get zero. At phi equals pi, the arrows flip, and we always get one. In between, the probability of zero follows cosine squared of phi over two. One knob moves the result smoothly from one certainty to the other.</p><p>This is why interference is the engine. A quantum algorithm is built so that the paths leading to wrong answers cancel, and the paths leading to the right answer add up. The phases are chosen by the circuit, the way we chose phi.</p><p>It also clears up a common myth. People often say that a quantum computer tries all the answers at once. If that were all, measuring would just hand you one random answer, like the first Hadamard did. What makes the difference is not the number of paths. It is how their arrows cancel.</p><p>Let&#39;s recap. Amplitudes are arrows. Paths add their arrows head to tail, and only then do we square. Classical chances can only add. Quantum amplitudes can also cancel, and a phase decides how. In the next chapter, we open the print shop, and see that every gate is a unitary matrix.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-1/">← 1 · THE TOOLKIT</a><a class="btn main" href="../chapter-3/">3 · GATES AND CIRCUITS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variational and NISQ · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 13: Variational and NISQ.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 13</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 13</span><span class="caps">CHAPTER 13</span></div>
+    <h1 class="h1-chapter">Variational and NISQ</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 21 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/" class="on" aria-current="page">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-13.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_13.1_The-hybrid-loop_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.1</span><span>4:15</span></span>
+        <h3>The hybrid loop</h3>
+<p class="summary">A parameterised circuit prepares a state, its expected value is measured over many shots, and a classical optimiser updates the angles, like a blindfolded golfer hearing only her score. The parameter-shift rule gives an exact slope from two shifted circuits, but shot noise shrinks only like one over the square root of the shots. Hybrid does not promise speed.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the mini-golf, the home of chapter thirteen. In chapter twelve we toured the machines themselves. Today we ask what to do with the ones that exist now, and the answer looks a lot like training a neural network: the hybrid loop.</p><p>Picture a blindfolded golfer. She cannot see the green. After each shot, she hears only the score: how far the ball ended from the hole. So she turns the club a little, hits again, and compares. Each shot is an experiment, and each score is a number. The golfer is a classical optimiser.</p><p>Now swap the pieces. The club angle is a list of parameters, called theta. The shot is a quantum circuit whose gates carry those angles. The score is an expected value: we measure the circuit, many times, and average the outcomes. This is a parameterised circuit, and we call the whole recipe a variational algorithm.</p><p>Here is the circuit in one picture. A short block of gates, with angles theta, prepares a state. We measure an observable, call it H, over and over. Each run is one shot, and each shot returns a single random result. We average the shots, and send the average to a classical computer. The computer updates theta and the loop turns again. The quantum machine only evaluates. The classical machine only decides.</p><p>Why build it this way? In 2018, John Preskill gave the present era a name: NISQ, for noisy, intermediate-scale quantum. In his paper in the journal Quantum, he describes machines with about fifty to a hundred qubits, whose gate noise limits how deep a circuit can run reliably. Short circuits, many repetitions, and a classical loop around them: that is the natural fit. Cerezo and colleagues reviewed this family in Nature Reviews Physics in 2021.</p><p>Now, how does the golfer know which way to turn? She needs a slope. On a quantum circuit there is a neat answer, the parameter-shift rule. For a gate that rotates by theta, the derivative of the expected value equals the value at theta plus pi over two, minus the value at theta minus pi over two, all divided by two.</p><p>A tiny example. One qubit starts in ket zero, and we rotate it by theta, then measure Z. The average is cosine theta. The rule gives cosine of theta plus pi over two, which is minus sine theta, minus cosine of theta minus pi over two, which is plus sine theta, divided by two. That is minus sine theta, exactly the derivative. No small step, no approximation. Two circuits, and the slope is exact. Mitarai and colleagues, and Schuld and colleagues, published this in 2018 and 2019.</p><p>But there is a catch, and it is the heart of this episode. We never see the true average. We see a finite number of shots. The error of a shot average shrinks like one over the square root of the number of shots. A hundred shots give an error of about one tenth. To get ten times better, we need a hundred times more shots, ten thousand.</p><p>So the slope arrives blurred. The golfer hears the score through noise. The descent becomes a stochastic descent, like training a network on a mini-batch. It still works, as long as the steps are small and the shots are enough. And hardware noise adds another layer of blur on top.</p><p>The classic trap: do not read the word hybrid as a promise of speed. Nothing here guarantees an advantage. The loop may stall in a poor valley, and the measurement cost can be large. Every claim must be compared with the best classical method for the same task.</p><p>Let&#39;s recap. A parameterised circuit prepares a state, and we measure an expected value. A classical optimiser updates the parameters, and the loop repeats. The parameter-shift rule gives an exact slope from two shifted circuits. Shot noise shrinks only like one over root N, so the slope is always a little blurred. And NISQ means noisy machines of tens to a hundred qubits, which fit short circuits in a loop. Next, VQE: finding the lowest energy of a molecule, one shot after another.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_13.2_VQE_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.2</span><span>3:53</span></span>
+        <h3>VQE</h3>
+<p class="summary">The variational quantum eigensolver minimises the energy of a trial state, since no guess can fall below the true ground-state energy. The molecular Hamiltonian is a sum of Pauli strings measured in batches, and a classical optimiser turns the circuit angles. Measurement cost is the real bill, and a two-qubit hydrogen run shows the loop works, not that it beats classical chemistry.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the mini-golf, the home of chapter thirteen. Last time we built the hybrid loop. Today we aim it at one question: what is the lowest energy a molecule can have? The method is called the variational quantum eigensolver, or VQE.</p><p>Start with the course itself. Hold two hydrogen atoms at a fixed distance, and ask for the lowest energy their electrons can reach. Repeat for every distance, and you draw a curve with a valley. In a minimal basis, the bottom sits near zero point seven four angstrom, at about minus one point one three seven hartree. That lowest hole is the ground state.</p><p>The intuition is a rule from textbook quantum mechanics, the variational principle. Whatever state you try, its average energy can never fall below the true ground-state energy. So a better guess gives a lower number. Write the guess as psi of theta, and minimise its average energy over theta.</p><p>This idea was demonstrated in 2014 by Peruzzo and colleagues, in Nature Communications. They ran it on a photonic chip, for the helium hydride ion. The chip prepared the state, and a classical computer adjusted the angles.</p><p>Here is the circuit in one picture, with three blocks. First, the ansatz: a short circuit with angles theta, which prepares the trial state. Second, the measurement. And here is the twist. The energy operator H is not something we can read in one go. A molecule&#39;s Hamiltonian is a sum of Pauli strings, each with a number in front. For hydrogen, in one common encoding, it fits on two qubits and has five terms. The terms made only of Z can all be read from the same shots. The X term needs the qubits rotated first, so it gets its own batch. Third, we add every batch, weighted by its number, and send the total energy to the optimiser. The angles change, and the loop turns again.</p><p>There is a variant that grows the ansatz instead of fixing it in advance. In 2019, Grimsley and colleagues proposed ADAPT-VQE. It adds one gate at a time, and each time it picks the gate with the steepest slope for the energy. Is it faster? There is no guarantee. The hope is simply to be useful with short circuits. And the price is measurements. Each term is estimated from shots, and the error shrinks only like one over the square root of the number of shots. Chemists want chemical accuracy, about one point six thousandths of a hartree. For a big molecule, that means a huge number of terms, each measured very precisely, at every step of the loop. In 2015, Wecker, Hastings and Troyer found the number of measurements astronomically large for molecules. In 2022, Gonthier and colleagues studied small combustion molecules, needing one hundred twenty to two hundred sixty qubits. Under optimistic assumptions, a single energy evaluation could take several days to weeks.</p><p>Now the classic trap. For hydrogen, a laptop finds the exact answer in an instant. A two-qubit VQE shows that the loop works, not that it beats anything. The honest reference is always the best classical chemistry method for the same molecule, as we saw in episode eight point two. The optimiser can also stall in a poor valley.</p><p>Let&#39;s recap. A trial state&#39;s energy is never below the ground energy, so we minimise it. The energy is a sum of Pauli strings, measured in batches. A classical optimiser turns the angles, and the adaptive variant grows the circuit gate by gate. Measurement cost is the real bill, and the honest comparison is the best classical method. Next, QAOA: zigzagging through obstacles to cut a graph in two.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_13.3_QAOA_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.3</span><span>4:05</span></span>
+        <h3>QAOA</h3>
+<p class="summary">QAOA attacks MaxCut, splitting a graph into two camps to cut as many edges as possible. From an equal superposition of all splits, each fold stamps a phase by cut size and rolls weight between neighbouring splits, with two dials per fold. In simulation more folds find the best split more often, but no advantage over the best classical methods is demonstrated.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the mini-golf, the home of chapter thirteen. Today the hybrid loop gets a famous job: cutting a graph in two. The recipe is called QAOA, the quantum approximate optimization algorithm.</p><p>Here is the puzzle, called MaxCut. Six guests sit at a party, and some pairs are friends. We split them into two camps, pink and blue. A friendship counts if its two ends land in different camps. On our graph there are nine friendships, and the best split cuts seven.</p><p>Picture the dough of a croissant. We start with a flat sheet where every possible split is present in equal amounts. That is the equal superposition, made by a Hadamard gate on every qubit. Then we fold the dough, and each fold has two moves.</p><p>The first move is a stamp. It tints every split according to its cut size: more friendships cut, a different phase. In symbols, e to the minus i gamma C, where C counts the cut edges. The second move is a roll. It spreads weight between splits that differ by one guest: e to the minus i beta B, where B sums a bit flip on every qubit. Stamp, then roll. That is one fold, with two dials, gamma and beta. We fold p times.</p><p>Why does this work? In episode eight point four we slowly reshaped a landscape. QAOA is that slow path cut into slices. Farhi, Goldstone and Gutmann proposed it in November twenty fourteen. With many fine folds it follows the slow path. With few folds, we only hope the dials find a shortcut.</p><p>Here is the circuit in one picture. A Hadamard on each qubit. Then, p times, a phase gate on every friendship, followed by a rotation on every qubit. Then we measure. Each shot gives one split, and we keep the best. The loop from episode thirteen point one tunes the dials.</p><p>Now real numbers, from a simulation made for this episode. A random split cuts four and a half friendships on average, and finds a best split about nine percent of the time. With one fold and tuned dials, the average rises to about five point nine, and the best split appears forty percent of the time. With two folds, seventy two percent. With three, ninety two percent.</p><p>How much faster is this? Honestly, nobody knows. For one fold, Farhi and colleagues proved that on graphs where every guest has three friends, the cut is at least zero point six nine two four of the best. But classical computers already do better. In nineteen ninety five, Goemans and Williamson guaranteed about zero point eight seven eight, on every graph. If the unique games conjecture is true, no fast classical algorithm can beat that in the worst case.</p><p>Deeper folds look better. In twenty twenty one, Basso and colleagues computed that eleven folds would beat every known classical algorithm that does not rest on unproven conjectures, on random graphs with many friends per guest. That is a calculation, not a measurement. And Marwaha showed that same year that a simple local classical method beats two folds on graphs without short loops. On hardware, Google ran QAOA on twenty three qubits in twenty twenty one. As of this recording, I know of no consensus demonstration that QAOA beats the best classical solvers on MaxCut.</p><p>So here is the classic trap. A paper may report a ratio, say zero point eight, and look impressive. That ratio means little until it is compared with Goemans and Williamson, and with the best heuristics, on the same graphs.</p><p>Let&#39;s recap. QAOA starts from an equal mixture, then folds p times: a stamp that tints each split by its cut, and a roll that spreads weight between neighbours. More folds give better answers in simulation. The guarantees are real but modest, and an advantage over the best classical methods is not demonstrated. Next, QC thirteen point four: quantum optimization, honestly.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_13.4_Quantum-optimization-honestly_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.4</span><span>4:20</span></span>
+        <h3>Quantum optimization, honestly</h3>
+<p class="summary">Five approaches to quantum optimization are compared: warm-started QAOA, recursive QAOA, annealing, backtracking and branch and bound, and sampling. Proven gains are quadratic and need error-corrected machines, where overhead can eat them; hopes for today&#39;s noisy machines are heuristic. Every claim must be tested against the best classical solvers.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the mini-golf, in chapter thirteen. We have met the hybrid loop, and VQE and QAOA. Today we step back and look at the whole course. Which hopes for quantum optimization have actually been earned?</p><p>Picture the course map in the clubhouse. Five holes, side by side, and every player starts from the same tee line. Each hole is one approach. Each flag is coloured: pink for a heuristic hope, blue for a proven theorem. At the end of the course stands ABACUS, with a bag of the best classical clubs.</p><p>Hole one is warm-started QAOA. We first solve a relaxed, easier version of the problem on a classical computer, and start the circuit near that answer. Egger, Marecek and Woerner proposed this in 2021, in the journal Quantum. The hope is to inherit the classical guarantee, then improve on it.</p><p>Hole two is recursive QAOA. Run a shallow QAOA, fix the variable it is most sure about, shrink the problem, and repeat. Bravyi, Kliesch, Koenig and Tang studied this in 2022. In simulations on random graphs, its first level often beat the standard classical rounding method. But those are simulations, on chosen families of graphs.</p><p>Hole three is quantum annealing, from episode eight point four. Real machines exist, so this hole is truly played. What we have are benchmarks, and they are mixed.</p><p>Hole four has a theorem. Many classical solvers backtrack: they walk down a tree of partial answers, and drop a branch as soon as it cannot win. In 2015, Ashley Montanaro showed that a quantum walk can search such a tree in about the square root of its size. In 2020 he extended this to branch and bound.</p><p>Hole five is sampling. Simulated annealing is a random walk that slowly cools. In 2008, Somma, Boixo, Barnum and Knill showed that a quantum walk needs about one over the square root of the gap, where the classical walk needs one over the gap.</p><p>So the map has pink flags on the near-term holes, and blue flags on the far ones. The proven gains are quadratic, and they ask for an error-corrected machine. The gains hoped for on today&#39;s noisy machines are heuristic.</p><p>How much faster is a quadratic gain? Picture a windmill on the hole. The quantum player needs far fewer strokes, but each stroke waits for the blades. That wait is the cost of error correction. Take a million classical strokes. A quadratic quantum player needs a thousand. If each of its strokes is a thousand times slower, the two tie. These numbers are illustrative. In 2021, Babbush and colleagues at Google computed real surface-code runtimes. Their conclusion: quadratic speed-ups are unlikely to give an advantage on early fault-tolerant machines, unless error correction improves significantly. Quartic speed-ups look far more practical. We met this trap in episode seven point three.</p><p>Now the classic trap, and the reason ABACUS is here. A quantum method must beat the best classical solver, not a weak one. For exact optimization, that means mixed-integer solvers such as Gurobi and CPLEX. For heuristics, simulated annealing and tabu search. For max-cut, the Goemans and Williamson rounding. In 2025, Stopfer and Wagner tested quantum annealing and QAOA on portfolio problems against these methods. A mixed-integer solver solved every instance to proven optimality in seconds. They conclude there is very limited room for a quantum advantage there. Some companies report runtime advantages on specially built instances. As of November 2026, those claims await independent confirmation.</p><p>Let&#39;s recap. Five holes: warm-started QAOA, recursive QAOA, annealing, backtracking and branch and bound, and sampling. The proven gains are quadratic, and they need error-corrected machines. The hopes on today&#39;s machines are heuristic. Overhead can eat a quadratic gain. And ABACUS plays with the best classical solvers, so that is where every claim must be tested. Next, QC thirteen point five: Ansätze and barren plateaus.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_13.5_Ansatze-and-barren-plateaus_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.5</span><span>4:04</span></span>
+        <h3>Ansätze and barren plateaus</h3>
+<p class="summary">An ansatz is the shape of the circuit being tuned. Random, expressive circuits suffer barren plateaus: the variance of the gradient shrinks exponentially with the number of qubits, so the shots needed to find a downhill direction explode. Global costs and noise worsen it, while local costs, shallow depth and structure help, and plateau-free models may be classically simulable.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the mini-golf course, chapter thirteen. Today we meet the biggest obstacle to variational algorithms: barren plateaus. And we look at the circuits we choose, the ansätze.</p><p>Picture the green. It is huge, and perfectly flat. You hit the ball, and you see only a score. You nudge the angle, you hit again, and the score is the same. The ball has no idea which way to roll. That is a barren plateau.</p><p>First, what is an ansatz? It is the shape of the parameterized circuit from episode thirteen point one: which gates, in which layers, with which angles to tune. One family is called hardware-efficient. It uses only the gates a given chip does natively, so the circuit stays short. A team at IBM used that idea in two thousand seventeen, in the journal Nature, to find ground-state energies of small molecules on six qubits. Another family is problem-inspired. The circuit copies the structure of the problem, as in the QAOA of episode thirteen point three.</p><p>Now the intuition. A flexible circuit can reach many states. That sounds good. But in two thousand eighteen, McClean and colleagues at Google showed the catch. Take a circuit that is random enough, close to what is called a two-design. Then the variance of the gradient shrinks exponentially with the number of qubits. The landscape becomes flat.</p><p>Here is the picture to keep: the variance of the gradient against the number of qubits, on a log scale. For a random circuit, the line drops straight down. On a log scale, a straight line is an exponential. For a more structured ansatz, the line falls more gently.</p><p>Why does that hurt? To find a downhill direction, you must estimate the gradient. A smaller gradient needs more shots to rise above shot noise. If the signal shrinks exponentially, the number of shots grows exponentially, and the speed-up is gone.</p><p>So there is a tension. In two thousand twenty-two, Holmes and colleagues made it precise: the more expressive the ansatz, the flatter its landscape.</p><p>There are several causes. First, randomness: a deep, random ansatz. Second, the cost function. In two thousand twenty-one, Cerezo and colleagues proved that a cost built from a global observable, one that looks at all the qubits at once, gives exponentially vanishing gradients even for shallow circuits. A cost built from local observables is safer: at depth logarithmic in the number of qubits, the gradient vanishes at most polynomially. Third, noise. Also in two thousand twenty-one, Wang and colleagues showed that local Pauli noise creates a plateau when the depth grows linearly with the number of qubits. This one comes from the hardware, not from random angles.</p><p>What helps? Local costs, shallow circuits, and structured ansätze. A review by Larocca and colleagues, in two thousand twenty-five, surveys these ideas.</p><p>Now the recent twist, and we keep it honest. In two thousand twenty-five, Cerezo and colleagues asked: if a model provably has no barren plateau, can a classical computer simulate it? For many commonly used models, they argue that it may well be possible, once some data has been collected from a quantum device. They also list caveats, and heuristic advantages on larger machines are not ruled out. The question is open.</p><p>The classic trap: believing that more parameters, or more depth, always gives a better model. Often it gives a flatter green.</p><p>Let&#39;s recap. An ansatz is the circuit shape you tune. Random, expressive circuits have gradient variance that shrinks exponentially with qubits. Global costs and noise make it worse. Local costs, shallow depth and structure help. And a plateau-free model may be classically simulable, which is still being studied.</p><p>Next, encoding classical data: how a quantum model reads your numbers.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-12/">← 12 · THE HARDWARE</a><a class="btn main" href="../chapter-14/">14 · QUANTUM MACHINE LEARNING →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

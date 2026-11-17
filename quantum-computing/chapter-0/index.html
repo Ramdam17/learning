@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teaser · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 0: Teaser.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 0</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 0</span><span class="caps">CHAPTER 0</span></div>
+    <h1 class="h1-chapter">Teaser</h1>
+    <div class="pills">
+<span class="pill y">1 VIDEO · 3 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/" class="on" aria-current="page">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-0">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_0.1_Why-should-a-neuroscientist-care_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 0</span><span>3:06</span></span>
+        <h3>Why should a neuroscientist care?</h3>
+<p class="summary">A quantum computer holds a vector of 2^n complex coordinates, transforms it with matrices, then measures, returning only a few random bits. Since the vector can never be read directly, algorithms must use interference so wrong answers cancel and the right one becomes likely. The series is linear algebra, not physics, and it compares every speed-up with the best classical method.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to a new series. This time we leave the brain for a while, and step into a corridor full of doors. Behind them is quantum computing.</p><p>Why should a neuroscientist care? Because you already have almost everything you need. You know linear algebra. You know vectors, matrices and eigenvalues. You write Python. And if you followed the EEG series, you have already met a spinning arrow in the complex plane.</p><p>Here is the promise of the series. We will not do physics. We will do linear algebra on vectors with complex coordinates, plus one rule about probability at the very end.</p><p>In one sentence, a quantum computer does this. It holds a vector with two to the n coordinates, where n is the number of qubits. It transforms that vector with matrices. And then it measures. Measuring returns a short string of bits, picked at random, with probabilities set by the vector.</p><p>That last step changes everything. The vector is huge, but you can never read it directly. Each run gives you only a few bits. So a quantum algorithm cannot just compute every answer and show you the list. It has to arrange things so that, when you measure, the right answer is the likely one.</p><p>The tool for that arrangement is interference. Amplitudes are arrows, and arrows can add up or cancel. The whole series is, in a way, a tour of clever ways to make the wrong answers cancel.</p><p>This also tells you what quantum computers will not do. Most calculations in a lab, like filtering a recording or fitting a model, would gain nothing at all. We will be honest about that. Every time we meet a speed-up, we will compare it with the best classical method we know, not the weakest one.</p><p>How is the series organised? The first chapters build the basics, step by step. Complex numbers, the qubit, gates and circuits, and entanglement. Then come the famous algorithms: Deutsch and Jozsa, Simon, teleportation, the quantum Fourier transform, Shor and Grover.</p><p>The second half is a reality check. We look at noise and error correction, at the machines themselves, at variational methods and quantum machine learning. We will also look at quantum information theory, which builds a bridge to our Information series. And we finish with complexity, robustness, and a simple question: is my own problem a good fit for a quantum computer?</p><p>Episodes with a star form the core path. If you watch only those, in order, you will be able to read a circuit, understand the main algorithms, and judge a claim of quantum advantage. The other episodes go deeper, for when you need them.</p><p>A last word about numbers. Records of qubits, error rates and cost estimates change very fast. Whenever we show one, it comes with its source and its date.</p><p>Three visual codes will follow us everywhere. A row of arrows for the state. A strip of paper for the circuit. And a sphere for a single qubit. Let&#39;s open the first door, and start with numbers that spin.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<span></span><a class="btn main" href="../chapter-1/">1 · THE TOOLKIT →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

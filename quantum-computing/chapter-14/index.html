@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum machine learning · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 14: Quantum machine learning.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 14</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 14</span><span class="caps">CHAPTER 14</span></div>
+    <h1 class="h1-chapter">Quantum machine learning</h1>
+    <div class="pills">
+<span class="pill y">8 VIDEOS · 34 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/" class="on" aria-current="page">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-14.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.1_Encoding-classical-data_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.1</span><span>4:27</span></span>
+        <h3>Encoding classical data</h3>
+<p class="summary">Classical data enters a quantum computer in three ways: basis encoding writes bits as a basis state, angle encoding turns one qubit per feature, and amplitude encoding packs two to the n numbers into n qubits at a loading cost that also grows like two to the n. A quantum model is a Fourier series in the data, with the encoding setting its frequencies.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the arcade, the home of chapter fourteen: quantum machine learning. Before any model can learn, it has to be fed. Today&#39;s question is how a quantum computer takes in classical data.</p><p>Picture the claw machine. Behind the glass sits a heap of plush toys, and each toy is a number from your data. The claw is the gate that grabs a toy and drops it into the qubits. This machine has three joysticks, and each one loads the data in a different way.</p><p>The first joystick is basis encoding. You write the bits of your data as a basis state. The number five, in three bits, is one zero one, and it becomes the state ket one zero one. Three bits take three qubits. It is exact and simple, but it stores a bit string, nothing smoother.</p><p>The second joystick is angle encoding. Each feature becomes the angle of a rotation. A feature called x turns one qubit by the angle x, for instance with a rotation about the Y axis. Ten features take ten qubits, one each, and the circuit stays shallow. That makes it cheap, and friendly to today&#39;s hardware. The price is that the number of qubits grows with the number of features.</p><p>The third joystick is amplitude encoding. Take a vector of N numbers, scale it to length one, and use the numbers as the amplitudes of a state. When N is two to the n, only n qubits hold two to the n numbers. Thirty qubits could hold about a billion values. It looks like magic.</p><p>Now the honest price. The claw still has to place every toy. In general, preparing an arbitrary state of n qubits takes a number of gates that grows like two to the n. In 2005, Mikko Möttönen and colleagues gave a circuit for any state of n qubits, whose CNOT count grows like two to the n. That is as many steps as the data has numbers. Two more catches follow. Scaling to length one throws away the overall size of the vector. And reading the numbers back out is not free, because a measurement returns only one sample. Some structured data can be loaded more cheaply, but a generic vector cannot. We come back to this price in episode sixteen point two.</p><p>Now, what do these encodings do to a model? Take angle encoding. In 2021, Maria Schuld, Ryan Sweke and Johannes Jakob Meyer showed, in Physical Review A, that a quantum model with encoding gates is a Fourier series in the data. Its output is a sum of sines and cosines of the input x. The encoding gates decide which frequencies can appear. A single rotation gives one frequency, a plain sine. Repeat the encoding L times, and the model can reach frequencies up to L. The trainable gates in between set the coefficients. The encoding decides which notes the model can play. Training decides how loud each one is.</p><p>That is why data re-uploading works. In 2020, Adrián Pérez-Salinas and colleagues showed that a single qubit, with some classical processing of its output, can be a universal classifier, if the data is uploaded again and again between trainable layers. In the claw machine, the same toy is dropped in layer after layer. Each pass adds more frequencies to the series.</p><p>If you work with EEG, you know this picture. A signal is a sum of waves, and the Fourier transform of episode six point one reads off how much of each. Here, the model itself is the sum. A model with few repetitions is smooth and slow. To follow a wiggly signal, it needs more repetitions, or more qubits.</p><p>Now the classic trap. Do not read amplitude encoding as free, exponential storage. The two to the n numbers live in the qubits only after you pay to load them. And do not read the Fourier picture as a quantum advantage. A short Fourier series is a familiar classical object. So the encoding alone proves nothing about speed or accuracy.</p><p>Let&#39;s recap. Basis encoding stores bits, angle encoding turns one qubit per feature, and amplitude encoding packs two to the n numbers into n qubits, at a loading cost that grows like two to the n. A quantum model is a Fourier series in the data, and the encoding sets its frequencies. Repeating the encoding, data re-uploading, adds frequencies. Next, quantum kernels.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.2_Quantum-kernels_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.2</span><span>4:22</span></span>
+        <h3>Quantum kernels</h3>
+<p class="summary">A quantum kernel is the squared overlap of two encoded states, estimated by a round trip: encode one point, undo the other, and count how often all zeros appears. A classical support vector machine then uses the table of similarities. It helps only if the kernel is hard to simulate yet useful, and with many qubits the values concentrate and the table goes flat.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the arcade, the home of chapter fourteen: quantum machine learning. Last time we loaded data into qubits. Today we ask what to do with it. One answer is a quantum kernel.</p><p>Start with the classical idea. A support vector machine separates two classes with a line, but only if the classes can be separated by a line. When they cannot, we lift every point into a bigger space, where a line might work. A kernel is a shortcut. It gives the similarity of two points in that bigger space, without ever visiting it. Give the machine a table of similarities between every pair of training points, and it can draw the boundary. That table is called the Gram matrix.</p><p>Now the quantum version. Encoding turns a data point x into a quantum state, which we call phi of x. Hilbert space becomes the bigger space. The kernel of two points, x and x prime, is the overlap of their two states, squared. If the states point the same way, the kernel is one. If they are orthogonal, it is zero.</p><p>Here is the picture: a round trip. Walk along the route of x, and you arrive at the state phi of x. Now walk back along the route of x prime, in reverse. If the two routes lead to the same place, you end up at home, the all zeros state. Measure at the end. A lamp lights when you read all zeros. Repeat many times, and the fraction of times the lamp lights is the kernel value. Similar points light the lamp often. Different points almost never do.</p><p>So the circuit has two halves. First the encoding of x, then the encoding of x prime run backwards, then a measurement of every qubit. The quantum computer fills in the table, one pair at a time. A classical support vector machine does the rest. The quantum part is only a similarity machine.</p><p>This idea was published twice in early 2019. Maria Schuld and Nathan Killoran, in Physical Review Letters, described encoding data as a feature map into a Hilbert space, and estimating inner products to build a kernel for a support vector machine. Vojtech Havlicek and colleagues at IBM, in Nature, ran a quantum kernel estimator on a superconducting processor. That experiment was small, only two qubits, and a classical computer can simulate it easily. It was a proof of principle, not an advantage.</p><p>So, is it faster? Only if two conditions hold together. The kernel must be hard to compute on a classical computer. And it must be useful for the data you actually have. These two conditions rarely come together. A kernel that is hard to simulate is often a kernel that is very expressive, and a very expressive kernel can end up knowing nothing about your data. In 2021, Hsin-Yuan Huang and colleagues at Google showed that a classical model, given the training data, can compete with quantum ones. Data matters as much as the hardware.</p><p>Now the classic trap: concentration. With many qubits, two random states are almost always nearly orthogonal. So the lamp almost never lights, and the whole table fills with the same tiny number. In 2024, Supanut Thanasilp, Samson Wang, Marco Cerezo and Zoe Holmes, in Nature Communications, proved that kernel values can concentrate exponentially in the number of qubits. They named four causes: a very expressive encoding, global measurements, entanglement, and noise. With a reasonable number of shots, the table is flat, and the model learns nothing about new points.</p><p>And there is a second habit to keep. Always compare against a classical kernel, such as the radial basis function kernel, with its width carefully tuned. If the quantum kernel does not beat that, the quantum part adds cost, not value.</p><p>Let&#39;s recap. A kernel measures similarity. A quantum kernel is the overlap of two encoded states, measured by a round trip: encode x, undo x prime, and read the all zeros lamp. A classical support vector machine uses the resulting table. It helps only if the kernel is both hard to simulate and useful for the data. With many qubits, the values concentrate, and the table goes flat. Next, quantum neural networks and variational classifiers.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.3_Quantum-neural-networks-and-variational-classifiers_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.3</span><span>4:10</span></span>
+        <h3>Quantum neural networks and variational classifiers</h3>
+<p class="summary">A variational classifier encodes a data point, applies trainable gates and measures one qubit, whose sign gives the label. A quantum convolutional network alternates convolution and pooling, with parameters growing like the logarithm of the size, avoids barren plateaus and reads quantum data well. For ordinary classical data no advantage is shown.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the arcade, chapter fourteen. We have fed the data in, and we have met quantum kernels. Today we train a model: the quantum neural network, and its everyday job, classification.</p><p>Picture a token sorter. Red and blue tokens drop onto a board, and a bendy divider runs across it. The player turns three dials, and the divider bends. The goal is simple: all the red tokens on one side, all the blue ones on the other. The divider is the decision boundary, and the dials are the parameters.</p><p>Now swap the pieces. Each token is a data point. We encode it into a few qubits, as in episode fourteen point one. Then comes a block of trainable gates, with angles theta. At the end we measure one qubit. If the average is positive, the model says red. If it is negative, it says blue. This is a variational classifier, and it is exactly the parameterised circuit of episode thirteen point one, applied to labels.</p><p>Here is the circuit in one picture. Encoding gates, then trainable layers, then a single measurement. To train it, we count the tokens on the wrong side. That count is the cost. A classical optimiser turns the dials, and the parameter-shift rule gives the slope. During training, the divider bends, and the boundary slowly finds the two clouds.</p><p>This family has a short history. In two thousand eighteen, Edward Farhi and Hartmut Neven described a quantum neural network that reads one qubit to give its label. In the same year, Mitarai and colleagues called the recipe quantum circuit learning. In two thousand nineteen, Havlicek and colleagues ran a variational classifier on a small superconducting processor, at IBM. Those were first demonstrations, on toy data.</p><p>Now the second half: the convolutional network. A classical convolutional network slides a small filter along a signal, then pools, which means it shrinks. In two thousand nineteen, Iris Cong, Soonwon Choi and Mikhail Lukin built the quantum version, in Nature Physics. Take a row of qubits. A convolution layer applies the same small gate to neighbouring qubits. A pooling layer then throws half of the qubits away. Repeat. After a few rounds one qubit is left, and we measure it. The number of trainable parameters grows only like the logarithm of the number of qubits.</p><p>What does it read? Quantum data. Picture a chain of spins, whose ground state belongs to one of two phases of matter. The network learns to tell which phase it is looking at. In two thousand twenty-two, Herrmann and colleagues did this on a seven-qubit superconducting processor.</p><p>Why is this the strongest ground? Remember the barren plateau of episode thirteen point five, the green that is perfectly flat. In two thousand twenty-one, Pesah and colleagues proved that, for this architecture, the gradient shrinks at most polynomially with the number of qubits. So this network avoids the flat green. And its inputs are already quantum, so we pay no loading cost.</p><p>How much faster? For ordinary classical data, nobody has shown an advantage. In two thousand twenty-four, Bowles, Ahmed and Schuld tested twelve popular quantum models on small classification tasks. Classical models mostly did better. Taking out the entanglement often made no difference.</p><p>The classic trap: believing that a model with a quantum circuit inside is a quantum advantage. It is a model with a different shape. And a model with no barren plateau may still be simulated classically, the open question we met in episode thirteen point five.</p><p>Let&#39;s recap. A variational classifier encodes a point, applies trainable gates, and measures one qubit. A quantum convolutional network convolves and pools, with parameters growing like the logarithm of the size. It avoids barren plateaus, and it reads quantum data best. For classical data, no advantage is shown. Next, quantum generative models.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.4_Quantum-generative-models_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.4</span><span>4:00</span></span>
+        <h3>Quantum generative models</h3>
+<p class="summary">A quantum circuit Born machine is a pachinko board: trainable angles prepare a state, each measurement is a ball landing by the Born rule, and training matches the histogram to the data. Quantum GANs and Boltzmann machines are variants. The argument for them is that their samples may be hard to imitate classically, but benefit on real data is unshown.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the arcade, the home of chapter fourteen. So far our models read data and gave a label. Today they do the opposite. They produce data. These are the quantum generative models.</p><p>Picture a pachinko board. You drop a ball at the top. It bounces off the pegs and lands in one of eight numbered slots. Drop a thousand balls, and the heights of the stacks draw a histogram. Now suppose every peg has a knob. Turn the knobs, and the histogram changes. The board is a machine that makes random numbers, and the knobs decide which ones.</p><p>A quantum circuit Born machine is exactly this board. The circuit has trainable angles, call them theta. It prepares a state, and we measure all the qubits. Three qubits give eight slots, one for each bit string. By the Born rule, from episode two point three, a slot comes up with probability equal to the squared size of its amplitude. Each measurement is one ball. The model is named after this rule.</p><p>Training means matching the data. Count where the balls land, and turn the knobs until the stacks look like the data. In 2018, Jin-Guo Liu and Lei Wang published, in Physical Review A, a way to do this with gradients, using a loss called maximum mean discrepancy. The machine gives you samples, but it does not tell you the probability of a given slot. So the loss is estimated from the balls themselves.</p><p>In 2019, Marcello Benedetti and colleagues trained shallow circuits this way on a small benchmark called Bars and Stripes, partly on a trapped-ion machine.</p><p>Now the second picture, the quantum generative adversarial network. A classical GAN is a game between a forger and an inspector. The generator makes fakes. The discriminator tries to tell them from real data. Each gets better because of the other. In 2018, Seth Lloyd and Christian Weedbrook proposed a version where both players are quantum, and Pierre-Luc Dallaire-Demers and Nathan Killoran gave a circuit design for it, the same year. The third picture is the quantum Boltzmann machine. A classical Boltzmann machine gives each configuration an energy, and low energy means likely. In 2018, Mohammad Amin and colleagues made the energy quantum: an Ising model with a transverse field. The terms do not commute, so training is harder, and they trained with bounds on the probabilities.</p><p>Why would anyone want this? Here is the best argument. Some quantum circuits produce output distributions that are believed to be hard to sample classically. We will see the evidence in episode fifteen point four. In 2020, Brian Coyle and colleagues argued that the circuits met during the training of one such model, the Ising Born machine, are hard to sample classically, under standard complexity assumptions. So the board could make samples that ABACUS cannot copy.</p><p>Now the honest side. Hard to sample is not the same as useful. A model also has to match real data better than a classical one. Training and checking need many measurement shots, because every histogram is built ball by ball. And on real datasets, a clear benefit has not been shown. In 2024, Mohamed Hibat-Allah and colleagues found an edge for Born machines when data was scarce, on a task with twenty variables. But the circuits were simulated, not run on hardware.</p><p>Let&#39;s recap. A Born machine is a pachinko board: a circuit with knobs, and every measurement is a ball. Training turns the knobs until the histogram matches the data. A quantum GAN is a forger and an inspector, and a quantum Boltzmann machine adds a transverse field to the energy. The argument for them is sampling hardness. The open question is use on real data.</p><p>Next, Dequantization.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.5_Dequantization_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.5</span><span>4:01</span></span>
+        <h3>Dequantization</h3>
+<p class="summary">Quantum recommendation promised an exponential speed-up for low-rank matrices, given data stored in a special tree. Giving a classical algorithm the same sample and query access, Tang found a method only polynomially slower, so the exponential gain disappears for low-rank data. The result is narrow, leaving high-rank problems and quantum data untouched.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the arcade, the home of chapter fourteen. Quantum models can look exponentially faster. Today we ask whether the quantum part is really the reason. The answer has a name: dequantization.</p><p>Take a recommendation system. A matrix has one row per user and one column per product, and each entry says how much that user liked that product. Most people like only a few kinds of things, so the matrix is well approximated by a low rank one. Call the rank k. The task: sample a product that a given user will probably like.</p><p>In 2016, Iordanis Kerenidis and Anupam Prakash published a quantum algorithm for this. Its running time is polynomial in k, and only logarithmic in the number of users and products. Classical methods then took time that grew with the size of the matrix. For two years, it was one of the strongest candidates for an exponential quantum speed-up in machine learning.</p><p>Now the fine print. The quantum algorithm needs the data stored in a special structure, so that it can prepare a quantum state whose amplitudes follow a row of the matrix. That is the loading problem from episode fourteen point one. The structure is a binary tree. Its leaves hold the squared entries, and each node holds the sum of its children.</p><p>Here is the key idea. Give ABACUS the same ticket. Not a quantum one, a classical one, called sample and query access. He may read any single entry. And he may draw an entry at random, with probability proportional to its squared size. Big entries come up often, small ones rarely. The same binary tree gives him this, in logarithmic time.</p><p>In 2018, Ewin Tang posted a classical algorithm for the same task, presented at the STOC conference in 2019. It assumes the same low rank and the same kind of access. Its running time is polynomial in k and polylogarithmic in the number of rows and columns. Against older classical methods, that is an exponential gain. Against the quantum algorithm, the abstract says it is only polynomially slower.</p><p>How does it work, in one picture? ABACUS draws a few rows, with probability proportional to their squared length. From those rows, he draws a few columns the same way. The samples form a small matrix that keeps the large singular values of the big one. From it, he samples from a low rank approximation. He never writes down the whole matrix.</p><p>The method spread fast. In late 2018, Tang applied it to quantum principal component analysis and to clustering. Two more papers, one by Chia, Lin and Wang, and one by Gilyén, Lloyd and Tang, did it for solving low rank linear systems, the problem of HHL.</p><p>Now the classic trap, in two directions. First, do not read this as &#34;quantum machine learning is dead&#34;. The result is narrow. It needs low rank, and it compares two algorithms given a fair input model. It says nothing about high rank problems, or about data that is already quantum.</p><p>Second, do not read it as &#34;the classical algorithm is practical&#34;. The remaining gap is polynomial, and in the first version the exponents were large. The paper itself suspects they can be improved. A real comparison needs real numbers.</p><p>The habit to keep: before you believe a speed-up, ask what the classical algorithm is given.</p><p>Let&#39;s recap. Quantum recommendation, from 2016, ran in time polynomial in the rank and logarithmic in the dimensions. Sample and query access gives a classical algorithm the same kind of input. Tang&#39;s algorithm, from 2018, is only polynomially slower, so the exponential gain disappears for low rank data. Quantum data remains the firmer ground. Next, your covariance matrix is a density matrix.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.6">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.6_Your-covariance-matrix-is-a-density-matrix_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.6</span><span>4:10</span></span>
+        <h3>Your covariance matrix is a density matrix</h3>
+<p class="summary">A covariance matrix divided by its trace is symmetric, positive and has trace one, so it is a density matrix. Quantum principal component analysis exploits this, but loading the data, a quantum-state output and a classical algorithm with sampling access remove the gain. What carries over is the toolbox: entropy as effective dimension, and the Bures distance.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the arcade, the home of chapter fourteen. Last time, dequantization took away some quantum advantages. Today we meet a resemblance that looks like a promise: your covariance matrix is a density matrix.</p><p>Take a simulated EEG recording with sixty four channels. Its covariance matrix has sixty four rows and sixty four columns. Each entry says how much two channels vary together. The matrix is symmetric and positive semi-definite. Now divide it by its trace, the total variance. The new trace is exactly one.</p><p>Look at what we have. Symmetric, positive, trace one. Those are the three properties of the density matrix from episode four point four. LAPPY sticks a label on it: rho. The data is simulated, for illustration, but the match is real.</p><p>It even has a meaning. If the recording is centred, this rho is a mixture of the normalised samples, each one weighted by its energy. It is the coin envelope again, with a sample inside instead of a qubit.</p><p>In 2013, Seth Lloyd, Masoud Mohseni and Patrick Rebentrost used this idea. Their paper appeared in Nature Physics in 2014. Given many copies of rho, they showed how to apply the unitary e to the minus i rho t, where the density matrix plays the role of the Hamiltonian. Then phase estimation, from episode six point two, reads off the eigenvalues. The eigenvectors are the principal components. Sixty four is two to the six, so rho would live on six qubits. The claim: a running time that grows only with the logarithm of the dimension.</p><p>Is this faster for our data? No, for four reasons.</p><p>First, rho must be built from classical data. That is the loading problem of episode nine point four, and the encoding cost of episode fourteen point one.</p><p>Second, the output is a quantum state. You get a state that points along a component, not the list of sixty four components.</p><p>Third, in 2018, Ewin Tang gave a classical algorithm the same sampling access that the quantum one assumes. It does the same job, only polynomially slower. This is the dequantization of episode fourteen point five. The paper&#39;s title says it all: quantum principal component analysis only achieves an exponential speedup because of its state preparation assumptions.</p><p>Fourth, a sixty four by sixty four matrix is diagonalised on a laptop in a few milliseconds. I measured it for this episode. There is nothing to speed up.</p><p>The classic trap: reading a formal resemblance as a promise of speed.</p><p>What carries over is the toolbox, used classically. First, the von Neumann entropy of episode eleven point one. The eigenvalues of rho are the shares of variance, and they sum to one. One component holding everything gives entropy zero. Sixty four equal shares give six bits. Two to the power of the entropy is an effective number of dimensions. Roy and Vetterli proposed this effective rank in 2007.</p><p>Second, the fidelity. Between two trace one matrices, it defines the Bures distance. For zero-mean Gaussians, that same distance is the Wasserstein distance, a result credited to Dowson and Landau, and to Olkin and Pukelsheim, in 1982. It is a cousin of the Riemannian distance between covariance matrices used for EEG since Barachant and colleagues in 2012, episode fourteen point three.</p><p>Let&#39;s recap. A covariance matrix divided by its trace is a density matrix. Quantum PCA, from 2013, reads its eigenvalues with phase estimation. But loading, the state output and dequantization remove the gain, and a sixty four by sixty four matrix is already fast. What stays is the language: entropy as effective dimension, and the Bures distance. Next, learning from quantum data: classical shadows.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.7">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.7_Learning-from-quantum-data-Classical-shadows_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.7</span><span>4:20</span></span>
+        <h3>Learning from quantum data · <span class="pk">Classical shadows</span></h3>
+<p class="summary">A classical shadow is a corkboard of crude snapshots, each taken with a randomly chosen measurement basis and kept with its choice. Any property can be estimated afterwards, with shots growing only with the logarithm of the number of properties. Joint measurements on copies of a quantum state give a proven exponential gain, tested on up to forty qubits.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the arcade, the home of chapter fourteen. Until now, our data came from the classical world. Today the data is a quantum state, prepared by an experiment. This is where learning advantages have actually been proven. The tool is called classical shadows.</p><p>Picture a shadow theatre at the back of the arcade. Three puppets are hidden behind a screen, and we cannot open the box. We only have a lantern, with three coloured gels: X, Y and Z. For each puppet, a wheel picks one gel at random. We press the button, and a quick flash throws a rough shadow on the screen. Each puppet shows plus or minus. Then the puppets are gone, and we must prepare them again.</p><p>One shadow is crude. But we pin every shadow on a corkboard, with the gels that made it. That corkboard is the classical shadow.</p><p>Here is the intuition. A single shot tells us very little. But the gels were drawn at random, so we know exactly how crude each shadow is. Suppose we want a property of the state, for example the correlation between puppets one and two in the Z direction. We look through the board. Whenever both gels were Z, the two signs were really measured. We multiply them, and we scale up by three for each puppet involved, to undo the chance of picking the right gel. All the other shadows count as zero. Then we average. The average is an unbiased estimate of the property.</p><p>Now the surprise. The board does not know which question we will ask. We can ask for the single puppet, for the pair, or for the three together, all from the same shadows, and even after the experiment is over. In 2020, Hsin-Yuan Huang, Richard Kueng and John Preskill published this method in Nature Physics. They showed that the number of shots grows only with the logarithm of the number of properties we want. And it does not grow with the number of qubits, only with how many qubits each property touches.</p><p>We simulated three puppets in an entangled state, with three thousand shots. This is an illustration, not a real experiment. The single puppet needs few shots, and its estimate settles near zero. The pair settles near one. The triple, involving all three, takes longer. This is the price: with random Pauli gels, a property on k qubits costs about three to the power k shots.</p><p>Now, how fast is that compared with the standard way? Measuring one property at a time needs a new set of experiments for each question. The shadow answers them all at once.</p><p>And there is a deeper question. Can a quantum computer learn from experiments with fewer experiments than any method that measures one copy at a time? In 2022, Huang and colleagues published in Science: yes, for certain tasks, and the gap is exponential. A quantum learner can hold two copies of the system together, and measure them jointly. The proof covers predicting properties of physical systems, quantum principal component analysis, and learning models of dynamics. They ran it on Google&#39;s Sycamore processor, with up to forty qubits and thirteen hundred gates. A theorem, and a machine.</p><p>Another result closes the loop. In 2022 as well, Huang, Kueng, Torlai, Albert and Preskill showed that a classical model, trained on shadows, can predict local properties of ground states of a broad family of Hamiltonians. Under standard complexity assumptions, classical algorithms that do not learn from data cannot match it. So classical shadows help the classical side too.</p><p>Now the classic trap. This is not machine learning on classical data. The advantage is relative to a learner that measures one copy at a time, and the data are quantum states from an experiment. Do not carry it over to an EEG file.</p><p>Let&#39;s recap. A classical shadow is a corkboard of random snapshots. Any property can be read from it, chosen afterwards, with shots growing only with the logarithm of the number of properties. Joint measurements on copies give a proven exponential gain in experiments, shown on up to forty qubits. This is the firmest ground of the chapter. Next, QC fourteen point eight: what is actually proven.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-14.8">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_14.8_What-is-actually-proven_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 14.8</span><span>4:02</span></span>
+        <h3>What is actually proven</h3>
+<p class="summary">Evidence for quantum machine learning sits on four rungs: a theorem, a theorem under an assumption, an observation on a real machine, and a toy benchmark. Proven advantages exist for constructed tasks and for data that is already quantum, while for ordinary classical data nothing is proven in practice. A reading grid checks data size, baseline, encoding cost and hardware.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the arcade, the home of chapter fourteen. This is the last episode on quantum machine learning, and it asks one plain question: what is actually proven?</p><p>Picture the scoreboard of the arcade. Every machine we met in this chapter has a line on it: kernels, quantum neural networks, generative models, even the covariance trick. Next to each line, there is an empty column. The column is called verified. Today we fill it, line by line.</p><p>For that we need a ladder of evidence, with four rungs. The top rung: a proven result, a theorem. The second: proven, but only under an assumption, for example that a certain problem is hard for classical computers. The third: observed on a real machine. The fourth: a benchmark on a toy dataset. Each rung is honest. They just do not say the same thing.</p><p>Start with the second rung. In 2021, Liu, Arunachalam and Temme published a paper in Nature Physics. They built a classification task, and a quantum kernel method that solves it. They proved that a classical learner can do little better than random guessing, assuming that the discrete logarithm problem is hard for classical computers. That is the same kind of assumption behind Shor&#39;s algorithm. The catch: the dataset is built from the discrete logarithm on purpose, and the method needs a fault-tolerant quantum computer.</p><p>Now the first and third rungs. In 2022, Huang and colleagues published in Science a study on learning from quantum experiments. They proved that a quantum machine, which can hold copies of the system together, needs exponentially fewer experiments than any conventional approach, for several tasks. This is the setting of the last episode, where the data are already quantum. And they ran experiments on up to forty superconducting qubits, with about thirteen hundred gates, and reported a substantial advantage on today&#39;s noisy processors. A theorem, and a machine. That is the strongest line on the scoreboard.</p><p>What about ordinary classical data, like our EEG recordings? In 2021, Huang, Broughton, Mohseni, Babbush, Boixo, Neven, McClean and coauthors published Power of data in quantum machine learning, in Nature Communications. Their message is a warning. Given enough training data, a classical model can often learn to predict problems that look hard. So hardness alone is not enough. They also constructed datasets where a quantum model does better, tested with up to thirty qubits. But those datasets are engineered. That is the fourth rung.</p><p>So here is the honest summary. Proven advantages exist for tasks built on purpose, and for data that is already quantum. For usual classical data, there is no proof of a practical advantage to date. And the episode on dequantization showed how some promised gains vanish when the classical side gets the same access to the data.</p><p>In 2022, Schuld and Killoran went one step further, in PRX Quantum. They asked whether beating classical methods should be the goal at all, and invited the field to think about other ones.</p><p>Here is a reading grid for any quantum machine learning paper. First, how large is the data, and how many qubits were used? Second, what is the classical baseline, and was it tuned as carefully as the quantum model? Third, is the cost of encoding the data counted, or hidden? Fourth, was it run on a simulator, or on a machine, with noise?</p><p>Let&#39;s recap. Evidence comes in four rungs: theorem, theorem under an assumption, machine, toy benchmark. Proven advantages exist for constructed tasks and for quantum data. For ordinary classical data, nothing is proven in practice yet. Check the data size, the baseline, the encoding cost, and the hardware. Next, chapter fifteen: BQP and its neighbours.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-13/">← 13 · VARIATIONAL AND NISQ</a><a class="btn main" href="../chapter-15/">15 · COMPLEXITY AND ROBUSTNESS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

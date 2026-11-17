@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measurement reliability · Statistics · Animated science series</title>
+<meta name="description" content="Statistics, chapter 17: Measurement reliability.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">STATISTICS</a> / <b>CHAPTER 17</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">STAT · 17</span><span class="caps">CHAPTER 17</span></div>
+    <h1 class="h1-chapter">Measurement reliability</h1>
+    <div class="pills">
+<span class="pill soon">VIDEOS COMING SOON</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Chance and samples</a>
+    <a href="../chapter-2/">2 · Describing a distribution</a>
+    <a href="../chapter-3/">3 · Probability</a>
+    <a href="../chapter-4/">4 · Distributions and their assumptions</a>
+    <a href="../chapter-5/">5 · Estimating</a>
+    <a href="../chapter-6/">6 · Testing</a>
+    <a href="../chapter-7/">7 · The map of tests</a>
+    <a href="../chapter-8/">8 · Categorical data</a>
+    <a href="../chapter-9/">9 · The linear model</a>
+    <a href="../chapter-10/">10 · Beyond the linear model</a>
+    <a href="../chapter-11/">11 · Dependent data</a>
+    <a href="../chapter-12/">12 · Missing data</a>
+    <a href="../chapter-13/">13 · Time series</a>
+    <a href="../chapter-14/">14 · What do we shuffle?</a>
+    <a href="../chapter-15/">15 · Many tests</a>
+    <a href="../chapter-16/">16 · Bayesian inference</a>
+    <a href="../chapter-17/" class="on" aria-current="page">17 · Measurement reliability</a>
+    <a href="../chapter-18/">18 · Effect sizes and synthesis</a>
+    <a href="../chapter-19/">19 · Causality</a>
+    <a href="../chapter-20/">20 · Predict or explain</a>
+    <a href="../chapter-21/">21 · Circular statistics</a>
+    <a href="../chapter-22/">22 · Robustness in brief</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep soon" id="ep-17.1">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 17.1</span><span>SOON</span></span>
+        <h3>Every measurement has an error</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-17.2">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 17.2</span><span>SOON</span></span>
+        <h3>Test–retest and the intraclass correlation</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-17.3">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 17.3</span><span>SOON</span></span>
+        <h3>Agreement and internal consistency</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-17.4">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 17.4</span><span>SOON</span></span>
+        <h3>What noise does to results</h3>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-16/">← 16 · BAYESIAN INFERENCE</a><a class="btn main" href="../chapter-18/">18 · EFFECT SIZES AND SYNTHESIS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

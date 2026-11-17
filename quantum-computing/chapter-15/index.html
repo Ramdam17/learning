@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Complexity and robustness · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 15: Complexity and robustness.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 15</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 15</span><span class="caps">CHAPTER 15</span></div>
+    <h1 class="h1-chapter">Complexity and robustness</h1>
+    <div class="pills">
+<span class="pill y">6 VIDEOS · 25 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/" class="on" aria-current="page">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-15.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.1_BQP-and-its-neighbours_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.1</span><span>4:39</span></span>
+        <h3>BQP and its neighbours</h3>
+<p class="summary">Complexity classes form nested paddocks: BPP sits inside BQP, inside PP, inside PSPACE, and these walls are proven, so a classical computer with enough time can simulate a quantum one. Whether BQP contains NP is unknown and believed not. Factoring is in BQP but not known to be outside P, and proven separations mostly live in the oracle model.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the stadium, the home of chapter fifteen. This chapter is about what is proven, what is only believed, and how to read a claim. Today we draw the map of the complexity classes, and we find out where quantum computers really sit.</p><p>Picture the grounds of the stadium, seen from above. Each fenced paddock holds the problems that one kind of runner can finish in reasonable time. Reasonable means polynomial: the running time grows like a power of the input size, not like two to the n.</p><p>The innermost paddock is called P. It holds the problems a classical computer solves exactly, in polynomial time. Around it sits B-P-P. Here the runner may flip coins, and may be wrong, as long as the chance of a wrong answer is at most one third. Repeat the race and the error shrinks fast. ABACUS lives in these two paddocks. Nobody knows whether the coins really help.</p><p>Now, our paddock. In 1993, Ethan Bernstein and Umesh Vazirani presented the paper Quantum complexity theory, and the journal version appeared in 1997. They defined B-Q-P: the problems a quantum computer solves in polynomial time, with an error of at most one third. A quantum computer can flip fair coins with a single H gate. So B-P-P fits inside B-Q-P.</p><p>How far out does B-Q-P reach? Here are the solid walls, the ones that are proven. Adleman, DeMarrais and Huang showed, in 1997, that B-Q-P sits inside a class called P-P. And P-P sits inside P-space, the problems solvable with a polynomial amount of memory, however long they take. So a classical computer with enough time can always simulate a quantum one. Quantum computers are not magic.</p><p>But look at what the walls do not say. Nobody has proved that P differs from P-space. So, today, nobody can prove that B-Q-P differs from P. If every paddock collapsed into one, these walls would not be violated. Everything beyond the walls is a dotted rope. A rope is a belief, backed by evidence.</p><p>First rope: NP, the paddock of problems whose answers are easy to check. We do not know whether B-Q-P contains NP, and we do not believe it does. The evidence is this. In 1997, Bennett, Bernstein, Brassard and Vazirani proved that, relative to a random oracle, NP cannot be solved by a quantum computer in time much smaller than two to the power n over two. This is an oracle result, so it is a rope, not a wall.</p><p>Second rope: factoring. In 1994, Peter Shor showed that factoring integers is in B-Q-P. Classically, the best known algorithm, the number field sieve, takes sub-exponential time, which is still more than polynomial. Nobody has proved that factoring is outside P. It is not believed to be NP-complete either, because the decision version lies in both NP and co-NP. So factoring is the star of the gap: in B-Q-P by proof, and outside P by strong suspicion.</p><p>Third, the oracle model of chapter five. The proven separations live there, where we count calls to the box. Bernstein and Vazirani gave the first oracle where quantum wins by more than any polynomial. Simon&#39;s problem gave an exponential gap. And in 2018, Ran Raz and Avishay Tal proved that relative to some oracle, B-Q-P is not inside the polynomial hierarchy. That is the strongest oracle separation known. Still, it is a statement about a box, not about the real world.</p><p>So here is the table of the series. Deutsch–Jozsa: exponential, but only against deterministic classical algorithms, in the oracle model. Bernstein–Vazirani: one call instead of n, a linear gain. Simon: exponential, in the oracle model. Grover: quadratic, and proven optimal for blind search. Shor: no oracle at all, but a gain over the best known classical algorithm, not over every possible one.</p><p>Let&#39;s recap. B-P-P sits inside B-Q-P, inside P-P, inside P-space: those walls are proven. Whether B-Q-P contains NP is unknown, and we believe not. Factoring is in B-Q-P, and not known to be in P. Proven separations mostly live in the oracle model. Ask of every claim: wall, or rope?</p><p>Next, episode fifteen point two: what quantum won&#39;t speed up.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-15.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.2_What-quantum-wont-speed-up_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.2</span><span>3:56</span></span>
+        <h3>What quantum won&#39;t speed up</h3>
+<p class="summary">Grover&#39;s search is optimal for blind search, so NP-hard problems get at most a quadratic gain. Input and output bandwidth favours big compute on small data, and the slow clock of error correction eats quadratic gains. Big data and deep network training fit poorly; the better bets are quantum simulation, cryptanalysis and a few structured problems.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the stadium, the home of chapter fifteen. In the last episode we drew the map of the complexity classes. Today we ask the sober question: what will quantum computers not speed up?</p><p>Picture the end of the meeting. ABACUS, our classical runner, has won most of the races, and the medals hang around its neck. Quantum has a few events of its own, and we have cheered for them. But a good coach also knows which races to skip.</p><p>First trap: the hard problems. It is tempting to think that a quantum machine tries every answer at once, so NP-hard problems should melt. They do not. In 1997, Bennett, Bernstein, Brassard and Vazirani proved a limit in the oracle model. Relative to a random oracle, a quantum computer cannot solve the class NP in time much smaller than two to the power n over two. And Grover&#39;s search, from chapter seven, reaches exactly that scale. So Grover is optimal for blind search. A quadratic gain is all that this method can give. This is a proof about oracles. It does not close every structured problem. But nobody knows a general exponential speed-up for NP-complete problems, and we do not expect one.</p><p>Second trap: the data. Many practical tasks are dominated by input and output. In 2023, Hoefler, Häner and Troyer compared a future quantum computer with a classical chip. They modelled the quantum input and output bandwidth at one gigabit per second, against ten thousand gigabits per second for the classical chip. That is ten thousand times smaller. Their conclusion is clear. Quantum computers look practical for big compute on small data, not for big data. If you must read a million numbers, you pay a million steps before the algorithm even starts. We met this in the data loading problem of chapter fourteen.</p><p>Third trap: a quadratic gain is fragile. A quadratic speed-up sounds great, until you count the clock. A logical quantum operation, protected by error correction, is much slower than a classical operation. In the same paper, the authors ask for a crossover time of about two weeks. Then each call to the oracle can hold only a handful of operations. A single floating point operation inside it already pushes the crossover to several months. In 2021, Babbush and colleagues reached a similar message with detailed error correction estimates. Quadratic speed-ups are unlikely to give an advantage on early fault tolerant machines, unless error correction improves a lot. They point to larger speed-ups, such as quartic ones, as far more promising.</p><p>What about training a deep neural network on ordinary classical data? Apply the two tests of Hoefler and colleagues. The data is big, and the best speed-up one can hope for is polynomial. So this is a poor fit for quantum hardware today. This is our reading of their criteria, not a measured result.</p><p>So where does quantum still look promising? The same authors point first to chemistry and materials science, which means simulating quantum systems, the original dream of chapter eight. Then cryptanalysis, through Shor&#39;s algorithm. And a few structured problems, where the input is small and the interference has something to grip. Promising is not guaranteed, but the shape of the problem is right.</p><p>Let&#39;s recap. Quantum search cannot beat the square root, and that is proven for blind search. Input and output bandwidth favours small data. Quadratic gains are eaten by the slow clock of error correction. Big data and deep network training are a poor fit. The best bets are quantum simulation, cryptanalysis, and a few structured problems.</p><p>Next, episode fifteen point three: how classical computers simulate quantum circuits.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-15.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.3_How-classical-computers-simulate-quantum-circuits_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.3</span><span>4:00</span></span>
+        <h3>How classical computers simulate quantum circuits</h3>
+<p class="summary">Three classical runners must be beaten at once. The state vector carries two to the n amplitudes, doubling in memory with every qubit, the stabilizer notebook handles Clifford circuits however entangled, and tensor networks pay for entanglement. A circuit is hard only if it combines many qubits, much entanglement and many T gates, and hard means no efficient method is known.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the stadium, the home of chapter fifteen. Last time we saw what quantum computers will not speed up. Today we look at the other side of the track: how classical computers simulate quantum circuits. The rule is simple. Before you believe a quantum advantage, you must beat three classical runners at once.</p><p>Picture the starting line. Three runners wait in their lanes, and each one carries a different backpack.</p><p>The first runner carries the whole state vector. A state of n qubits has two to the n amplitudes. In double precision, each amplitude is a complex number that takes sixteen bytes. So the backpack weighs sixteen times two to the n bytes. At thirty qubits, that is about seventeen gigabytes. At forty qubits, about seventeen terabytes. At fifty, about eighteen petabytes. Each new qubit doubles the weight. This runner is exact, and it can carry any circuit, but it is the first to run out of memory.</p><p>The second runner carries a small notebook. Daniel Gottesman and Emanuel Knill showed that a circuit made only of Hadamard, phase and CNOT gates can be simulated efficiently on a classical computer. These are the Clifford gates, and the circuit starts from the all zero state. The notebook does not store amplitudes. It stores n rules, the stabilizers of the state, and each gate simply edits the rules. This is the Gottesman Knill theorem, from 1998. In 2004, Aaronson and Gottesman made it fast. Their table needs about four n squared bits, and each gate costs a number of steps proportional to n. For a thousand qubits, the notebook is about half a megabyte.</p><p>The third runner carries a chain of small blocks, one for each qubit, joined by straps. This is a tensor network. The width of a strap tells how much entanglement crosses that cut, the same Schmidt weights we counted in episode eleven point two. If the entanglement is small, the straps are thin and the load is light. In 2003, Guifré Vidal showed that the cost grows linearly in the number of qubits, and exponentially in the entanglement. Where the entanglement swells, the straps swell too, and this runner slows down.</p><p>Now the key question: when is a circuit hard for all three? The answer needs three ingredients together.</p><p>First, many qubits, or the state vector runner can simply carry the load.</p><p>Second, a lot of entanglement, or the tensor network runner glides through.</p><p>Third, gates outside the Clifford set, such as the T gate. Without them, the notebook runner wins, even when the circuit makes huge entanglement. Entanglement alone is not the source of difficulty. In 2016, Sergey Bravyi and David Gosset showed how the T gates pay the bill. Their algorithm is polynomial in the number of qubits and Clifford gates, and exponential only in the number of T gates. Sampling an output costs about two to the power zero point two three, for each T gate. That is roughly seventeen percent more work per gate. A few T gates are cheap. Many T gates are not.</p><p>So here is the moment to remember. A circuit is hard to simulate only if it combines many qubits, a lot of entanglement, and many non-Clifford gates. Any claim of quantum advantage must beat these three runners together.</p><p>Now the classic trap. Hard to simulate does not mean proven hard. It means that no efficient classical method is known today. A quantum experiment can be real, and still be caught by a faster classical runner later.</p><p>Let&#39;s recap. The state vector runner is exact, but its memory doubles with every qubit. The notebook runner handles Clifford circuits, however entangled. The tensor network runner pays for entanglement. Hardness needs qubits, entanglement and T gates together. Next, episode fifteen point four: quantum advantage experiments.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-15.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.4_Quantum-advantage-experiments_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.4</span><span>4:05</span></span>
+        <h3>Quantum advantage experiments</h3>
+<p class="summary">Quantum advantage experiments share a pattern: tasks chosen to be hard for classical computers, not useful, mostly sampling. Each announcement came with a classical time estimate, and for several, faster classical methods later shrank the gap. The score is a small fidelity lowered by noise, and a faster classical method does not make an experiment fake.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the stadium, the home of chapter fifteen. Last time we met the three classical runners. Today we meet the announcements: the experiments where a quantum machine was said to have crossed the line first.</p><p>What do they share? The task was chosen to be hard for classical computers. It was not chosen to be useful. Most are sampling tasks: the machine produces random looking outputs from a distribution that is easy to describe and hard to imitate.</p><p>Picture banners hung along the stadium roof, one per announcement, in date order. Under each banner hangs an hourglass. The sand shows how long the best classical method needs. Every time a faster classical method appears, the sand runs down.</p><p>The first banner is October 2019. In Nature, a Google team reported their Sycamore chip, with fifty-three working qubits. It sampled a random circuit one million times in about two hundred seconds. They estimated that the best supercomputer would need about ten thousand years.</p><p>Within days, IBM answered. Pednault and colleagues argued that, by keeping intermediate results on disk, the Summit supercomputer could do it in about two and a half days. In 2022, Pan, Chen and Zhang used a tensor network on five hundred twelve GPUs, and produced one million samples in about fifteen hours. The chip still won the stopwatch, but the gap had shrunk a lot.</p><p>The second banner is December 2020. A team in China reported Jiuzhang, a machine made of light. It does Gaussian boson sampling: squeezed light crosses a network of mirrors, and detectors count the photons. It registered up to seventy-six photons in about two hundred seconds. The team estimated two and a half billion years for a supercomputer.</p><p>Again the sand ran down. In 2022, Bulmer and colleagues improved the classical algorithm, and estimated a few months for experiments of this kind. In 2024, Oh and colleagues simulated the largest one so far with a tensor network. Photon loss helps them: lost photons make the output easier to imitate.</p><p>The third banner is 2021: Zuchongzhi, a superconducting chip, sampling up to fifty-six qubits. The team reported about one point two hours, against at least eight years.</p><p>The latest banner is December 2024. Google&#39;s Willow chip, with one hundred five qubits, ran a similar task in under five minutes. Google estimated ten septillion years on the Frontier supercomputer, and says this task has no known real world application. At the time of writing, this hourglass is still full.</p><p>How is a chip scored? The chip returns bitstrings. A classical computer works out, for each one, the probability a perfect chip would give it. A perfect chip scores one. Pure noise scores zero. This cross entropy score acts as a fidelity, and Sycamore&#39;s was about two tenths of one percent.</p><p>Why so low? Every gate has a small error, and the errors multiply across hundreds of operations. A tiny score is still a real signal. But a classical imitator only has to match a tiny signal. Gao and colleagues showed a cheap algorithm, seconds on one GPU, reaching two to twelve percent of the reported scores. That refutes no single experiment, but it makes this number a weak certificate on its own.</p><p>Now the classic trap. A faster classical method does not make the quantum experiment fake, and a record is not permanent. It is a snapshot of a race still running.</p><p>Let&#39;s recap. These tasks are chosen to be hard, not useful. Each banner came with an estimate, and for several a faster classical method followed. The score is a small fidelity, lowered by noise. Next, episode fifteen point five: Robustness one, reading a quantum advantage claim.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-15.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.5_Reading-a-quantum-advantage-claim_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.5</span><span>4:04</span></span>
+        <h3>Robustness I · <span class="pk">Reading a quantum advantage claim</span></h3>
+<p class="summary">Reading an advantage claim means acting as a steward. Google&#39;s estimate of ten thousand years for Sycamore became two and a half days, then fifteen hours, as the classical side improved. Six questions apply to any abstract: the task, the opponent, end-to-end timing, verification, scaling, and error bars with code and rebuttals.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the stadium, the home of chapter fifteen. Today we put on the stewards&#39; armbands. A race steward does not run. A steward checks the starting line, the stopwatch and the rulebook. This is the first of two robustness episodes: how to read a quantum advantage claim.</p><p>In episode fifteen point four, we met the announcements. Here is the most famous one. In October 2019, a Google team published a paper in Nature. Their Sycamore chip, with fifty-three working qubits, sampled one million outputs of a random circuit in about two hundred seconds. They estimated that the best classical supercomputer would need about ten thousand years.</p><p>Within days, IBM answered. Pednault and colleagues argued that, by storing intermediate results on disk, the same task would take about two and a half days on the Summit supercomputer. Ten thousand years had become two and a half days.</p><p>It did not stop there. In 2022, Feng Pan, Keyang Chen and Pan Zhang used a tensor network, the third runner from episode fifteen point three. On a cluster of five hundred twelve GPUs, they produced one million samples in about fifteen hours. They released their samples and their code.</p><p>Look at the stopwatch again. Two hundred seconds against ten thousand years, then against two and a half days, then against fifteen hours. The quantum chip did not get slower. The classical side got smarter. That is the first lesson: a claim is a snapshot, and the classical camp keeps running.</p><p>So here is the steward&#39;s checklist. Six questions, and you can ask them of any abstract.</p><p>One. What is the task, and is it useful? Random circuit sampling was chosen to be hard for classical machines. It was not chosen to be useful. That is fine for a demonstration, but it is not a product.</p><p>Two. Against which classical algorithm? The best known one, or a naive one? On which hardware? A claim is only as strong as its opponent.</p><p>Three. Is the time counted from end to end? Loading data, building the circuit, and reading out the answer all take time.</p><p>Four. Can the result be checked? The Google team could not simulate the full circuit exactly. They measured a fidelity on easier versions of the circuit, which classical computers could still handle, and extrapolated to the full one. Their estimate was about two tenths of one percent. The Pan paper reached about a third of one percent, for the same task. A tiny fidelity is normal here, and it should come with an honest account of how it was estimated.</p><p>Five. How does it scale? Does the gap widen as the machine grows, or does a better classical method close it? Noise matters too, because errors can make a circuit easier to imitate.</p><p>Six. Were error bars and repetitions reported? Is the code published, and have rebuttals already appeared? Look for them before you cheer.</p><p>The same habit applies outside random circuits. In 2023, an IBM team reported a kicked Ising experiment on a hundred twenty-seven qubits, in Nature. Within weeks, other groups had simulated it classically with tensor networks. The questions are the same.</p><p>Now the classic trap. A refutation does not make the quantum experiment fake, and a claim does not prove an advantage forever. An experiment can be real, and an advantage can still be temporary. Read the claim, read the answer, and ask for the stopwatch.</p><p>Let&#39;s recap. A quantum advantage claim is a race against the best classical method known today. Google&#39;s ten thousand years became two and a half days, then fifteen hours. Ask six questions: the task, the opponent, the full timing, the verification, the scaling, and the error bars with code and rebuttals. Next, how to run a fair race yourself: Robustness two, benchmarking honestly.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-15.6">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_15.6_Benchmarking-honestly_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 15.6</span><span>4:17</span></span>
+        <h3>Robustness II · <span class="pk">Benchmarking honestly</span></h3>
+<p class="summary">Benchmarking honestly works like a fair bake-off. Both sides get the same problems, quality target and end-to-end timing, and the classical baseline is tuned as carefully as the quantum method. Shots and uncertainty are reported, simulator and machine results are kept apart, the comparison is preregistered and failures are reported, even when the quantum side loses.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the stadium, in chapter fifteen. Last time we read other people&#39;s claims. Today we organise a race of our own. This is the second robustness episode: benchmarking honestly.</p><p>Our setting today is a bake-off. Two cakes sit under covered cloches on the judges&#39; table. One was baked by a quantum oven, and one by a classical oven. The judges will taste both. Our job is to make sure the tasting means something.</p><p>First rule: same starting line, same finish, same timekeeper. Both bakers get the same recipe card, the same ingredients, and the same stopwatch. The clock runs from the first egg to the plated slice. For us, that means the same problem instances, the same quality target, and the same end-to-end timing, with data loading and read-out included.</p><p>Second rule: tune the classical oven as carefully as the quantum one. Suppose the quantum team spends three weeks adjusting its dials, and the classical baseline runs with default settings for ten minutes. That is an illustrative case, but it is a common one. The result says nothing about quantum. It only says that tuning helps. In 2024, Bowles, Ahmed and Schuld benchmarked twelve quantum machine learning models on six classification tasks. Out-of-the-box classical models usually did better, and removing entanglement from the quantum models often changed little. Give both bakers the same tuning budget, and report what that budget was.</p><p>Third rule: say how many shots you took, and what the error is. We met shots in episode two point three. An estimated probability has a typical error of about the square root of p times one minus p, divided by the number of shots. Take a true probability of one half. With one thousand shots, the typical error is about one and a half percentage points. With ten thousand shots, it is about half a point. If two cakes differ by one point, and you ran a thousand shots, the judges cannot tell them apart. So repeat the whole run, and show the spread, like error bars across subjects in an EEG study.</p><p>Fourth rule: keep three kinds of result apart. A noiseless simulator shows what the algorithm could do. A noisy simulator shows what a model of the noise predicts. A real machine shows what actually happened. Label each column, and never let a simulator score stand in for a machine score.</p><p>Fifth rule: write the rules down before the tasting. This is preregistration. Before you see any results, you fix the instances, the metrics, the baselines and the stopping rule, and you publish them. Nosek and colleagues described the idea in their 2018 paper, The preregistration revolution. The aim is to avoid mistaking a lucky outcome for a prediction that was tested.</p><p>Sixth rule: report the burnt cakes. The runs that failed, the instances where the quantum oven lost, and the settings you tried and dropped all belong in the report. Picking only the best slices is cherry-picking. In 2024, Catherine McGeoch adapted a classic warning, David Bailey&#39;s satire of 1991, to quantum benchmarks. Her advice includes reporting runtimes, disclosing tuning time, and not choosing results without saying why.</p><p>If you work with imaging data, none of this is new. A fair reference, an honest uncertainty, and a plan written in advance are the same reflexes that make a neuroimaging result robust. A number of shots plays the role of a sample size.</p><p>Now the classic trap. A fair race can still be lost by the quantum side, and that is a result. An honest report of a loss is worth more than a flattering report of a win. The judges do not need a victory. They need a tasting they can trust.</p><p>Let&#39;s recap. Same line, same finish, same timekeeper. Tune the classical baseline as hard as the quantum method. Report shots and uncertainty. Separate noiseless simulator, noisy simulator and machine. Preregister the comparison, and report the failures. Next, we turn to our own problem: the shape of a quantum-friendly problem, in chapter sixteen.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-14/">← 14 · QUANTUM MACHINE LEARNING</a><a class="btn main" href="../chapter-16/">16 · IS MY PROBLEM QUANTUM-FRIENDLY? →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

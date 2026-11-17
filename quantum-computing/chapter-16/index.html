@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is my problem quantum-friendly? · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 16: Is my problem quantum-friendly?.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 16</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 16</span><span class="caps">CHAPTER 16</span></div>
+    <h1 class="h1-chapter">Is my problem quantum-friendly?</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 20 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/" class="on" aria-current="page">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-16.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_16.1_The-shape-of-a-quantum-friendly-problem_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 16.1</span><span>3:58</span></span>
+        <h3>The shape of a quantum-friendly problem</h3>
+<p class="summary">A problem is quantum-friendly when it passes five measurements: a small or formula-given input, a small output, a huge hidden space, structure for interference, and a gain that survives the overhead. Shor fits all five, Grover misses one because its gain is only quadratic, and HHL misses two, the input and the output. A missing measurement is an item on the bill, not a verdict.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the tailor&#39;s shop, the home of chapter sixteen. For fifteen chapters we learned to read other people&#39;s claims. Now we judge our own problem. A problem is quantum-friendly when it fits the suit without alterations that cost more than the gain.</p><p>Here is the picture. In the middle of the shop stands a mannequin. The tailor takes five measurements. If one is off, we look at the alteration bill.</p><p>Measurement one: the input. It must be small, or it must be a formula, a rule that the machine can compute on the fly. Measurement two: the output. It must be small too. A number, a sample, a global property. Measurement three: a huge hidden space. With n qubits, the machine walks through two to the n possibilities at once, and the problem must really need that room.</p><p>Measurement four: structure that interference can use. A period, a symmetry, a spectrum. Or the system is already quantum, like a molecule. Without structure, the arrows have nothing to line up on. Measurement five: the gain must survive the bills. Error correction and data loading both cost a lot. An advantage must be big enough to pay for them.</p><p>Now we put our own algorithms on the mannequin, one by one.</p><p>First, Shor, from chapter six. The input is a single number, N. The output is a pair of factors. The hidden space is the set of all exponents, and the period is exactly the structure that the Fourier transform reads. And the gain? The best known classical method is sub-exponential, while Shor&#39;s algorithm is polynomial. Five out of five. Even so, the bill is real. In 2021, Craig Gidney and Martin Ekerå estimated that factoring a two thousand and forty-eight bit RSA number would need about twenty million noisy qubits, and about eight hours.</p><p>Second, Grover, from chapter seven. The input is a formula, if the oracle can be computed on the fly. The output is one answer. Four measurements fit. But the gain is only quadratic: square root of N, against N. In 2021, Ryan Babbush and colleagues at Google compared that gain with the overhead of error correction. Their conclusion: quadratic speedups will not give an advantage on early fault-tolerant machines without a major improvement in error correction. They found that quartic speedups look much more practical. One measurement is off.</p><p>Third, HHL, from chapter nine. The promise is to solve a linear system in time polylogarithmic in its size. But look at the mannequin. The input is a whole vector b, and loading it can cost as much as the computation. The output is a quantum state, not a vector, and reading all of it destroys the gain. In 2015, Scott Aaronson called this the fine print. Two measurements are off.</p><p>This is the lesson of a 2023 article in Communications of the ACM by Torsten Hoefler, Thomas Haener and Matthias Troyer. They argue that small data and speedups beyond quadratic are essential, and that most proposed applications do not reach the speedups they need. They see the most promise in chemistry and materials science, where the system itself is quantum.</p><p>The classic trap runs the other way. A missing measurement is not a verdict of impossible. It is an item on the bill, and the mannequin says where to look.</p><p>Let&#39;s recap. Five measurements: a small or implicit input, a small output, a huge hidden space, structure for interference, and a gain that survives the overhead. Shor fits all five. Grover misses one, because its gain is only quadratic. HHL misses two, the input and the output. We will use this mannequin for the whole chapter. Next, formalisms that travel: which kinds of problems pass through the shop door.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-16.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_16.2_Formalisms-that-travel_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 16.2</span><span>3:32</span></span>
+        <h3>Formalisms that travel</h3>
+<p class="summary">Quantum evolution is linear and unitary, which shapes the door problems must fit through. Linear evolution, spectral problems, sampling, algebraic structure and sparse linear algebra pass, while nonlinear dynamics pays for every nonlinearity, and data-dependent loops, huge input and output, and copying a state stay outside. Passing the door is no promise, since loading, reading and error correction still cost.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the tailor&#39;s shop, the home of chapter sixteen. In the last episode the mannequin told us what a good fit looks like. Today we ask a different question: which kinds of problem even fit through the door?</p><p>Here is the picture. Travellers queue outside the shop with suitcases. Each suitcase is one family of problems. The door has a fixed shape. A suitcase either slides through, or it sticks, and the tailor charges a toll.</p><p>Why is the door shaped that way? Because a quantum computer evolves amplitudes linearly, with unitary steps. Whatever travels well must look like a linear evolution, or be readable from one.</p><p>First suitcase: linear evolution. Unitary dynamics goes straight through. This is what Seth Lloyd showed in 1996: a quantum computer can simulate a local quantum system efficiently. Linear differential equations come next. In 2014, Dominic Berry gave a high-order quantum algorithm for sparse linear equations. In 2017, Berry, Childs, Ostrander and Wang cut the cost of reaching a given precision, from a power of one over epsilon to a logarithm. In 2021, Andrew Childs, Jin-Peng Liu and Aaron Ostrander extended this to partial differential equations.</p><p>Second suitcase: spectral problems. Eigenvalues are read by phase estimation, from episode six point two. Third: sampling. The answer is a draw from a distribution written as the squared size of the amplitudes, so the machine produces it directly.</p><p>Fourth: algebraic structure. Groups, Fourier transforms, the hidden subgroup. This is the home ground of Shor. Fifth: sparse, well-conditioned linear algebra, with one warning from episode sixteen point one. The fine print about loading the input and reading the output still applies.</p><p>Now the suitcases that stick. First, nonlinear dynamics. The amplitudes evolve linearly, so every nonlinearity has to be paid for. The activation functions of a neural network are the everyday example. A general nonlinear equation can be rewritten as an endless linear one, a trick called Carleman linearization. In 2008, Leyton and Osborne showed a cost that grows exponentially with the length of the simulated time. In 2021, Jin-Peng Liu and colleagues found a case that goes through. When dissipation is stronger than the nonlinearity, the cost grows only about as the square of the time. For a stronger nonlinearity, their lower bound says the general problem becomes intractable.</p><p>Second, loops that depend on the data, and huge amounts of input and output. Third, anything that needs a copy of a state. In 1982, Wootters and Zurek showed that a single quantum state cannot be cloned, and we met that wall in episode four point three.</p><p>The classic trap is to read a pass as a promise. A suitcase that fits the door has not yet paid the bill for loading, reading, and error correction. The door only tells us where to start looking.</p><p>Let&#39;s recap. The door is linear. Linear evolution, spectra, sampling, algebraic structure and sparse linear algebra pass. Nonlinear dynamics pays for every nonlinearity. Data-dependent loops, big input and output, and copying stay outside. Next, natural embeddings, part one: problems as Hamiltonians.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-16.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_16.3_Natural-embeddings-I-Problems-as-Hamiltonians_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 16.3</span><span>3:57</span></span>
+        <h3>Natural embeddings I · <span class="pk">Problems as Hamiltonians</span></h3>
+<p class="summary">A problem becomes a Hamiltonian by turning each binary variable into a spin, each cost into a coupling and each rule into a penalty. For MaxCut the lowest energy is the biggest cut, and the same form appears as a QUBO. Graph problems embed well, but continuous variables, dense penalties and hardware connectivity raise the price, and the embedding is no speedup.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the tailor&#39;s shop, the home of chapter sixteen. Today we get a problem through the door by writing it as a Hamiltonian.</p><p>Here is the picture. A sewing pattern lies on a length of fabric. Wherever the pattern says button, we sew one. Every binary variable becomes a button with two faces: pink for zero, blue for one. As a spin, that is the Z operator, worth plus one or minus one. Between two buttons we sew a thread, and a thread has a price. It costs plus one when its two buttons show the same face, and minus one when they differ. Add up every thread, and you get an Ising Hamiltonian.</p><p>Take the party from episode thirteen point three, shrunk to four guests and five friendships. A friendship is cut when its two buttons differ. The sum of the five prices equals five minus twice the cut. So the lowest energy is the biggest cut. Here the best cut is four, and the lowest energy is minus three. And the stamp of Q A O A was exactly this Hamiltonian, turned into a phase.</p><p>Optimisers often write the same pattern with zeros and ones. It is called a Q U B O: a quadratic unconstrained binary optimisation problem. Replace x by one minus z, over two, and it becomes an Ising Hamiltonian. In 2014, Andrew Lucas wrote Ising formulations for many N P problems, in Frontiers in Physics. They include all twenty-one of Karp&#39;s N P-complete problems, with a number of spins that grows at most as the cube of the problem size.</p><p>And rules? A rule becomes a penalty. Say a guest must pick exactly one of three tables. Add w times the square of x one plus x two plus x three, minus one. It is zero for exactly one table. It costs w for none or two, and four w for all three. With w large enough, breaking the rule never pays.</p><p>Now a Hamiltonian given as a matrix. Any matrix on n qubits is a sum of Pauli strings, each a tensor product of I, X, Y and Z, with a number in front. There are four to the n strings. For example, the matrix with first row one, two and second row two, minus one, is Z plus two X. These are the strings we measured in batches in episode thirteen point two. But count. Ten qubits make a matrix of one thousand twenty-four by one thousand twenty-four, and up to one million forty-eight thousand five hundred seventy-six strings.</p><p>What embeds naturally? Problems on graphs, scheduling, and assignment: every choice is a yes or a no. Three things embed badly. First, continuous variables. They are cut into bits, and each digit of precision costs buttons. Second, dense penalties. Keeping two camps equal in size couples every pair. For one thousand guests, that is four hundred ninety-nine thousand five hundred threads. Third, the hardware has its own seams. On D-Wave&#39;s Pegasus chips, each qubit couples to at most fifteen others. A button with more neighbours is sewn as a chain of several qubits, held together by a strong coupling. Vicky Choi studied how to set those strengths, in 2008.</p><p>The classic trap: a Hamiltonian is a way of writing, not a speedup. In general, finding its lowest energy is as hard as the problem we started with, and classical solvers read Q U B Os too. The embedding is part of the bill.</p><p>Let&#39;s recap. A variable becomes a spin, a cost becomes a Hamiltonian, and a rule becomes a penalty. Any matrix is a sum of up to four to the n Pauli strings. Graphs embed well. Continuous variables, dense penalties and hardware connectivity raise the price. Next, Q C sixteen point four: natural embeddings two, data as states, functions as oracles.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-16.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_16.4_Natural-embeddings-II-Data-as-states-functions-as-oracles_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 16.4</span><span>4:20</span></span>
+        <h3>Natural embeddings II · <span class="pk">Data as states, functions as oracles</span></h3>
+<p class="summary">Loading data has a price counted in gates. Basis and angle encodings are cheap, while amplitude encoding packs two to the n numbers into n qubits at a cost that doubles with every qubit, and QRAM carries caveats. A formula compiles into a reversible oracle at modest cost, but the same function as a table brings the loading cost back.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back at the tailor&#39;s shop, in chapter sixteen. In episode fourteen point one, the claw machine showed three ways to load data into qubits. Today we look at the same three ways again, with one question: what do they cost?</p><p>Picture a workbench. On it sits an embroidery hoop, and beside it a small tally counter, the kind that clicks once for every stitch. Whatever the qubits must hold has to be stitched onto the cloth. The counter is our price.</p><p>Basis encoding is the cheapest. You write the bits of your data as a basis state, with at most one X gate per bit. Ten bits, ten qubits, a handful of clicks.</p><p>Angle encoding is cheap too. Each feature becomes one rotation on its own qubit, in a single shallow layer. Ten features, ten rotations. The catch is that every feature takes a qubit, so this suits problems with few variables.</p><p>Amplitude encoding is the grand tapestry. Two to the n numbers fit in n qubits, and thirty qubits could hold about a billion values. But every value must be stitched. In 2005, Mikko Möttönen and colleagues gave a circuit for any state of n qubits, with two to the n plus two, minus four n, minus four CNOT gates. For ten qubits, that is four thousand and fifty-two CNOTs, for one thousand and twenty-four numbers. Each extra qubit doubles the count. In 2011, Martin Plesch and Časlav Brukner lowered the leading term to twenty-three twenty-fourths of two to the n, for an even number of qubits. That is better, but it still doubles with every qubit.</p><p>So the counter tells the story. Basis and angle encoding cost a few clicks per variable. Amplitude encoding costs about one click per number, whenever the data arrives as a list.</p><p>Could a quantum memory stitch faster? In 2008, Vittorio Giovannetti, Seth Lloyd and Lorenzo Maccone proposed one, called QRAM. An address of n qubits reads a superposition of N memory cells, and only about log N switches are thrown. But the memory still holds N cells that someone must fill and keep. In 2015, Srinivasan Arunachalam and colleagues showed that, for a class of error models, this design needs the error rate per gate to shrink as the memory grows. That is the input caveat of Scott Aaronson&#39;s fine print, from episode nine point four.</p><p>Now the good news: implicit beats explicit. Suppose the data is not a list but a rule. Beside the hoop we set a stencil roller. One rule is engraved on the wheel, and a single roll prints the whole pattern. A function given by a formula works like this.</p><p>Remember episode three point three. Every quantum step must run backwards, so we compute the formula with reversible gates, copy the answer onto a fresh qubit, and uncompute the leftovers. This pattern goes back to Charles Bennett&#39;s work on reversible computing, in 1973. It turns a formula into an oracle, which runs on all the inputs at once. Its size grows with the length of the formula, not with the number of inputs.</p><p>Now take the same function as a table, with arbitrary entries and no rule inside. The roller has nothing engraved. We must copy the swatch book entry by entry, and the counter climbs again: in general, about as many gates as there are entries. The loading problem is back.</p><p>Here is the classic trap. Do not read two to the n numbers in n qubits as free storage. And do not read the word oracle as free either. An oracle is cheap only when its rule is cheap. The price sits in the circuit that computes the function, not in the single call that Grover&#39;s algorithm counts.</p><p>Let&#39;s recap. Basis and angle encodings are cheap. Amplitude encoding packs two to the n numbers into n qubits, at a cost that doubles with every qubit. QRAM has caveats of its own. A formula compiles into a reversible oracle at a modest price, while the same function as a table brings the loading cost back. The best problems have an input that is a rule, not a file. Next, a worked triage: three neuroscience problems.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-16.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_16.5_A-worked-triage-Three-neuroscience-problems_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 16.5</span><span>4:33</span></span>
+        <h3>A worked triage · <span class="pk">Three neuroscience problems</span></h3>
+<p class="summary">The five-measurement test is applied to three illustrative neuroscience problems. Principal component analysis of an EEG covariance matrix fails: the input is an explicit table, the space is tiny and a laptop solves it in milliseconds. A receptor&#39;s electronic structure fits much better, perhaps in the long term, and cortical parcellation as a QUBO is uncertain against strong classical baselines.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the tailor&#39;s shop, the home of chapter sixteen. This is the last episode of the main series, and the last fitting. Today we put the mannequin from episode sixteen point one to work on real orders.</p><p>Three customers wait at the counter. Each order is a neuroscience problem, and all three are illustrative: examples we chose, not projects from a real lab. For each one, the tailor takes five measurements. Is the input small, or given by a formula? Is the output small? Is there a hidden space of size two to the n? Is there a structure that interference can use, or a system that is already quantum? And does the gain survive the cost of error correction and of loading data?</p><p>Order one: principal component analysis of an E E G covariance matrix. Sixty-four channels give a sixty-four by sixty-four matrix. Episode fourteen point six showed that it looks like a density matrix, and that a quantum version exists. Lloyd, Mohseni and Rebentrost proposed it in Nature Physics in 2014.</p><p>What does the mannequin say? The input is an explicit table of numbers, so loading it is the cost. We want a list of components, and the quantum output is a state. The space is tiny: sixty-four dimensions, not two to the n. In a paper published in Physical Review Letters in 2021, Ewin Tang showed that classical algorithms with comparable sampling access are only polynomially slower. And we timed it: a full eigendecomposition of a random sixty-four by sixty-four covariance matrix takes about five milliseconds on a laptop. Verdict: no.</p><p>Order two: the electronic structure of a receptor&#39;s binding site, for neuropharmacology. Here the mannequin fits much better. The input is small: atoms and a basis, a formula rather than a file. The output is small: an energy. The hidden space is huge, because the number of electron configurations grows exponentially with the number of orbitals. And the system is already quantum. In episode eight point two, phase estimation reads the energy as an eigenvalue.</p><p>The last measurement is the hard one. The closest dated estimate we found concerns a drug-metabolising enzyme, cytochrome P four fifty, not a receptor. In 2022, Goings and colleagues estimated about four point six million physical qubits and seventy-three hours, for the largest model they studied, assuming a physical error rate of one in a thousand. With an error rate a hundred times lower, about five hundred thousand qubits and twenty-five hours. Today&#39;s machines are far from that. Verdict: maybe, in the long term. These numbers are from 2022, and they will move.</p><p>Order three: cutting the cortex into parcels, written as a Q U B O, a quadratic unconstrained binary optimisation problem. In 2014, Andrew Lucas showed how to write many hard graph problems this way, including partitioning. The embedding has a price, as in episode sixteen point three. Cut one thousand vertices into ten parcels, with one binary variable per vertex and parcel: that is ten thousand variables, plus penalties so each vertex lands in exactly one parcel.</p><p>The mannequin finds a small input, a small output and a huge space. But we know of no structure that interference can exploit, only a Grover-type gain that is quadratic, and episode seven point three showed how error correction can eat it. Strong classical baselines exist, such as Louvain community detection from 2008 and the Schaefer parcellation from 2018. Verdict: uncertain. Compare it with the best classical heuristics, as in episode thirteen point four.</p><p>So most problems in a neuroscience lab are not quantum-friendly today, and that is a useful conclusion. What can we do now? Write our problem in the formalisms of episodes sixteen point two and sixteen point three. It often clarifies the classical version too.</p><p>Let&#39;s recap. Five measurements: input, output, hidden space, structure, and gain after overhead. Our covariance matrix says no, the binding site says maybe, in the long term, and the parcellation says uncertain. Next, the first bonus video: Qiskit, end to end.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-15/">← 15 · COMPLEXITY AND ROBUSTNESS</a><a class="btn main" href="../bonus/">B · CODE →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

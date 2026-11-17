@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The math toolkit · World models &amp; JEPA · Animated science series</title>
+<meta name="description" content="World models &amp; JEPA, chapter 2: The math toolkit.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">WORLD MODELS &amp; JEPA</a> / <b>CHAPTER 2</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">WMOD · 2</span><span class="caps">CHAPTER 2</span></div>
+    <h1 class="h1-chapter">The math toolkit</h1>
+    <div class="pills">
+<span class="pill y">1 VIDEO · 4 MIN</span><span class="pill soon">MORE COMING SOON</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Learning from data</a>
+    <a href="../chapter-2/" class="on" aria-current="page">2 · The math toolkit</a>
+    <a href="../chapter-3/">3 · Neural networks</a>
+    <a href="../chapter-4/">4 · Representations</a>
+    <a href="../chapter-5/">5 · Who gives the answers?</a>
+    <a href="../chapter-6/">6 · Generative models</a>
+    <a href="../chapter-7/">7 · Learning by comparison</a>
+    <a href="../chapter-8/">8 · Energy-based models</a>
+    <a href="../chapter-9/">9 · Acting in the world</a>
+    <a href="../chapter-10/">10 · World models</a>
+    <a href="../chapter-11/">11 · JEPA</a>
+    <a href="../chapter-12/">12 · Hierarchy and planning</a>
+    <a href="../chapter-13/">13 · Debates and limits</a>
+    <a href="../chapter-14/">14 · Bridges with neuroscience</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-2.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-09-WorldModelsJEPA/WMOD_2.1_Vectors-and-the-dot-product_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.1</span><span>4:11</span></span>
+        <h3>Vectors and the dot product</h3>
+<p class="summary">A vector is a necklace of numbers, and each number is a coordinate. Multiplying two necklaces bead by bead and adding the products gives the dot product: a vote on whether they agree, large when alike, zero when unrelated, negative when opposite. Dividing by the two lengths turns it into the cosine, the similarity compass of the series.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the map room. On a map, a place is just a list of numbers: how far east, how far north. Today we take that idea and run with it. A list of numbers is called a vector. By the end of this video, you will know the one operation that tells you whether two vectors look alike.</p><p>Picture a recording from four electrodes, frozen at a single instant. Four voltages, one per electrode. Let&#39;s thread them on a string. Each bead is one number. A pink bead is positive, a blue bead is negative, and the bigger the bead, the bigger the value. This is a necklace, and it is how we will draw vectors for the whole series. Four beads, four dimensions.</p><p>Each bead is also a coordinate. Keep only the first two electrodes for a moment. The first value says how far to walk along one axis, the second says how far to walk along the other. Walk both, and you land on a point. Draw an arrow from the origin to that point. This is the arrow from the EEG series, episode 2.2. A two-bead necklace and an arrow on a plane are the same object, seen two ways.</p><p>Now take two necklaces, one above the other. Pair the beads: first with first, second with second, and so on. Multiply each pair. Then add up the four products. That single number is the dot product. With our two recordings, three times two is six. Minus one times minus one is plus one. Two times three is six. One times zero is zero. Six, plus one, plus six, plus zero: thirteen. In NumPy, the whole recipe is a single symbol, the at sign.</p><p>Watch what each product does. When two paired beads have the same color, both pink or both blue, their product is positive, and it adds to the total. When the colors disagree, the product is negative, and it takes away. Big beads that agree push the total up fast. So the dot product is a vote, bead by bead, on whether two necklaces agree.</p><p>That gives us the big idea. Two necklaces that look alike give a large positive number: thirteen, for our pair. Now take a necklace that has nothing to do with the first one. Its agreements and its disagreements cancel exactly, and the dot product is zero. Finally, flip every bead of the first necklace, pink to blue and blue to pink. Every pair now disagrees, and we get minus fifteen. Alike, unrelated, opposite: large, zero, negative.</p><p>Back to the arrows. Two arrows pointing the same way give a large dot product. At a right angle, zero. Pointing in opposite directions, a negative number. In fact, the dot product is the length of the first arrow, times the length of the second, times the cosine of the angle between them. With four beads, we can no longer draw the arrows. But the angle still exists, and the recipe still works. It works the same with four hundred beads.</p><p>There is one catch. Double every bead of a necklace, as if the whole recording got louder. Its pattern has not changed, yet its dot product with the original jumps from fifteen to thirty. Length gets mixed up with resemblance. The fix is to divide by the two lengths. What is left is the cosine of the angle, always between minus one and one. One means the same direction, zero means unrelated, minus one means opposite. Our similar pair scores zero point nine. The louder copy scores exactly one.</p><p>If you followed the EEG series, episode 2.3 used this same product to measure how much two signals resemble each other. The Quantum series calls it the inner product, in episode 1.2. In this series, the cosine will be our compass. In chapter 4, it finds which images look alike. In chapter 7, it tells matching pairs from strangers.</p><p>To sum up. A vector is a necklace of numbers, and each number is a coordinate. The dot product multiplies the beads pair by pair and adds them up: it measures how much two necklaces agree. Divided by their lengths, it becomes the cosine. Next time: matrices, the machines that take one necklace and give back another.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-2.2">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.2</span><span>SOON</span></span>
+        <h3>Matrices, machines that move vectors</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-2.3">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.3</span><span>SOON</span></span>
+        <h3>Derivatives and the gradient</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-2.4">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.4</span><span>SOON</span></span>
+        <h3>Gradient descent</h3>
+      </div>
+      </div>
+    </article>
+    <article class="card ep soon" id="ep-2.5">
+      <div class="ep-grid">
+      <div class="media">
+<div class="poster soon"><svg class="face" width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40.0" cy="44.800000000000004" rx="35.2" ry="28.799999999999997" fill="#E4DED2" stroke="#1D1B1A" stroke-width="3"/><ellipse cx="24.0" cy="28.799999999999997" rx="4.8" ry="2.8000000000000003" fill="#fff" opacity="0.8"/><ellipse cx="27.2" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="28.4" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="52.8" cy="44.0" rx="3.5999999999999996" ry="4.4" fill="#1D1B1A"/><circle cx="54.0" cy="42.4" r="1.12" fill="#fff"/><ellipse cx="17.599999999999998" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><ellipse cx="62.400000000000006" cy="50.4" rx="4.8" ry="2.8000000000000003" fill="#FF48B0" opacity="0.55"/><path d="M36.0 49.6 q2.0 3.2 4.0 0 q2.0 3.2 4.0 0" fill="none" stroke="#1D1B1A" stroke-width="2.4" stroke-linecap="round"/></svg><span class="caps muted">VIDEO COMING SOON</span></div>      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.5</span><span>SOON</span></span>
+        <h3>Probabilities, softmax and cross-entropy</h3>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-1/">← 1 · LEARNING FROM DATA</a><a class="btn main" href="../chapter-3/">3 · NEURAL NETWORKS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code · Neurostimulation · Animated science series</title>
+<meta name="description" content="Neurostimulation, bonus: Code.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">NEUROSTIMULATION</a> / <b>BONUS</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">STIM · B</span><span class="caps">BONUS</span></div>
+    <h1 class="h1-chapter">Code</h1>
+    <div class="pills">
+<span class="pill y">2 VIDEOS · 15 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · History</a>
+    <a href="../chapter-2/">2 · Shared physics</a>
+    <a href="../chapter-3/">3 · TMS</a>
+    <a href="../chapter-4/">4 · Transcranial electrical stimulation</a>
+    <a href="../chapter-5/">5 · Focused ultrasound</a>
+    <a href="../chapter-6/">6 · Invasive stimulation</a>
+    <a href="../chapter-7/">7 · Modelling the field</a>
+    <a href="../chapter-8/">8 · Closed loop</a>
+    <a href="../chapter-9/">9 · Designing a study</a>
+    <a href="../chapter-10/">10 · Measuring the effect</a>
+    <a href="../chapter-11/">11 · Safety and ethics</a>
+    <a href="../chapter-12/">12 · Clinical applications</a>
+    <a href="../chapter-13/">13 · Robustness</a>
+    <a href="../bonus/" class="on" aria-current="page">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-B">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-07-Neurostimulation/STIM_B.1_Modelling-a-field-with-SimNIBS_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>BONUS</span><span>7:53</span></span>
+        <h3>Modelling a field with SimNIBS</h3>
+<p class="summary">A field model is built in six lines of code with SimNIBS: choose a head, check the segmentation, place the montage, run, read the field in a target sphere, set the intensity. The same script on six example heads gave fields differing by 28 percent in the same target, so version, target, and mean versus peak belong in the methods.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>So far in this series, a field map was something we looked at. In this bonus episode, we build one, line by line.</p><p>Up on the rooftop, LAPPY the laptop has pinned a recipe card to the railing. The recipe makes one dish: the electric field in one head, at one target. And the dish has a thermometer, so we can read the answer as a number.</p><p>First, a word about this episode. It is a bonus. Code goes stale faster than physics, so the versions are on screen. We use SimNIBS, version four point six, released in March twenty twenty-six, in a Python three point eleven environment. The head is an example head that ships with the tool. No patient data. And everything you will see was run on one laptop, for this episode.</p><p>SimNIBS is free software. It is described by Thielscher and colleagues in twenty fifteen, and by Saturnino and colleagues in twenty nineteen. Those papers describe older versions, which is exactly why we show the version number.</p><p>The recipe has six lines, in two parts. Part one is the preparation: pick a head, taste it, set the oven. Part two is the cooking: cook, read the thermometer, season to taste.</p><p>Part one. The preparation.</p><p>Line one. Pick the head. A head model starts from MRI scans: a T1 image and, ideally, a T2 as well. The tool that turns them into a model is called charm, from Puonti and colleagues in twenty twenty. One command, with a subject name and the two images. It sorts the head into tissues, and builds the mesh for the finite elements of episode seven point one. We did not run it here. The example dataset ships with the result already computed: a folder called m2m ernie. So the segmentation is the authors&#39;, and only the field is ours.</p><p>Line two. Taste before you cook. If the segmentation is wrong, every number after it is wrong. So we look. Charm writes a report, a web page, with the tissue outlines drawn over the MRI. Here is a slice of the mesh itself, through the motor cortex: scalp, skull, fluid, gray matter, white matter. What do we check? That the outlines follow the image. That the skull is a closed shell of a sensible thickness. That fluid sits around the folds, instead of gray matter touching the skull. A few minutes of looking here can save a wrong conclusion later.</p><p>Line three. Set the oven. In code, a session points at the head folder. For direct current, we add one list, two currents, and two electrodes. Here: one milliamp flowing from a pad over C3 to a larger pad over AF4. Fifty by fifty millimetres, and fifty by seventy. Four millimetres thick.</p><p>Notice that the positions are names from the EEG cap system, not coordinates. So the very same line works on any head. Keep that in mind.</p><p>For magnetic stimulation, one more list: a coil file from the SimNIBS library, and a position. Centre on C3, handle pointing towards CP3, four millimetres off the scalp.</p><p>Part two. The cooking.</p><p>Line four. Cook. One call runs everything. SimNIBS places the electrodes on the scalp, builds the equations, and solves them. For ernie, the direct current run took seventy seconds, and the magnetic run thirty-eight, on this laptop.</p><p>The result is a mesh with the field in every element. Its magnitude is called magnE. Here it is, on a slice through the target, for one milliamp. Pink is stronger, and the scale is in volts per metre. This map is modelled, not measured. And it is not a smooth blob: the field follows the folds.</p><p>Line five. Read the thermometer. A map is for looking. A number is for deciding. So we define a target: a sphere, ten millimetres in radius, in the gray matter, around the hand area of the motor cortex. We give it in MNI coordinates, and the tool warps them into this head. Then we average the field over the elements in the sphere, weighted by their volume.</p><p>For ernie, that gives zero point one three five volts per metre, per milliamp. For the coil, zero point seven one volts per metre, when the coil current changes by one amp per microsecond.</p><p>Both fields are linear in the source. Double the current, and the field doubles. That makes the next line easy.</p><p>Line six. Season to taste. Say the recipe asks for a quarter of a volt per metre in the target. That is an example, not a recommendation. Since the field scales with the current, the current we need is the wanted field, divided by the field per milliamp. For ernie, one point eight six milliamps. That is the field rule of episode seven point three, in one line of code.</p><p>SimNIBS also has full optimisers, for example one that chooses the electrode positions and the currents together, by Saturnino and colleagues in twenty nineteen. We did not run it here: it needs a lead-field first, a large set of precomputed simulations.</p><p>Now for the moment the recipe was written for. Nothing in the script mentions a particular head. Positions are landmarks, and the target is in MNI space. So we run the same script on other heads. Ernie, and the five heads of the SimNIBS group dataset. Same montage, same one milliamp, same target. Same dish, six kitchens.</p><p>The thermometer disagrees. Subject one reads zero point one two nine volts per metre. Subject twelve reads zero point one six five. That is twenty-eight percent more field in the same target, for the same milliamp. And to reach our quarter of a volt per metre, subject one needs one point nine four milliamps, and subject twelve only one point five two.</p><p>Across the six heads, the standard deviation is about ten percent of the mean. In episode seven point two, a published study found eighteen percent, with fifty heads. Ours is a different montage and a different target, and six heads is a demonstration, not a sample. But it is the same lesson, run by our own hands.</p><p>The coil gives the same factor of one point two eight. Subject ten reads zero point eight five volts per metre, per amp per microsecond, and subject fifteen zero point six seven. The distance from coil to cortex explains most of the order. Subject ten has the coil closest, at fourteen millimetres. But subject fifteen, second closest, has the weakest field. And a head that is low for one technique is not always low for the other.</p><p>Last, a word about the average-brain template, MNI. It gives zero point one five. It sits inside the range of the individuals. It is one more head, not the truth.</p><p>Now the classic trap. The script prints four decimals, so the answer looks precise. But that is the precision of the arithmetic, not of the model. Every head here uses the same default tissue conductivities, as in episode seven point one. And the number depends on the target we drew. In ernie, the peak in the sphere is zero point two five, nearly twice the mean. So a methods section should give the version, the head, the radius, the coordinates, and whether it is a mean or a peak.</p><p>To sum up. A recipe in six lines: pick a head, check the segmentation, place the montage, run, read the target, set the intensity. The same script on six example heads gave fields that differ by twenty-eight percent in the same target. The map is modelled, the number depends on the target we draw, and the version belongs in the methods.</p><p>Next: B.2. A TMS-EEG pipeline in Python.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-B.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-07-Neurostimulation/STIM_B.2_A-TMS-EEG-pipeline-in-Python_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>BONUS</span><span>6:54</span></span>
+        <h3>A TMS-EEG pipeline in Python</h3>
+<p class="summary">A TMS-EEG recording is cleaned like a painting under varnish: cut the pulse and fill the gap, then filter, then epoch, repair, reject and remove components by a stated rule. Swapping cutting and filtering creates a deflection that was never there, and one component threshold reshapes the evoked response. Every threshold is reported, and a sensory control is demanded.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Bonus chapter, last episode. Up on the rooftop, LAPPY has opened the other screen. On it sits a real TMS-EEG recording, and the job is a restorer&#39;s job. The recording is a painting under a layer of varnish, and the pulse is the spill. We clean it one step at a time, and we watch what each step does to the picture.</p><p>This is a bonus. Tools change fast in this field, so the code is made to be replaced. The versions are on screen: Python three point twelve, MNE-Python one point thirteen point two, NumPy, SciPy and scikit-learn. Everything shown was run for this episode, and every curve comes from that run.</p><p>First, the choice of tools. TESA, the toolbox from Rogasch and colleagues in 2017, is an extension for EEGLAB, and it runs in MATLAB. The Python package we found for the SOUND and SSP-SIR methods calls MATLAB underneath. So the whole chain here uses MNE-Python alone: its own functions for the pulse, the filters, ICA and the average.</p><p>The data are public. They are the SSPython demonstration dataset, shared on Zenodo under a Creative Commons attribution licence, and the identifier is on screen. We use one participant: sixty-three channels, stimulation labelled left primary motor cortex, a little over nine minutes, one hundred seventy-five pulses, recorded at four thousand eight hundred samples per second. No patient data. One limit to say now: this recording has no sensory control. We come back to it in part two.</p><p>Part one. From the raw file to clean epochs.</p><p>Step one, load. A raw file, a montage, and the pulse times, read from the annotations.</p><p>Step two, find the artefact. Take the median over all pulses and all channels, and ask when the signal jumps. Here the artefact starts about one point seven milliseconds after the marker, and it is over by three point one. At its peak it passes twenty millivolts. The brain response we want is a few microvolts.</p><p>Step three, cut and fill. A window of six milliseconds, from the marker on, is replaced by a straight line. That is wider than the measured artefact, with a margin. The example pipeline in the TESA manual removes about two milliseconds before the pulse to ten after, and interpolates with a cubic curve. Here the artefact is short, so a shorter window serves.</p><p>Step four, filter. One to eighty hertz, plus a notch at fifty. And here the order matters. We ran it both ways. Cut first, then filter: at electrode C3, under the coil, the average sits near minus one microvolt at ten milliseconds. Filter first, then cut: minus thirteen. Same data, two steps swapped, and a deflection appears that was never there. The filter smears the pulse before it can be removed. The TESA manual gives the same advice: remove the pulse and interpolate, then filter.</p><p>Step five, epochs, from minus four hundred to plus five hundred milliseconds, resampled to a thousand samples per second. One channel, CPz, is flagged by a robust rule on its variance, and it is rebuilt from its neighbours. Then trial rejection. Any epoch with a peak-to-peak above one hundred fifty microvolts goes. Eleven of the one hundred seventy-five are rejected, and one hundred sixty-four remain. That threshold is a habit, not a law.</p><p>Part two. Components, the average, and the TEP.</p><p>ICA splits the recording into components, forty-one here. Which ones are artefacts? TESA&#39;s default rule for muscle compares the average size of a component between eleven and thirty milliseconds with its average size over the whole epoch. A ratio above eight flags it. Components that follow the frontal-pole channels are flagged as blinks. On this recording, no component passes the muscle rule. The highest ratio is six point four. Three components that follow the frontal channels are removed.</p><p>And sound and touch? No simple rule separates them. A component can look sensory, but only a sensory control can show it. The code does not pretend otherwise.</p><p>Now average the clean epochs. At C3, a deep trough of about minus nine microvolts peaks near sixty-five milliseconds, followed by a positive wave near one hundred. On the head, the early activity sits on the left, near the coil. By one hundred eighty milliseconds, the positive peak sits at the vertex, in the middle. A late wave centred on the vertex is the shape that sound-evoked responses are known to take. In this recording, it cannot be told apart.</p><p>Now the strong moment. One number. The threshold for calling a component muscle. Keep TESA&#39;s default of eight, and the trough stays: minus nine microvolts at sixty-five milliseconds. Lower it to four, and four components leave, with little change at sixty-five milliseconds. Lower it to three, and eleven components leave. The trough falls to minus zero point five microvolts. Same file, same chain, one number, and the TEP changes shape. Which one is the brain? The data cannot say. In 2021, Bertazzoli and colleagues ran four published pipelines on the same data from sixteen people, and found that the cleaned signal depends on how it was cleaned.</p><p>Part two also promised the chain with and without a sensory control. This recording holds one condition only, so it cannot give that comparison, and the screen says so. What it can show is the code. The same function runs on two sets of epochs, real pulses and a realistic sham, and the two averages are drawn together. This block is shown, not run. Conde and colleagues, and Biabani and colleagues, both in 2019, did this kind of comparison. A wave that appears just as strongly in the control cannot be credited to the cortex under the coil. Episode three point seven told the story. This is the code behind it.</p><p>The EEG series covers preprocessing for ordinary recordings. TMS-EEG adds three things: a pulse to cut, early components to doubt, and a control to demand.</p><p>To sum up. Cut the pulse and fill the gap, then filter. Epoch, repair, reject. Remove components with a stated rule. Average. And report every threshold, because the TEP depends on each of them. The readouts of episode ten point three all start from a chain like this one.</p><p>That closes the bonus chapter. B point one modelled the field, and B point two cleaned the response. That is the end of the series.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-13/">← 13 · ROBUSTNESS</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From deviation to decision · Normative modelling · Animated science series</title>
+<meta name="description" content="Normative modelling, chapter 12: From deviation to decision.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">NORMATIVE MODELLING</a> / <b>CHAPTER 12</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">NMOD · 12</span><span class="caps">CHAPTER 12</span></div>
+    <h1 class="h1-chapter">From deviation to decision</h1>
+    <div class="pills">
+<span class="pill y">3 VIDEOS · 18 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Why normative models?</a>
+    <a href="../chapter-2/">2 · The growth chart intuition</a>
+    <a href="../chapter-3/">3 · Statistical foundations</a>
+    <a href="../chapter-4/">4 · The models</a>
+    <a href="../chapter-5/">5 · Covariates and sites</a>
+    <a href="../chapter-6/">6 · Deviations</a>
+    <a href="../chapter-7/">7 · Evaluating a model</a>
+    <a href="../chapter-8/">8 · The big resources</a>
+    <a href="../chapter-9/">9 · Beyond structural MRI</a>
+    <a href="../chapter-10/">10 · Applications</a>
+    <a href="../chapter-11/">11 · Pitfalls</a>
+    <a href="../chapter-12/" class="on" aria-current="page">12 · From deviation to decision</a>
+    <a href="../chapter-13/">13 · Robustness and reporting</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-12.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_12.1_Stratification-and-subtypes_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.1</span><span>5:59</span></span>
+        <h3>Stratification and subtypes</h3>
+<p class="summary">Stratification splits a group into subtypes by resemblance of deviation maps, yet k-means returns three groups even on pure dice rolls. A cluster is an output, a subtype is a claim, and it needs stability under resampling, reproduction in another cohort, and a link to something the clustering never saw. Depression biotypes failed these checks.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, the last mirror showed us how fast one deviation turns into a diagnosis. Today we ask the opposite question. If a deviation map is not a diagnosis, can the maps themselves tell us who belongs together?</p><p>Remember the three patients of episode six point two. Same diagnosis, three deviation maps, and not one region in common. The group is not one kind of person. So here is a tempting idea. Stop averaging them. Sort them by resemblance, and call each group a subtype.</p><p>If it works, the payoff is large. Each subtype might have its own mechanism, its own course, its own treatment. Splitting a group into smaller groups that are more alike, in order to act differently on each, is called stratification. A review by Marquand and colleagues, in twenty sixteen, is titled Beyond lumping and splitting. It surveys the computational ways of doing it.</p><p>Let us try it. Two hundred patients, all simulated. Each one is a map of sixteen illustrative regions, so each one is a row of sixteen z-scores. Lay the rows side by side. The more alike two maps are, the closer we place the two people.</p><p>Now ask for three groups, with the classic recipe called k-means. The algorithm drops three centres among the people. Every person joins the nearest centre. Each centre moves to the average of its members. Again, and again, until nothing moves.</p><p>Three colours appear. Under each colour, an average map. The first group is pink across a few regions. The second is mostly blue. The third is nearly flat. Three subtypes. It looks like a discovery.</p><p>Now we bring in the dice. For every region of every person, we roll a die. Pure chance. No pattern was put in. By construction, there is no subtype in this crowd. We run the same recipe, and again ask for three groups.</p><p>Three colours appear again. Three average maps, each with its own look. Nothing in the data can be called a subtype, and still the groups are there.</p><p>Here is the key moment. A clustering algorithm always finds groups. Ask for three, you get three. Even a single bell of people can be cut into a left half and a right half, and the two halves will differ on average. They must. We sorted the people by their differences. A cluster is an output. A subtype is a claim.</p><p>So a claim needs evidence. Three questions, in order.</p><p>First, is the group stable? Resample the people, run the recipe again, and see whether the same groups come back. Statistician Christian Hennig proposed scoring each group on how well it reappears. On our dice data, people jump from one colour to another each time. The groups fall apart. Careful, though. Stability is necessary, not sufficient. Hennig himself warns that a rigid method can give stable groups that mean nothing.</p><p>Second, is the group reproduced? Fix the recipe, then apply it to another cohort, from other sites. The same groups must appear, with the same average maps. A pattern that lives in one cohort only may belong to that cohort, to its scanner, or to its way of recruiting people.</p><p>Third, is the group linked to something else? Something the clustering never saw. How the illness unfolds. How a person responds to a treatment. Without that, the groups only describe the maps that created them. They are a tidy summary of the data, and nothing more. A subtype has to tell us something we could not have read off the maps.</p><p>Now a real story. In twenty seventeen, Drysdale and colleagues published, in Nature Medicine, four biotypes of depression. They used resting-state connectivity from one thousand one hundred eighty-eight participants. In the fMRI series, we met that connectivity. The biotypes were reported to predict how people respond to magnetic stimulation.</p><p>In twenty nineteen, Dinga and colleagues reran the same steps on one hundred eighty-seven people with depression or anxiety. They found the same kind of striking result, with an optimal solution of three clusters. But neither the correlations nor the clusters were statistically significant. Simulated data with a single Gaussian cloud and no clusters gave similarly high scores. And when one person was left out, the assignments changed. The authors concluded that the evidence should be read with caution. That is not proof that biotypes do not exist. It is proof that this evidence was not enough.</p><p>A counterexample, so we stay fair. In twenty twenty, Chand and colleagues used a method called HYDRA on three hundred seven patients with schizophrenia and three hundred sixty-four controls. They reported two subtypes. One showed widespread volume loss, linked to the length of the illness. The other looked normal, except for larger basal ganglia. In twenty twenty-two, a study with a separate sample of two hundred forty people found the same two subtypes again, and again linked them to illness duration. That is much closer to what a subtype needs. Even so, it is a research finding. It does not tell us what to do for the person in front of us.</p><p>Where do deviation maps fit in? Marquand and colleagues, in twenty sixteen, argued for modelling normal variation first, and describing each person against it. When the model includes age, sex and site, the deviation scores have those effects taken out. So groups built on them are less likely to be age or site in disguise. That is a reasonable hope, not a guarantee. The three tests still apply.</p><p>So, to sum up. A clustering algorithm always returns groups, and a subtype exists only if it is stable, reproduced, and linked to something the clustering never saw.</p><p>Next time, we stop sorting people, and we ask what a deviation can predict. Prediction and prognosis.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-12.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_12.2_Prediction-and-prognosis_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.2</span><span>5:21</span></span>
+        <h3>Prediction and prognosis</h3>
+<p class="summary">Deviations can predict outcomes, and repeated scans give change, as in Alzheimer&#39;s disease where a faster yearly rise in outlier count goes with progression. Change must be separated from measurement noise, since subtracting two z-scores gives false alarms, and extreme first scores drift back by regression to the mean. A cross-sectional norm&#39;s slope is not a person&#39;s slope, and predictions must beat simple predictors.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, a clustering algorithm found groups in data that had none. So we set a rule. A subtype is real only if it is stable, if it appears again in another cohort, and if it is linked to something the clustering never saw. Today we test one of those links. Can a deviation tell us what happens next?</p><p>Start with the simplest idea. A deviation map is a list of z-scores, one for each region. Use that list as a set of variables, and ask whether it predicts an outcome. The question changes. It is no longer, how far is this person from the norm? It becomes, does that distance say anything about the future?</p><p>Here is a real example, from Alzheimer&#39;s disease. In twenty twenty-four, Verdi and colleagues published a study in Alzheimer&#39;s and Dementia. They built reference models on about fifty-eight thousand healthy people. Then they scored three thousand two hundred and thirty-three scans, from one thousand one hundred and eighty-one participants of the Alzheimer&#39;s Disease Neuroimaging Initiative.</p><p>In every scan, they counted the regions with a z-score below minus one point nine six. They called it the total outlier count. The count rose in people with Alzheimer&#39;s disease. And in people with mild cognitive impairment, a faster yearly rise in the count was linked to a higher risk of going on to Alzheimer&#39;s disease. The hippocampus changed fastest.</p><p>Look at what carried the signal. Not a single scan. The change between scans. So now we need the same person, measured more than once.</p><p>Picture a centile chart, with one pin on it. This is an illustrative person, not a measurement. At the first visit, the pin sits at the fifteenth centile. A year later, it sits at the tenth. Did this person change? Or did the measurement wobble? Two traps hide in that question.</p><p>The first trap is noise. No scanner measures the same brain twice in exactly the same way. A change in a z-score is part real change, and part measurement noise. The tempting move is to subtract the two z-scores. But that scales the difference wrongly, because the person&#39;s stable position in the population is shared by both visits.</p><p>A group working with pre-trained normative models showed this in simulations. It is a study published in eLife in twenty twenty-five. When the naive subtraction was used on people with no change at all, the share of false alarms moved with the correlation between the two visits. Their own score, called z-diff, held the false alarms at five percent.</p><p>The second trap is older than neuroimaging. In eighteen eighty-six, Francis Galton measured the heights of parents and children. Very tall parents had children who were taller than average, but less tall than themselves. He called it regression towards mediocrity. Today we say regression to the mean.</p><p>It applies to every measurement with noise. Choose people because their first score is extreme, and their second score will, on average, sit closer to the middle. Nothing has to change. Here is an illustrative case. If two visits correlate at point eight, a person at minus two is expected at about minus one point six at the next visit.</p><p>And that is exactly how we choose people in this field. A patient is often picked because the first score is extreme. If that score drifts back, is it recovery, or only the wobble coming back? Without a comparison group, we cannot tell.</p><p>So here is the key moment. A normative model trained on one-time scans can still evaluate change, provided we respect noise. The recipe has two ingredients. First, estimate the measurement noise on healthy people scanned twice, at the same site. Second, judge a person&#39;s change against the change the population is expected to show, not against zero.</p><p>That is what the z-diff does. The authors applied it to ninety-eight patients with early schizophrenia, scanned shortly after diagnosis and again a year later. Frontal grey matter thickness moved towards the norm. The simple longitudinal analyses they compared it with did not show that. It is one study, in one cohort. It is a method to test, not a verdict.</p><p>There is one more caution. The norm is a cross-sectional curve. It compares different people at different ages. In twenty twenty-three, a study in the Proceedings of the National Academy of Sciences found that age changes inferred from cross-sectional brain charts can substantially underestimate the changes measured in the same people over time. Individual trajectories varied markedly. The slope of the norm is not the slope of a person.</p><p>Finally, a prediction is only worth what it survives. It must be tested on people who were not used to build it, and it must beat the simple predictors we already have, such as age and cognitive scores. A rare outcome brings back the arithmetic of chapter eleven, where most positives were false alarms.</p><p>So, to sum up. Deviations can be used to predict, and repeated scans give us change. But change must be separated from noise, and extreme starting points drift back on their own. Next time, we climb a ladder. How far are these models from the clinic?</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-12.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_12.3_How-far-from-the-clinic_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 12.3</span><span>6:40</span></span>
+        <h3>How far from the clinic?</h3>
+<p class="summary">The distance from norm to clinic is pictured as a five-rung ladder: research tool, reliable measure in one person, replicating prognostic value, benefit shown to patients, and a legal and ethical frame. Normative models stand firmly on the first rung and show mixed results on the third, and no trial of benefit was found.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we used deviations to predict what happens next, and we followed one person&#39;s centile over the years. Today we ask the question that sits under all of that. Suppose a clinic wanted to use a normative model next week. How far would it be from that?</p><p>Picture a ladder, planted at a crossroads. It has five rungs. On the ground, a research tool. Then a measure we can trust in one person. Then a prognostic value that replicates. Then a benefit shown for patients. And at the top, a legal and ethical frame. Each rung asks for one thing that must be shown before you step up. Let us climb, and date every step. Everything that follows is as of November twenty twenty-six.</p><p>First rung. A research tool. We are standing on it, and it is solid. In twenty sixteen, Marquand and colleagues proposed normative models to study clinical groups one person at a time, instead of patients against controls. In twenty twenty-two, Bethlehem and colleagues pooled brain scans from more than one hundred thousand people, from before birth to the age of one hundred, into brain charts.</p><p>But look at the field itself. A systematic review posted in July twenty twenty-six, not yet peer reviewed, counted one hundred and twenty-two normative modelling studies in psychiatric and neurological imaging. External validation, testing a model on data from elsewhere, appeared in only eight percent of the studies where it applied. The authors conclude that the methods have outpaced the evidence and the reporting that clinical use would need. So the first rung holds. The next ones are less certain.</p><p>Second rung. Is the measure reliable in one person? A centile is only as good as its reference and its scanner. A practical guide posted in twenty twenty-five by Alyas and colleagues tested this on epilepsy data. When a site was calibrated with only ten healthy controls, fewer than thirty percent of the group effect sizes landed inside the published range. With thirty controls, about half did. And when the scanner and the acquisition did not match, the authors wrote that deviation scores cannot be reliably computed without local controls matched by scanner and protocol. In the fMRI series, we met the same problem: each scanner leaves its own fingerprint on the numbers.</p><p>On the bright side, the authors of the brain charts describe centile scores as stable over time, under normal conditions. So this rung can be climbed. But only with local controls, and the same acquisition. A model on the shelf is not enough.</p><p>Third rung. Does it predict, and does it replicate? Here are three published results. They do not say the same thing. These are the authors&#39; numbers, cited, not ours.</p><p>In psychosis risk, Haas and colleagues, in twenty twenty-four, compared one thousand three hundred and forty people at clinical high risk with one thousand two hundred and thirty-seven healthy people, across twenty-nine sites. The two groups largely overlapped. Those who later developed psychosis had more unusually low values in temporal regions: about seven percent, against about one point four percent in those who did not. The authors concluded that these brain measures may not adequately explain psychosis risk. A signal in a group is not a forecast for a person.</p><p>In Alzheimer&#39;s disease, Verdi and colleagues, in twenty twenty-four, scored three thousand two hundred and thirty-three scans from one thousand one hundred and eighty-one participants. A faster rise in the number of outlier regions went with a higher risk that mild cognitive impairment would progress to Alzheimer&#39;s disease. That is a prognostic association, in one cohort. It now needs to be replicated elsewhere.</p><p>In depression, Tong and colleagues, in twenty twenty-four, used deviations in EEG connectivity, measured in the EMBARC trial. The deviations predicted the response to sertraline, with a correlation of zero point four three. They also predicted the response to placebo, with zero point three three. So the score may not tell us which treatment to choose.</p><p>Fourth rung. Does it help patients? To show it, you would compare people whose care used the score with people whose care did not, and look at outcomes that matter to them. In our searches for this episode, we did not find a randomized trial of that kind for a normative deviation score. That is a statement about our search, in November twenty twenty-six. It is not proof that none exists. But it tells us where the ladder is missing a step.</p><p>Fifth rung. The frame. Software can itself be a medical device. The International Medical Device Regulators Forum defines it as software intended for medical purposes that does its job without being part of a hardware device, and the American FDA cites that definition. Brain measures are not outside this frame. In September twenty seventeen, the FDA cleared NeuroQuant, software that labels and measures brain structures, and can compare the volumes to age and gender matched reference percentiles. Its stated purpose is measurement. Nothing in that wording is a psychiatric diagnosis. A cleared claim can be small.</p><p>Now suppose the ladder is climbed one day. A person, or a parent, asks: what does this centile mean?</p><p>Studies of telling research participants about brain scan findings are a useful guide. In twenty sixteen, Rancher and colleagues ran focus groups. Participants wanted all medically relevant findings, and many found the medical wording hard to follow. A centile is a new kind of wording.</p><p>Here are our suggestions, not official guidelines. First, say what the reference is: how many people, what ages, scanned where. Second, say what a centile is. A rank among those people. It does not mean that a brain is missing a fraction of itself. Third, say it is not a diagnosis. The authors of the brain charts call an exact digital diagnosis an unrealistic goal. Fourth, give the uncertainty along with the number. And last, say what happens next, and what does not change.</p><p>So, to sum up. Normative models stand firmly on the first rung, wobble on the second, show a mixed signal on the third, and have not yet been shown to help patients, so for now a centile is a question to ask, not an answer to give.</p><p>Next time, chapter thirteen begins. Robustness one. A study that can fail.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-11/">← 11 · PITFALLS</a><a class="btn main" href="../chapter-13/">13 · ROBUSTNESS AND REPORTING →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

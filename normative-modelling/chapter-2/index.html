@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The growth chart intuition · Normative modelling · Animated science series</title>
+<meta name="description" content="Normative modelling, chapter 2: The growth chart intuition.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">NORMATIVE MODELLING</a> / <b>CHAPTER 2</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">NMOD · 2</span><span class="caps">CHAPTER 2</span></div>
+    <h1 class="h1-chapter">The growth chart intuition</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 19 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Why normative models?</a>
+    <a href="../chapter-2/" class="on" aria-current="page">2 · The growth chart intuition</a>
+    <a href="../chapter-3/">3 · Statistical foundations</a>
+    <a href="../chapter-4/">4 · The models</a>
+    <a href="../chapter-5/">5 · Covariates and sites</a>
+    <a href="../chapter-6/">6 · Deviations</a>
+    <a href="../chapter-7/">7 · Evaluating a model</a>
+    <a href="../chapter-8/">8 · The big resources</a>
+    <a href="../chapter-9/">9 · Beyond structural MRI</a>
+    <a href="../chapter-10/">10 · Applications</a>
+    <a href="../chapter-11/">11 · Pitfalls</a>
+    <a href="../chapter-12/">12 · From deviation to decision</a>
+    <a href="../chapter-13/">13 · Robustness and reporting</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-2.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_2.1_Reading-a-growth-chart_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.1</span><span>4:22</span></span>
+        <h3>Reading a growth chart</h3>
+<p class="summary">A growth chart never says tall or short but says taller than this many children of the same age and sex, in this population. Three ingredients carry that sentence: a covariate, a distribution at each value of it, and a reference population. A simulated girl of 118 centimetres lands near the seventy-first centile, and the crowd shifts as age changes.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we leafed through a short history of norms. The idea is old. Today we meet one of its most familiar forms, the one you may have in a drawer at home. A growth chart.</p><p>Open a child&#39;s health record. Near the back, there is a page with a curve on it. Age runs along the bottom. Height runs up the side. And across the page, a fan of smooth lines.</p><p>This series will draw that page again and again, always in the same frame. We call it the centile board. Age on the horizontal axis. The measurement on the vertical axis. Grey dots for the reference population. A pink line for the median. Blue lines for the outer centiles.</p><p>Our board today is the World Health Organization growth reference of 2007, for girls aged five to nineteen. The grey dots are simulated girls, drawn from the WHO curves. They are not real children.</p><p>Now a girl walks in. She is six years old. She is simulated too. She stands under the measuring rod, and the nurse reads her height. One hundred and eighteen centimetres.</p><p>Find six years on the bottom of the chart. Climb to 118. Put a dot.</p><p>The dot lands between two lines. The first is the median, at 115.1 centimetres. The second is the seventy-fifth centile, at 118.6. She is close to the upper one. Read her centile, aloud, the way a paediatrician would. About the seventy-first.</p><p>What does that sentence say? Of every hundred six-year-old girls in this reference, about seventy-one are shorter than she is, and about twenty-nine are taller.</p><p>That is all it says. It does not say she is tall. It does not say she is healthy, or that she is not. It says where she stands in a crowd.</p><p>Now watch what the crowd does.</p><p>Keep the same height, 118 centimetres, and move the child along the age axis. At five and a half years, she is among the tallest, at about the eighty-eighth centile. At six, the seventy-first. At seven, about the thirtieth. The centimetres have not changed. The crowd has.</p><p>Change something else. Put the same 118 centimetres on the chart for boys. Boys have their own chart. At six, the typical boy is a little taller, with a median of 116.0. So a boy of 118 centimetres lands at about the sixty-sixth centile, not the seventy-first.</p><p>Look at the shape of the fan, too. The lines are not parallel. At five years, the standard deviation is about 4.8 centimetres. At ten years, about 6.4. Children are more alike at five than at ten, and the chart has to know it.</p><p>So here is the key moment. A growth chart never says tall, or short. It says: taller than this many children of the same age and the same sex, in this population.</p><p>Three ingredients are hiding in that sentence. Keep them, because the whole series is built on them.</p><p>The first is a covariate. Something we already know about the child, such as age or sex, that changes what we expect.</p><p>The second is a distribution at each value of the covariate. Not a single expected height, but a whole spread of heights, for every age.</p><p>The third is a reference population. The children whose measurements drew the lines in the first place.</p><p>That last ingredient deserves a small warning. This WHO reference was rebuilt from United States survey data collected between 1963 and 1974, blended with the WHO standard sample at the youngest ages. It is a choice of crowd, and another crowd would draw other lines. We will ask whose norm a chart really is, before this chapter ends.</p><p>And soon the vertical axis will not hold height any more. It will hold a measure of the brain. The page, the dots, the lines and the dot placed by hand will all stay the same.</p><p>So, to sum up. A growth chart places a child among others of the same age and sex, using a covariate, a distribution, and a reference population.</p><p>Next time, we open the chart up, and look at what those lines really are. Percentiles, centiles and z-scores.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_2.2_Percentiles-centiles-and-z-scores_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.2</span><span>5:00</span></span>
+        <h3>Percentiles, centiles and z-scores</h3>
+<p class="summary">A centile is a rank, and a z-score is a distance in standard deviations, so the two correspond only when the distribution is Gaussian. Slicing a chart at one age shows the bell behind the lines. For skewed measures like weight, a naive z-score misleads, so growth charts bend the scale first with the LMS method.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we read a growth chart. A point between two lines, and a rank among children of the same age. Today we open the chart up, and look at what those lines really are.</p><p>Take one age, and only one. Six years old. These are girls of that age, from the World Health Organization growth reference of 2007. Each grey dot is one simulated girl, drawn from the WHO curves.</p><p>Now cut a thin slice through the chart at six years. Turn the slice on its side, and stack the girls by height. A histogram appears. Most girls sit near the middle, fewer and fewer toward the edges. A bell.</p><p>The middle girl is 115.1 centimetres tall. Half the girls are shorter, half are taller. That height is the median.</p><p>Now pick any percentage. Say twenty-five. The height that leaves twenty-five percent of girls below it is called the twenty-fifth percentile. Percentile and centile are the same word. This series says centile. Statisticians call the general idea a quantile, a cut at any fraction of the distribution. The twenty-fifth centile is also the first quartile.</p><p>Careful with one thing. A centile line on the chart is a height. A girl&#39;s centile is her rank. A girl of 118 centimetres is at about the seventy-first centile. It means that about seventy-one percent of six-year-old girls in this reference are shorter than she is. It does not mean she is seventy-one percent of anything.</p><p>Ranks are easy to read, but hard to compute with. So there is a second ruler. The z-score.</p><p>Here is the recipe. Take her height. Subtract the mean. Divide by the standard deviation. For these girls the mean is 115.1 centimetres, and the standard deviation is 5.1. A girl of 125.4 centimetres is about two standard deviations above the mean. Her z-score is plus two.</p><p>A z-score has no unit. Centimetres cancel out. That is why it travels. The same recipe will work for a cortical thickness, a hippocampal volume, or an EEG band power. It is the score that most normative models in this series end with.</p><p>And when the bell is a true Gaussian, the two rulers are welded together. Each z-score sits at a fixed centile. Let us read the table, line by line.</p><p>A z-score of zero is the fiftieth centile, the median.</p><p>Minus 0.674 and plus 0.674 are the twenty-fifth and the seventy-fifth centiles. Between them, the middle half of the girls.</p><p>Minus one and plus one are close to the sixteenth and the eighty-fourth centiles.</p><p>Minus 1.96 and plus 1.96 are exactly the 2.5th and the 97.5th centiles. Ninety-five percent of the girls lie between them.</p><p>Minus two and plus two are close to the 2.3rd and the 97.7th centiles.</p><p>That table is the reason people use z-scores and centiles as if they were the same thing. But it holds only for a Gaussian.</p><p>Let us weigh the same girls instead. Weight at six years is not a symmetric bell. It has a long tail on the heavy side. The median girl weighs 20.2 kilograms. On the WHO chart, the plus two line sits 7.7 kilograms above her. The minus two line sits only 4.9 kilograms below.</p><p>Now compute a z-score the naive way, as if the bell were symmetric. The mean is 20.5 kilograms, and the standard deviation is 3.2. Step two standard deviations up, to 26.8 kilograms. Step two standard deviations down, to 14.2 kilograms.</p><p>Same distance, opposite sides. Now read their true centiles. The girl at plus two is at about the ninety-sixth centile. Roughly one girl in twenty-seven is heavier. The girl at minus two is at about the half centile. Roughly one girl in two hundred is lighter.</p><p>Same z-score, in absolute value. Two very different rarities. On a skewed distribution, the naive z-score lies, and it lies differently on each side.</p><p>The growth charts do not fall into this trap. The WHO fitted these curves with a model that bends the measurement scale first, until the bell becomes symmetric, and only then computes the z-score. It is the LMS method, from the same family of models that we will meet in chapter four. And skewness gets its own episode, three point five.</p><p>So, to sum up. A centile is a rank. A z-score is a distance in standard deviations. They match only when the distribution is Gaussian. Before you trust a z-score, look at the shape of the bell.</p><p>Next time, we stop looking at a single point. We follow one child over the years. A trajectory, not a point.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_2.3_A-trajectory-not-a-point_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.3</span><span>5:19</span></span>
+        <h3>A trajectory, not a point</h3>
+<p class="summary">A trajectory across visits says more than a single point, because a change of centile lane can signal a real change. Measurement noise also moves people across lanes by itself, and extreme scores drift back toward the middle on remeasurement, which is regression to the mean. A change of lane needs the reliability of the measure before it is believed.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we learned that a centile is a rank, and a z-score is a distance. Both described one child, at one age. A single point. Today we join the points.</p><p>Open the health record again. Here is a girl, measured once a year. She is illustrative, not a real child. Her first dot sits near the fiftieth centile. A year later, the dot lands almost on the same line. Then again, and again. Year after year she follows the same lane, like a car on a motorway. We say she tracks her centile.</p><p>Now look at the lines themselves. On the United Kingdom growth charts, nine centile lines are drawn, from the 0.4th centile to the 99.6th. They are spaced two thirds of a z-score apart. Cole proposed that layout in nineteen ninety-four. The gap between two neighbouring lines is called a centile space. One space is two thirds of a standard deviation. Two spaces make one and a third.</p><p>Here is a second girl, also illustrative. Her first dot sits near the seventy-fifth centile. A year later, it is a little lower. Then lower again. Three years on, she has crossed two centile spaces.</p><p>Nobody asked how far she is from the median. The story is in the change of lane. For an infant&#39;s weight, the Royal College of Paediatrics and Child Health says that a sustained drop through two or more centile spaces is unusual, fewer than two percent of infants, and calls for assessment.</p><p>See what a trajectory gives you. A child on the ninth centile who has always been there is following her own lane. A child on the fiftieth centile who used to be on the ninety-first has changed. A single dot has no past. A trajectory does.</p><p>In z-score terms, it is simple. At every visit there is one z-score. A trajectory is that number, moving, or not moving, over the years. A flat line is a child who keeps her place. A slope is a child who is leaving it.</p><p>So far this sounds easy. Now comes the catch.</p><p>Every measurement carries noise. The tape slips. The child slouches. Measure twice, and you get two slightly different numbers. So a child can change lane without growing any differently. That is why the same guidance, for a drop in height at school age, says to exclude measurement error first.</p><p>Let us see how big the problem is on a brain. Here is one simulated person. The measure is a simulated cortical index, in arbitrary units. She is measured on two visits, a few months apart. Nothing has happened to her. Yet the second dot sits in a different place.</p><p>Let us put numbers on it. These numbers are illustrative, not measured. Suppose the measure is reliable, but not perfectly. If you measure the same people twice, the two scores correlate at point eight.</p><p>Take everyone&#39;s z-score on the first visit, and on the second. For one person, the z-score changes by a random amount. That change has a standard deviation of about point six. Remember that one centile space is about point seven. So a change of one full space is not rare. About three people in ten cross one full centile space between the two visits, with no real change at all.</p><p>On a growth chart, you would call that a change of lane. In truth it is noise.</p><p>And there is a second trap. It hides in the extreme points.</p><p>Pick the people who looked most extreme on the first visit. Say, everyone with a z-score of plus two. Now measure them again. On average, they will come back closer to the middle. With a reliability of point eight, their expected z-score on the second visit is plus one point six. Nothing was done to them. Nothing happened to them.</p><p>This is regression to the mean. Francis Galton described it in eighteen eighty-six, in the heights of parents and their children. Very tall parents had children who were, on average, tall, but less tall than themselves. Bland and Altman later explained that it is statistical, not biological. It happens whenever two measures are not perfectly correlated. The more extreme the first value, the more it is expected to move back.</p><p>Why does it matter for normative models? Because the people who attract attention are the extreme ones. If you select someone for a large deviation, then measure them again, the second deviation will tend to be smaller. It does not mean that they improved. Their first score was partly luck, and luck does not repeat.</p><p>So how do we tell a real change of lane from noise? We need to know how much a person&#39;s score moves when nothing has changed. That is the reliability of the measure. Without it, a change of lane is a rumour.</p><p>How far a model built from one-time snapshots can describe change within a person is a hard question. We come back to it in episode twelve point two.</p><p>So, to sum up. A trajectory says more than a point, and a change of lane often says more than distance from the median. But noise changes lanes by itself, and extreme points drift back toward the middle. Before you believe a change, ask how much noise it could hide.</p><p>Next time, we look at the chart itself. Two health records, two different curves, for the same child. Whose norm?</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-2.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_2.4_Whose-norm_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 2.4</span><span>4:30</span></span>
+        <h3>Whose norm?</h3>
+<p class="summary">The same twelve-month-old girl lands at the tenth centile on one chart and the twenty-seventh on another. A growth reference describes children as measured in one place and time, while a standard describes how healthy children grow under favourable conditions. Neither is neutral, so every normative model is somebody&#39;s norm and a centile must be read with that in mind.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we followed one child along a lane of the chart. A lane is a centile, and staying in it, or leaving it, tells a story. But a lane belongs to a chart. Today we ask a question we skipped. Which chart?</p><p>Here are two health booklets, side by side. Same girl. She is twelve months old, and she weighs 8.3 kilograms. This girl is illustrative, but the two charts are real.</p><p>In the first booklet, her dot lands near the tenth centile. In the second booklet, the same dot, the same day, the same scale, lands near the twenty-seventh centile.</p><p>Nobody made a mistake. The two charts are built from different children, for different purposes.</p><p>Let us open the first one. It is a growth reference. A reference describes children as they were measured, in one place, at one time. The American CDC charts of the year two thousand are of this kind. They were assembled from birth records and national health surveys of children in the United States.</p><p>Now the second booklet. It is a growth standard. A standard does not describe children as they happen to be. It describes how healthy children grow under favourable conditions. The World Health Organization published its child growth standards in April two thousand six.</p><p>To build it, the organization ran a dedicated study. It followed eight thousand four hundred and forty children, in six countries. Brazil, Ghana, India, Norway, Oman and the United States. The children were breastfed. Their mothers did not smoke. They lived in settings that kept back the usual brakes on growth, such as poor diet and infection.</p><p>The idea behind it is simple, and it is a choice. When their needs for health and care are met, children grow similarly across the world&#39;s major regions. So the study picked children whose needs were met, and drew the curves from them.</p><p>Now see what the choice does. Look at the median weight at twelve months. On the reference, a girl in the middle weighs about 9.5 kilograms. On the standard, she weighs about 8.9. After about three months, the standard shows slower weight gain than the reference. Feeding is part of the reason. Formula-fed infants tend to gain weight faster after three months, and the standard is built on breastfed infants.</p><p>So the same 8.3 kilograms sits low on one curve and comfortably mid-range on the other. We computed both centiles from the published tables of the two charts. Nothing else changed. Only the question of whose children define the norm.</p><p>This is why, in two thousand ten, the American CDC advised its clinicians to use the WHO standard for children under two years old, and its own charts from the age of two. It was a decision, with reasons, written down. Not a discovery that one chart is the true one.</p><p>And this is the lesson of the whole episode. A reference answers a question about the past: how do children like these compare with each other? A standard answers a question about a target: how does this child compare with how children can grow? Both are legitimate. Neither is neutral.</p><p>Even the chart we used in the last episodes has a history. The girls of six years came from the WHO reference of two thousand seven, for ages five to nineteen. It was rebuilt from older data, from nineteen seventy-seven, and joined to the standard at five years, so that the two curves meet without a jump. A chart is built by people, from data, with choices.</p><p>Now, back to brains. Every normative model of the brain will be somebody&#39;s norm. It will describe the people who were scanned, in the places where they lived, with the scanners they used, and the way they were selected. We will return to this question when we look at the big resources, and again when we meet the pitfalls of a biased reference.</p><p>One more link. In the Information series, there is a way to measure how far apart two distributions are. It is called the Kullback-Leibler divergence. Two reference populations are two distributions, and the distance between them is exactly what this episode showed with one girl.</p><p>So, to sum up. A norm is always the norm of someone. Before you read a centile, ask whose children made the chart.</p><p>Next time, we leave the cabinet of the pediatrician, and walk into the pumpkin fair. A distribution, not a number.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-1/">← 1 · WHY NORMATIVE MODELS?</a><a class="btn main" href="../chapter-3/">3 · STATISTICAL FOUNDATIONS →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letting physics compute · Quantum computing · Animated science series</title>
+<meta name="description" content="Quantum computing, chapter 8: Letting physics compute.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">QUANTUM COMPUTING</a> / <b>CHAPTER 8</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">QC · 8</span><span class="caps">CHAPTER 8</span></div>
+    <h1 class="h1-chapter">Letting physics compute</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 16 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · The toolkit</a>
+    <a href="../chapter-2/">2 · The qubit</a>
+    <a href="../chapter-3/">3 · Gates and circuits</a>
+    <a href="../chapter-4/">4 · Entanglement</a>
+    <a href="../chapter-5/">5 · First algorithms and protocols</a>
+    <a href="../chapter-6/">6 · Fourier, phase and Shor</a>
+    <a href="../chapter-7/">7 · Grover</a>
+    <a href="../chapter-8/" class="on" aria-current="page">8 · Letting physics compute</a>
+    <a href="../chapter-9/">9 · Quantum linear algebra</a>
+    <a href="../chapter-10/">10 · Noise and error correction</a>
+    <a href="../chapter-11/">11 · Quantum information</a>
+    <a href="../chapter-12/">12 · The hardware</a>
+    <a href="../chapter-13/">13 · Variational and NISQ</a>
+    <a href="../chapter-14/">14 · Quantum machine learning</a>
+    <a href="../chapter-15/">15 · Complexity and robustness</a>
+    <a href="../chapter-16/">16 · Is my problem quantum-friendly?</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-8.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_8.1_Hamiltonian-simulation-Trotter-Suzuki_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 8.1</span><span>3:55</span></span>
+        <h3>Hamiltonian simulation · <span class="pk">Trotter–Suzuki</span></h3>
+<p class="summary">Nature evolves a quantum state by e to the minus i H t, which a classical computer simulates with exponentially growing memory. The Hamiltonian&#39;s terms do not commute, so the Trotter formula cuts time into r slices and applies each term in turn, with error falling as r grows, and Suzuki&#39;s symmetric formulas make it fall faster.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the crystal cave, the home of chapter eight. In this chapter, we let physics compute. Today we meet the oldest idea in the field: using a quantum computer to simulate quantum physics.</p><p>Picture the cave. A crystal grows on the wall, one flat facet at a time. With a few big facets, it looks like a rough stone. Cut more facets, finer and finer, and it looks more and more like the smooth gem it imitates. Hold on to that picture.</p><p>Here is the setting. Nature moves a quantum state forward in time with one rule. Write H for the Hamiltonian, the operator that holds the energy of the system. After a time t, the state is e to the minus i H t, applied to the starting state. This single equation will come back in the next three episodes.</p><p>Simulating a system means building that operation as a circuit. In 1982, Richard Feynman pointed out that a classical computer struggles here, and suggested computers built from quantum parts. In 1996, Seth Lloyd showed that a quantum computer can simulate any system with local interactions efficiently.</p><p>Why does a classical computer struggle? With n qubits, the state has two to the n amplitudes. At fifty qubits, that is more than a million billion numbers, roughly eighteen petabytes of memory. The quantum circuit, by contrast, grows only polynomially with n.</p><p>But there is a catch. The Hamiltonian is a sum of simple terms, call them A and B, and they do not commute. So e to the minus i, A plus B, t is not equal to e to the minus i A t, times e to the minus i B t. The order matters.</p><p>Here is the trick, the circuit in one picture. Cut the time t into r small slices. In each slice, apply the A part, then the B part. Then repeat the slice r times. In symbols: e to the minus i, A plus B, t is approximately, e to the minus i A t over r, times e to the minus i B t over r, all raised to the power r. This is the Trotter formula, after Hale Trotter, who proved it in 1959. Each piece is a simple gate, so the whole thing is a circuit.</p><p>Why does it work? Within a tiny slice, the order hardly matters. The mistake per slice is very small, and the total error shrinks like one over r. More slices, finer facets, a better gem. The price is depth: the circuit gets r times longer.</p><p>Can we do better than one over r? Yes. Run the slice forwards, then backwards, in a symmetric pattern, and the error shrinks like one over r squared. Masuo Suzuki built whole families of such formulas, of any even order, in the early nineteen nineties. Higher order means fewer slices for the same accuracy, but more gates in each slice. Recent work by Childs and colleagues, in 2021, gives tighter error bounds that depend on how much the terms fail to commute.</p><p>Now the classic trap. You may hear that a quantum computer can simulate any material. Be careful. First, you must prepare a good starting state, and that can be hard. Second, you still must measure something useful at the end. Third, many systems are already well handled by approximate classical methods, so the honest comparison is always with the best classical method.</p><p>Let&#39;s recap. Nature evolves a state by e to the minus i H t. To simulate it, split H into simple terms, apply each for a small slice of time, and repeat r times. That is the Trotter formula. The error falls as r grows, and Suzuki&#39;s formulas make it fall faster. The circuit stays polynomial, while the classical memory explodes. Next, quantum chemistry: from a molecule to qubits.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-8.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_8.2_Quantum-chemistry-From-a-molecule-to-qubits_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 8.2</span><span>3:44</span></span>
+        <h3>Quantum chemistry · <span class="pk">From a molecule to qubits</span></h3>
+<p class="summary">In quantum chemistry each spin orbital becomes a qubit, and a molecule&#39;s energy is an eigenvalue of its Hamiltonian, which phase estimation can read. The Jordan-Wigner encoding keeps the fermionic minus signs with a tail of Z gates. Resource estimates are dated snapshots, and the honest competitor is the best classical method, since no exponential advantage is shown to hold across chemical space.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the crystal cave, the home of chapter eight. Last time, we learned to let physics compute, with a circuit for e to the minus i H t. Today we point that machine at a molecule, and ask the question chemists care about most: how much energy does it have?</p><p>Picture an apartment block. Each window is one spin orbital, a place where an electron may live. A lamp is on if an electron lives there, and off if the room is empty. Hydrogen, in a minimal basis, has four windows. Water has fourteen. That is the whole trick: one window, one qubit. Lamp on is one, lamp off is zero.</p><p>The energy of the molecule is an eigenvalue of its Hamiltonian, the lowest one for the ground state. And we know a circuit that reads eigenvalues: phase estimation, from episode six point two. The Hamiltonian plays the gate, and the energy plays the angle.</p><p>But there is a catch. Electrons are fermions. If two electrons swap places, the whole state changes sign. Qubits do not know this rule, so we must teach it to them.</p><p>The classic lesson is the Jordan–Wigner encoding, from 1928. To move an electron into window j, the concierge must first walk past every window below it, and note whether the number of lit lamps is even or odd. In the circuit, that note is a string of Z gates on all the qubits below j, then a gate on qubit j itself. That Z string is the long tail you see here. It keeps the minus signs honest. The price is that one simple move can touch many wires.</p><p>Now the circuit in one picture, with three blocks. First, prepare an approximate state, a good first guess. Second, run a controlled simulation of H, with the tools of episode eight point one. Third, apply the inverse quantum Fourier transform, and measure. The counting qubits give the energy, digit by digit. This idea goes back to Aspuru-Guzik and colleagues in 2005. They simulated it on a classical computer, for water and lithium hydride.</p><p>How much faster could it be? Storing the exact state classically needs memory that grows exponentially with the number of windows. The quantum circuit grows polynomially.</p><p>The hope is for strongly correlated molecules, like the iron and molybdenum cofactor of nitrogenase, the enzyme that fixes nitrogen. A resource estimate is a price tag, and price tags change. In 2021, Lee and colleagues estimated about four million physical qubits and under four days for that cofactor, assuming an error rate of 0.1 percent per gate and one microsecond per cycle. Later papers have pushed such numbers down. So treat every figure as a snapshot, as of November 2026.</p><p>Now the classic trap. Do not compare with a weak classical method. The honest reference is the best classical quantum chemistry method for the same molecule. In 2023, Lee and colleagues found no evidence that an exponential advantage holds across chemical space. A speed-up must be shown molecule by molecule. And the first guess must overlap well with the true ground state, or phase estimation fails.</p><p>Let&#39;s recap. Each spin orbital becomes a qubit. The energy is an eigenvalue of the Hamiltonian. Jordan–Wigner turns electrons into Pauli gates, with a tail of Z gates for the signs. Phase estimation reads the energy. Resource estimates are dated, and the real competitor is the best classical method. Next, quantum walks.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-8.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_8.3_Quantum-walks_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 8.3</span><span>3:55</span></span>
+        <h3>Quantum walks</h3>
+<p class="summary">A quantum walk gives the walker a coin qubit, applies a Hadamard to it, and shifts the position accordingly, so that paths interfere. On a line it spreads in proportion to t, against root t for a classical walk, forming two humps far from the start. Walks give search, element distinctness and an exponential separation on glued trees, but faster spreading is not faster solving.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Back in the crystal cave, the home of chapter eight. In the last episodes we let physics compute by simulating it. Today we let a particle wander through the cave, and we call it a quantum walk.</p><p>Picture a long gallery, with a row of chambers along it. A drop of water stands in the middle chamber. At every step, it flips a coin. Heads, it trickles one chamber to the right. Tails, one chamber to the left. This is the classic random walk.</p><p>After many steps, the drops pile up in a bell shape. After t steps, the typical distance from the start is the square root of t. After one hundred steps, that is about ten chambers. The walk is slow, because it keeps doubling back on itself.</p><p>Now the quantum version. The drop carries a small coin qubit, a left-or-right arrow. One step has two moves. First, apply a Hadamard gate to the coin. Second, shift: where the coin says right, the drop moves right, and where it says left, the drop moves left. Both paths are followed at once, and their amplitudes interfere.</p><p>Look at the result, side by side, after one hundred steps. The classical drops sit in a bell, centred on the start. The quantum drops form two broad humps, far out near the edges, with a dip in the middle. The paths that head outward add up. The paths that head back cancel.</p><p>Here is the key number. On a line, the classical walk spreads like the square root of t. The quantum walk spreads in proportion to t. For the Hadamard walk, the standard deviation is about zero point five four times t. After one hundred steps, that is about fifty four chambers, against ten. The wave front travels at a constant speed, about one over root two chambers per step.</p><p>That idea goes back to Aharonov, Davidovich and Zagury, in 1993. The linear spread of the Hadamard walk was worked out later, notably by Ambainis and colleagues in 2001.</p><p>What is the circuit, in one picture? A position register, a coin qubit, and a block repeated t times: a Hadamard on the coin, then a controlled shift of the position. Then we measure the position.</p><p>Is this useful? Sometimes, and sometimes very much. In 2003, Childs, Cleve, Deotto, Farhi, Gutmann and Spielman built a graph from two binary trees glued together by their leaves. Starting from the entrance, a quantum walk finds the exit in polynomial time. Any classical algorithm, given only local queries about the graph, needs exponential time. That is an exponential separation, but on a graph made on purpose.</p><p>Walks also give search algorithms. In 2003, Shenvi, Kempe and Whaley searched for a marked vertex on a hypercube with about root N steps, matching Grover. And in 2007, Ambainis published a walk algorithm for element distinctness: deciding whether a list of N numbers has a repeat, with order N to the two thirds queries. No classical algorithm can use fewer than order N.</p><p>Now the trap. Spreading faster is not the same as solving faster. A wide wave on a line tells us nothing by itself, and for most graphs, the walk gives no speed-up at all. The gains above come from special graphs, or from the query model, where we count questions to an oracle. Always ask what the best classical algorithm does on the same problem.</p><p>Let&#39;s recap. A quantum walk adds a coin to a walker, and lets paths interfere. On a line, it spreads in proportion to t, while the classical walk spreads like root t. Walks give search on graphs, element distinctness, and an exponential separation on glued trees. Faster spreading is not faster solving. Next, adiabatic computing and quantum annealing: letting the cave cool slowly until the crystals find their shape.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-8.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-05-QuantumComputing/QC_8.4_Adiabatic-computing-and-quantum-annealing_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 8.4</span><span>4:15</span></span>
+        <h3>Adiabatic computing and quantum annealing</h3>
+<p class="summary">Adiabatic computing starts in the easy ground state of one Hamiltonian and slowly deforms it into a hard one whose ground state encodes the answer, like a marble following the lowest valley. Run time depends on the smallest spectral gap. Commercial annealers are analog, non-universal and warm, so they must be compared with the best classical heuristics.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome back to the crystal cave, the home of chapter eight, where we let physics do the computing. Today we build no circuit. We cool a cave, slowly, and let the answer crystallise.</p><p>Picture the cave floor as a landscape of hills and valleys. Every spot on the floor is one possible answer to a puzzle, and its height is the cost of that answer. The best answer is the lowest valley. Physicists call the lowest-energy state of a system its ground state. So the puzzle is to find a ground state.</p><p>Here is the idea. Start with a landscape that is easy: one smooth bowl. A marble rests at the bottom, and we know exactly where. Now slowly reshape the floor into the hard landscape, the one whose lowest valley encodes the solution. If we move slowly enough, the marble is never lifted out. It follows the lowest point all the way, and ends in the answer.</p><p>In symbols, the Hamiltonian is H of s, equal to one minus s times H zero, plus s times H one. H zero is the easy one, with a ground state we can prepare. H one is the hard one, whose ground state is the solution. The slider s moves from zero to one. This is adiabatic quantum computation, proposed by Edward Farhi, Jeffrey Goldstone, Sam Gutmann and Michael Sipser in two thousand.</p><p>What does slowly mean? Watch the energy levels as the slider moves. The ground level and the first excited level come close at some point. The distance between them is the spectral gap. Where the gap is small, the marble can hop to the wrong level. The adiabatic theorem says the run time grows as the inverse of the gap squared, up to problem-dependent constants. So everything depends on the smallest gap along the way.</p><p>How much faster is this? It depends entirely on that gap. If the minimum gap shrinks only polynomially with the problem size, the run is efficient. If it shrinks exponentially, the run is exponentially long. For many problems nobody knows the gap, and then there is no guarantee. The original authors said so in their first paper.</p><p>Two results are worth keeping. In two thousand and four, Dorit Aharonov and five co-authors proved that adiabatic computation is polynomially equivalent to the circuit model. And for unstructured search, Jérémie Roland and Nicolas Cerf showed in two thousand and two that a schedule which slows down only near the small gap recovers Grover&#39;s square-root speed-up.</p><p>Now the classic trap. The machines you can rent are not universal adiabatic computers. A quantum annealer is an analog machine. It runs one family of Hamiltonians, the transverse-field Ising model, an idea from Tadashi Kadowaki and Hidetoshi Nishimori in nineteen ninety-eight. It runs at finite temperature, in a noisy environment, for a short time. It does not run circuits.</p><p>So do not compare its qubits to the qubits of a gate machine. As of May twenty twenty-five, D-Wave&#39;s Advantage2 system was generally available, with more than four thousand four hundred qubits, each coupled to up to twenty others. Those qubits are built for one job. An annealing qubit and a gate qubit are different units, so their counts cannot be ranked.</p><p>And the baseline matters. A fair comparison is not against naive simulated annealing. It is against the best classical heuristic, on the same instances. As of this recording, beyond-classical claims from annealers have been challenged by classical methods, and the debate is open. Treat any advantage claim as a dated measurement, not a settled fact.</p><p>Let&#39;s recap. Adiabatic computing starts in an easy ground state and slowly deforms the Hamiltonian into a hard one, so that the ground state holds the answer. The speed is set by the minimum gap, and without a known gap there is no guarantee. In theory, the model matches circuits. In practice, commercial annealers are analog, non-universal and warm, and belong next to the best classical heuristics. Next, in episode nine point one: block encodings and L C U.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-7/">← 7 · GROVER</a><a class="btn main" href="../chapter-9/">9 · QUANTUM LINEAR ALGEBRA →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

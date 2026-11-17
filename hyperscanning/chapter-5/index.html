@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleaning two brains · Hyperscanning · Animated science series</title>
+<meta name="description" content="Hyperscanning, chapter 5: Cleaning two brains.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">HYPERSCANNING</a> / <b>CHAPTER 5</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">HYPER · 5</span><span class="caps">CHAPTER 5</span></div>
+    <h1 class="h1-chapter">Cleaning two brains</h1>
+    <div class="pills">
+<span class="pill y">5 VIDEOS · 25 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Why more than one brain?</a>
+    <a href="../chapter-2/">2 · Where does synchrony come from?</a>
+    <a href="../chapter-3/">3 · Paradigms</a>
+    <a href="../chapter-4/">4 · Recording together</a>
+    <a href="../chapter-5/" class="on" aria-current="page">5 · Cleaning two brains</a>
+    <a href="../chapter-6/">6 · Measuring inter-brain coupling</a>
+    <a href="../chapter-7/">7 · The traps of synchrony</a>
+    <a href="../chapter-8/">8 · Statistics for dyads</a>
+    <a href="../chapter-9/">9 · Synchrony and behaviour</a>
+    <a href="../chapter-10/">10 · Beyond the brain</a>
+    <a href="../chapter-11/">11 · Models and new frontiers</a>
+    <a href="../chapter-12/">12 · Robustness and open science</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-5.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-06-Hyperscanning/HYPER_5.1_Same-pipeline-both-brains_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.1</span><span>4:04</span></span>
+        <h3>Same pipeline, both brains</h3>
+<p class="summary">Both recordings go through the same cleaning program, with the same steps and settings. In simulation, a harsher high-pass filter on one person alone lowers the phase locking value from 0.65 to 0.55, and picking the best of eight filter bands after seeing results inflates false positives from about 6 to 30 percent. The program is chosen beforehand and judged per person.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the laundromat. Two baskets are waiting by the machines. One belongs to Ava, and one belongs to Otto.</p><p>Before we measure anything between two brains, each recording has to be cleaned. Filters, bad channels, eye blinks, noisy stretches. The clean-up of one person is already taught in the modality series. Here we only ask what changes when there are two people.</p><p>The answer fits in one sentence. Both baskets go through the same program.</p><p>Let&#39;s open the program card. It has a few lines. First, a band-pass filter. Second, a rule for bad channels. Third, a removal of eye and heart components, with independent component analysis. Fourth, a threshold for rejecting noisy segments. Whatever the modality, the card has the same shape. In fNIRS it lists motion correction and a filter. In fMRI it lists motion regressors and a filter.</p><p>The rule is simple. The same steps, the same settings, for A and for B.</p><p>Why does it matter? Let&#39;s wash one basket differently, and see. We simulate twenty dyads that share a slow rhythm, between one and four hertz. Both people are filtered with the same high-pass cutoff, half a hertz. The mean phase locking value is zero point six five. The pairs shuffled at random sit near zero point zero six.</p><p>Now wash Otto&#39;s basket harder. Same data, but his high-pass cutoff is two hertz instead of half a hertz. The phase locking value falls to zero point five five. Nothing real changed between the two people. Only the cleaning did.</p><p>A filter does not just remove noise. It reshapes the signal, and with it the phase. If the two recordings are shaped differently, part of what we measure is the difference between the two programs. This is why filter settings must be chosen with care, and reported. A practical guide is Widmann, Schröger and Maess, published in the Journal of Neuroscience Methods in 2015.</p><p>So the settings are the same for both. But who chooses them, and when?</p><p>Here comes the second rule. Choose the program before you look at the inter-brain result. Each person is cleaned on their own, by looking at their own signal only: their own noise, their own blinks, their own bad channels. Never by looking at what happens between them.</p><p>Why? Because a program can be tuned until the synchrony looks good. Let&#39;s simulate this too. Six hundred studies, twenty dyads each, and no coupling at all. The signals are pure noise. Each study is analysed with eight reasonable filter bands around the alpha rhythm.</p><p>If the band is fixed in advance, the test is wrong about six times in a hundred. Close to the promised five percent. If we try all eight, and keep the one that looks best, it is wrong about thirty times in a hundred. The data did not change. Only our freedom did.</p><p>This is double dipping. The same data is used to choose the analysis and to test the result. Kriegeskorte and colleagues described it in Nature Neuroscience in 2009. And in neuroimaging, the freedom is real. In 2020, Botvinik-Nezer and colleagues gave one fMRI dataset to seventy teams. No two teams chose the same pipeline, and their conclusions differed.</p><p>One detail needs care. The decisions are made person by person, but the windows must still match. If a noisy segment is rejected in Ava, the same time window must also be dropped in Otto. Otherwise the two series no longer line up in time. The rule for deciding stays individual. The removal is shared.</p><p>Let&#39;s recap. One program card for both baskets. Same steps, same settings, for A and for B. Choose the card before looking at the synchrony. Judge each person by their own signal only. Drop a window in both when either one fails. And report the card.</p><p>Next, we meet the sock that bleeds into every basket: speaking artifacts.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-06-Hyperscanning/HYPER_5.2_Speaking-artifacts_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.2</span><span>5:24</span></span>
+        <h3>Speaking artifacts</h3>
+<p class="summary">Speaking makes muscle artifacts in EEG and breathing changes in fNIRS, and because turns alternate, the two artifacts alternate in a shared timetable. In simulation, two independent brains reach a phase locking value of 0.96 from muscle bursts alone, and every dyad beats the pseudo-pair null. Component analysis, regressing the voice, analysing listening periods and a control pair each help but none suffices alone.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the laundromat, someone left a sock in the drum. It looks like nothing. But when the machine starts to turn, the sock bleeds its colour into the whole wash.</p><p>This episode is about that sock. In hyperscanning, it has a name: the speaking artifact.</p><p>When two people talk, they take turns. Ava speaks, then Otto answers, then Ava again. And every time someone speaks, the body does things that are not thinking. The jaw moves. The lips, the tongue and the face muscles move. Breathing changes.</p><p>In EEG, those muscles are the problem. A contracting muscle makes an electrical signal much larger than the brain&#39;s. It spreads to the scalp electrodes, over a range of roughly twenty to three hundred hertz. Muthukumaraswamy described this in a 2013 review in Frontiers in Human Neuroscience. That range overlaps the fast brain rhythms. And speaking is the hard case. De Vos and colleagues wrote in 2010, in Neuroinformatics, that the artifacts of articulation are much larger than the neural signals of interest.</p><p>In fNIRS, speech acts through breathing. Scholkmann and colleagues showed in 2013, in NeuroImage, that speech tasks lowered the carbon dioxide in the blood. That change was largely responsible for the shifts they measured in brain blood flow and oxygenation. Carbon dioxide widens or narrows the vessels, so the optical signal moves, even if no neuron did anything new.</p><p>Now put two people together. This is the key idea of the episode. In one person, a speaking artifact is a nuisance. In a conversation, it is a trap.</p><p>Ava&#39;s artifact is large when Ava speaks. Otto&#39;s artifact is large when Otto speaks. The turns alternate. So the two artifacts rise and fall in a regular alternation, and a regular alternation is a rhythm. Two signals that follow the same timetable look synchronised.</p><p>Let&#39;s test it. Everything here is simulated. We take one hundred dyads, four minutes each. The two brains are completely independent: noise with no link at all. The only thing they share is the timetable of the turns. While a person speaks, we add a burst of simulated muscle activity to their channel.</p><p>Then we take the power between twenty and forty hertz, and measure the phase locking value at the rhythm of the turns.</p><p>With no muscle, the value is about 0.11. With the muscle bursts, it jumps to 0.96.</p><p>Now apply the rule of the series: no synchrony without its null. We build pseudo-pairs, with Ava from one dyad and Otto from another, who follow a different timetable. Their average is 0.19, and their ninety-fifth percentile is 0.62. All one hundred real dyads sit above it.</p><p>So the null says: this is real. And yet the two brains never interacted. The timetable belongs to the pair, and it is the pair that the null cannot copy. Even with irregular turns, the value stays at 0.93, because the alternation itself is the structure.</p><p>So before asking which of the four sources is at work, ask a simpler question. Is it brain at all?</p><p>What can we do? There are four remedies, and none of them is perfect.</p><p>First, independent component analysis. It can pull out components that look like muscle, and remove them. But McMenamin and colleagues showed in 2010, in NeuroImage, that neither independent component analysis nor regression gives a complete safeguard against muscle distortion.</p><p>Second, regress out the speech. Record the voice, take its envelope, and remove what it explains from each person&#39;s signal. In our simulation, with an imperfect recording of the voice, the value falls from 0.96 to 0.42. Only three dyads in a hundred stay above the null. It is much lower, but not zero. A recording of the voice is not a copy of the muscles.</p><p>Third, analyse listening periods. When a person listens, their own jaw is quiet. The price is that you lose everything that happens while they speak.</p><p>Fourth, add a control. Take pairs who speak on the same timetable without interacting, for example each person talking with a recorded partner. If the synchrony stays, it was the timetable, not the dialogue.</p><p>In fNIRS, the remedy is to record breathing and carbon dioxide, and to use short channels. We come back to this in episode 5.4.</p><p>What changes between two brains? Within one person, a speaking artifact is noise, and you clean it. Between two people, it follows the rhythm of the conversation itself. So it correlates with exactly what you want to study. And as in the last episode, both people are cleaned with the same rules.</p><p>Let&#39;s recap. Speaking makes muscle artifacts in EEG, and changes in breathing in fNIRS. Turns alternate, so the artifacts alternate too. Alternation alone gives synchrony, even between independent brains. Use independent component analysis, regression, listening periods and a control pair, and never trust one alone.</p><p>Next time, a zoo of measures.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-06-Hyperscanning/HYPER_5.3_Moving-together_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.3</span><span>5:35</span></span>
+        <h3>Moving together</h3>
+<p class="summary">Movement is noise in one person, but when two people move at the same moments the artifacts line up and look like synchrony. In simulation with independent brains, correlation rises from 0.06 to 0.60 as the shared fraction of movement grows, and pseudo-pairs do not reveal it. Remedies include regressing recorded movement, short channels, components, and rejecting the same seconds in both people, none perfect.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the laundromat, two washing machines stand side by side on the same wooden floor. Nobody touches them. Then Jitter walks in, and stomps.</p><p>Both machines shake. Not because of what is inside. Because of the floor they share.</p><p>This episode is about that floor. In hyperscanning, the floor is movement. When two people interact, they nod, laugh, tap a foot and shift in their chairs. Often at the same moment.</p><p>For one person, movement is an old problem. In EEG, walking and running put mechanical artifacts into the signal. Gwin and colleagues showed in 2010, in the Journal of Neurophysiology, that this artifact stays in many independent components, so removing it takes a dedicated procedure.</p><p>In fNIRS, a nod shifts the optodes on the scalp. Brigadoi and colleagues compared correction methods in 2014, in NeuroImage, on real data from a cognitive task. Their conclusion: it is always better to correct motion artifacts than to reject trials.</p><p>Now take two people. This is the key idea of the episode.</p><p>For one person, random movement is noise. It lands at random moments, so against another person&#39;s signal it averages out. But if both people move at the same moments, the artifacts are no longer random between them. They line up. And two signals that line up look synchronised.</p><p>Burgess gave this warning in 2013, in Frontiers in Human Neuroscience. In EEG hyperscanning, any imbalance between conditions in stimulus presentation or movement could produce spurious synchrony.</p><p>Let&#39;s test it. Everything here is simulated. We take one hundred dyads, five minutes each. The two brains are completely independent. Each person moves seven and a half times a minute, and each movement adds a slow bump to that person&#39;s channel.</p><p>We keep the amount of movement the same in every condition. Only one thing changes: how many of the movements happen at the same moment in both people. We call it the shared fraction. Then we measure the correlation between the two channels.</p><p>When no movement is shared, the average is 0.06. When half of it is shared, it is 0.30. When all of it is shared, it is 0.60.</p><p>Same brains. Same amount of movement. About ten times more correlation, only because the movements line up.</p><p>Now apply the rule of the series: no synchrony without its null. We build pseudo-pairs, with Ava from one dyad and Otto from another, who moved at other moments. Their ninety-fifth percentile is 0.18. When all the movement is shared, all one hundred dyads sit above it.</p><p>So the null says: this is real. And it is. The pair really did move together. But the brains never interacted.</p><p>In the compass of sources, this is source two, rhythm and movement. Except that here, the shared rhythm never reached the brains. It reached the sensors.</p><p>What can we do? Four things, and none is perfect.</p><p>First, use the movement itself as a regressor. In episode 4.6 we recorded movement next to the brain signals. Here is what it is for. Take Ava&#39;s movement signal, with a few delayed copies of it, and remove from Ava&#39;s channel everything it explains. Then do exactly the same for Otto, with the same settings.</p><p>In our simulation, the movement sensor is imperfect. It sees the movement, not the artifact. After cleaning, the value with all movement shared falls from 0.60 to 0.27, and with half shared, from 0.30 to 0.13. Eighty-nine dyads out of one hundred are still above the null. It is much lower, but not zero.</p><p>Second, in fNIRS, use short channels. Optodes placed very close together barely reach the brain. They record what the scalp and the movement do. Saager and Berger proposed in 2005, in the Journal of the Optical Society of America A, to fit the signal at one distance to the signal at another, to isolate changes in the deeper layer. And Brigadoi and Cooper found in 2015, in Neurophotonics, using simulations, that for adults the best distance is 8.4 millimetres. A short channel is one more regressor, applied to each person alike.</p><p>Third, in EEG, use independent component analysis, as in the single-person series, and remember what Gwin&#39;s work showed: it is not a complete cure when people really move.</p><p>Fourth, reject segments. Correction is usually better than rejection. But when you must reject, reject the same seconds in both people, or the pairing breaks.</p><p>What changes between two brains? For one person, movement is noise, and you clean it. Between two people, it follows the shared moment: the joke, the beat, the music. So it correlates with exactly what you want to study. Clean Ava and Otto with the same procedure, chosen before looking at synchrony.</p><p>Let&#39;s recap. Movement puts artifacts into EEG and fNIRS. Random movement averages out. Shared movement becomes synchrony. Regress the recorded movement, add short channels or components, reject the same seconds in both people, and never trust one alone.</p><p>Next time, shared physiology in the signal.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-06-Hyperscanning/HYPER_5.4_Shared-physiology-in-the-signal_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.4</span><span>5:20</span></span>
+        <h3>Shared physiology in the signal</h3>
+<p class="summary">Heartbeat, breathing and slow blood-pressure waves move the blood in the scalp, so in fNIRS two bodies in step can make two brain signals look synchronized. In simulation, body-only and brain-only dyads give similar correlations of 0.40 and 0.44, and both beat the pseudo-pair null. Regressing each person&#39;s short channel removes the body-only synchrony and keeps the brain-only one, which rises to 0.65.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the laundromat, every machine has a round window in its door. On a cold day, the glass fogs up. And through fogged glass, you cannot tell what the laundry is doing.</p><p>Today the fog is physiology. Two people, two machines, and two windows that fog up in step. The question is whether you are seeing two brains moving together, or just two foggy windows.</p><p>First, the bodies. Each person has a heart, Cardio, and a pair of lungs, Puff. Both keep time. And between two people, the beat can fall into step.</p><p>In 2011, a study recorded eleven singers and their conductor in a choir. Breathing and heart rate variability synchronised more during singing than at rest, and more in unison than in several parts. A 2017 systematic review found that physiological synchrony between people appears across many contexts.</p><p>So when two people interact, route four is real. Body coupling is not a hypothetical.</p><p>Now the window. In fNIRS, light goes through the scalp before it reaches the brain, and it comes back carrying everything it crossed. Heartbeat, breathing, blood pressure and slow waves move the blood in the scalp. The optical signal moves with them.</p><p>A 2016 opinion article in Neurophotonics put it plainly. Some hemodynamic responses are not caused by neurovascular coupling. They can be mistaken for brain activity. Those are false positives.</p><p>Put two people in step, and the fog on the two windows moves in step too.</p><p>Let&#39;s test it. Everything here is simulated, so we know the truth. We build two kinds of dyads, three hundred of each, five minutes per person.</p><p>In the first kind, only the bodies are coupled. Breathing and the slow wave are largely shared. The brains are independent. That is route four alone.</p><p>In the second kind, only the brains are coupled. They share a slow component. The bodies are independent. That is route three alone.</p><p>Now measure the correlation between the two long channels, the way a study would. The bodies-only dyads give 0.40. The brains-only dyads give 0.44.</p><p>Same kind of number. Same kind of picture. Nobody could tell them apart from this.</p><p>Does the null help? Build pseudo-pairs, with a person from one dyad and a partner from another. They give 0.00 for the first kind, and 0.01 for the second. And 248 of the 300 bodies-only dyads sit above the ninety-fifth percentile of that null.</p><p>So the null says: this is real. It is real. It is just not brain.</p><p>Now wipe the glass. Each person wears a short channel, placed on their own scalp. It sees the fog, and almost nothing else. Regress it out of the person&#39;s own long channel.</p><p>For the bodies-only dyads, the correlation falls to essentially zero. Only 13 dyads out of 300 are above the null, which is what chance gives. The synchrony was the fog.</p><p>For the brains-only dyads, it stays, and even rises to 0.65. The fog was blurring it. Now 255 of the 300 are above the null.</p><p>That is the whole episode. Without short channels, or without regressing the physiology, an fNIRS hyperscanning study cannot tell route four from route three.</p><p>A second tool is the recorded signal. Put a breathing belt and a pulse sensor on each person, and regress those out. Here it helps less. The bodies-only dyads keep 0.29, because the slow wave is not recorded. The brains-only dyads show 0.53.</p><p>So record the body, and use short channels too. Real bodies are messier than this simulation, and they also react to the task itself. So no cleaning is perfect, and a result should be checked with and without it.</p><p>The same question exists in the other modalities.</p><p>In EEG, the heart has its own electrical field. A 1997 study measured how this cardiac field reaches the scalp electrodes. It is most prominent at two moments of each beat. If two hearts fall into step, the two artifacts line up. Independent component analysis can pull these components out, as Jung and colleagues showed in 2000.</p><p>In fMRI, breathing and heartbeat move the signal. Glover and colleagues proposed RETROICOR in 2000. It uses the recorded cardiac and respiratory phase to correct each image. And Birn and colleagues showed in 2006 that slow changes in breathing alone can make regions look like part of a resting network.</p><p>In each modality, the rule is the same. Before saying that two brains are in step, ask whether two bodies are.</p><p>So, three habits. Record the body of each person. Clean each person with the same rules. And report the result with and without cleaning.</p><p>Between two brains, there is a second thing that can be shared. It is the body. Route four has to be removed before route three can be claimed.</p><p>Next time: 5.5, windows, epochs and alignment.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-5.5">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-06-Hyperscanning/HYPER_5.5_Windows-epochs-and-alignment_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 5.5</span><span>4:55</span></span>
+        <h3>Windows, epochs and alignment</h3>
+<p class="summary">An interaction is one long recording to be cut into fixed windows, event-locked epochs or speech turns. Window length sets the lowest measurable frequency, and phase needs a few cycles, so fNIRS needs minutes. In simulation, independent signals give a phase locking value of 0.73 in quarter-second windows and 0.14 in eight-second windows, and the alignment anchor decides which question is asked.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>In the laundromat, the dryer has just stopped. Out comes one very long sheet, as long as the whole experiment. Nobody folds a sheet like that in one go. You fold it into piles.</p><p>Hyperscanning faces the same job. An interaction is one continuous recording for each person. Before any measure, we cut it into pieces, and there are three common ways to do it. Fixed windows: equal piles, one after another. Trials, also called epochs: one pile each time a chosen event happens. Turns of speech: piles of uneven size, one for each time somebody talks.</p><p>Whichever way you cut, the pile has a size. And that size decides two things: what you can see, and how far you can trust it.</p><p>First, what you can see. A window of T seconds cannot separate frequencies that are closer than about one over T. And a rhythm needs room to turn. In a one second window, a ten hertz rhythm turns ten times, and a two hertz rhythm turns only twice.</p><p>For phase measures, a common rule asks for at least three cycles in the segment. Cohen gives it in the chapter on phase based connectivity of his textbook on neural time series. So with one second, rhythms below three hertz are out of reach. And a simulation study by Basti and colleagues found that, with a good signal to noise ratio, five to eight cycles were generally needed for reliable phase estimates.</p><p>The fNIRS signal lives at the slow end. Its rhythms of interest run near a tenth of a hertz, so one cycle takes ten seconds, and three cycles take thirty. In the study by Cui and colleagues, each cooperation block lasted about a hundred and fifty seconds, and coherence was read for periods between three point two and twelve point eight seconds. Even the slowest period turned about twelve times in the block. For EEG phase, a few cycles are a fraction of a second. For fNIRS, we are talking about minutes.</p><p>Second, how far you can trust it. Here are two independent signals, simulated, with a ten hertz rhythm and no link at all. We read the phase at one moment of each epoch, and average the arrows over N epochs. With ten epochs, the phase locking value is about 0.28. With a hundred, it is 0.09. With a thousand, 0.03. The expected value is about 0.89 divided by the square root of N. The more piles you have, the lower the floor.</p><p>Windows behave in the same way. Take the same independent signals, filtered between eight and twelve hertz. In windows of a quarter of a second, about two and a half cycles, the average value is 0.73. In windows of one second, it is 0.39. In windows of eight seconds, it is 0.14. Nothing is coupled here. A short window simply cannot tell noise from locking.</p><p>This is a known bias. Vinck and colleagues showed, in NeuroImage in 2010, that the estimates of phase locking and of coherence are positively biased when the sample is small, and they proposed the pairwise phase consistency to remove it. Bastos and Schoffelen describe the same sample size problem in their tutorial review. We come back to it in episode 7.4.</p><p>Now look at a pair that really is coupled, again simulated. With half second windows, its average value is 0.78, and the independent pair gives 0.68. Only one window in ten of the coupled pair rises above the independent ninety fifth percentile. With eight second windows, the coupled pair gives 0.58 and the independent pair 0.18. Every window of the coupled pair is above that line. The long window did not only lower the noise. It separated the two cases.</p><p>Cutting is also choosing where zero is. Align the piles on an event of Ava, say the moment she starts to speak, and you ask what Otto&#39;s brain does after Ava acts. Align them on an event of Otto, and you ask the reverse. Align them on an event that both share, a sound, a cue, or the handover of a turn, and both brains are reset at the same moment. Their phases line up across the two heads. That is the shared stimulus, route one, and it does not need any link between them.</p><p>So the same recording, cut three ways, answers three different questions. Choose the anchor before you look at the result.</p><p>Let&#39;s recap. The window length sets the lowest frequency you can measure, and phase needs a few cycles. fNIRS needs minutes. Short windows and few epochs raise the floor of the measure, even for independent signals. The anchor of the alignment decides which question you ask.</p><p>Next, we climb the kite hill, to meet a zoo of measures.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-4/">← 4 · RECORDING TOGETHER</a><a class="btn main" href="../chapter-6/">6 · MEASURING INTER-BRAIN COUPLING →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

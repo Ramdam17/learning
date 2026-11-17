@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robustness and reporting · Normative modelling · Animated science series</title>
+<meta name="description" content="Normative modelling, chapter 13: Robustness and reporting.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="tagpill">SYTYCD</span><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">NORMATIVE MODELLING</a> / <b>CHAPTER 13</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">NMOD · 13</span><span class="caps">CHAPTER 13</span></div>
+    <h1 class="h1-chapter">Robustness and reporting</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 23 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · Why normative models?</a>
+    <a href="../chapter-2/">2 · The growth chart intuition</a>
+    <a href="../chapter-3/">3 · Statistical foundations</a>
+    <a href="../chapter-4/">4 · The models</a>
+    <a href="../chapter-5/">5 · Covariates and sites</a>
+    <a href="../chapter-6/">6 · Deviations</a>
+    <a href="../chapter-7/">7 · Evaluating a model</a>
+    <a href="../chapter-8/">8 · The big resources</a>
+    <a href="../chapter-9/">9 · Beyond structural MRI</a>
+    <a href="../chapter-10/">10 · Applications</a>
+    <a href="../chapter-11/">11 · Pitfalls</a>
+    <a href="../chapter-12/">12 · From deviation to decision</a>
+    <a href="../chapter-13/" class="on" aria-current="page">13 · Robustness and reporting</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-13.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_13.1_Robustness-I-A-study-that-can-fail_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.1</span><span>5:59</span></span>
+        <h3>Robustness I · <span class="pk">A study that can fail</span></h3>
+<p class="summary">A study that can fail fixes its hypothesis, model, thresholds and success criteria in writing before seeing the patients, which is preregistration. Reference size matters most in the tails, since a centile&#39;s error shrinks with the square root of the number of controls. About 160 controls give the median to within a tenth of a standard deviation, while the first centile needs about 1,400.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we leaned a ladder against the clinic. Research tool, reliable measure in one person, replicated prognosis, proven benefit for patients, and a regulatory and ethical frame. Every rung asked for proof. Today we stay on the very first rung, a single research study, and we ask a plain question. Can this study fail?</p><p>It matters. A study that cannot fail teaches us nothing. If every result can be explained afterwards, then no result was ever a test.</p><p>So let us build the study backwards. Here is a notebook, bound and closed, before the first page is written. Inside, in ink, we will write what we are going to do. The hypothesis. The reference population and the model. The covariates. The thresholds. The metrics. And the criteria that decide whether the study worked.</p><p>This habit has a name. Preregistration. In 2018, Brian Nosek and colleagues described it as defining the research questions and the analysis plan before observing the research outcomes. The aim is to keep predictions apart from explanations written after the fact.</p><p>A normative analysis is full of forks. Which model? Which covariates? Which threshold, one point nine six, or two? Which brain regions count? Each choice, made after looking at the patients, can nudge the result a little. Nobody needs to cheat. Choosing after looking is enough.</p><p>So we write the choices first. The cover of the notebook is closed. The choices are fixed.</p><p>The criteria are the part people forget. A criterion is a sentence that can turn out false. Here is one, illustrative. In controls that were never used to fit the model, about two and a half percent should fall below the lowest centile line, and about two and a half percent above the highest. If the model misses that, we do not carry on to the patients. We stop, and we say so.</p><p>Now the second page of the notebook. How many controls do we need? This is the key moment, and we will measure it.</p><p>Here is a small simulation. Everything on screen is simulated. The reference population is a perfect bell, mean zero, standard deviation one. We draw a study of controls, and we estimate a centile line from it. Then we draw another study, and another, four thousand times. And we watch how far the line moves from one study to the next.</p><p>Start with one hundred controls. The median line moves by about zero point one two standard deviations. The two point five centile line moves by about zero point two four. Twice as much.</p><p>What does that mean for a person? That line was meant to leave two and a half percent of healthy people outside it. In nine studies out of ten, it leaves anywhere between about one percent and six and a half percent. Same population, same method. Only the draw of controls changed.</p><p>Now ask for a precision that most of us would accept. Let the line be off by no more than a tenth of a standard deviation, typically.</p><p>For the median, about one hundred and sixty controls are enough. For the fifth centile, about four hundred and fifty. For the two point five centile, about seven hundred. And for the first centile, about one thousand four hundred.</p><p>That is nine times the median. Why nine?</p><p>Because of the square root. The error of a centile shrinks with the square root of the number of controls. In the EEG series, noise fell the same way when we averaged more trials. But the tails start with a bigger constant. For the first centile, it is about three times that of the median. To cancel a factor of three, we need nine times more data.</p><p>These numbers are from the standard large-sample formula, and our simulation agrees with it.</p><p>And this is the easy case. One age, a perfect bell, one site. Real models have a curve across the whole age range, skewed noise, and several sites. The edges of the age range, where people are few, are the weakest.</p><p>Researchers have simulated this too. In 2023, Jelena Bozek and colleagues simulated hippocampal volumes between forty-five and eighty years of age, with samples from fifty to fifty thousand. They wrote that surprisingly large samples, several thousand data points, are needed to capture the outlying percentiles accurately. Their discussion adds that data sets under five thousand points are unlikely to give accurate outer centiles across the age range.</p><p>Growth charts tell the same story. In 2021, Tim Cole worked out how to design a growth reference study. He concluded that an optimally designed one needs between seven thousand and twenty-five thousand people of each sex.</p><p>So here is the moment to keep. A normative model is judged most harshly in its tails. And the tails are exactly where a z-score above two lives. A study that wants to interpret z-scores beyond two has to plan for it from the start, in the sample size of the notebook, and not only for the median.</p><p>There are two honest ways out. The first is to use a shared model, built on a very large reference, and adapt it to your site. We come back to shared models later in this chapter. The second is to write the limit in the notebook. For example, scores beyond two will be reported with their uncertainty, and will not be interpreted one by one.</p><p>Either way, the study can fail, and it says in advance how.</p><p>So, to sum up. A study that can fail fixes its choices and its criteria before it sees the patients, and it sizes its reference for the tail it wants to read.</p><p>Next time, the notebook is full. Robustness two, statistics that hold up. How do we compare patients and controls on the same scale, without fooling ourselves?</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_13.2_Robustness-II-Statistics-that-hold-up_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.2</span><span>7:07</span></span>
+        <h3>Robustness II · <span class="pk">Statistics that hold up</span></h3>
+<p class="summary">A normative model puts group statistics on a common scale without excusing them. Shuffled groups still make about nine of 176 regions glow, so correct with Bonferroni or false discovery rate, or shuffle whole people&#39;s labels in a permutation test. Counts of extreme regions, overlap maps and subtype clusters each need their own control, and the reference must exclude the people tested.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we planned a study that can fail. A bound notebook, with the hypothesis, the model, the thresholds and the success criteria written before the first page of results. Today the data are in, and we ask the next question. Which statistics will hold up?</p><p>Here are two groups of people. One group is simulated patients. The other is test participants. Every person is a brain map, and every region on the map holds a deviation score, a z-score, against the reference model. Both groups are simulated here, and the numbers are illustrative.</p><p>The first idea is the plainest. Take one region. Compare the deviation scores of the two groups. A difference in the average, a p-value, done. Then do the same for the next region, and the next.</p><p>This is where the trouble starts. The braincharts files, the multi-site set we use for real examples, hold one hundred seventy-six cortical thickness regions, eighty-eight on each side. Suppose the two groups are identical. Suppose we shuffle them at random. Each region still has a five percent chance of looking significant. Five percent of one hundred seventy-six is about nine regions.</p><p>So we shuffle, and we look. Nine regions glow, in two groups that do not differ at all. A map that glows is not yet a result.</p><p>There are two classic answers. The first is the Bonferroni correction. Divide the threshold by the number of tests. Five percent over one hundred seventy-six is about 0.0003. It is strict, and it protects against any false alarm at all.</p><p>The second is the false discovery rate, from Benjamini and Hochberg, nineteen ninety-five. It does not promise zero false alarms. It controls the expected share of false alarms among the regions you call significant. It is gentler, and it keeps more power. Whichever you choose, choose it before you look. That was the lesson of the last episode.</p><p>Now a third tool, and the one that asks the least of the data. Permutation. Keep the deviation scores as they are. Shuffle only the labels, patient or participant. Compute the statistic again. Do it ten thousand times. You now know how large the statistic gets when the labels mean nothing.</p><p>For a whole map, record the largest statistic of each shuffle. Then ask where your real largest value falls in that list. If it sits beyond ninety-five percent of them, the map as a whole is unlikely under chance. This is the approach described by Nichols and Holmes in two thousand two, for neuroimaging. The same permutations appear in the EEG series.</p><p>Ten thousand shuffles also set a floor. The smallest p-value you can report is about one in ten thousand. Say so, instead of writing zero.</p><p>One condition, though. The shuffle only works if the labels could have been swapped, if the people are exchangeable under the null. Shuffle whole people, never single regions. A person&#39;s regions travel together, because they are correlated.</p><p>Now we compare with the classic design, on the same data. First, a case-control test on raw thickness. Then the same test on the deviation scores. The raw test must handle age, sex and site inside the analysis. If the patients are a little older, the raw test sees age. The deviation scores have already taken age, sex and site into account, against the reference.</p><p>There is a second condition. The reference model must be fitted on people who are not in the groups you test. If the patients, or the test participants, helped to build the norm, their scores are shrunk toward zero, and the comparison is spoiled before it starts. We come back to this leak in chapter eleven.</p><p>That is the real gain, and it has a limit. The z-scores are only as good as the reference. A biased reference gives biased scores, and the statistics will confirm the bias with great confidence.</p><p>Here is the key moment. A normative model does not excuse you from group statistics. It puts them on a common scale. And it opens new questions, each of which needs its own test, with its own control.</p><p>The first new question is a count. How many regions of a person deviate beyond plus or minus 1.96? Even in a perfect reference, about five percent of regions will do so. In one hundred seventy-six regions, nine for each person. Compare the counts of the two groups. But regions are correlated, so counts vary much more than a simple coin-flip model says. Do not use the binomial formula. Use permutation. Wolfers and colleagues did this kind of count in two thousand eighteen, in schizophrenia and bipolar disorder. Extreme negative deviations covered 0.9 percent of gray matter voxels in schizophrenia. In bipolar disorder it was 0.24 percent, and in healthy participants 0.23 percent. The comparison group is what makes those figures readable.</p><p>The second question is overlap. For each region, what fraction of patients deviate there? That gives an overlap map. Build the same map for the control group, and for shuffled groups. In the same study, the overlap among patients exceeded two percent in only a few locations. Patients with the same diagnosis rarely deviated in the same place. The shuffled maps tell you how much overlap chance alone produces.</p><p>The third question is about subtypes. Cluster the patients by their deviation maps, and you will always find clusters. Clustering gives groups to any data. So the control is a test of whether the clusters beat what you get from shuffled or structureless data. In two thousand nineteen, Dinga and colleagues tried to replicate a published claim of depression biotypes in a new sample, and they added statistical tests. In that sample, neither the canonical correlations nor the clusters were statistically significant.</p><p>And a word on the pattern in autism. Zabihi and colleagues, in two thousand nineteen, found few case-control differences in cortical thickness, yet highly individual patterns of deviation. Among the links between deviations and symptoms, only repetitive behaviours survived the correction for multiple testing. Individual maps can be rich, and the group test can still be quiet. Both are results, and both need a control.</p><p>One last habit. Report the size of the difference, not only the p-value. Report how many tests you ran, and how you corrected for them. Report the number of deviations you would expect by chance. A reader can then judge the result without trusting the story.</p><p>So, to sum up. A normative model gives you a common scale, not a free pass. Correct for the many regions, shuffle the labels, compare with the classic test, and give every count, overlap map and subtype its own control.</p><p>Next time, we bind the book. Share the model, not just the paper.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_13.3_Share-the-model-not-just-the-paper_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.3</span><span>5:08</span></span>
+        <h3>Share the model, not just the paper</h3>
+<p class="summary">A paper shows centile curves, but only a shared model lets others place their own scans on the chart. The package holds fitted parameters, code, the model label and software versions, and federated learning lets sites share parameters instead of people. Identifying data stay home, because even nameless head scans can be matched to faces.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we made the statistics hold up. Permutations, corrections, a check against the classic group comparison. Today the question changes. Once your analysis holds up, how does somebody else use it?</p><p>There are two ways to share. You can share the paper. Or you can share the model. This episode is about the second.</p><p>Picture a bound book on a workbench. The paper is the text inside. A reader finishes it, and wants to place their own scans on your chart. They cannot. A figure of centile curves is a picture of a model. It is not the model.</p><p>So we slide four things into the binding.</p><p>First, the parameters of the fitted model. The numbers that define the median and the centiles, at every age.</p><p>Second, the code that produced them.</p><p>Third, the model label. The small card we used throughout this series. The reference population, the sites, the preprocessing, the covariates, the metrics, and the range of ages where the model is valid. An empty line on that card is a warning, and it should stay visible.</p><p>Fourth, the versions of the software.</p><p>Versions matter more than they seem. PCNtoolkit saves a fitted model as a small text file in the JSON format. Inside that file, it writes the version of the library that made it. When you load the file, the library compares that version with the one you have installed. A file from an older version is converted. A file from a newer version triggers a warning. As of November 2026, the latest release of the library on the Python package index is version one point four. The format of these files can change from one release to the next. That is the reason the version is written down.</p><p>Now, what does a reader do with a shared model?</p><p>In two thousand twenty-two, Rutherford and colleagues published pretrained models of cortical thickness and subcortical volume. The reference sample had fifty-eight thousand, eight hundred and thirty-six people, from eighty-two scanning sites, aged two to one hundred. The models went online, in a public repository called braincharts, with code showing how to adapt them to new data. That repository carries an open licence, the GNU General Public License, so anyone may read, reuse and check what is inside. This is also where the real data of this series comes from, as you will see in the later chapters.</p><p>A small new site loads the model, and adjusts it to its own scanner with some of its own people. We will see how in chapter five. Then it places everyone else on the chart. No access to the original scans was needed. That is the key moment of this episode. A shared, fitted model lets other people situate their data, without ever seeing the data that built it.</p><p>The data can stay home, even while the model learns from several places.</p><p>Let us use our simulated dataset. Three sites. Two large ones, and one small one, site C. Site C has sixty people, all aged forty-five and above. The two large sites each fit their own model, on their own computers. Neither can send its people to the other. What travels is a file of parameters, which is much lighter than a table of participants. Site C receives those files, and combines them with its own.</p><p>This is federated learning. For normative models, Kia and colleagues showed it with hierarchical Bayesian regression, the family from episode four point six. The sites keep their data. The model is built from shared parameters, and it can be recalibrated on a small local sample. The PCNtoolkit documentation has a tutorial where each site shares only its saved model files, and the files are merged.</p><p>Now the other side of the binding. What do you never publish?</p><p>You never publish identifying data. That begins with the obvious things, names, birth dates and identifiers. But it also includes images that look anonymous. In 2019, Schwarz and colleagues took research head scans stripped of names. They rebuilt each face in three dimensions, and gave it to publicly available face-recognition software. For seventy of eighty-four volunteers, the right person came out as the first choice. An image without a name is not necessarily an anonymous image.</p><p>A table of individual rows needs the same care. A small site, a rare age and an unusual score can point to one person. Before you release anything, ask whether it comes from patients, and who allowed you to share it. A model file is derived from people. Check what it contains.</p><p>Last, make the model easy to find, to reach, and to reuse. A version, a licence, a label, a stable address. Those are the spirit of the FAIR principles, published by Wilkinson and colleagues in 2016.</p><p>So, to sum up. Share the model, its code, its label and its versions, and keep the people out of it.</p><p>Next time, we turn all of this into a reporting checklist.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-13.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-08-NormativeModelling/NMOD_13.4_A-reporting-checklist_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 13.4</span><span>4:33</span></span>
+        <h3>A reporting checklist</h3>
+<p class="summary">A reporting checklist lets another lab redo an analysis. The NORMA preprint has eighteen items covering reference population, covariates, model, splits, calibration metrics, transfer and thresholds. One added line asks for the count of deviations expected by chance, and an honest blank beats a confident guess.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Last time, we slid a fitted model into a bound book, so that others could place their own data on our curves. A model that travels is a good start. But a reader still has to know what they are holding. Today, the last page of the book. A checklist.</p><p>In the bookbinder&#39;s workshop, the pages are sewn and the cover is on. One clipboard lies on the bench. CHECK picks it up. A checklist is a plain tool. It is also the one that lets another lab redo your analysis.</p><p>First, a question. Does a checklist for normative modelling already exist? Yes, and it is very recent. As of November 2026, the most direct one is called NORMA. It comes from a systematic review of one hundred and twenty-two normative modelling studies in neuroimaging, with Andre Marquand among its authors. It has eighteen items, in three groups. Common elements. Model building and validation. Clinical application.</p><p>Now the honest part. As of November 2026, NORMA is a preprint, posted in July. I found no peer reviewed version, and its authors say it did not go through a consensus process. They offer it as a starting point, not a finished standard. So we use it, we cite it, and we add to it, line by line.</p><p>Here is the list. Each line is something a reader must be able to find in your paper, and each points back to an episode.</p><p>Line one. The reference population. Who is in it, how many, which ages, which sites, and how they were screened. It is the first line of the model label, and it is the story of episode eleven point one.</p><p>Line two. The covariates, and how sites were handled. Not that you accounted for site, but how. A covariate, a harmonisation step, a hierarchical level. Episodes five point three and five point four.</p><p>Line three. The model, and its settings. The name of a model alone is not enough. Which warping, which kernel, which priors, which software, which version. Episode four point nine.</p><p>Line four. The splits. Which people fitted the model, which people tested it, and how many in each. Episode seven point three.</p><p>Line five. The calibration metrics. Not only how well the mean is predicted, but whether the centiles hold. Do ninety-five percent of people fall inside the outer lines? Episodes seven point one and seven point two.</p><p>Line six. The transfer. If the model was adapted to a new site, say how, and with how many people. Episode seven point four.</p><p>Line seven. The thresholds. If you call a deviation extreme, write the cut. A z-score above one point nine six, or outside the five to ninety-five centile band. NORMA asks for exactly this, in its last item.</p><p>Line eight. The count expected by chance. This one is not in NORMA, so we add it. With a cut at one point nine six, a well calibrated model still flags about one healthy person in twenty, on every region. If you count flagged regions, say how many you would count by luck. Episodes six point three and thirteen point two.</p><p>Line nine. The code and the model, shared. What is open, what is restricted, and why. Software versions. And if you used someone else&#39;s pretrained model, where it comes from. Episode thirteen point three.</p><p>CHECK ticks the lines, one by one. And this is the key moment. A checklist does not ask you to have done everything. It asks you to say what you did, and to leave a blank visible when you did not.</p><p>Let us try it on the braincharts transfer set, the open data we used for real examples in this series. The test file holds four hundred and thirty-six rows, from six open datasets, with ages from five point four to seventy-three. Those lines are easy to tick. But the file has no diagnosis column. So whether everyone in it is a control is not written down. That line stays open, and CHECK draws it as an empty pink frame. An honest blank is worth more than a confident guess.</p><p>So, to sum up. Use the community checklist when there is one, here NORMA, and cite it as a preprint. Add the lines it misses, like the count expected by chance. Make every line findable, and every blank visible.</p><p>Next, we leave the bench and open the editor. B point one. PCNtoolkit, end to end.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-12/">← 12 · FROM DEVIATION TO DECISION</a><a class="btn main" href="../bonus/">B · CODE →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>SYTYCD · animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>

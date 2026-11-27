@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choosing · The Geometry of Data · Animated science series</title>
+<meta name="description" content="The Geometry of Data, chapter 18: Choosing.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <a class="brand" href="../../"><span class="caps">Animated science series</span></a>
+  <nav class="nav">
+    <a href="../../" class="on">SERIES</a>
+    <a href="../../books/">BOOKS</a>
+  </nav>
+</header>
+<main>
+<nav class="crumb"><a href="../../">SERIES</a> / <a href="../">THE GEOMETRY OF DATA</a> / <b>CHAPTER 18</b></nav>
+<section class="hero">
+  <div class="herotext">
+    <div class="brand"><span class="tagpill">GEOM · 18</span><span class="caps">CHAPTER 18</span></div>
+    <h1 class="h1-chapter">Choosing</h1>
+    <div class="pills">
+<span class="pill y">4 VIDEOS · 26 MIN</span>    </div>
+  </div>
+  <div class="card soon banner">
+    <span class="pill soon">JUPYTER BOOK</span>
+    <h3 class="muted">Book chapter · coming soon</h3>
+    <p class="small muted">This chapter of the book will appear here.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="card side" aria-label="Chapters">
+    <span class="caps">CHAPTERS</span>
+    <a href="../chapter-0/">0 · Teaser</a>
+    <a href="../chapter-1/">1 · What &#34;close&#34; means</a>
+    <a href="../chapter-2/">2 · Vectors</a>
+    <a href="../chapter-3/">3 · Sets and sequences</a>
+    <a href="../chapter-4/">4 · Signals</a>
+    <a href="../chapter-5/">5 · Distributions, bin by bin</a>
+    <a href="../chapter-6/">6 · Distributions, by moving mass</a>
+    <a href="../chapter-7/">7 · Kernels</a>
+    <a href="../chapter-8/">8 · Matrices</a>
+    <a href="../chapter-9/">9 · Curved spaces</a>
+    <a href="../chapter-10/">10 · Data with their own rules</a>
+    <a href="../chapter-11/">11 · Information geometry</a>
+    <a href="../chapter-12/">12 · Spaces with no common frame</a>
+    <a href="../chapter-13/">13 · Graphs</a>
+    <a href="../chapter-14/">14 · Shapes</a>
+    <a href="../chapter-15/">15 · Other algebras</a>
+    <a href="../chapter-16/">16 · Learned distances</a>
+    <a href="../chapter-17/">17 · What to do with a distance</a>
+    <a href="../chapter-18/" class="on" aria-current="page">18 · Choosing</a>
+    <a href="../bonus/">B · Code</a>
+  </nav>
+  <div class="list">
+    <article class="card ep" id="ep-18.1">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-12-GeometryOfData/GEOM_18.1_The-table-of-invariances_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 18.1</span><span>7:11</span></span>
+        <h3>The table of invariances</h3>
+<p class="summary">The last chapter adds no new distance but puts all ninety-seven cards of the series side by side, read by what each distance ignores. Fifty cards have all four lights on, and ignoring has a price: two unrelated noises correlate at 0.056, but 0.209 once the best of 200 delays is kept. Choose the column before the rows.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Welcome to the last chapter. It brings no new distance.</p><p>It does something else. It puts the distances of this series side by side, so that you can choose one for your own data.</p><p>There are far more distances than this series could show. One whole encyclopedia is devoted to them: Deza and Deza, first published in 2009, now in its fourth edition, from 2016. For histograms alone, Cha sorted the measures into eight families, in 2007.</p><p>Nobody picks one by reading them all. So we need another way in. It starts with the cards.</p><p>Remember the card from episode 1.5. Five lines: the object, the distance, what it ignores, what it costs, its trap. Four lights for the four rules. And episode 1.6 asked you to look at the distance you use today.</p><p>Here are all the cards of the series, side by side. Ninety-seven rows, one for each card we drew.</p><p>Take one line, the line that says what the distance ignores. Each thing it ignores is a change that does not change the distance. That is all the word invariance means: a change that does not change the distance. So the table has one column per change.</p><p>And you read it by column, starting from your own data. Which change should change nothing?</p><p>First column: the length of the vector. If the size of your arrows means nothing, use the angle of episode 2.3. It ignores length, and it ignores turning around zero.</p><p>Second column: the unit of each column. Episode 2.4 learned the shape of the cloud, and measured inside that shape, so units stop mattering. The plain straight line fails this column: it adds the columns as if they shared one unit.</p><p>Third column: a delay. The spectra of episode 4.5 ignore the phase, so any delay, any reversal, any timing. Episode 4.1 forgave a delay of up to 100 milliseconds. The plain straight line on signals forgives nothing: a late copy is a different signal.</p><p>Fourth column: local speeding up and slowing down. That is dynamic time warping, episode 4.2. The elastic variant of episode 4.3 refuses: a stretch always pays.</p><p>Fifth column: any bend of the axis that keeps the order. The largest gap between staircases, Kolmogorov and Smirnov, episode 5.7, does not see it. Neither does the rank correlation of two tables, in episode 12.3.</p><p>Sixth column: any mixing of the channels. The ratio distance of episode 8.2 does not move when the channels are mixed by any invertible recipe.</p><p>Seventh column: the total. One card only ignores it: the log-ratio distance of Aitchison, episode 10.2, for parts of a whole.</p><p>Eighth column: rotation and mirror of the whole space. It is the widest column. Fourteen cards ignore it, from the Procrustes angle to the tables of distances of episode 12.3.</p><p>Ninth column: the names of the nodes. The graph edit distance of episode 13.2 ignores them, and so do the spectral distance and the colour counts of episodes 13.3 and 13.4.</p><p>Most cells stay blank. A blank cell means the card did not say. We never filled one.</p><p>Now the second reading, by the lights. Fifty of the ninety-seven cards have all four lights on. Among them: the straight line, Jaccard, Hamming, total variation, Kolmogorov and Smirnov, the ratio distance and Aitchison.</p><p>For two families, the voice added a condition. Transport holds, as long as the ground distance is itself a distance: episode 6.4. The distance between two clouds of episode 7.2 holds with a rich kernel. The cards show four lights on. The condition is in the words.</p><p>One light goes out for Bray and Curtis: the triangle rule. It also goes out for one minus the cosine, which episode 2.3 refused to call a distance. Two lights go out for dynamic time warping, and for the Kullback and Leibler divergence.</p><p>A square root often switches a light back on, as in episodes 1.4, 5.4 and 8.5. And seventeen cards say nothing about their rules: their lights stay empty, as the first chapter said.</p><p>The lights matter beyond this chapter. The nearest-neighbour shortcut of episode 17.4 needs the triangle rule. The map of episode 17.3 needs a straight line in disguise.</p><p>Third reading: to ignore is to pay. The more changes you allow, the more two unrelated objects look alike.</p><p>In episode 10.5, two unrelated noises of 200 samples have a correlation of 0.056 on average, with no delay. Allow all 200 delays, keep the best, and it is 0.209. Nothing was there. We only looked in 200 places.</p><p>In episode 16.2, adding one alteration to the list of what counts as the same dropped the reading of loudness from 94 percent to 66.</p><p>And in episode 17.5, on the weakest source, the test with the ratio distance saw it in 100 percent of 200 draws. With the straight line, 6.5 percent. Where nothing differs, chance alone gives about 5.</p><p>The published comparisons say the same. Paparrizos and colleagues compared 71 measures on 128 datasets of signals. The settings people take by habit are beaten.</p><p>Ding and colleagues used 38 datasets. The simplest distance catches up with the elastic ones as the data grows.</p><p>And Klabunde and colleagues compared 24 measures for neural networks, with six tests. They write that no measure performs well across all tests and all domains.</p><p>Ecologists have worked like this for a long time. The manual of Legendre and Legendre has you choose a distance through questions about your data. The first one: do two absences count as a likeness? That is the question of episode 2.5.</p><p>Notice what none of these says: which distance is best. They serve to rule out the ones that do not fit.</p><p>Now the trap. It is to walk down the rows until one gives the result you wanted. Episode 17.5 priced it. Try eight distances, keep the smallest p-value, and in 1,000 simulated draws you get 13.0 percent false discoveries, where 5 is expected. The garden of forking paths, in the Statistics series, episode 22.1, tells the same story.</p><p>So choose the column before you look at the rows.</p><p>Which change should change nothing in your data? Which lights must stay on? Then, what will it cost? That is the next table.</p><p>Next time: What it costs.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-18.2">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-pink.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-12-GeometryOfData/GEOM_18.2_What-it-costs_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 18.2</span><span>5:28</span></span>
+        <h3>What it costs</h3>
+<p class="summary">Every distance has a price, timed on one machine. A straight line on 64 columns costs one microsecond a pair, so a table of a thousand objects takes half a second. Edit distance takes twelve minutes, and exact transport at 72.7 milliseconds a pair takes about ten hours. Thirty thousand objects make 449,985,000 pairs, or 3.6 gigabytes; a dearer distance does not necessarily see better.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Every distance has a price. This episode reads the second table of the chapter: what each distance costs, all of it measured on the same machine.</p><p>Think of the hardware shop, with a stopwatch hung beside every tool. One core, one machine, the median of seven runs, taken on the twenty-sixth of November. Each tool is timed on one pair of objects. Then comes the cost of a whole table, with every pair of a hundred objects, or of a thousand.</p><p>Count the pairs first. A hundred objects make 4,950 pairs. A thousand objects make 499,500. Double the objects, and the pairs grow about four times, whatever the distance. So the number of pairs does almost everything. The two table columns are the time of one pair, multiplied by those counts. They are not measurements, and the screen says so.</p><p>Start with the cheap rows. The straight line on 64 columns takes one microsecond a pair. A table of a thousand objects then takes half a second. The angle, the total variation and the divergence between histograms cost about the same. A straight line between two signals of a thousand samples takes two microseconds, and a thousand objects take one second.</p><p>Now sequences. The edit distance on a thousand symbols takes 1.5 milliseconds a pair, and twelve minutes for a table of a thousand objects. Time warping takes 2.1 milliseconds, and seventeen minutes. Same objects, about a thousand times the price of the straight line.</p><p>Between clouds of a thousand points, the prices spread out. Transport on a line is a sort, as episode 6.3 showed: 146 microseconds a pair, and 73 seconds for the table. The energy distance takes 2.6 milliseconds, and 21 minutes. The kernel distance takes 14.6 milliseconds, and two hours.</p><p>Then exact transport in the plane. One pair takes 72.7 milliseconds. A table of a hundred objects takes six minutes. And here is the point of this episode: at 73 milliseconds a pair, the table of a thousand objects takes about ten hours. The time of one pair says nothing about the time of a study.</p><p>One warning about this number. Episode 6.4 found 0.04 seconds on two clouds from the same square. On two shifted bells, it takes longer. The time of the exact solver depends on the clouds, and not only on their size.</p><p>Its two shortcuts, the blurred plane and the slices of episode 6.7, take 22 and 18 milliseconds a pair. That is about three hours, and two and a half hours, for a thousand objects. Cheaper, and still hours.</p><p>Between matrices of 64 channels, the ratio distance takes 167 microseconds a pair, and 83 seconds for the table. Its cheaper cousin, from episode 8.5, takes 39 microseconds. Here that is 4.3 times cheaper. Episode 8.5 measured 30 microseconds against 147, with its own protocol. The Bures distance takes 1.2 milliseconds, and ten minutes. The sound of two graphs of 500 nodes takes 14.8 milliseconds, and two hours.</p><p>Now the growth. Double the number of points in each cloud, and watch one pair. Transport on a line costs a little more than twice as much. The kernel distance costs about four times as much. Exact transport costs more than four times as much, between 4.3 and 4.7 at each doubling. From 250 points to 4,000, one exact pair goes from 3.7 milliseconds to 1.4 seconds. The growth is the message, not the third digit.</p><p>Three more costs are not in the table. The first is memory. Thirty thousand objects make 449,985,000 pairs. In eight-byte numbers, that is 3.6 gigabytes.</p><p>The second is settings. The band of time warping, the width of the kernel, the blur of the transport, the prices of the edits. Each one asks for a decision. And each decision taken after the fact is one of the freedoms of episode 17.5, where trying eight distances gave 13 percent false discoveries. The Statistics series calls it the garden of forking paths, in episode 22.1.</p><p>The third is repetition. Shuffling labels does not rebuild the table, so the test of episode 17.5 is nearly free. A floor measured on pseudo-pairs computes the distances again. And a learned distance is trained again.</p><p>The trap has two faces. One is choosing the straight line because it costs nothing, without reading its card. The other is believing that a dear distance sees better. On 38 datasets of time series, the edge of the elastic distances fades as the dataset grows, as Ding and colleagues showed in 2008.</p><p>So read the price like the rest of the card: one pair, the number of pairs, the memory, the settings and the repeats. Two tables are filled. One question remains: how many data does it take to see anything at all?</p><p>Next time: How much data.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-18.3">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-blue.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-12-GeometryOfData/GEOM_18.3_How-much-data_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 18.3</span><span>6:58</span></span>
+        <h3>How much data</h3>
+<p class="summary">Two samples from one source never read zero, and that floor shrinks with data. For most distances, four times more points halve it: the difference of means gives 0.117, 0.059 and 0.031 at 100, 400 and 1,600 points. Exact transport in ten columns goes only from 2.60 to 1.90, needing about 470 times more points. Dimension is paid in data.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>Two handfuls of screws from the same bin never weigh exactly the same. On a balance, the needle still leans a little.</p><p>Two samples from the same source behave the same way. Whatever distance you use, it will not read zero between them. That small leftover is a floor. It is what the distance says when nothing differs.</p><p>This is the third table of the chapter. The first asked what a distance must ignore. The second asked what it costs. This one asks how much data it needs.</p><p>The floor depends on the number of points, so we measure it. Fifteen distances from this series. Two samples of the same source, with 100, 400 and 1,600 points each. Every floor you will see is a mean over 200 draws, simulated, seed 1. Exact transport in two and ten columns is slow, so it gets a mean over 20 draws. A mean, not a five percent threshold.</p><p>The table is too large to read at once. We read it in three parts.</p><p>Part one: a single column of numbers. The difference of means gives 0.117 at 100 points, 0.059 at 400, 0.031 at 1,600. Kolmogorov-Smirnov gives almost the same values. Total variation on 20 bins gives 0.181, 0.092, 0.048. Transport on a line gives 0.182, 0.092, 0.045.</p><p>Look at the steps. Four times more points, half the floor.</p><p>One row breaks the rule. The Kullback-Leibler divergence on 20 bins gives 0.161, 0.047, 0.015 bit. For this one, two times more points are enough to halve the floor.</p><p>Part two: several columns. In ten columns, the kernel distance gives 0.089, 0.044, 0.022. The energy distance and the sliced transport of episode 6.7 give the same pattern. Four times more points, half the floor.</p><p>Part three: covariances, phases and alignment. The ratio distance between two covariance estimates, over 16 channels, gives 2.49, 1.19, 0.59. The straight line between them and the transport between ellipses follow the same rule. So does the mean arrow of phases with no locking, as in episode 10.3: 0.091, 0.043, 0.023.</p><p>The kernel alignment of episode 12.5 is the second exception. Between two unrelated systems of ten channels, it gives 0.091, 0.024, 0.0063. Again, two times more points are enough.</p><p>Now the slow one. On this chart, each floor is divided by its value at 100 points. Almost everything falls on one line. Transport does not.</p><p>In two columns, exact transport gives 0.37, 0.23, 0.12. To halve the floor it needs about 6 times more points. In ten columns, the floor goes from 2.60 to 1.90 when the points are multiplied by sixteen. The slope measured between 100 and 1,600 points is minus 0.11. Extrapolated, halving the floor would take about 470 times more points.</p><p>This is the law of episode 6.4, from Dudley in nineteen sixty-nine, and Fournier and Guillin in twenty fifteen. Beyond two dimensions, the floor falls like the number of points to the power minus one over the dimension. In two dimensions, it falls like one over the square root of n, up to a logarithm.</p><p>What counts is the real dimension of the data, not the number of columns. That is the result of Weed and Bach, in twenty nineteen. Sliced transport goes back to four times. For blurred transport, the rhythm no longer depends on the dimension. The constant does, say Genevay and colleagues.</p><p>The floor is not everything. You also have to see a difference. So we count the points per group needed to find it eight times out of ten. Five percent threshold, 199 shuffles, simulated, seed 2, 200 draws. Sizes are doubled each time, so eighty means between forty and eighty.</p><p>First case: a mean moved by half a standard deviation. Eighty points for the difference of means, for transport on a line, and for the energy distance. A hundred and sixty for Kolmogorov-Smirnov, total variation, and the kernel.</p><p>Second case: the spread multiplied by one and a half. The difference of means never sees it. Its share stays near the five percent expected when nothing is there. Transport, kernel and energy need 160 points. Kolmogorov-Smirnov and total variation need 320.</p><p>Third case: one bump against two, with the same mean and the same spread. Nothing before 320 points. At 1,280 points, every distance that can see it sees it. The difference of means never does. Beyond 320, these shares come from 100 draws, not 200.</p><p>The published orders of magnitude lean the same way. Button and colleagues found a median power of 21 percent in neuroscience, over 49 meta-analyses and 730 studies. For one correlation to be stable, Schönbrodt and Perugini say the sample size should approach 250. Marek and colleagues say that linking brain and behaviour across people takes thousands of individuals. A debated figure: Rosenberg and Finn replied, and so did Spisak, Bingel and Wager.</p><p>For the shuffling test of episode 17.5, power is computed by simulating tables of distances. That is what Kelly and colleagues did for microbiome studies. The search made for this episode found no equivalent for the tables of episode 12.3, nor for the covariance matrices of EEG. The Statistics series covers power in its episode 6.5.</p><p>The trap is reading a distance without its floor. Transport on a line, between two lots of 100 points from the same source: 0.18, on average. That is what zero looks like at that size.</p><p>Almost everywhere, four times more points for a floor twice as low. For transport in ten columns, about 470 times more. Dimension is paid in data.</p><p>Next time: Your own card.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <article class="card ep" id="ep-18.4">
+      <div class="ep-grid">
+      <div class="media">
+<figure class="player">
+  <video controls preload="metadata" playsinline poster="../../assets/poster-yellow.svg" src="https://sytycd-videos.s3.bhs.io.cloud.ovh.net/SYTYCD-12-GeometryOfData/GEOM_18.4_Your-own-card_KAWAII.mp4"></video>
+</figure>
+
+      </div>
+      <div class="epbody">
+        <span class="cart"><span>PLATE 18.4</span><span>6:31</span></span>
+        <h3>Your own card</h3>
+<p class="summary">No best distance is established: Klabunde and colleagues, with 24 measures and six tests, find none that performs well across all tests and domains. The leads: fill the five-line card, add floor, ceiling and sample size, fix the distance before the result, redo with another. In the example, 80 points per group find a half-spread shift in 86 percent of draws.</p>
+        <details class="tx">
+          <summary><span>TRANSCRIPT</span><span class="muted">EN</span></summary>
+          <div class="txbody">
+<p>This is the last episode of the series.</p><p>Chapter 18 gave three tables, one for each question you ask in front of your own data. What must the distance ignore? What does it cost? How much data does it need? None of them named a best distance. They ruled some out, and put a price on the others.</p><p>Today we ask what is established about choosing, and what is only a lead. Then we ask one question of you.</p><p>We sort the claims on two pegboards, in a hardware shop. On the left board, a tool hangs inside its painted outline. The outline is solid blue. These are the established claims. Each carries a tag that says how we read its source: the full text, or only the abstract. On the right board, there are only outlines, dotted, in pink. No tool hangs there. These are leads. None of them was tested for this series.</p><p>First tool. The biggest comparisons do not crown a distance. Klabunde and colleagues, in 2025, built a benchmark for ways of comparing neural networks. It has 24 measures and six tests. Their sentence: there exists no measure that performs well across all tests and all domains. We read the full text. Of the sources on this board, only this one says it in those words.</p><p>Second tool. Paparrizos and colleagues, in 2020, compared 71 distance measures for time series, on 128 datasets. Four long-standing beliefs fell. The settings that people take by habit are beaten. We read the abstract.</p><p>Third tool. For graphs, two papers present themselves as guides. Tantardini and colleagues, in 2019, review methods for comparing networks and test them, to help you choose one. Wills and Meyer, in 2020, compare graph distances at several scales of structure, and recommend a distance according to the structure you want to see. We read both abstracts.</p><p>Fourth tool. Tables of distances, from chapter 12. Nili and colleagues, in 2014, put a noise ceiling next to the model scores. It is the correlation that the true model would reach, given the noise in the data. We read the full text. Schütt and colleagues, in 2023, built inference that carries over to new people and new conditions. We read the abstract.</p><p>Fifth tool. Walther and colleagues, in 2016, measured how reliable different ways of comparing brain patterns are. It depends on the distance. In simulations and four fMRI datasets, continuous distances were more reliable than classification accuracy, and noise normalisation improved all of them. We read the abstract.</p><p>Sixth tool. Kelly and colleagues, in 2015, showed how to compute the power of a test on a table of distances, by simulating tables of distances. They wrote it for microbiome studies. We read the abstract.</p><p>Seventh tool. Pernet and colleagues, in 2020, wrote the recommendations of the EEG and MEG committee of the Organization for Human Brain Mapping. They ask that the dependence measures be specified, and the exact method used. They do not ask what the measure ignores. That remark is our reading, not theirs. We read the full text.</p><p>None of this picks a distance for you. It says the distance is part of the method, and has to be written down.</p><p>Now the empty outlines.</p><p>First lead. Fill the card of the distance you use today. Episode 1.6 asked you to look at it. The card has five lines: the object, the distance, what it ignores, what it costs, and its trap.</p><p>Here is one, filled as an example. Two conditions, one channel, 100 values each, compared by transport on a line. The object: two samples of the same size, on a line. The distance: the average gap between values of equal rank. What it ignores: the order of the samples in time. What it costs: a sort, about 0.15 milliseconds a pair at 1,000 points. Its trap: reading it without its floor.</p><p>A line you cannot fill stays empty. That is information too.</p><p>Second lead. Add three numbers that this series taught you to measure. The floor: the distance between two halves of the same data. The ceiling: the distance between two measurements of the same object. And the number of points it took.</p><p>In the example, the floor is 0.18 at 100 points, on average over 200 simulated draws. The ceiling stays empty, because we have no two measurements of the same object. And to see a mean moved by half a spread, 80 points per group find it in 86 percent of 200 draws, against 55 percent with 40. We tried sizes by doubling.</p><p>Third lead. Write down the distance and its settings before you see the result. Statistics episode 22.1 tells why: the garden of forking paths.</p><p>Fourth lead. Redo one analysis with one other distance, whose card differs by a single line. Then look at what changes. This is the test of episode 15.9, stretched to the whole series.</p><p>Fifth lead. In the methods section, one sentence is enough. We compared this object with this distance, which ignores that change. Between two halves of the same data, it is worth this much. This sentence is a proposal of this series. It is not a published recommendation.</p><p>Sixth lead. In hyperscanning, fill the card twice. Once for the distance between the two people of a pair. Once for the distance between pairs. The floor between pairs comes from pseudo-pairs. See Hyperscanning episode 7.5.</p><p>None of these leads was tested for this series. They are leads.</p><p>One question separates the two boards. Can you fill the five lines for the distance you use today?</p><p>Chapter 18 in one line. You do not choose a distance because it is well known. You do not choose it because it is new. You choose it for what it ignores.</p><p>So here is the question the series started with. Which space do your data live in? In the one your distance built.</p><p>That was the main series. Thank you for measuring it with us.</p><p>What follows is code: Transport, step by step.</p>          </div>
+        </details>
+      </div>
+      </div>
+    </article>
+    <div class="prevnext">
+<a class="btn" href="../chapter-17/">← 17 · WHAT TO DO WITH A DISTANCE</a><a class="btn main" href="../bonus/">B · CODE →</a>    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>Animated science series</span>
+  <span class="muted">Videos hosted in Canada</span>
+</footer>
+</div>
+</body>
+</html>
